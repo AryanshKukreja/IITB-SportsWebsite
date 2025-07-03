@@ -17,40 +17,36 @@ import CourtStatus from "./components/CourtStatus/CourtStatus";
 import "./App.css";
 
 function App() {
-  // Dynamic basename for GitHub Pages vs local development
-  const basename = process.env.NODE_ENV === 'production' ? '/IITB-SportsWebsite' : '';
-
+  // Remove basename - HashRouter doesn't need it
   return (
-    <Router basename={basename}>
+    <Router>
       <div className="App">
         <Navbar />
         <main className="main-content">
           <Routes>
             {/* Root path routes */}
             <Route path="/" element={<HomePage />} />
-            <Route path="/sports" element={<HomePage />} />
             
-            {/* All your existing routes */}
-            <Route path="/sports/" element={<HomePage />} />
-            <Route path="/sports/contact" element={<ContactUs />} />
-            <Route path="/sports/explore" element={<Sports/>} />
-            <Route path="/sports/aquatics" element={<Aquatics />} />
-            <Route path="/sports/SAC" element={<SAC/>} />
-            <Route path="/sports/Council" element={<Council/>} />
-            <Route path="/sports/Webteam" element={<Webteam/>} />
-            <Route path="/sports/CourtStatus" element={<CourtStatus/>} />
-            <Route path="/sports/turfbooking" element={<BookingPage/>} />
-            <Route path="/sports/GC" element={<GC/>} />
-            <Route path="/sports/admin-turf-booking-raj" element={<AdminPage/>} />
-            <Route path="/sports/events-timeline" element={<SportsCalendar/>} />
-            
-            {/* Alternative routes without /sports prefix for easier navigation */}
+            {/* Main routes - simplified structure */}
+            <Route path="/sports" element={<Sports/>} />
             <Route path="/contact" element={<ContactUs />} />
-            <Route path="/explore" element={<Sports/>} />
-            <Route path="/CourtStatus" element={<CourtStatus/>} />
+            <Route path="/courtstatus" element={<CourtStatus/>} />
+            <Route path="/gc" element={<GC/>} />
+            <Route path="/eventstimeline" element={<SportsCalendar/>} />
             <Route path="/turfbooking" element={<BookingPage/>} />
-            <Route path="/GC" element={<GC/>} />
-            <Route path="/events-timeline" element={<SportsCalendar/>} />
+            <Route path="/contactus" element={<ContactUs />} />
+            
+            {/* Specific sports and sub-pages */}
+            <Route path="/sports/aquatics" element={<Aquatics />} />
+            <Route path="/sports/explore" element={<Sports/>} />
+            
+            {/* Contact sub-pages */}
+            <Route path="/sac" element={<SAC/>} />
+            <Route path="/council" element={<Council/>} />
+            <Route path="/webteam" element={<Webteam/>} />
+            
+            {/* Admin route */}
+            <Route path="/admin-turf-booking-raj" element={<AdminPage/>} />
             
             {/* Catch-all route for unmatched paths */}
             <Route path="*" element={<Navigate to="/" replace />} />
