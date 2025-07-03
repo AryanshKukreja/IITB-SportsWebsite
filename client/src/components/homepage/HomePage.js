@@ -1,6 +1,5 @@
 import React from 'react';
 // import gymk from './assets/gymkhana.jpg';
-import abim from "./assets/logodark.png";
 // import './page.css';
 // import court from './assets/court.jpg'
 // import appvid from './assets/appvid.mp4'

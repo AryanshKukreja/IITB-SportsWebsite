@@ -1,11 +1,9 @@
 import React from 'react';
 import './aquatics.css';
 import Timel from './timeline';
-import { useState, useRef, useEffect } from 'react';
-import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
+import { useState} from 'react';
 import { MdDoubleArrow } from "react-icons/md"; //bold arrow
-import { MdPlayArrow } from "react-icons/md";   //filled triangle
-import Slider from "react-slick";
+
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 import p1 from '../assets/p1.jpeg';
@@ -14,11 +12,7 @@ import p3 from '../assets/p3.jpg';
 import p4 from '../assets/p4.jpg';
 import p5 from '../assets/p5.JPG';
 import p6 from '../assets/p6.JPG';
-import ReactCardFlip from 'react-card-flip';
-import time from '../assets/time.png';
 import time2 from '../assets/time2.png';
-import pool from '../assets/pool.jpg';
-import pool2 from '../assets/pool2.jpg';
 import pool3 from '../assets/pool3.jpeg';
 import pool4 from '../assets/pool4.jpeg';
 import asec from '../assets/asec.png';
@@ -35,21 +29,11 @@ const Aquatics = () => {
     }
   };
 
-  const [isFlipped, setIsFlipped] = useState(false);
-  const flipcad = () => {
-    setIsFlipped(!isFlipped);
-  }
-  const [isFlipped1, setIsFlipped1] = useState(false);
-  const flipcad1 = () => {
-    setIsFlipped1(!isFlipped1);
-  }
-
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex - 1
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
 
@@ -59,7 +43,9 @@ const Aquatics = () => {
     );
   };
 
-
+  const images = [
+    p1, p2, p3, p4, p5, pool4, p6
+  ];
 
   const cards = [
     {
@@ -86,29 +72,6 @@ const Aquatics = () => {
       title: 'Waterpolo GC',
       content: 'Every year we have an inter hostel water polo general championship where all the hostels battle to prove their supremacy in the sport. The GC is organized according to the rules of FINA. '
     }
-  ];
-
-  const achieve = [
-    {
-      title: 'Group Achivements',
-      content: ' ',
-    },
-    {
-      title: 'Individual Achivements',
-      content: 'c2',
-    }
-  ];
-
-  const imageSliderSettings = {
-    dots: true,
-    // infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  }
-
-  const images = [
-    p1, p2, p3, p4, p5, pool4, p6
   ];
 
   return (
@@ -139,7 +102,7 @@ const Aquatics = () => {
             <br /><br /><b>Baby pool</b> : We also have a baby pool for beginners and leisure activities.
             <br /><br /><b>Water Polo</b> : We have all the necessary equipment for water polo training of students.
           </p>
-          <img src={pool3} className='image' />
+          <img src={pool3} className='image' alt="Swimming pool facility" />
         </div>
       </div>
 
@@ -191,14 +154,14 @@ const Aquatics = () => {
 
         <div className='contactlist'>
           <div className='contactCard' >
-            <img src={user} className='contactImg' />
+            <img src={user} className='contactImg' alt="Ritesh Guchhait" />
             <p className='aq-name'>Ritesh Guchhait</p>
             <p className='info'>Coach, Sports Officer</p>
             <p className='info'></p>
 
           </div>
           <div className='contactCard' >
-            <img src={asec} className='contactImg' />
+            <img src={asec} className='contactImg' alt="Achirangshu Dakua" />
             <p className='aq-name'>Achirangshu Dakua</p>
             <p className='info'>Institute Aquatics Secretary</p>
             <p className='info'>+91 94745 91609</p>
@@ -233,12 +196,12 @@ const Aquatics = () => {
 
       <div className='timing'>
         <p className='side'>Pool Timings</p>
-        <img src={time2} className='schimg' />
+        <img src={time2} className='schimg' alt="Pool timing schedule" />
       </div>
 
       <div className='location'>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1884.6801509832069!2d72.91331199999999!3d19.135699499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b808367d7489%3A0x5936f3009b0ecd48!2sBaby%20Swimming%20Pool.%20IIT%20Bombay!5e0!3m2!1sen!2sin!4v1719689561544!5m2!1sen!2sin"
-          width="700" height="450" className='map' allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+          width="700" height="450" className='map' allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="IIT Bombay Swimming Pool Location"></iframe>
         <p className='sideL'>Location</p>
       </div>
     </div>

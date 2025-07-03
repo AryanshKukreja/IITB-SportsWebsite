@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './CourtStatus.css';
 import axios from 'axios';
 import mapImage from './assets/maps.png';
@@ -41,14 +41,33 @@ const CourtStatus = () => {
   const [sportsCoordinates, setSportsCoordinates] = useState({});
   const [timeSlots, setTimeSlots] = useState(MANUAL_TIME_SLOTS);
   const [courtData, setCourtData] = useState([]);
-  const [currentDate, setCurrentDate] = useState('');
+  const [setCurrentDate] = useState('');
   const [currentTime, setCurrentTime] = useState(new Date());
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
-  const [authToken, setAuthToken] = useState(localStorage.getItem('authToken') || '');
-  const [showMapMarkers, setShowMapMarkers] = useState(true);
-  const [isEditingMap, setIsEditingMap] = useState(false);
+  const [selectedDate] = useState(new Date().toISOString().split('T')[0]);
+  const [authToken] = useState(localStorage.getItem('authToken') || '');
+  const [showMapMarkers] = useState(true);
+  const [isEditingMap] = useState(false);
   const mapRef = useRef(null);
+
+  // Move fetchCourtStatus before useEffect and wrap in useCallback
+  const fetchCourtStatus = useCallback(async (sportId, date) => {
+    try {
+      setIsLoading(true);
+      const response = await axios.get(`${API_BASE_URL}/api/court-status/`, {
+        params: { sport: sportId, date: date }
+      });
+      
+      // Check if component is still mounted before setting state
+      setTimeSlots(MANUAL_TIME_SLOTS);
+      setCourtData(response.data.courts);
+      setCurrentDate(response.data.date);
+    } catch (error) {
+      console.error('Error fetching court status:', error);
+    } finally {
+      setIsLoading(false); // Always set loading to false
+    }
+  }, [setCurrentDate]);
 
   // Fetch sports and align coordinates
   useEffect(() => {
@@ -62,7 +81,7 @@ const CourtStatus = () => {
     if (selectedSport) {
       fetchCourtStatus(selectedSport, selectedDate);
     }
-  }, [selectedSport, selectedDate]);
+  }, [selectedSport, selectedDate, fetchCourtStatus]);
 
   // Fetch sports from API and align coordinates
   const fetchSports = async () => {
@@ -89,31 +108,9 @@ const CourtStatus = () => {
     }
   };
 
-  // Fetch court status
-  const fetchCourtStatus = async (sportId, date) => {
-    try {
-      setIsLoading(true);
-      const response = await axios.get(`${API_BASE_URL}/api/court-status/`, {
-        params: { sport: sportId, date: date }
-      });
-      setTimeSlots(MANUAL_TIME_SLOTS); // Always use manual 1-hr slots
-      setCourtData(response.data.courts);
-      setCurrentDate(response.data.date);
-      setIsLoading(false);
-    } catch (error) {
-      console.error('Error fetching court status:', error);
-      setIsLoading(false);
-    }
-  };
-
   // Handle sport change
   const handleSportChange = (sportId) => {
     setSelectedSport(sportId);
-  };
-
-  // Handle date change
-  const handleDateChange = (e) => {
-    setSelectedDate(e.target.value);
   };
 
   // Toggle booking status (requires authentication)
@@ -234,16 +231,6 @@ const CourtStatus = () => {
 
   const currentTimeSlotId = getCurrentTimeSlotId();
 
-  // Admin login/logout functionality (simplified)
-  const handleLoginLogout = () => {
-    if (authToken) {
-      localStorage.removeItem('authToken');
-      setAuthToken('');
-    } else {
-      alert('Please use the admin login page to authenticate');
-    }
-  };
-
   // Facility map related functions
   const handleMapClick = (e) => {
     if (!isEditingMap || !mapRef.current) return;
@@ -272,14 +259,6 @@ const CourtStatus = () => {
       }
     }
   }, []);
-
-  const toggleMapEditMode = () => {
-    setIsEditingMap(!isEditingMap);
-  };
-
-  const toggleMapMarkers = () => {
-    setShowMapMarkers(!showMapMarkers);
-  };
 
   const getCoordinatesString = () => {
     return JSON.stringify(sportsCoordinates, null, 2);
