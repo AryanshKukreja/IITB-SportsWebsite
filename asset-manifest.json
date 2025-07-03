@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/IITB-SportsWebsite/static/css/main.436920ea.css",
+    "main.js": "/IITB-SportsWebsite/static/js/main.74feb61b.js",
+    "static/js/453.a3c1d153.chunk.js": "/IITB-SportsWebsite/static/js/453.a3c1d153.chunk.js",
+    "static/media/p6.JPG": "/IITB-SportsWebsite/static/media/p6.a660f688417c8c1770b7.JPG",
+    "static/media/p3.jpg": "/IITB-SportsWebsite/static/media/p3.c592b628e94639c873b6.jpg",
+    "static/media/p5.JPG": "/IITB-SportsWebsite/static/media/p5.704a7a04b3b7f69f809c.JPG",
+    "static/media/maps.png": "/IITB-SportsWebsite/static/media/maps.b155bd6e3b5c13cd41c0.png",
+    "static/media/time2.png": "/IITB-SportsWebsite/static/media/time2.688e56f1d7943a3c955a.png",
+    "static/media/p4.jpg": "/IITB-SportsWebsite/static/media/p4.957d6d959cda9efa4078.jpg",
+    "static/media/asec.png": "/IITB-SportsWebsite/static/media/asec.4733c2b92faed296093e.png",
+    "static/media/sports_app_5.png": "/IITB-SportsWebsite/static/media/sports_app_5.4e6b9da190ee4bd00f6d.png",
+    "static/media/sports_app_4.png": "/IITB-SportsWebsite/static/media/sports_app_4.1a6bae04b33b74b26faa.png",
+    "static/media/sports_app_3.png": "/IITB-SportsWebsite/static/media/sports_app_3.f8e249f9f69f35190fe0.png",
+    "static/media/sports_app_2.png": "/IITB-SportsWebsite/static/media/sports_app_2.c33fd221350339dd252a.png",
+    "static/media/sports_app_1.png": "/IITB-SportsWebsite/static/media/sports_app_1.1b54e4f815a5caf2e860.png",
+    "static/media/p1.jpeg": "/IITB-SportsWebsite/static/media/p1.9a0af6de2f849bc13da1.jpeg",
+    "static/media/gymkhana.jpg": "/IITB-SportsWebsite/static/media/gymkhana.5a0933a618ea4b30bf1c.jpg",
+    "static/media/p2.jpg": "/IITB-SportsWebsite/static/media/p2.6970751cbfeae32b1751.jpg",
+    "static/media/bcatlogo.png": "/IITB-SportsWebsite/static/media/bcatlogo.1ccfd89dfc9ad2f0f708.png",
+    "static/media/pool3.jpeg": "/IITB-SportsWebsite/static/media/pool3.ab1fbeae49802af59fc2.jpeg",
+    "static/media/pool4.jpeg": "/IITB-SportsWebsite/static/media/pool4.b78e843bb9fe22c1de5d.jpeg",
+    "static/media/sports-logo-transparent.png": "/IITB-SportsWebsite/static/media/sports-logo-transparent.ecff47bad9273a2a8fbe.png",
+    "static/media/user.jpg": "/IITB-SportsWebsite/static/media/user.d87a7e1e20b42eb7493b.jpg",
+    "index.html": "/IITB-SportsWebsite/index.html",
+    "main.436920ea.css.map": "/IITB-SportsWebsite/static/css/main.436920ea.css.map",
+    "main.74feb61b.js.map": "/IITB-SportsWebsite/static/js/main.74feb61b.js.map",
+    "453.a3c1d153.chunk.js.map": "/IITB-SportsWebsite/static/js/453.a3c1d153.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.436920ea.css",
+    "static/js/main.74feb61b.js"
+  ]
+}
