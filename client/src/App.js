@@ -42,8 +42,8 @@ function App() {
             
             {/* Contact sub-pages */}
             <Route path="/sac" element={<SAC/>} />
-            <Route path="/council" element={<Council/>} />
-            <Route path="/webteam" element={<Webteam/>} />
+            <Route path="/contactus/council" element={<Council/>} />
+            <Route path="/contactus/webteam" element={<Webteam/>} />
             
             {/* Admin route */}
             <Route path="/admin-turf-booking-raj" element={<AdminPage/>} />
