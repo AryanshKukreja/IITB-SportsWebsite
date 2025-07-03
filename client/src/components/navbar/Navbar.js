@@ -1,19 +1,17 @@
 import React from 'react'
 import { useRef } from "react";
+import { Link } from 'react-router-dom'; // Add this import
 import "./Navbar.css"
-// import { useState } from 'react';
 import logo from './assets/sports-logo-transparent.png'
 import { FaBars, FaTimes } from "react-icons/fa";
-// import { GiHamburgerMenu } from "react-icons/gi";
-
 
 const Navbar = () => {
-//   const [showmediaicon, setshowmediaicon] = useState(false);
   const navRef = useRef();
 
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
+  
   return (
     <header className='head'>
       <div className='logo2'>
@@ -26,33 +24,27 @@ const Navbar = () => {
         <div className="menu">
           <ul >
             <li className='menuItem'>
-              <a href="/sports">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li className='menuItem'>
-              <a href="/sports/explore">Sports</a>
+              <Link to="/sports">Sports</Link>
             </li>
             <li className='menuItem'>
-              <a href="/sports/CourtStatus">CourtStatus</a>
+              <Link to="/courtstatus">CourtStatus</Link>
             </li>
             <li className='menuItem'>
-              <a href="/sports/GC">GC</a>
+              <Link to="/gc">GC</Link>
             </li>
             <li className='menuItem'>
-              <a href="/sports/events-timeline">EventsTimeLine</a>
+              <Link to="/eventstimeline">EventsTimeLine</Link>
             </li>
             <li className='menuItem'>
-              <a href="/sports/turfbooking">TurfBooking</a>
+              <Link to="/turfbooking">TurfBooking</Link>
             </li>
             <li className='menuItem'>
-              <a href="/sports/contact">Contact Us</a>
+              <Link to="/contactus">Contact Us</Link>
             </li>
           </ul>
-          {/* hamburget menu start  */}
-          {/* <div className="hamburger-menu">
-            <a href='#' onClick={() => setshowmediaicon(!showmediaicon)}>
-              <GiHamburgerMenu />
-            </a>
-          </div> */}
         </div>
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
             <FaTimes />
