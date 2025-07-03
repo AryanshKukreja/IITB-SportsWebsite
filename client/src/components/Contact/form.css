@@ -1,0 +1,91 @@
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    margin: 10%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    font-weight: 800;
+}
+
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.contact-section label {
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #cbd5e1;
+}
+
+.contact-section input,
+.contact-section textarea {
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 2px solid #334155;
+    border-radius: 12px;
+    font-size: 1em;
+    color: #f8fafc;
+    background: #0f172a;
+    transition: all 0.3s ease;
+}
+
+.contact-section input:focus,
+.contact-section textarea:focus {
+    border-color: #3ee5e5;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(62, 229, 229, 0.2);
+}
+
+.contact-section button {
+    padding: 15px 25px;
+    background: linear-gradient(135deg, #3ee5e5 0%, #667eea 100%);
+    color: #0f172a;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-section button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(62, 229, 229, 0.25);
+}
+
+@media (max-width: 600px) {
+    .contact-section {
+        padding: 20px;
+        margin: 5%;
+    }
+
+    .contact-section h2 {
+        font-size: 2em;
+    }
+}
+
+.green-text {
+    color: #3ee5e5;
+}
+
+.white-text {
+    color: #f8fafc;
+}
+
+label[for="name"],
+label[for="email"],
+label[for="message"] {
+  color: #cbd5e1;
+}

@@ -1,0 +1,448 @@
+/* Import Google Fonts for better typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.content-page {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1a202c;
+  /* background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); */
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #0f172a;
+}
+
+/* Hero Section with Blurred Background */
+.bg-container {
+  position: relative;
+  height: 75vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #2d3748;
+}
+
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./assets/gymkhana.jpg') no-repeat center center/cover;
+  filter: blur(3px) brightness(0.6);
+  transform: scale(1.00);
+  transition: transform 0.3s ease;
+}
+
+.bg-container:hover .bg-image {
+  transform: scale(1.02);
+}
+
+.bg-text {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+}
+
+.wl1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  opacity: 0.95;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  color: white;
+}
+
+.wl2 {
+  font-size: 4.2rem;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+.wl2::after {
+  width: 80%;
+}
+
+/* Section Styling - Clean White Cards */
+.about, .blackCats, .sportApp {
+  padding: 4rem 3rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  gap: 3rem;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.08),
+    0 4px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.about:hover, .blackCats:hover, .sportApp:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.12),
+    0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* About Section Specific */
+.aboutimg {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+  /* background: #f8fafc; */
+  padding: 1rem;
+}
+
+
+.aboutimg:hover {
+  transform: scale(1.05);
+}
+
+.aboutus h4, #blacat h4, .sportApp h4 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.aboutus h4::after, #blacat h4::after, #sportsapp h4::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: #e53e3e;
+  border-radius: 3px;
+}
+
+.about-text-para {
+  color: white;
+}
+
+.aboutText, .apptext {
+  width: 100%;
+  flex: 1;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: white;
+  text-align: center;
+}
+
+.aboutText p, .apptext p {
+  margin-bottom: 1.5rem;
+}
+
+.slogan {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #e53e3e;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding: 1.5rem;
+  border: 3px solid #e53e3e;
+  border-radius: 15px;
+  background: linear-gradient(135deg, rgba(229, 62, 62, 0.05), rgba(229, 62, 62, 0.1));
+  position: relative;
+  overflow: hidden;
+}
+
+.slogan::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(229, 62, 62, 0.1), transparent);
+  animation: shimmer 3s infinite;
+}
+
+.bg-container {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #3ee5e5;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding: 1.5rem;
+  border-bottom: 3px solid #3ee5e5;
+  background: linear-gradient(135deg, rgba(62, 229, 229, 0.05), rgba(62, 229, 229, 0.1));
+  position: relative;
+  overflow: hidden;
+}
+
+.app-slogan {
+  padding-left: 100%;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #50ffb9;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding: 1.5rem;
+  border: 3px solid #50ffb9;
+  border-radius: 15px;
+  background: linear-gradient(135deg, rgba(80, 255, 185, 0.1) 0%, rgba(80, 255, 185, 0.1) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.app-slogan::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(80, 255, 185, 0.1), transparent);
+  animation: shimmer 3s infinite;
+}
+
+
+@keyframes heading-shimmer {
+  0% {
+    left: -100%;
+    top: -100%;
+  }
+  100% {
+    left: 100%;
+    top: 100%;
+  }
+  100% {
+    background-position: -100% -100%;
+  }
+}
+
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* BlackCats Section - Dark Theme */
+.blackCats {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.about {
+  margin-top: 50px;
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.blackCats .aboutText {
+  color: #e2e8f0;
+}
+
+#blacat h4 {
+  color: #f7fafc;
+}
+
+#blacat h4::after {
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+}
+
+#catimg {
+  border: 3px solid #ffd700;
+  background: rgba(255, 215, 0, 0.1);
+}
+#sportsapp h4::after {
+  background: linear-gradient(135deg, #50ffb9, #47ff91);
+}
+
+/* Sports App Section - Gradient Theme */
+.sportApp {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4rem 3rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+  display: flex;
+/*   align-items: center;
+    justify-content: ; */
+  gap: 3rem;
+  border-radius: 24px;
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.08),
+    0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.appImages {
+  position: relative;
+  width: 233px;
+  padding: 16px;
+  height: 400px;
+}
+.sportsimage {
+  position: absolute;
+  width: auto; height: 400px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: fadeinout 5s linear infinite;
+}
+
+  .sportsimage:nth-child(1) { animation-delay: 0s; }
+  .sportsimage:nth-child(2) { animation-delay: 1s; }
+  .sportsimage:nth-child(3) { animation-delay: 2s; }
+  .sportsimage:nth-child(4) { animation-delay: 3s; }
+  .sportsimage:nth-child(5) { animation-delay: 4s; }
+
+@keyframes fadeinout {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  30%  { opacity: 1; }
+  40%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.sportApp:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.12),
+    0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.sportApp .apptext {
+  flex: 1;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: white;
+  text-align: center;
+}
+.sportApp-content {
+  width: 100%;
+  height: 100%;
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .about, .blackCats {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+  
+  .aboutimg {
+    margin-bottom: 2rem;
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wl1 {
+    font-size: 1.4rem;
+  }
+  
+  .wl2 {
+    font-size: 3rem;
+  }
+  
+  .bg-container {
+    height: 65vh;
+  }
+  
+  .about, .blackCats, .sportApp {
+    padding: 2.5rem 1.5rem;
+    margin: 2rem 1rem;
+  }
+  
+  .aboutus h4, #blacat h4, #sportsapp h4 {
+    font-size: 2.2rem;
+  }
+  
+  .aboutimg {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .aboutText, .apptext {
+    font-size: 1rem;
+  }
+  
+  .slogan {
+    font-size: 1.6rem;
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .wl2 {
+    font-size: 2.4rem;
+  }
+  
+  .about, .blackCats, .sportApp {
+    padding: 2rem 1rem;
+    border-radius: 16px;
+  }
+  
+  .aboutimg {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .aboutus h4, #blacat h4, #sportsapp h4 {
+    font-size: 1.8rem;
+  }
+  
+  .slogan {
+    font-size: 1.4rem;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .about, .blackCats, .sportApp,
+  .aboutimg, .bg-image,
+  .slogan::before {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* Focus states for accessibility */
+.about:focus-within, .blackCats:focus-within, .sportApp:focus-within {
+  outline: 3px solid #4299e1;
+  outline-offset: 2px;
+}

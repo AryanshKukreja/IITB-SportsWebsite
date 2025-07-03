@@ -1,0 +1,340 @@
+/* Import matching font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main Container */
+.all_content {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0f172a;
+  min-height: 100vh;
+  color: #cbd5e1;
+  padding: 3rem 2rem;
+}
+
+/* Page Titles */
+.all_content > h1.title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-align: center;
+  margin: 1rem 0;
+  color: #7ee7ff;
+  /* background: linear-gradient(135deg, #3ee5e5 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  background-clip: text;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.all_content > h1.title:nth-of-type(2) {
+  font-size: 2rem;
+  color: #7ee7ff;
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+
+/* Section Headers */
+.all_content > h1:not(.title) {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 4rem 0 2rem;
+  /* background: linear-gradient(135deg, #4ade80 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  color: #7ee7ff;
+  background-clip: text;
+  position: relative;
+  text-align: center;
+}
+
+.all_content > h1.con-heads::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: #7ee7ff;
+  border-radius: 2px;
+}
+
+.all_content > h1.con-secys::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 170px;
+  height: 4px;
+  background: #7ee7ff;
+  border-radius: 2px;
+}
+
+.all_content > h1.con-managers::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 170px;
+  height: 4px;
+  background: #7ee7ff;
+  border-radius: 2px;
+}
+
+/* Leader Section */
+.leader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
+  border-radius: 24px;
+  padding: 3rem;
+  margin: 3rem auto;
+  max-width: 500px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.leader:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+.leader h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin-bottom: 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #e53e3e 0%, #f56565 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* General Secretary Image */
+.gen {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  border: 4px solid #e53e3e;
+  box-shadow: 0 8px 25px rgba(229, 62, 62, 0.3);
+  transition: all 0.3s ease;
+}
+
+.gen:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(229, 62, 62, 0.4);
+}
+
+/* Container for Info Blocks */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+/* Individual Info Blocks */
+.info-block {
+  background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  z-index: 1;
+}
+
+.info-block:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.info-block h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin-bottom: 1.5rem;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Circular Images */
+.circular {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  border: 3px solid #4a5568;
+  transition: all 0.3s ease;
+}
+
+.circular:hover {
+  transform: scale(1.05);
+  border-color: #3b82f6;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+/* Name and Social Links */
+.name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* Social Media Icons */
+.logos, .mail_logos, .seclogos, .sec_mail_logos {
+  width: 24px;
+  height: 24px;
+  margin: 0 0.5rem;
+  transition: all 0.3s ease;
+  filter: grayscale(50%) brightness(0.8);
+}
+
+.logos:hover, .mail_logos:hover, .seclogos:hover, .sec_mail_logos:hover {
+  transform: scale(1.2);
+  filter: grayscale(0%) brightness(1);
+}
+
+.seclogos, .sec_mail_logos {
+  width: 28px;
+  height: 28px;
+}
+
+/* Social Links Container */
+.name a {
+  display: inline-block;
+  margin: 0 0.25rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.name a:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .all_content > h1.title {
+    font-size: 2.8rem;
+  }
+  
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .leader {
+    padding: 2.5rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .all_content {
+    padding: 2rem 1rem;
+  }
+  
+  .all_content > h1.title {
+    font-size: 2.2rem;
+  }
+  
+  .all_content > h1.title:nth-of-type(2) {
+    font-size: 1.6rem;
+  }
+  
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .info-block {
+    padding: 2rem 1.5rem;
+  }
+  
+  .leader {
+    padding: 2rem 1.5rem;
+    margin: 2rem auto;
+  }
+  
+  .gen {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .circular {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .all_content > h1.title {
+    font-size: 1.8rem;
+  }
+  
+  .container {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .info-block {
+    padding: 1.5rem 1rem;
+  }
+  
+  .info-block h2 {
+    font-size: 1.2rem;
+    min-height: 50px;
+  }
+  
+  .leader {
+    padding: 1.5rem 1rem;
+  }
+  
+  .gen {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .circular {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .name {
+    font-size: 1.1rem;
+  }
+}

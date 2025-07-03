@@ -1,0 +1,1580 @@
+[
+  {
+    "Month": "MAY",
+    "Sport": "Common Council",
+    "Event": "Aavhan",
+    "StandardizedDate": "08 05 2025 to 14 05 2025"
+  },
+  {
+    "Month": "MAY",
+    "Sport": "Common Council",
+    "Event": "Summer Camp",
+    "StandardizedDate": "08 05 2025 to 14 05 2025"
+  },
+  {
+    "Month": "MAY",
+    "Sport": "Common Council",
+    "Event": "PG Summer School",
+    "StandardizedDate": "15 05 2025 to 21 05 2025"
+  },
+  {
+    "Month": "MAY",
+    "Sport": "Common Council",
+    "Event": "Farewell",
+    "StandardizedDate": "01 05 2025 to 14 05 2025"
+  },
+  {
+    "Month": "MAY",
+    "Sport": "Aquatics",
+    "Event": "Pool Cooldown Session",
+    "StandardizedDate": "01 05 2025 to 14 05 2025"
+  },
+  {
+    "Month": "MAY",
+    "Sport": "Hockey",
+    "Event": "External Tournament",
+    "StandardizedDate": "01 05 2025 to 07 05 2025"
+  },
+  {
+    "Month": "MAY",
+    "Sport": "Football",
+    "Event": "UCL Screening",
+    "StandardizedDate": "06 05 2025"
+  },
+  {
+    "Month": "MAY",
+    "Sport": "Athletics",
+    "Event": "Movie Screening(World Athletics Day)",
+    "StandardizedDate": "07 05 2025"
+  },
+  {
+    "Month": "MAY",
+    "Sport": "Athletics",
+    "Event": "Asian games Screening",
+    "StandardizedDate": "22 05 2025 to 28 05 2025"
+  },
+  {
+    "Month": "MAY",
+    "Sport": "Weightlifting",
+    "Event": "PG Weightlifting Workshop",
+    "StandardizedDate": "05 05 2025"
+  },
+  {
+    "Month": "JUNE",
+    "Sport": "Board Games",
+    "Event": "BOB",
+    "StandardizedDate": "01 06 2025 to 07 06 2025"
+  },
+  {
+    "Month": "JUNE",
+    "Sport": "Aquatics",
+    "Event": "Swimming camp",
+    "StandardizedDate": "01 06 2025 to 07 06 2025"
+  },
+  {
+    "Month": "JUNE",
+    "Sport": "Board Games",
+    "Event": "Online puzzle series",
+    "StandardizedDate": "01 06 2025 to 28 06 2025"
+  },
+  {
+    "Month": "JUNE",
+    "Sport": "Common Council",
+    "Event": "Summer Camp (continued)",
+    "StandardizedDate": "08 06 2025 to 14 06 2025"
+  },
+  {
+    "Month": "JULY",
+    "Sport": "Common Council",
+    "Event": "PG Mania",
+    "StandardizedDate": "08 07 2025 to 14 07 2025"
+  },
+  {
+    "Month": "JULY",
+    "Sport": "Common Council",
+    "Event": "PG Crossy",
+    "StandardizedDate": "08 07 2025 to 14 07 2025"
+  },
+  {
+    "Month": "JULY",
+    "Sport": "Board Games",
+    "Event": "AICL",
+    "StandardizedDate": "15 07 2025 to 21 07 2025"
+  },
+  {
+    "Month": "JULY",
+    "Sport": "Common Council",
+    "Event": "PG Oreintation",
+    "StandardizedDate": "22 07 2025 to 28 07 2025"
+  },
+  {
+    "Month": "JULY",
+    "Sport": "Aquatics",
+    "Event": "Swimming Camp",
+    "StandardizedDate": "01 07 2025 to 07 07 2025"
+  },
+  {
+    "Month": "JULY",
+    "Sport": "Weightlifting",
+    "Event": "PG Powerlifting Workshop",
+    "StandardizedDate": "07 07 2025"
+  },
+  {
+    "Month": "JULY",
+    "Sport": "Badminton",
+    "Event": "PG Workshop",
+    "StandardizedDate": "08 07 2025 to 14 07 2025"
+  },
+  {
+    "Month": "JULY",
+    "Sport": "Volleyball",
+    "Event": "PG  workshop",
+    "StandardizedDate": "11 07 2025"
+  },
+  {
+    "Month": "JULY",
+    "Sport": "Board Games",
+    "Event": "AICL",
+    "StandardizedDate": "08 07 2025 to 14 07 2025"
+  },
+  {
+    "Month": "JULY",
+    "Sport": "Athletics",
+    "Event": "PG MANIA",
+    "StandardizedDate": "08 07 2025 to 21 07 2025"
+  },
+  {
+    "Month": "JULY",
+    "Sport": "Aquatics",
+    "Event": "PG MANIA",
+    "StandardizedDate": "15 07 2025 to 21 07 2025"
+  },
+  {
+    "Month": "JULY",
+    "Sport": "Badminton",
+    "Event": "PG Mania",
+    "StandardizedDate": "15 07 2025 to 21 07 2025"
+  },
+  {
+    "Month": "JULY",
+    "Sport": "Squash",
+    "Event": "PG Mania",
+    "StandardizedDate": "15 07 2025 to 21 07 2025"
+  },
+  {
+    "Month": "JULY",
+    "Sport": "Football",
+    "Event": "PG MANIA",
+    "StandardizedDate": "15 07 2025 to 21 07 2025"
+  },
+  {
+    "Month": "JULY",
+    "Sport": "Board Games",
+    "Event": "PG MANIA",
+    "StandardizedDate": "15 07 2025 to 21 07 2025"
+  },
+  {
+    "Month": "JULY",
+    "Sport": "Common",
+    "Event": "PG Orientation",
+    "StandardizedDate": "22 07 2025 to 28 07 2025"
+  },
+  {
+    "Month": "JULY",
+    "Sport": "Weightlifting",
+    "Event": "PG Mania Powerlifting",
+    "StandardizedDate": "26 07 2025"
+  },
+  {
+    "Month": "JULY",
+    "Sport": "Volleyball",
+    "Event": "PG MANIA",
+    "StandardizedDate": "26 07 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Aquatics",
+    "Event": "Inter IIT Pre Camp Trials",
+    "StandardizedDate": "01 08 2025 to 07 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Aquatics",
+    "Event": "Inter IIT Pre Camp",
+    "StandardizedDate": "01 08 2025 to 14 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Squash",
+    "Event": "UG Freshie Orientation",
+    "StandardizedDate": "01 08 2025 to 07 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Squash",
+    "Event": "PG Workshop",
+    "StandardizedDate": "01 08 2025 to 14 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Cricket",
+    "Event": "NSO Trials",
+    "StandardizedDate": "08 08 2025 to 14 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Indian Games",
+    "Event": "Girls Beginner's Workshop Kho Kho + match",
+    "StandardizedDate": "08 08 2025 to 14 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Common",
+    "Event": "UG Orientation",
+    "StandardizedDate": "08 08 2025 to 14 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Table Tennis",
+    "Event": "Girl's Induction",
+    "StandardizedDate": "08 08 2025 to 14 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Table Tennis",
+    "Event": "UG Orientation",
+    "StandardizedDate": "08 08 2025 to 14 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Table Tennis",
+    "Event": "Girls Session 1",
+    "StandardizedDate": "08 08 2025 to 14 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Volleyball",
+    "Event": "pre camp trials",
+    "StandardizedDate": "08 08 2025 to 14 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Weightlifting",
+    "Event": "district competition",
+    "StandardizedDate": "08 08 2025 to 14 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Common",
+    "Event": "Girl's Induction",
+    "StandardizedDate": "08 08 2025 to 14 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Athletics",
+    "Event": "Biathlon",
+    "StandardizedDate": "15 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Aquatics",
+    "Event": "Swimming Camp",
+    "StandardizedDate": "15 08 2025 to 21 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Aquatics",
+    "Event": "GC OC",
+    "StandardizedDate": "15 08 2025 to 21 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Athletics",
+    "Event": "District meet",
+    "StandardizedDate": "15 08 2025 to 21 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Athletics",
+    "Event": "GC OC",
+    "StandardizedDate": "15 08 2025 to 21 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Badminton",
+    "Event": "NSO Trails",
+    "StandardizedDate": "15 08 2025 to 21 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Board Games",
+    "Event": "NSO Trials",
+    "StandardizedDate": "15 08 2025 to 21 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Hockey",
+    "Event": "BARC Tournament",
+    "StandardizedDate": "15 08 2025 to 21 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Indian Games",
+    "Event": "Girls Beginner's Workshop Kabaddi + match",
+    "StandardizedDate": "15 08 2025 to 21 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Squash",
+    "Event": "NSO Trials",
+    "StandardizedDate": "15 08 2025 to 21 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Table Tennis",
+    "Event": "PG Session 1 ",
+    "StandardizedDate": "15 08 2025 to 21 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Table Tennis",
+    "Event": "GCOC",
+    "StandardizedDate": "15 08 2025 to 21 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Table Tennis",
+    "Event": "NSO Trials",
+    "StandardizedDate": "15 08 2025 to 21 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Athletics",
+    "Event": "Field workshop",
+    "StandardizedDate": "15 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Cricket",
+    "Event": "Inter-IIT Pre Camp Trials ",
+    "StandardizedDate": "15 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Aquatics",
+    "Event": "NSO Trials",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Athletics",
+    "Event": "Pre camp trial",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Athletics",
+    "Event": "NSO Trials",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Badminton",
+    "Event": "Precamp trails",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Board Games",
+    "Event": "Chess GC (Boys+Girls) + Queens Court Workshop",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Football",
+    "Event": "Goalkeepr Workshop + Trials",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Football",
+    "Event": "NSO Trials",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Hockey",
+    "Event": "Mixed Hockey League",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Hockey",
+    "Event": "NSO Trials",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Indian Games",
+    "Event": "NSO Trials",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Indian Games",
+    "Event": "Kho Kho GC",
+    "StandardizedDate": "26 08 2025 to 31 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Lawn Tennis",
+    "Event": "Wall Slam",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Lawn Tennis",
+    "Event": "NSO Trials",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Table Tennis",
+    "Event": "TT GC",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Volleyball",
+    "Event": "injury rehablitation session",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Volleyball",
+    "Event": "NSO trials",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Weightlifting",
+    "Event": "Weightlifting Workshop",
+    "StandardizedDate": "11 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Weightlifting",
+    "Event": "NSO Trials",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Weightlifting",
+    "Event": "GYM101",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Weightlifting",
+    "Event": "Hostel Bootcamp",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "AUGUST",
+    "Sport": "Squash",
+    "Event": "GC Opening Ceremony",
+    "StandardizedDate": "22 08 2025 to 28 08 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Cricket",
+    "Event": "Inter IIT Pre Camp",
+    "StandardizedDate": "full month"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Hockey",
+    "Event": "Blades and Glory",
+    "StandardizedDate": "02 09 2025 to 07 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Weightlifting",
+    "Event": "Powerlifting Mock GC",
+    "StandardizedDate": "06 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Athletics",
+    "Event": "100 DTG",
+    "StandardizedDate": "01 09 2025 to 07 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Athletics",
+    "Event": "Campathon",
+    "StandardizedDate": "01 09 2025 to 07 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Badminton",
+    "Event": "IBO",
+    "StandardizedDate": "01 09 2025 to 07 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Board Games",
+    "Event": "Pre-Camp Trials",
+    "StandardizedDate": "01 09 2025 to 07 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Hockey",
+    "Event": "100 DTG",
+    "StandardizedDate": "01 09 2025 to 07 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Hockey",
+    "Event": "Hockey Bowling",
+    "StandardizedDate": "01 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Hockey",
+    "Event": "girl's workshop",
+    "StandardizedDate": "01 09 2025 to 07 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Squash",
+    "Event": "Inter IIT Pre Camp Trials",
+    "StandardizedDate": "01 09 2025 to 07 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Squash",
+    "Event": "100 Days to Inter IIT",
+    "StandardizedDate": "01 09 2025 to 07 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Squash",
+    "Event": "Inter IIT Pre Camp",
+    "StandardizedDate": "01 09 2025 to 14 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Athletics",
+    "Event": "Campathon",
+    "StandardizedDate": "01 09 2025 to 07 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Aquatics",
+    "Event": "Swimming Camp",
+    "StandardizedDate": "08 09 2025 to 14 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Aquatics",
+    "Event": "Inter IIT Camp",
+    "StandardizedDate": "08 09 2025 to 14 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Volleyball",
+    "Event": "girls workshop",
+    "StandardizedDate": "08 09 2025 to 14 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Athletics",
+    "Event": "Athletics wordchampionship screening",
+    "StandardizedDate": "13 09 2025 to 21 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Hockey",
+    "Event": "Men's Hockey Asia Cup",
+    "StandardizedDate": "27 09 2025 to 07 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Board Games",
+    "Event": "Supply Open/960 open/Hand and Brain Open",
+    "StandardizedDate": "08 09 2025 to 14 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Indian Games",
+    "Event": "Spardha/Udghosh Camp Trials Kabaddi",
+    "StandardizedDate": "27 09 2025 to 28 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Indian Games",
+    "Event": "Spardha/Udghosh Camp Trials Kho-Kho",
+    "StandardizedDate": "29 09 2025 to 30 09 2025"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Athletics",
+    "Event": "Udghosh trials",
+    "StandardizedDate": "last week"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Athletics",
+    "Event": "GC-Meet up",
+    "StandardizedDate": "last week"
+  },
+  {
+    "Month": "SEPTEMBER",
+    "Sport": "Badminton",
+    "Event": "Girls workshop",
+    "StandardizedDate": "22 09 2025 to 28 09 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Aquatics",
+    "Event": "Inter IIT Aquatics Meet",
+    "StandardizedDate": "01 10 2025 to 07 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Common Council",
+    "Event": "Udghosh",
+    "StandardizedDate": "01 10 2025 to 14 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Board Games",
+    "Event": "Freshie Workshop and Open",
+    "StandardizedDate": "01 10 2025 to 07 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Cricket",
+    "Event": "IITB VS IITH MATCH SERIES",
+    "StandardizedDate": "01 10 2025 to 07 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Football",
+    "Event": "Girls induction",
+    "StandardizedDate": "01 10 2025 to 07 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Hockey",
+    "Event": "Pre-Camp Trials",
+    "StandardizedDate": "01 10 2025 to 07 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Indian Games",
+    "Event": "Tug of War League",
+    "StandardizedDate": "01 10 2025 to 07 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Indian Games",
+    "Event": "Spardha/Udghosh Camp Kho-Kho",
+    "StandardizedDate": "01 10 2025 to 14 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Aquatics",
+    "Event": "Water Polo Camp",
+    "StandardizedDate": "08 10 2025 to 14 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Athletics",
+    "Event": "GC workshop",
+    "StandardizedDate": "08 10 2025 to 21 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Badminton",
+    "Event": "Girls GC",
+    "StandardizedDate": "08 10 2025 to 14 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Squash",
+    "Event": "GC",
+    "StandardizedDate": "08 10 2025 to 14 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Weightlifting",
+    "Event": "Girls WL workshop",
+    "StandardizedDate": "08 10 2025 to 14 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Indian Games",
+    "Event": "Spardha",
+    "StandardizedDate": "08 10 2025 to 14 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Weightlifting",
+    "Event": "Pre Camp Trials",
+    "StandardizedDate": "12th october"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Cricket",
+    "Event": "Mixed Cricket League",
+    "StandardizedDate": "08 10 2025 to 21 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Lawn Tennis",
+    "Event": "Inter-IIT Pre-Camp Trials",
+    "StandardizedDate": "08 10 2025 to 21 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Volleyball",
+    "Event": "Girls GC",
+    "StandardizedDate": "15 10 2025 to 21 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Athletics",
+    "Event": "Crossy GC",
+    "StandardizedDate": "15 10 2025 to 154 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Board Games",
+    "Event": "NSOV + Cube of the Month",
+    "StandardizedDate": "15 10 2025 to 21 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Cricket",
+    "Event": "Pre Inter IIT Camp",
+    "StandardizedDate": "15 10 2025 to 28 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Hockey",
+    "Event": "Exhibition Match",
+    "StandardizedDate": "15 10 2025 to 21 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Common Council",
+    "Event": "Freshiesta",
+    "StandardizedDate": "15 10 2025 to 21 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Table Tennis",
+    "Event": "PG Session 2",
+    "StandardizedDate": "15 10 2025 to 21 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Weightlifting",
+    "Event": "Calisthenics Fundamentals Workshop",
+    "StandardizedDate": "22 10 2025 to 28 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Weightlifting",
+    "Event": "Hostel Bootcamp",
+    "StandardizedDate": "22 10 2025 to 28 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Common Council",
+    "Event": "Alumni Day",
+    "StandardizedDate": "22 10 2025 to 28 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Aquatics",
+    "Event": "Swimming GC",
+    "StandardizedDate": "22 10 2025 to 28 10 2025"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Athletics",
+    "Event": "Athletics GC",
+    "StandardizedDate": "last week"
+  },
+  {
+    "Month": "OCTOBER",
+    "Sport": "Weightlifting",
+    "Event": "Weightlifting GC",
+    "StandardizedDate": "26 10 2025"
+  },
+  {
+    "Month": "NOVEMBER",
+    "Sport": "Weightlifting",
+    "Event": "Calisthenics Fundamentals Showdown",
+    "StandardizedDate": "01 11 2025"
+  },
+  {
+    "Month": "NOVEMBER",
+    "Sport": "Badminton",
+    "Event": "Triminton",
+    "StandardizedDate": "01 11 2025 to 07 11 2025"
+  },
+  {
+    "Month": "NOVEMBER",
+    "Sport": "Squash",
+    "Event": "Camp trials",
+    "StandardizedDate": "01 11 2025 to 07 11 2025"
+  },
+  {
+    "Month": "NOVEMBER",
+    "Sport": "Table Tennis",
+    "Event": "Camp trials",
+    "StandardizedDate": "01 11 2025 to 07 11 2025"
+  },
+  {
+    "Month": "NOVEMBER",
+    "Sport": "Volleyball",
+    "Event": "Camp trials",
+    "StandardizedDate": "01 11 2025 to 07 11 2025"
+  },
+  {
+    "Month": "NOVEMBER",
+    "Sport": "Athletics",
+    "Event": "Intra NSO",
+    "StandardizedDate": "01 11 2025 to 07 11 2025"
+  },
+  {
+    "Month": "NOVEMBER",
+    "Sport": "Athletics",
+    "Event": "Camp trials",
+    "StandardizedDate": "01 11 2025 to 07 11 2025"
+  },
+  {
+    "Month": "NOVEMBER",
+    "Sport": "Indian Games",
+    "Event": "Ultimate Kho-Kho Series",
+    "StandardizedDate": "29 11 2025 to 02 11 2025"
+  },
+  {
+    "Month": "NOVEMBER",
+    "Sport": "Board Games",
+    "Event": "Board Games Triathlon/League",
+    "StandardizedDate": "01 11 2025 to 14 11 2025"
+  },
+  {
+    "Month": "NOVEMBER",
+    "Sport": "Hockey",
+    "Event": "Hockey Fun Event",
+    "StandardizedDate": "01 11 2025 to 03 11 2025"
+  },
+  {
+    "Month": "NOVEMBER",
+    "Sport": "Football",
+    "Event": "Camp trials",
+    "StandardizedDate": "08 11 2025 to 14 11 2025"
+  },
+  {
+    "Month": "NOVEMBER",
+    "Sport": "Hockey",
+    "Event": "Camp trials",
+    "StandardizedDate": "08 11 2025 to 14 11 2025"
+  },
+  {
+    "Month": "NOVEMBER",
+    "Sport": "Common Council",
+    "Event": "Inter IIT Camp",
+    "StandardizedDate": "22 11 2025 to 28 11 2025"
+  },
+  {
+    "Month": "DECEMBER",
+    "Sport": "Common Council",
+    "Event": "Inter-IIT Camp and Inter-IIT",
+    "StandardizedDate": "01 12 2025 to 28 12 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Football",
+    "Event": "Turf League",
+    "StandardizedDate": "01 01 2025 to 14 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Athletics",
+    "Event": "off season trials",
+    "StandardizedDate": "08 01 2025 to 21 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Badminton",
+    "Event": "Boys GC",
+    "StandardizedDate": "08 01 2025 to 21 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Hockey",
+    "Event": "Girl's Workshop",
+    "StandardizedDate": "08 01 2025 to 14 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Lawn Tennis",
+    "Event": "Girl's Workshop",
+    "StandardizedDate": "08 01 2025 to 14 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Table Tennis",
+    "Event": "Girl's Session 3",
+    "StandardizedDate": "08 01 2025 to 14 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Table Tennis",
+    "Event": "PG Session 3",
+    "StandardizedDate": "08 01 2025 to 14 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Volleyball",
+    "Event": "open for all workshop",
+    "StandardizedDate": "08 01 2025 to 14 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Squash",
+    "Event": "UG BOYS WORKSHOP",
+    "StandardizedDate": "08 01 2025 to 14 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Cricket",
+    "Event": "Cricket GC",
+    "StandardizedDate": "11 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Indian Games",
+    "Event": "Mixed Workshop Kho-Kho",
+    "StandardizedDate": "08 01 2025 to 14 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Indian Games",
+    "Event": "Mixed Workshop Kabaddi",
+    "StandardizedDate": "08 01 2025 to 14 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Aquatics",
+    "Event": "Swimming Camp",
+    "StandardizedDate": "15 01 2025 to 21 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Athletics",
+    "Event": "workshop",
+    "StandardizedDate": "15 01 2025 to 21 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Athletics",
+    "Event": "runners club",
+    "StandardizedDate": "15 01 2025 to 21 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Hockey",
+    "Event": "Girl's GC",
+    "StandardizedDate": "15 01 2025 to 21 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Football",
+    "Event": "Girl's Workshop",
+    "StandardizedDate": "15 01 2025 to 21 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Lawn Tennis",
+    "Event": "Boys GC",
+    "StandardizedDate": "15 01 2025 to 28 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Table Tennis",
+    "Event": "ITTO",
+    "StandardizedDate": "15 01 2025 to 21 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Squash",
+    "Event": "GIRLS WORKSHOP",
+    "StandardizedDate": "15 01 2025 to 21 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Squash",
+    "Event": "INSTITUTE SQUASH OPEN",
+    "StandardizedDate": "15 01 2025 to 28 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Board Games",
+    "Event": "Carrom GC",
+    "StandardizedDate": "15 01 2025 to 28 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Indian Games",
+    "Event": "IKKL auctions",
+    "StandardizedDate": "16 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Indian Games",
+    "Event": "IKL auctions",
+    "StandardizedDate": "20 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Indian Games",
+    "Event": "Institue Kho-Kho League",
+    "StandardizedDate": "21 01 2025 to 25 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Indian Games",
+    "Event": "Institue Kabaddi League",
+    "StandardizedDate": "27 01 2025 to 31 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Weightlifting",
+    "Event": "PG WL GC",
+    "StandardizedDate": "17 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Weightlifting",
+    "Event": "GYM101",
+    "StandardizedDate": "18 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Weightlifting",
+    "Event": "Calisthenics Skill Workshop (Advanced)",
+    "StandardizedDate": "19 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Weightlifting",
+    "Event": "Inter Department Powerlifting Competition",
+    "StandardizedDate": "25 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Weightlifting",
+    "Event": "PG WL Workshop",
+    "StandardizedDate": "05 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Aquatics",
+    "Event": "Institute Swimming League",
+    "StandardizedDate": "22 01 2025 to 28 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Athletics",
+    "Event": "pg gc",
+    "StandardizedDate": "22 01 2025 to 28 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Badminton",
+    "Event": "PG GC",
+    "StandardizedDate": "22 01 2025 to 28 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Common Council",
+    "Event": "Girl's Beginner Camp",
+    "StandardizedDate": "22 01 2025 to 28 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Common Council",
+    "Event": "Beginner's Workshop",
+    "StandardizedDate": "22 01 2025 to 28 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Common Council",
+    "Event": "Boys GC",
+    "StandardizedDate": "22 01 2025 to 28 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Common Council",
+    "Event": "boys GC",
+    "StandardizedDate": "22 01 2025 to 28 01 2025"
+  },
+  {
+    "Month": "JANUARY",
+    "Sport": "Squash",
+    "Event": "Hostel Bootcamp",
+    "StandardizedDate": "22 01 2025 to 28 01 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Aquatics",
+    "Event": "Aquatics IITB Open",
+    "StandardizedDate": "01 02 2025 to 07 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Athletics",
+    "Event": "Triathlon GC",
+    "StandardizedDate": "01 02 2025 to 07 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Badminton",
+    "Event": "Girl's Beginner Camp",
+    "StandardizedDate": "01 02 2025 to 14 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Hockey",
+    "Event": "Hockey GC",
+    "StandardizedDate": "01 02 2025 to 07 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Football",
+    "Event": "Girls GC",
+    "StandardizedDate": "01 02 2025 to 07 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Lawn Tennis",
+    "Event": "Girls GC",
+    "StandardizedDate": "01 02 2025 to 07 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Table Tennis",
+    "Event": "PG Kickstart Session",
+    "StandardizedDate": "01 02 2025 to 07 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Weightlifting",
+    "Event": "Calisthenics Skill Showdown",
+    "StandardizedDate": "01 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Weightlifting",
+    "Event": "Crossfit Workshop",
+    "StandardizedDate": "02 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Squash",
+    "Event": "BOB",
+    "StandardizedDate": "01 02 2025 to 07 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Aquatics",
+    "Event": "Triathlon GC",
+    "StandardizedDate": "08 02 2025 to 14 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Athletics",
+    "Event": "mixed relay",
+    "StandardizedDate": "08 02 2025 to 21 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Athletics",
+    "Event": "Local tournament",
+    "StandardizedDate": "08 02 2025 to 14 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Board Games",
+    "Event": "Local Tournament",
+    "StandardizedDate": "08 02 2025 to 14 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Board Games",
+    "Event": "Pool Mock GC",
+    "StandardizedDate": "08 02 2025 to 14 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Lawn Tennis",
+    "Event": "PG GC",
+    "StandardizedDate": "08 02 2025 to 14 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Table Tennis",
+    "Event": "GIRLS SESSION 4",
+    "StandardizedDate": "08 02 2025 to 14 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Volleyball",
+    "Event": "valentine volleyball",
+    "StandardizedDate": "08 02 2025 to 14 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Weightlifting",
+    "Event": "Crossfit Workshop",
+    "StandardizedDate": "02 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Weightlifting",
+    "Event": "Crossfit Showdown",
+    "StandardizedDate": "15 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Aquatics",
+    "Event": "Swimming Camp",
+    "StandardizedDate": "15 02 2025 to 21 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Football",
+    "Event": "IFL Auctions",
+    "StandardizedDate": "15 02 2025 to 21 02 2025"
+  },
+  {
+    "Month": "FEBRUARY",
+    "Sport": "Hockey",
+    "Event": "IHL auctions",
+    "StandardizedDate": "22 02 2025 to 28 02 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Weightlifting",
+    "Event": "Girls Workshop",
+    "StandardizedDate": "02 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Weightlifting",
+    "Event": "Bodybuilding Open",
+    "StandardizedDate": "07 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Volleyball",
+    "Event": "institute volleyball league",
+    "StandardizedDate": "01 03 2025 to 07 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Board Games",
+    "Event": "Institute Chess Open",
+    "StandardizedDate": "01 03 2025 to 07 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Board Games",
+    "Event": "Institute Pool Open",
+    "StandardizedDate": "01 03 2025 to 07 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Table Tennis",
+    "Event": "ITTL Auction",
+    "StandardizedDate": "01 03 2025 to 07 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Squash",
+    "Event": "Institute Squash League",
+    "StandardizedDate": "01 03 2025 to 07 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Hockey",
+    "Event": "IHL Auctions",
+    "StandardizedDate": "01 03 2025 to 07 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Lawn Tennis",
+    "Event": "Doubles Open",
+    "StandardizedDate": "01 03 2025 to 07 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Indian Games",
+    "Event": "Tug Of War GC",
+    "StandardizedDate": "01 03 2025 to 07 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Badminton",
+    "Event": "IDO",
+    "StandardizedDate": "01 03 2025 to 07 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Hockey",
+    "Event": "Alumni Day",
+    "StandardizedDate": "01 03 2025 to 07 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Football",
+    "Event": "IFL",
+    "StandardizedDate": "1st, 2nd,3rd,4th week"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Hockey",
+    "Event": "Sports Tech/External Tournament",
+    "StandardizedDate": "06 03 2025 to 11 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Hockey",
+    "Event": "IHL",
+    "StandardizedDate": "12 03 2025 to 25 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Cricket",
+    "Event": "Resuming Cricmania",
+    "StandardizedDate": "01 03 2025 to 14 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Cricket",
+    "Event": "Freshmen BCL",
+    "StandardizedDate": "01 03 2025 to 14 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Weightlifting",
+    "Event": "Arm Wrestling Open",
+    "StandardizedDate": "14 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Indian Games",
+    "Event": "Kabaddi GC",
+    "StandardizedDate": "08 03 2025 to 14 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Table Tennis",
+    "Event": "ITTL",
+    "StandardizedDate": "08 03 2025 to 14 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Common Council",
+    "Event": "Tournament",
+    "StandardizedDate": "08 03 2025 to 14 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Board Games",
+    "Event": "Institute Rubiks Open",
+    "StandardizedDate": "08 03 2025 to 14 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Common Council",
+    "Event": "NMIMS Conquer",
+    "StandardizedDate": "08 03 2025 to 14 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Common Council",
+    "Event": "Femme Fiesta",
+    "StandardizedDate": "08 03 2025 to 14 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Common Council",
+    "Event": "Freshie Crossy",
+    "StandardizedDate": "mid march"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Common Council",
+    "Event": "Crossy GC-2",
+    "StandardizedDate": "mid march"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Squash",
+    "Event": "Alumni Day",
+    "StandardizedDate": "08 03 2025 to 21 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Weightlifting",
+    "Event": "Intra Workshop Girls Weightlifting/Powerlifting Competition",
+    "StandardizedDate": "21 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Football",
+    "Event": "MFA",
+    "StandardizedDate": "15 03 2025 to 21 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Badminton",
+    "Event": "IBL Auction",
+    "StandardizedDate": "15 03 2025 to 21 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Lawn Tennis",
+    "Event": "Singles Open",
+    "StandardizedDate": "15 03 2025 to 21 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Board Games",
+    "Event": "Institute Chess League",
+    "StandardizedDate": "15 03 2025 to 28 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Volleyball",
+    "Event": "Spree",
+    "StandardizedDate": "26 03 2025 to 30 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Squash",
+    "Event": "Spree",
+    "StandardizedDate": "22 03 2025 to 28 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Common Council",
+    "Event": "Battle of Batches",
+    "StandardizedDate": "22 03 2025 to 28 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Indian Games",
+    "Event": "External Tournament",
+    "StandardizedDate": "22 03 2025 to 28 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Football",
+    "Event": "Spree",
+    "StandardizedDate": "22 03 2025 to 28 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Common Council",
+    "Event": "Hostel Bootcamp",
+    "StandardizedDate": "22 03 2025 to 28 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Badminton",
+    "Event": "IBL",
+    "StandardizedDate": "22 03 2025 to 28 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Athletics",
+    "Event": "Institute Athletics Open",
+    "StandardizedDate": "22 03 2025 to 28 03 2025"
+  },
+  {
+    "Month": "MARCH",
+    "Sport": "Common Council",
+    "Event": "Spree",
+    "StandardizedDate": "last week"
+  },
+  {
+    "Month": "APRIL",
+    "Sport": "Weightlifting",
+    "Event": "Powerlifting Open",
+    "StandardizedDate": "04 04 2025"
+  },
+  {
+    "Month": "APRIL",
+    "Sport": "Badminton",
+    "Event": "Battle Of Batches",
+    "StandardizedDate": "01 04 2025 to 07 04 2025"
+  },
+  {
+    "Month": "APRIL",
+    "Sport": "Badminton",
+    "Event": "Farewell",
+    "StandardizedDate": "01 04 2025 to 07 04 2025"
+  },
+  {
+    "Month": "APRIL",
+    "Sport": "Common Council",
+    "Event": "Intra-NSO League",
+    "StandardizedDate": "01 04 2025 to 07 04 2025"
+  },
+  {
+    "Month": "APRIL",
+    "Sport": "Hockey",
+    "Event": "Farewell",
+    "StandardizedDate": "01 04 2025 to 07 04 2025"
+  },
+  {
+    "Month": "APRIL",
+    "Sport": "Common Council",
+    "Event": "district competition",
+    "StandardizedDate": "08 04 2025 to 14 04 2025"
+  },
+  {
+    "Month": "APRIL",
+    "Sport": "Badminton",
+    "Event": "Freshmen Open",
+    "StandardizedDate": "08 04 2025 to 14 04 2025"
+  },
+  {
+    "Month": "APRIL",
+    "Sport": "Hockey",
+    "Event": "NSO End Session",
+    "StandardizedDate": "08 04 2025 to 14 04 2025"
+  },
+  {
+    "Month": "APRIL",
+    "Sport": "Football",
+    "Event": "BOTB",
+    "StandardizedDate": "15 04 2025 to 21 04 2025"
+  },
+  {
+    "Month": "APRIL",
+    "Sport": "Common Council",
+    "Event": "Freshie La Vista/ spoofit",
+    "StandardizedDate": "15 04 2025 to 21 04 2025"
+  }
+]

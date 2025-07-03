@@ -1,0 +1,173 @@
+/* Import matching font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main Container */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0f172a;
+  min-height: 100vh;
+  color: #cbd5e1;
+}
+
+.turf-booking-container {
+  background: #0f172a;
+  color: #cbd5e1;
+  padding: 0 0 2rem 0;
+}
+
+/* Page Header */
+.football-turf-heading {
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-align: center;
+  padding: 2rem 0 0 0;
+  color: #7ee7ff;
+  /* background: linear-gradient(135deg, #3ee5e5 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  background-clip: text;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+.football-turf-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: 4px;
+  background: #7ee7ff;
+  /* background: linear-gradient(135deg, #3ee5e5, #8b5cf6); */
+  border-radius: 2px;
+}
+
+/* Section Headers */
+.football-turf-today-slots,
+.football-turf-tomorrow-slots,
+.booking-form-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #7dff81;
+  margin: 2rem 0 1rem;
+  text-align: center;
+  /* background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  background-clip: text;
+}
+
+.slots-note {
+  font-size: 1.1rem;
+  color: #f87171;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  background: rgba(239, 68, 68, 0.1);
+  padding: 0.75rem;
+  border-radius: 8px;
+  border-left: 4px solid #ef4444;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Slots Container */
+.slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+/* Slot Buttons */
+.slots button {
+  padding: 1.25rem;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.slots button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.slots button:hover::before {
+  left: 100%;
+}
+
+/* Available slots - Green */
+.slots button.available {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  border-color: #16a34a;
+}
+
+.slots button.available:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+}
+
+/* Booked slots - Red */
+.slots button.booked {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border-color: #dc2626;
+  cursor: not-allowed;
+}
+
+/* Requested slots - Orange */
+.slots button.requested {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  border-color: #ea580c;
+  cursor: not-allowed;
+}
+
+/* Selected slot - Light Blue */
+.slots button.selected {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  border-color: #2563eb;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+/* Disclaimer */
+.disclaimer {
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid #f97316;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+  color: #f97316;
+  font-weight: 500;
+  text-align: center;
+  font-size: 0.9rem;
+}

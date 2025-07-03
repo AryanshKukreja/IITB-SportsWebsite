@@ -1,0 +1,125 @@
+/* Import matching font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* Reset and base styles - scope to admin page only */
+.admin-page-container {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0f172a;
+  min-height: 100vh;
+  color: #cbd5e1;
+  padding: 2rem 0;
+}
+
+/* Admin Login Section */
+.admin-page-container h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+  margin: 2rem 0;
+  background: linear-gradient(135deg, #e53e3e 0%, #f56565 50%, #fc8181 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+/* Login Form */
+.admin-page-container form {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 3rem;
+  background: #1e293b;
+  border-radius: 24px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.admin-page-container form label {
+  color: #cbd5e1;
+}
+
+.admin-page-container .password {
+  color: #f8fafc;
+  background: #0f172a;
+  border: 2px solid #334155;
+}
+
+.admin-page-container .password:focus {
+  border-color: #e53e3e;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.2);
+}
+
+.admin-page-container form button {
+  color: white;
+  background: linear-gradient(135deg, #e53e3e 0%, #f56565 100%);
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.admin-page-container form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(229, 62, 62, 0.3);
+}
+
+/* Requests List */
+.admin-page-container li {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.admin-page-container li h3 {
+  color: #7ee7ff;
+  margin-bottom: 1rem;
+}
+
+.admin-page-container li p {
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+}
+
+.admin-page-container li p strong {
+  color: #f8fafc;
+}
+
+.admin-page-container li div {
+  border-top: 1px solid #334155;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.admin-page-container li button {
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.admin-page-container li button:first-child {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+}
+
+.admin-page-container li button:last-child {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+/* No Requests Message */
+.admin-page-container p:last-child {
+  background: #1e293b;
+  color: #94a3b8;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+}

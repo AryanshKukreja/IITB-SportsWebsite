@@ -1,0 +1,411 @@
+/* Paragraph spacing */
+p {
+  margin-bottom: 1.5rem;
+}
+
+/* Improved content spacing */
+.InterIITMeet-container {
+  text-align: justify;
+  max-width: 1400px;
+  margin: 3.5rem auto 1.5rem;
+  padding: 0 1rem;
+}.achievements-heading, 
+.meet-heading, 
+.pyq_heading, 
+.history h2 {
+  color: rgb(255, 255, 255);
+  font-size: 45px;
+  margin: 2.5rem 0 1.5rem;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+}/* Base Reset with box-sizing inheritance */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Main Container */
+.interiit-container {
+  background-color: rgb(2, 2, 62);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 6% 4rem;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Header Section */
+.gradient-heading {
+  font-size: 4.5rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-image: linear-gradient(43deg, #c3b5f2 12%, rgb(235, 228, 159) 20%, #3e9df0 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bolder;
+  margin: 6rem auto 2rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.logo1 {
+  max-width: 400px;
+  height: auto;
+}
+
+/* Text Content */
+.description, 
+.Event-Description, 
+.extra p, 
+.history p {
+  font-size: 25px;
+  color: white;
+  text-align: justify;
+  letter-spacing: 0.5px;
+  max-width: 1400px;
+  margin: 2rem auto;
+  line-height: 1.7;
+  padding: 0 1rem;
+}
+
+/* Section Containers */
+.achievements-container, 
+.InterIITMeet-container {
+  text-align: justify;
+  max-width: 1400px;
+  margin: 3rem auto 1.5rem;
+  padding: 0 1rem;
+}
+
+/* Headings */
+.Performance {
+  color: rgb(255, 255, 255);
+  font-size: 45px;
+  margin: 3rem 0 1.5rem;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid rgba(62, 157, 240, 0.4);
+  padding-bottom: 0.5rem;
+}
+
+/* Lists */
+.achievements-list, 
+.performance1 {
+  list-style-type: circle;
+  color: white;
+  font-size: 25px;
+  line-height: 1.7;
+  padding-left: 2.5rem;
+  margin: 1.5rem 0;
+}
+
+.achievements-list li, 
+.performance1 li {
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+/* Enhanced styling for performance list specifically */
+.performance1 {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem 2.5rem;
+  margin: 1.5rem 1rem 2.5rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.performance1 li {
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+.performance1 li::marker {
+  color: #3e9df0;
+}
+
+/* List Image */
+.list-image {
+  max-width: 400px;
+  height: auto;
+  float: right;
+  margin: 0 0 1.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Gallery */
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem auto;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.gallery-heading {
+  font-size: 24px;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-align: center;
+}
+
+.gallery-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.gallery-image {
+  max-width: 90%;
+  height: auto;
+  max-height: 500px;
+  border-radius: 8px;
+  object-fit: contain;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+.gallery-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Glimpses Section */
+.glimpses-container {
+  text-align: center;
+  margin: 4rem auto;
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.glimpses-container h2 {
+  font-size: 30px;
+  margin-bottom: 2rem;
+}
+
+.photos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.glimpses-container img {
+  width: 400px;
+  height: auto;
+  border-radius: 8px;
+  max-width: 100%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.glimpses-container img:hover {
+  transform: scale(1.02);
+}
+
+/* Links Section */
+.last_heading h2 {
+  text-align: center;
+  color: aqua;
+  margin: 3rem 0 1.5rem;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin: 2rem 0 4rem;
+  flex-wrap: wrap;
+}
+
+.links a {
+  text-decoration: none;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease;
+  padding: 1rem;
+}
+
+.links a:hover {
+  transform: translateY(-5px);
+}
+
+.links a p {
+  margin-top: 0.75rem;
+}
+
+/* Icons */
+.arrow {
+  margin-right: 1rem;
+  font-size: 2rem;
+  color: #3e9df0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .gradient-heading {
+    font-size: 3.5rem;
+    margin-top: 5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .list-image {
+    float: none;
+    margin: 1.5rem auto 2rem;
+    display: block;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .interiit-container {
+    padding: 0 4% 2rem;
+  }
+  
+  .gradient-heading {
+    font-size: 3rem;
+    margin-top: 4rem;
+  }
+  
+  .logo1 {
+    max-width: 300px;
+  }
+  
+  .description, 
+  .Event-Description, 
+  .achievements-list, 
+  .performance1, 
+  .extra p, 
+  .history p {
+    font-size: 20px;
+  }
+  
+  .achievements-heading, 
+  .meet-heading, 
+  .Performance, 
+  .pyq_heading, 
+  .history h2 {
+    font-size: 35px;
+  }
+  
+  .arrow {
+    font-size: 1.75rem;
+  }
+  
+  .glimpses-container img {
+    width: 320px;
+  }
+  
+  .performance1 {
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .interiit-container {
+    padding: 0 3% 1.5rem;
+    width: 100%;
+  }
+  
+  .gradient-heading {
+    font-size: 2.5rem;
+    margin-top: 3rem;
+    padding: 0 0.5rem;
+  }
+  
+  .logo1 {
+    max-width: 220px;
+  }
+  
+  .description, 
+  .Event-Description, 
+  .achievements-list, 
+  .performance1, 
+  .extra p, 
+  .history p {
+    font-size: 18px;
+    letter-spacing: normal;
+  }
+  
+  .achievements-heading, 
+  .meet-heading, 
+  .Performance, 
+  .pyq_heading, 
+  .history h2 {
+    font-size: 28px;
+    letter-spacing: normal;
+  }
+  
+  .arrow {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  
+  .gallery-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .gallery-heading {
+    font-size: 1.5rem;
+  }
+  
+  .glimpses-container img {
+    width: 250px;
+  }
+  
+  .links {
+    gap: 2rem;
+  }
+  
+  .performance1 {
+    padding: 1rem;
+    margin: 1rem 0 2rem;
+  }
+  
+  .performance1 li {
+    margin-bottom: 0.75rem;
+  }
+}
