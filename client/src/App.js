@@ -18,7 +18,7 @@ import "./App.css";
 
 function App() {
   // Dynamic basename for GitHub Pages vs local development
-  const basename = process.env.NODE_ENV === 'production' ? '/Sports-Website' : '';
+  const basename = process.env.NODE_ENV === 'production' ? '/IITB-SportsWebsite' : '';
 
   return (
     <Router basename={basename}>
