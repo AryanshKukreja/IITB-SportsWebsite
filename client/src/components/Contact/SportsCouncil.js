@@ -9,7 +9,7 @@ const Council = () => {
                 <h1 className="title">2024-2025</h1>
                 <div className="leader">
                     <h2>General Secretary Sports Affairs</h2>
-                    <img className="gen"alt="" src="./photo.png" />
+                    <img className="gen"alt="" src="/pictures/Raj.jpg" />
                     <p className="name">Rajwardhan Toraskar<br />
                         <a href="/#"><img className="seclogos"alt="" src="./instagram.png" /></a>
                         <a href="/#"><img className="sec_mail_logos" alt=""src="./mail.png" /></a>
@@ -19,7 +19,7 @@ const Council = () => {
                     {/* Nominees FIRST */}
                     <div className="info-block">
                         <h2>Institute Sports Nominee-Events & Clubs</h2>
-                        <img className="circular" src="./photo.png" alt="" />
+                        <img className="circular" src="/pictures/Raghav.png" alt="" />
                         <p className="name">
                             Atharva Naik<br />
                             <a href="/#"><img className="logos" src="./instagram.png" alt="Instagram" /></a>
@@ -31,13 +31,13 @@ const Council = () => {
                         <img className="circular" src="./photo.png" alt="" />
                         <p className="name">
                             Akshara Naik<br />
-                            <a href="/#"><img className="logos" src="./instagram.png" alt="Instagram" /></a>
+                            <a href="/#"><img className="logos" src="/instagram.png" alt="Instagram" /></a>
                             <a href="/#"><img className="mail_logos" src="./mail.png" alt="Mail" /></a>
                         </p>
                     </div>
                     <div className="info-block">
                         <h2>Institute Sports Admin Nominee</h2>
-                        <img className="circular" src="./photo.png" alt="" />
+                        <img className="circular" src="./pictures/Atharva.png" alt="" />
                         <p className="name">
                             Raghav Agrawal<br />
                             <a href="/#"><img className="logos" src="./instagram.png" alt="Instagram" /></a>
