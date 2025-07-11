@@ -122,11 +122,11 @@ h6 { font-size: 1rem; }
 }
 
 /* Container */
-.container {
+/* .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
-}
+} */
 
 /* Grid System */
 .grid {
@@ -258,5 +258,31 @@ button:focus, a:focus, input:focus, textarea:focus, select:focus {
     color: black !important;
     box-shadow: none !important;
     text-shadow: none !important;
+  }
+}
+.vertical-timeline-element-content{
+  border-radius: 24px !important;
+  border: rgb(126, 231, 255) 4px solid !important;
+  background: linear-gradient(135deg, rgba(126, 231, 255, 0.1) 0%, rgba(126, 231, 255, 0.1) 100%) !important;
+  color: #7ee7ff !important;
+}
+.vertical-timeline-element-content h3, .vertical-timeline-element-content p, .vertical-timeline-element-content span {
+  color: #7ee7ff !important;
+}
+
+.vertical-timeline--two-columns .vertical-timeline-element-content-arrow {
+  left: 102% !important;
+}
+.vertical-timeline--two-columns .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content-arrow, .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content-arrow {
+  left: -5% !important;
+}
+@media (max-width: 1170px) {
+  .vertical-timeline--two-columns .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content-arrow, .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content-arrow{
+    right: 100.5% !important;
+    left: auto !important;
+  }
+  .vertical-timeline--two-columns .vertical-timeline-element-content-arrow {
+    right: 100.5% !important;
+    left: auto !important;
   }
 }

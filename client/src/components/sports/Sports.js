@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Sports.css'; // Import the CSS file
 
+
 function Sports() {
   const sportsList = [
     { name: 'Aquatics', image: '/images/aquatics.jpg', link: '/sports/aquatics'},
@@ -12,7 +13,7 @@ function Sports() {
     { name: 'Cricket', image: '/images/cricket.jpg', link: '/sports/cricket' },
     { name: 'Football', image: '/images/football.jpg', link: '/sports/football' },
     { name: 'Hockey', image: '/images/hockey.jpg', link: '/sports/hockey'},
-    { name: 'Indian Games', image: '/images/khokho.jpg', link: '/sports/hockey'},
+    { name: 'Indian Games', image: '/images/khokho.jpg', link: '/sports/indiangames'},
     { name: 'Lawn Tennis', image: '/images/tennis.jpg', link: '/sports/tennis' },
     { name: 'Squash', image: '/images/squash.jpg', link: '/sports/squash'},
     { name: 'Table Tennis', image: '/images/tabletennis.jpg', link: '/sports/tabletennis'},
