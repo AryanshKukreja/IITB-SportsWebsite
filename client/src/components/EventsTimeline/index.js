@@ -99,6 +99,8 @@ const sportColors = {
   "Common Council": "#6366f1",
   "Common": "#6366f1",
   "Lawn Tennis": "#eab308",
+  "LT": "#eab308",
+  "TT": "#ef4444"
 };
 
 export default function SportsCalendar() {

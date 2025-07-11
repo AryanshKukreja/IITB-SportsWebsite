@@ -357,12 +357,17 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .about, .blackCats {
-    flex-direction: column;
-    text-align: center;
-    padding: 3rem 2rem;
+  .about, .blackCats, .sportApp{
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 1rem ;
   }
-  
+  .sportApp-content {
+    align-items: center;
+  }
+  .bg-container {
+    height: 60vh;
+  }
   .aboutimg {
     margin-bottom: 2rem;
     width: 250px;
@@ -371,6 +376,12 @@
 }
 
 @media (max-width: 768px) {
+  .about, .blackCats, .sportApp {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 3rem 2rem;
+  }
   .wl1 {
     font-size: 1.4rem;
   }
@@ -380,7 +391,7 @@
   }
   
   .bg-container {
-    height: 65vh;
+    height: 45vh;
   }
   
   .about, .blackCats, .sportApp {
@@ -408,15 +419,30 @@
 }
 
 @media (max-width: 480px) {
+  .about, .blackCats, .sportApp {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 3rem 2rem;
+  }
+  .bg-container {
+    height: 45vh;
+  } 
   .wl2 {
     font-size: 2.4rem;
   }
   
   .about, .blackCats, .sportApp {
+    align-items: center;
     padding: 2rem 1rem;
     border-radius: 16px;
   }
-  
+  .sportApp {
+    flex-direction: column;
+  }
+  .sportApp-content {
+    align-items: center;
+  }
   .aboutimg {
     width: 180px;
     height: 180px;

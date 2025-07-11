@@ -18,7 +18,7 @@ const Council = () => {
                 <div className="container">
                     {/* Nominees FIRST */}
                     <div className="info-block">
-                        <h2>Institute Sports Nominee-Events & Clubs</h2>
+                        <h2 style={{fontSize: "1.3rem"}} className="enc">Institute Sports Nominee-Events & Clubs</h2>
                         <img className="circular" src="/pictures/Raghav.png" alt="" />
                         <p className="name">
                             Atharva Naik<br />
@@ -77,9 +77,9 @@ const Council = () => {
                     </div>
                 </div>
                 <h1 className="con-secys"><b>Secretaries</b></h1>
-                <div className="container">
-                    <div class="info-block">
-                <div class="sport-number">1</div>
+                <div className="container secy">
+            <div className="info-block">
+                <div className="sport-number">1</div>
                 <h2>Institute Athletics Secretary</h2>
                 <img class="circular" src="./photo.png" alt="" />
                 <p class="name">
@@ -88,9 +88,19 @@ const Council = () => {
                     <a href="/#"><img class="mail_logos" src="./mail.png" alt="Mail" /></a>
                 </p>
             </div>
-            
             <div class="info-block">
                 <div class="sport-number">2</div>
+                <h2>Institute Aquatics Secretary</h2>
+                <img class="circular" src="./photo.png" alt="" />
+                <p class="name">
+                    Meet<br />
+                    <a href="/#"><img class="logos" src="./instagram.png" alt="Instagram" /></a>
+                    <a href="/#"><img class="mail_logos" src="./mail.png" alt="Mail" /></a>
+                </p>
+            </div>
+            
+            <div class="info-block">
+                <div class="sport-number">3</div>
                 <h2>Institute Badminton Secretary</h2>
                 <img class="circular" src="./photo.png" alt="" />
                 <p class="name">
@@ -99,9 +109,19 @@ const Council = () => {
                     <a href="/#"><img class="mail_logos" src="./mail.png" alt="Mail" /></a>
                 </p>
             </div>
+            <div class="info-block">
+                <div class="sport-number">4</div>
+                <h2>Institute Basketball Secretary</h2>
+                <img class="circular" src="./photo.png" alt="" />
+                <p class="name">
+                    Deepraj<br />
+                    <a href="/#"><img class="logos" src="./instagram.png" alt="Instagram" /></a>
+                    <a href="/#"><img class="mail_logos" src="./mail.png" alt="Mail" /></a>
+                </p>
+            </div>
             
             <div class="info-block">
-                <div class="sport-number">3</div>
+                <div class="sport-number">5</div>
                 <h2>Institute Board Games Secretary</h2>
                 <img class="circular" src="./photo.png" alt="" />
                 <p class="name">
@@ -112,7 +132,7 @@ const Council = () => {
             </div>
             
             <div class="info-block">
-                <div class="sport-number">4</div>
+                <div class="sport-number">6</div>
                 <h2>Institute Cricket Secretary</h2>
                 <img class="circular" src="./photo.png" alt="" />
                 <p class="name">
@@ -123,7 +143,7 @@ const Council = () => {
             </div>
             
             <div class="info-block">
-                <div class="sport-number">5</div>
+                <div class="sport-number">7</div>
                 <h2>Institute Football Secretary</h2>
                 <img class="circular" src="./photo.png" alt="" />
                 <p class="name">
@@ -134,7 +154,7 @@ const Council = () => {
             </div>
             
             <div class="info-block">
-                <div class="sport-number">6</div>
+                <div class="sport-number">8</div>
                 <h2>Institute Hockey Secretary</h2>
                 <img class="circular" src="./photo.png" alt="" />
                 <p class="name">
@@ -145,7 +165,7 @@ const Council = () => {
             </div>
             
             <div class="info-block">
-                <div class="sport-number">7</div>
+                <div class="sport-number">9</div>
                 <h2>Institute Indian Games Secretary</h2>
                 <img class="circular" src="./photo.png" alt="" />
                 <p class="name">
@@ -156,7 +176,7 @@ const Council = () => {
             </div>
             
             <div class="info-block">
-                <div class="sport-number">8</div>
+                <div class="sport-number">10</div>
                 <h2>Institute Lawn Tennis Secretary</h2>
                 <img class="circular" src="./photo.png" alt="" />
                 <p class="name">
@@ -167,7 +187,7 @@ const Council = () => {
             </div>
             
             <div class="info-block">
-                <div class="sport-number">9</div>
+                <div class="sport-number">11</div>
                 <h2>Institute Squash Secretary</h2>
                 <img class="circular" src="./photo.png" alt="" />
                 <p class="name">
@@ -178,7 +198,7 @@ const Council = () => {
             </div>
             
             <div class="info-block">
-                <div class="sport-number">10</div>
+                <div class="sport-number">12</div>
                 <h2>Institute Table Tennis Secretary</h2>
                 <img class="circular" src="./photo.png" alt="" />
                 <p class="name">
@@ -189,7 +209,7 @@ const Council = () => {
             </div>
             
             <div class="info-block">
-                <div class="sport-number">11</div>
+                <div class="sport-number">13</div>
                 <h2>Institute Volleyball Secretary</h2>
                 <img class="circular" src="./photo.png" alt="" />
                 <p class="name">
@@ -200,7 +220,7 @@ const Council = () => {
             </div>
             
             <div class="info-block">
-                <div class="sport-number">12</div>
+                <div class="sport-number">14</div>
                 <h2>Institute Weightlifting Secretary</h2>
                 <img class="circular" src="./photo.png" alt="" />
                 <p class="name">

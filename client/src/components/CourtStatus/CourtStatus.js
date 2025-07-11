@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './CourtStatus.css';
 import axios from 'axios';
 import mapImage from './assets/maps.png';
@@ -50,25 +50,6 @@ const CourtStatus = () => {
   const [isEditingMap] = useState(false);
   const mapRef = useRef(null);
 
-  // Move fetchCourtStatus before useEffect and wrap in useCallback
-  const fetchCourtStatus = useCallback(async (sportId, date) => {
-    try {
-      setIsLoading(true);
-      const response = await axios.get(`${API_BASE_URL}/api/court-status/`, {
-        params: { sport: sportId, date: date }
-      });
-      
-      // Check if component is still mounted before setting state
-      setTimeSlots(MANUAL_TIME_SLOTS);
-      setCourtData(response.data.courts);
-      setCurrentDate(response.data.date);
-    } catch (error) {
-      console.error('Error fetching court status:', error);
-    } finally {
-      setIsLoading(false); // Always set loading to false
-    }
-  }, [setCurrentDate]);
-
   // Fetch sports and align coordinates
   useEffect(() => {
     fetchSports();
@@ -81,7 +62,7 @@ const CourtStatus = () => {
     if (selectedSport) {
       fetchCourtStatus(selectedSport, selectedDate);
     }
-  }, [selectedSport, selectedDate, fetchCourtStatus]);
+  },);
 
   // Fetch sports from API and align coordinates
   const fetchSports = async () => {
@@ -108,10 +89,28 @@ const CourtStatus = () => {
     }
   };
 
+  // Fetch court status
+  const fetchCourtStatus = async (sportId, date) => {
+    try {
+      setIsLoading(true);
+      const response = await axios.get(`${API_BASE_URL}/api/court-status/`, {
+        params: { sport: sportId, date: date }
+      });
+      setTimeSlots(MANUAL_TIME_SLOTS); // Always use manual 1-hr slots
+      setCourtData(response.data.courts);
+      setCurrentDate(response.data.date);
+      setIsLoading(false);
+    } catch (error) {
+      console.error('Error fetching court status:', error);
+      setIsLoading(false);
+    }
+  };
+
   // Handle sport change
   const handleSportChange = (sportId) => {
     setSelectedSport(sportId);
   };
+
 
   // Toggle booking status (requires authentication)
   const toggleBooking = async (courtId, timeSlotId, currentStatus) => {
@@ -230,6 +229,7 @@ const CourtStatus = () => {
   };
 
   const currentTimeSlotId = getCurrentTimeSlotId();
+
 
   // Facility map related functions
   const handleMapClick = (e) => {

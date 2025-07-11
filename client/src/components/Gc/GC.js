@@ -194,7 +194,7 @@ const GC = () => {
           {/* Sport-specific Podium */}
           <div className="sport-podium">
             {selectedSportData.length > 1 && (
-              <div className="podium sport-second-place">
+              <div className="podium second-place">
                 <div className="podium-label">2nd</div>
                 <h2>{selectedSportData[1].name}</h2>
                 <p>{selectedSportData[1].points} pts</p>
@@ -202,7 +202,7 @@ const GC = () => {
             )}
             
             {selectedSportData.length > 0 && (
-              <div className="podium sport-first-place">
+              <div className="podium first-place">
                 <div className="podium-label">1st</div>
                 <h2>{selectedSportData[0].name}</h2>
                 <p>{selectedSportData[0].points} pts</p>
@@ -210,7 +210,7 @@ const GC = () => {
             )}
             
             {selectedSportData.length > 2 && (
-              <div className="podium sport-third-place">
+              <div className="podium third-place">
                 <div className="podium-label">3rd</div>
                 <h2>{selectedSportData[2].name}</h2>
                 <p>{selectedSportData[2].points} pts</p>

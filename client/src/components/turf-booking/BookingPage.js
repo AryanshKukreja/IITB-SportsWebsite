@@ -61,18 +61,16 @@ const BookingPage = () => {
     };
 
     const fetchExistingBookings = async () => {
-  try {
-    const response = await fetch('https://turfbackend1-l63zjkfl.b4a.run/students');
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    const students = await response.json();
-    // Filter bookings for tomorrow's date only
-    const tomorrowBookings = students.filter(student => student.date === tomorrowDate);
-    const rollNumbers = tomorrowBookings.map((student) => student.rollno);
-    setExistingRollNumbers(rollNumbers);
-  } catch (error) {
-    console.error('Error fetching existing bookings:', error);
-  }
-  };
+      try {
+        const response = await fetch('https://turfbackend1-l63zjkfl.b4a.run/students');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const students = await response.json();
+        const rollNumbers = students.map((student) => student.rollno);
+        setExistingRollNumbers(rollNumbers);
+      } catch (error) {
+        console.error('Error fetching existing bookings:', error);
+      }
+    };
 
     fetchSlots();
     fetchExistingBookings();

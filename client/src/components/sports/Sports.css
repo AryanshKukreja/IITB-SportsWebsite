@@ -184,7 +184,7 @@
   font-size: 2rem;
   font-weight: 800;
   text-align: center;
-  color: #f8fafc;
+  color: #50ffb9;
   margin: 3rem 0 2rem;
   padding: 3rem 2rem;
   background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
@@ -244,7 +244,7 @@
 }
 
 /* Responsive Design */
-/* @media (max-width: 1200px) {
+@media (max-width: 1200px) {
   .sports-list {
     gap: 2rem;
     padding: 0 1.5rem;
@@ -254,19 +254,12 @@
     max-width: calc(33.333% - 2rem);
     min-width: 220px;
   }
-} */
+}
 
 @media (max-width: 900px) {
   .sport-item {
-    flex: 1 1 calc(50% - 2rem);
-    max-width: calc(50% - 2rem);
-  }
-}
-
-@media (max-width: 600px) {
-  .sport-item {
-    flex: 1 1 100%;
-    max-width: 100%;
+    flex: 1 1 calc(33.333% - 2rem);
+    max-width: calc(33.333% - 2rem);
   }
 }
 
@@ -274,7 +267,9 @@
   .sports-container {
     padding: 2rem 0;
   }
-  
+  .clubs-intro::after {
+    width: 25 rem;
+  }
   .sports-container h1 {
     font-size: 2.8rem;
     margin-bottom: 0.8rem;
@@ -293,7 +288,7 @@
   }
   
   .sport-item {
-    min-height: 340px;
+    min-height: 280px;
   }
   
   .sport-item img {
@@ -312,7 +307,20 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
+  .sports-heading::after{
+    width: 70px;
+  }
+  .clubs-intro {
+    font-size: 1.2rem;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .clubs-intro::after {
+    top: 72%;
+    width: 250px;
+    height: 3px
+  }
   .sports-container {
     padding: 1.5rem 0;
   }
@@ -326,27 +334,30 @@
   }
   
   .sports-list {
-    grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 0 0.75rem;
   }
   
   .sport-item {
-    min-height: 300px;
+    flex: 1 1 calc(50% - 1.5rem);
+    max-width: calc(50% - 1.5rem);
+    min-width: 100px;
+    min-height: 150px;
   }
   
   .sport-item img {
-    height: 180px;
+    height: 150px;
   }
   
   .sport-item span {
     font-size: 1.1rem;
     padding: 1.25rem;
   }
-  
-  .clubs-intro {
-    font-size: 1.4rem;
-    padding: 1.5rem;
+}
+
+@media (max-width: 400px) {
+  .clubs-intro{
+    font-size: 1.1rem;
   }
 }
 
