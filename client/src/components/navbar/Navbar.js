@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css"
 // import { useState } from 'react';
 import logo from './assets/sports-logo-transparent.png'
@@ -27,25 +28,25 @@ const Navbar = () => {
         <div className="menu">
           <ul >
             <li className='menuItem'>
-              <a href="/sports">Home</a>
+              <Link to="/sports">Home</Link>
             </li>
             <li className='menuItem'>
-              <a href="/sports/explore">Sports</a>
+              <Link to="/sports/explore">Sports</Link>
             </li>
             <li className='menuItem'>
-              <a href="/sports/CourtStatus">CourtStatus</a>
+              <Link to="/sports/CourtStatus">CourtStatus</Link>
             </li>
             <li className='menuItem'>
-              <a href="/sports/GC">GC</a>
+              <Link to="/sports/GC">GC</Link>
             </li>
             <li className='menuItem'>
-              <a href="/sports/events-timeline">EventsTimeLine</a>
+              <Link to="/sports/events-timeline">EventsTimeLine</Link>
             </li>
             <li className='menuItem'>
-              <a href="/sports/turfbooking">TurfBooking</a>
+              <Link to="/sports/turfbooking">TurfBooking</Link>
             </li>
             <li className='menuItem'>
-              <a href="/sports/contact">Contact Us</a>
+              <Link to="/sports/contact">Contact Us</Link>
             </li>
           </ul>
           {/* hamburget menu start  */}
