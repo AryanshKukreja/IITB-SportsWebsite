@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/IITB-SportsWebsite/static/css/main.f53e7801.css",
-    "main.js": "/IITB-SportsWebsite/static/js/main.6f49c852.js",
+    "main.js": "/IITB-SportsWebsite/static/js/main.be3488ea.js",
     "static/js/453.46dc3e92.chunk.js": "/IITB-SportsWebsite/static/js/453.46dc3e92.chunk.js",
     "static/media/ing4.JPG": "/IITB-SportsWebsite/static/media/ing4.98df368230b7e5fded50.JPG",
     "static/media/p6.JPG": "/IITB-SportsWebsite/static/media/p6.a660f688417c8c1770b7.JPG",
@@ -114,11 +114,11 @@
     "static/media/slick.woff": "/IITB-SportsWebsite/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/IITB-SportsWebsite/index.html",
     "main.f53e7801.css.map": "/IITB-SportsWebsite/static/css/main.f53e7801.css.map",
-    "main.6f49c852.js.map": "/IITB-SportsWebsite/static/js/main.6f49c852.js.map",
+    "main.be3488ea.js.map": "/IITB-SportsWebsite/static/js/main.be3488ea.js.map",
     "453.46dc3e92.chunk.js.map": "/IITB-SportsWebsite/static/js/453.46dc3e92.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f53e7801.css",
-    "static/js/main.6f49c852.js"
+    "static/js/main.be3488ea.js"
   ]
 }
