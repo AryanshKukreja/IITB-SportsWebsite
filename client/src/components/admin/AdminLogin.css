@@ -1,0 +1,101 @@
+/* Import matching font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* Reset and base styles - scope to admin page only */
+.admin-page-container {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0f172a;
+  min-height: 100vh;
+  color: #cbd5e1;
+  padding: 2rem 0;
+}
+
+.admin-login-wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Admin Login Section */
+.admin-page-container h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+  margin: 2rem 0;
+  background: linear-gradient(135deg, #e53e3e 0%, #f56565 50%, #fc8181 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+/* Login Form */
+.admin-page-container form {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 3rem;
+  background: #1e293b;
+  border-radius: 24px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.admin-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #334155;
+  border-radius: 12px;
+  background: #0f172a;
+  color: #f8fafc;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.admin-input:focus {
+  outline: none;
+  border-color: #e53e3e;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.2);
+}
+
+.admin-submit-btn {
+  width: 100%;
+  color: white;
+  background: linear-gradient(135deg, #e53e3e 0%, #f56565 100%);
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 1rem;
+}
+
+.admin-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(229, 62, 62, 0.3);
+}
+
+.admin-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background: rgba(239, 68, 68, 0.1);
+  color: #fca5a5;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}

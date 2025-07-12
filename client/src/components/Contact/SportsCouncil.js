@@ -6,7 +6,7 @@ const Council = () => {
         <>
             <div className="all_content">
                 <h1 className="title">Institute Sports Council</h1>
-                <h1 className="title">2024-2025</h1>
+                <h1 className="title">2025-2026</h1>
                 <div className="leader">
                     <h2>General Secretary Sports Affairs</h2>
                     <img className="gen"alt="" src="/pictures/Raj.jpg" />

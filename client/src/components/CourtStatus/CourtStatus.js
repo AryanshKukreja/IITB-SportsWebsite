@@ -33,7 +33,9 @@ const generateOneHourTimeSlots = () => {
 };
 const MANUAL_TIME_SLOTS = generateOneHourTimeSlots();
 
-const API_BASE_URL = 'https://courtstatusbackend-lo8700s6.b4a.run';
+// Updated API base URL for Node.js backend
+const API_BASE_URL ='https://courtstatusbackend2-oktyljgj.b4a.run/' 
+
 
 const CourtStatus = () => {
   const [sports, setSports] = useState([]);
@@ -41,13 +43,13 @@ const CourtStatus = () => {
   const [sportsCoordinates, setSportsCoordinates] = useState({});
   const [timeSlots, setTimeSlots] = useState(MANUAL_TIME_SLOTS);
   const [courtData, setCourtData] = useState([]);
-  const [setCurrentDate] = useState('');
+  const [currentDate, setCurrentDate] = useState('');
   const [currentTime, setCurrentTime] = useState(new Date());
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedDate] = useState(new Date().toISOString().split('T')[0]);
-  const [authToken] = useState(localStorage.getItem('authToken') || '');
-  const [showMapMarkers] = useState(true);
-  const [isEditingMap] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
+  const [authToken, setAuthToken] = useState(localStorage.getItem('adminToken') || '');
+  const [showMapMarkers, setShowMapMarkers] = useState(true);
+  const [isEditingMap, setIsEditingMap] = useState(false);
   const mapRef = useRef(null);
 
   // Fetch sports and align coordinates
@@ -62,23 +64,29 @@ const CourtStatus = () => {
     if (selectedSport) {
       fetchCourtStatus(selectedSport, selectedDate);
     }
-  },);
+  }, [selectedSport, selectedDate]);
 
-  // Fetch sports from API and align coordinates
+  // UPDATED: Fetch sports from API with better error handling
   const fetchSports = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get(`${API_BASE_URL}/api/sports/`);
+      const response = await axios.get(`${API_BASE_URL}/api/sports`);
+      console.log('Sports API Response:', response.data);
+      
       setSports(response.data);
       if (response.data.length > 0) {
-        setSelectedSport(response.data[0].id);
+        // Handle both id and _id fields
+        const firstSportId = response.data[0].id || response.data[0]._id;
+        setSelectedSport(firstSportId);
       }
+      
       // Build coordinates map: API sport.id -> {coords, color, name}
       const coordsMap = {};
       response.data.forEach(sport => {
+        const sportId = sport.id || sport._id;
         const pin = SPORTS_COORDINATES_BY_NAME[sport.name];
         if (pin) {
-          coordsMap[sport.id] = { ...pin, name: sport.name };
+          coordsMap[sportId] = { ...pin, name: sport.name };
         }
       });
       setSportsCoordinates(coordsMap);
@@ -89,19 +97,57 @@ const CourtStatus = () => {
     }
   };
 
-  // Fetch court status
+  // UPDATED: Fetch court status with improved data processing
   const fetchCourtStatus = async (sportId, date) => {
     try {
       setIsLoading(true);
-      const response = await axios.get(`${API_BASE_URL}/api/court-status/`, {
+      console.log('Fetching court status for:', { sportId, date });
+      
+      const response = await axios.get(`${API_BASE_URL}/api/bookings/court-status`, {
         params: { sport: sportId, date: date }
       });
-      setTimeSlots(MANUAL_TIME_SLOTS); // Always use manual 1-hr slots
-      setCourtData(response.data.courts);
-      setCurrentDate(response.data.date);
+      
+      console.log('Court Status API Response:', response.data);
+      
+      // Always use manual 1-hr slots
+      setTimeSlots(MANUAL_TIME_SLOTS);
+      
+      // Process court data to ensure proper slot mapping
+      if (response.data && response.data.courts) {
+        const processedCourtData = response.data.courts.map(court => {
+          const processedSlots = {};
+          
+          // Initialize all time slots with proper mapping
+          MANUAL_TIME_SLOTS.forEach(timeSlot => {
+            const slotKey = timeSlot.id.toString();
+            // Use existing slot data or default to available
+            processedSlots[slotKey] = court.slots && court.slots[slotKey] ? {
+              ...court.slots[slotKey],
+              time: timeSlot.formatted_slot
+            } : {
+              status: 'available',
+              time: timeSlot.formatted_slot
+            };
+          });
+          
+          return {
+            ...court,
+            slots: processedSlots
+          };
+        });
+        
+        setCourtData(processedCourtData);
+        console.log('Processed court data:', processedCourtData);
+      } else {
+        console.warn('No court data in response');
+        setCourtData([]);
+      }
+      
+      setCurrentDate(response.data.date || date);
       setIsLoading(false);
     } catch (error) {
       console.error('Error fetching court status:', error);
+      setCourtData([]);
       setIsLoading(false);
     }
   };
@@ -111,8 +157,12 @@ const CourtStatus = () => {
     setSelectedSport(sportId);
   };
 
+  // Handle date change
+  const handleDateChange = (e) => {
+    setSelectedDate(e.target.value);
+  };
 
-  // Toggle booking status (requires authentication)
+  // UPDATED: Toggle booking status with better error handling
   const toggleBooking = async (courtId, timeSlotId, currentStatus) => {
     if (!authToken) {
       alert('You need to be logged in as an admin to change booking status');
@@ -124,9 +174,12 @@ const CourtStatus = () => {
       'maintenance': 'available'
     };
     const newStatus = statusCycle[currentStatus] || 'available';
+    
     try {
+      console.log('Updating booking status:', { courtId, timeSlotId, currentStatus, newStatus });
+      
       const response = await axios.post(
-        `${API_BASE_URL}/api/update-booking/`,
+        `${API_BASE_URL}/api/bookings/update`,
         {
           courtId: courtId,
           timeSlotId: timeSlotId,
@@ -135,19 +188,27 @@ const CourtStatus = () => {
         },
         {
           headers: {
-            'Authorization': `Bearer ${authToken}`
+            'Authorization': `Bearer ${authToken}`,
+            'Content-Type': 'application/json'
           }
         }
       );
+      
+      console.log('Update response:', response.data);
+      
       if (response.data.success) {
+        // Refresh court status to get updated data
         fetchCourtStatus(selectedSport, selectedDate);
+      } else {
+        console.error('Update failed:', response.data);
+        alert('Failed to update booking status: ' + (response.data.message || 'Unknown error'));
       }
     } catch (error) {
       console.error('Error updating booking status:', error);
       if (error.response && error.response.status === 401) {
         alert('Authentication failed. Please log in again.');
       } else {
-        alert('Failed to update booking status.');
+        alert('Failed to update booking status: ' + (error.response?.data?.message || error.message));
       }
     }
   };
@@ -230,6 +291,15 @@ const CourtStatus = () => {
 
   const currentTimeSlotId = getCurrentTimeSlotId();
 
+  // Admin login/logout functionality (simplified)
+  const handleLoginLogout = () => {
+    if (authToken) {
+      localStorage.removeItem('adminToken');
+      setAuthToken('');
+    } else {
+      alert('Please use the admin login page to authenticate');
+    }
+  };
 
   // Facility map related functions
   const handleMapClick = (e) => {
@@ -259,6 +329,14 @@ const CourtStatus = () => {
       }
     }
   }, []);
+
+  const toggleMapEditMode = () => {
+    setIsEditingMap(!isEditingMap);
+  };
+
+  const toggleMapMarkers = () => {
+    setShowMapMarkers(!showMapMarkers);
+  };
 
   const getCoordinatesString = () => {
     return JSON.stringify(sportsCoordinates, null, 2);
@@ -290,21 +368,24 @@ const CourtStatus = () => {
 
       {/* Sport Selection */}
       <div className="cs-sport-tabs">
-        {sports.map(sport => (
-          <button
-            key={sport.id}
-            onClick={() => handleSportChange(sport.id)}
-            className={`cs-sport-tab ${selectedSport === sport.id ? 'active' : ''}`}
-          >
-            <span className="cs-sport-name" style={{
-              fontFamily: 'Georgia, Times New Roman, Times, serif',
-              fontSize: '1.1rem',
-              textAlign: 'center',
-            }}>
-              {sport.name}
-            </span>
-          </button>
-        ))}
+        {sports.map(sport => {
+          const sportId = sport.id || sport._id;
+          return (
+            <button
+              key={sportId}
+              onClick={() => handleSportChange(sportId)}
+              className={`cs-sport-tab ${selectedSport === sportId ? 'active' : ''}`}
+            >
+              <span className="cs-sport-name" style={{
+                fontFamily: 'Georgia, Times New Roman, Times, serif',
+                fontSize: '1.1rem',
+                textAlign: 'center',
+              }}>
+                {sport.name}
+              </span>
+            </button>
+          );
+        })}
       </div>
 
       {/* Facility Map */}
@@ -435,15 +516,16 @@ const CourtStatus = () => {
                   <td className="cs-court-name">{court.name}</td>
                   {timeSlots.map(slot => {
                     const slotInfo = court.slots[slot.id];
+                    const status = slotInfo?.status || 'available';
                     return (
                       <td 
                         key={slot.id}
-                        className={`cs-slot ${slotInfo?.status || 'unknown'} ${slot.id === currentTimeSlotId ? 'current-time' : ''}`}
-                        onClick={() => slotInfo && toggleBooking(court.id, slot.id, slotInfo.status)}
-                        title={slotInfo ? `${getStatusLabel(slotInfo.status)} - Click to change status` : 'Unknown status'}
+                        className={`cs-slot ${status} ${slot.id === currentTimeSlotId ? 'current-time' : ''}`}
+                        onClick={() => slotInfo && toggleBooking(court.id, slot.id, status)}
+                        title={slotInfo ? `${getStatusLabel(status)} - Click to change status` : 'Available'}
                       >
                         <span className="cs-status-indicator">
-                          {slotInfo ? getStatusLabel(slotInfo.status).charAt(0) : '?'}
+                          {getStatusLabel(status).charAt(0)}
                         </span>
                       </td>
                     );
@@ -456,11 +538,6 @@ const CourtStatus = () => {
       </div>
       
       <footer className="cs-footer">
-        {authToken ? (
-          <p>Admin mode: Click on any cell to cycle through booking statuses</p>
-        ) : (
-          <p></p>
-        )}
         <p className="cs-facility-info"></p>
       </footer>
     </div>

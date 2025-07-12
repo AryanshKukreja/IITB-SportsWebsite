@@ -1,70 +1,62 @@
-import React from 'react'
+import React from 'react';
 import { useRef } from "react";
-import { Link } from "react-router-dom";
-import "./Navbar.css"
-// import { useState } from 'react';
-import logo from './assets/sports-logo-transparent.png'
+import "./Navbar.css";
+import logo from './assets/sports-logo-transparent.png';
 import { FaBars, FaTimes } from "react-icons/fa";
-// import { GiHamburgerMenu } from "react-icons/gi";
-
 
 const Navbar = () => {
-//   const [showmediaicon, setshowmediaicon] = useState(false);
   const navRef = useRef();
   const head = useRef();
+  
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
     head.current.classList.toggle("res_head");
   };
+
   return (
     <header className='head'>
-      <div className='logo2'  ref={head}>
-          <img src={logo} className='logoimg2' alt='logo'></img>
+      <div className='logo2' ref={head}>
+        <img src={logo} className='logoimg2' alt='logo'></img>
       </div>
       <nav className='mainNav' ref={navRef}>
-        {/* <div className='logo'>
-          <img src={logo} className='logoimg' alt='logo'></img>
-        </div> */}
         <div className="menu">
-          <ul >
+          <ul>
             <li className='menuItem'>
-              <Link to="/sports">Home</Link>
+              <a href="/sports">Home</a>
             </li>
             <li className='menuItem'>
-              <Link to="/sports/explore">Sports</Link>
+              <a href="/sports/explore">Sports</a>
             </li>
             <li className='menuItem'>
-              <Link to="/sports/CourtStatus">CourtStatus</Link>
+              <a href="/sports/CourtStatus">CourtStatus</a>
             </li>
             <li className='menuItem'>
-              <Link to="/sports/GC">GC</Link>
+              <a href="/sports/GC">GC</a>
             </li>
             <li className='menuItem'>
-              <Link to="/sports/events-timeline">EventsTimeLine</Link>
+              <a href="/sports/events-timeline">EventsTimeLine</a>
             </li>
             <li className='menuItem'>
-              <Link to="/sports/turfbooking">TurfBooking</Link>
+              <a href="/sports/turfbooking">TurfBooking</a>
             </li>
             <li className='menuItem'>
-              <Link to="/sports/contact">Contact Us</Link>
+              <a href="/sports/contact">Contact Us</a>
+            </li>
+            {/* Admin Panel Link */}
+            <li className='menuItem admin-link'>
+              <a href="/sports/admin-court-management">Admin Panel</a>
             </li>
           </ul>
-          {/* hamburget menu start  */}
-          {/* <div className="hamburger-menu">
-            <a href='#' onClick={() => setshowmediaicon(!showmediaicon)}>
-              <GiHamburgerMenu />
-            </a>
-          </div> */}
         </div>
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
-            <FaTimes />
-          </button>
+          <FaTimes />
+        </button>
       </nav>
       <button className="nav-btn" onClick={showNavbar}>
         <FaBars />
       </button>
     </header>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

@@ -1,0 +1,132 @@
+.court-status-admin {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.court-status-admin h2 {
+  color: #f8fafc;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.admin-controls {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #0f172a;
+  border-radius: 12px;
+  border: 1px solid #334155;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.control-group label {
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.admin-select {
+  padding: 0.5rem;
+  border: 2px solid #334155;
+  border-radius: 8px;
+  background: #1e293b;
+  color: #f8fafc;
+  min-width: 150px;
+}
+
+.admin-select:focus {
+  outline: none;
+  border-color: #e53e3e;
+}
+
+.courts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.court-admin-card {
+  background: #0f172a;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid #334155;
+}
+
+.court-admin-card h3 {
+  color: #7ee7ff;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.slots-admin-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.slot-admin-item {
+  background: #1e293b;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.slot-time {
+  color: #cbd5e1;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.slot-status-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-indicator {
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: capitalize;
+}
+
+.status-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.status-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  background: #334155;
+  color: #94a3b8;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.status-btn:hover {
+  background: #475569;
+  color: #cbd5e1;
+}
+
+.status-btn.active {
+  background: #e53e3e;
+  color: white;
+}
+
+.admin-loading {
+  text-align: center;
+  padding: 4rem;
+  color: #94a3b8;
+  font-size: 1.2rem;
+}

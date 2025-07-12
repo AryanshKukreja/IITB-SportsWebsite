@@ -1,0 +1,890 @@
+/* Import matching font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* Container */
+.admin-court-container {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0f172a;
+  min-height: 100vh;
+  color: #cbd5e1;
+}
+
+/* Loading */
+.admin-loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #334155;
+  border-top: 4px solid #e53e3e;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Login Section */
+.admin-login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.admin-login-card {
+  background: #1e293b;
+  padding: 3rem;
+  border-radius: 24px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.admin-login-card h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #e53e3e 0%, #f56565 50%, #fc8181 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+.admin-login-card p {
+  color: #94a3b8;
+  margin-bottom: 2rem;
+}
+
+.admin-login-form {
+  text-align: left;
+}
+
+/* Header */
+.admin-court-header {
+  background: #1e293b;
+  border-bottom: 1px solid #334155;
+  padding: 2rem;
+}
+
+.admin-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-court-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #e53e3e 0%, #f56565 50%, #fc8181 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.admin-user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #cbd5e1;
+}
+
+.admin-logout-btn {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.admin-logout-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Tabs */
+.admin-tabs {
+  background: #1e293b;
+  border-bottom: 1px solid #334155;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+}
+
+.admin-tabs button {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-weight: 600;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.admin-tabs button:hover {
+  color: #cbd5e1;
+  background: rgba(229, 62, 62, 0.1);
+}
+
+.admin-tabs button.active {
+  color: #f56565;
+  border-bottom-color: #f56565;
+  background: rgba(229, 62, 62, 0.1);
+}
+
+/* Content */
+.admin-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Message */
+.admin-message {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.admin-message.success {
+  background: rgba(34, 197, 94, 0.1);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.admin-message.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.admin-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #334155;
+  border-radius: 12px;
+  background: #0f172a;
+  color: #f8fafc;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.admin-input:focus {
+  outline: none;
+  border-color: #e53e3e;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.2);
+}
+
+.admin-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #334155;
+  border-radius: 12px;
+  background: #0f172a;
+  color: #f8fafc;
+  font-size: 1rem;
+}
+
+.admin-select:focus {
+  outline: none;
+  border-color: #e53e3e;
+}
+
+.admin-login-btn {
+  width: 100%;
+  color: white;
+  background: linear-gradient(135deg, #e53e3e 0%, #f56565 100%);
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 1rem;
+}
+
+.admin-login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(229, 62, 62, 0.3);
+}
+
+.error-message {
+  background: rgba(239, 68, 68, 0.1);
+  color: #fca5a5;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Admin Controls */
+.admin-controls {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #1e293b;
+  border-radius: 16px;
+  border: 1px solid #334155;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.control-group label {
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+/* Court Management */
+.courts-management {
+  display: grid;
+  gap: 2rem;
+}
+
+.court-card {
+  background: #1e293b;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid #334155;
+}
+
+.court-card h3 {
+  color: #7ee7ff;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.slot-item {
+  background: #0f172a;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid #334155;
+}
+
+.slot-time {
+  color: #cbd5e1;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.slot-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.status-indicator {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.status-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.status-btn {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.status-btn.available {
+  background: #374151;
+  color: #22c55e;
+  border: 1px solid #22c55e;
+}
+
+.status-btn.available.active {
+  background: #22c55e;
+  color: white;
+}
+
+.status-btn.booked {
+  background: #374151;
+  color: #ef4444;
+  border: 1px solid #ef4444;
+}
+
+.status-btn.booked.active {
+  background: #ef4444;
+  color: white;
+}
+
+.status-btn.maintenance {
+  background: #374151;
+  color: #f59e0b;
+  border: 1px solid #f59e0b;
+}
+
+.status-btn.maintenance.active {
+  background: #f59e0b;
+  color: white;
+}
+
+.status-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Time Slots Section */
+.time-slot-forms {
+  margin-bottom: 3rem;
+}
+
+.form-section {
+  background: #1e293b;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid #334155;
+  margin-bottom: 2rem;
+}
+
+.form-section h3 {
+  color: #cbd5e1;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.admin-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.admin-btn.primary {
+  background: linear-gradient(135deg, #e53e3e 0%, #f56565 100%);
+  color: white;
+}
+
+.admin-btn.danger {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+}
+
+.admin-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.existing-slots h3 {
+  color: #f8fafc;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.slots-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.slot-card {
+  background: #1e293b;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slot-info h4 {
+  color: #7ee7ff;
+  margin-bottom: 0.5rem;
+}
+
+.slot-info p {
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-header-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .admin-controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .slots-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .status-buttons {
+    grid-template-columns: 1fr;
+  }
+  
+  .admin-tabs {
+    flex-direction: column;
+  }
+  
+  .admin-tabs button {
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* Enhanced sport card with court management */
+.sport-card.enhanced {
+  background: #1e293b;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid #334155;
+  transition: all 0.3s ease;
+}
+
+.sport-card.enhanced:hover {
+  border-color: #475569;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.court-count-section {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #334155;
+}
+
+.court-count-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.court-count {
+  color: #7ee7ff;
+  font-size: 1.1rem;
+}
+
+.court-count strong {
+  color: #f8fafc;
+  font-size: 1.3rem;
+}
+
+/* Court editing form */
+.court-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.court-edit-form label {
+  color: #cbd5e1;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.court-edit-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-input.small {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  max-width: 100px;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.admin-btn.small {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  min-width: 80px;
+}
+
+.admin-btn.secondary {
+  background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+  color: white;
+}
+
+/* Status legend */
+.status-legend {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: #0f172a;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.status-legend h4 {
+  color: #cbd5e1;
+  margin-bottom: 1rem;
+}
+
+.legend-items {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.legend-item.available {
+  background: #22c55e;
+  color: white;
+}
+
+.legend-item.booked {
+  background: #ef4444;
+  color: white;
+}
+
+.legend-item.maintenance {
+  background: #f59e0b;
+  color: white;
+}
+
+/* Enhanced slot controls */
+.slot-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.status-indicator {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+.status-btn {
+  padding: 0.75rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.status-btn.available {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  border-color: #22c55e;
+}
+
+.status-btn.available.active {
+  background: #22c55e;
+  color: white;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.status-btn.booked {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border-color: #ef4444;
+}
+
+.status-btn.booked.active {
+  background: #ef4444;
+  color: white;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.status-btn.maintenance {
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+  border-color: #f59e0b;
+}
+
+.status-btn.maintenance.active {
+  background: #f59e0b;
+  color: white;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.status-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Debug info styling */
+.debug-info {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.debug-info p {
+  color: #60a5fa;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.debug-info ul {
+  color: #cbd5e1;
+  margin: 0;
+}
+
+/* Form help text */
+.form-help {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .court-count-display {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  
+  .court-edit-controls {
+    align-items: stretch;
+  }
+  
+  .edit-actions {
+    justify-content: stretch;
+  }
+  
+  .admin-btn.small {
+    flex: 1;
+  }
+  
+  .status-buttons {
+    grid-template-columns: 1fr;
+  }
+  
+  .legend-items {
+    flex-direction: column;
+  }
+  
+  .slots-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Compact court grid layout */
+.courts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.court-card.compact {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.court-card.compact h3 {
+  margin: 0 0 0.75rem 0;
+  color: #1f2937;
+  font-size: 1.1rem;
+}
+
+.slots-grid.compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+}
+
+.slot-item.compact {
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+}
+
+.slot-item.compact .slot-time {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.slot-status-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.status-indicator.compact {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  color: white;
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.status-dropdown {
+  padding: 0.375rem 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.status-dropdown:hover {
+  border-color: #9ca3af;
+}
+
+.status-dropdown:disabled {
+  background: #f3f4f6;
+  cursor: not-allowed;
+}
+
+.updating-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+}
+
+.mini-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #e5e7eb;
+  border-top: 2px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Legend improvements */
+.legend-items {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  color: white;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.legend-item.available {
+  background-color: #22c55e;
+}
+
+.legend-item.booked {
+  background-color: #ef4444;
+}
+
+.legend-item.maintenance {
+  background-color: #f59e0b;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .courts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .slots-grid.compact {
+    grid-template-columns: 1fr;
+  }
+  
+  .legend-items {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
