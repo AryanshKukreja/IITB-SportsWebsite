@@ -21,7 +21,6 @@ import p6 from '../assets/p6.JPG';
 // import pool2 from '../assets/pool2.jpg';
 import pool3 from '../assets/pool3.jpeg';
 import pool4 from '../assets/pool4.jpeg';
-import asec from '../assets/asec.png';
 import user from '../assets/user.jpg';
 
 const Aquatics = () => {
@@ -198,10 +197,10 @@ const Aquatics = () => {
 
           </div>
           <div className='contactCard' >
-            <img alt="alt" src={asec} className='contactImg' />
-            <p className='aq-name'>Achirangshu Dakua</p>
+            <img alt="alt" src={user} className='contactImg' />
+            <p className='aq-name'>Meet Vanja</p>
             <p className='info'>Institute Aquatics Secretary</p>
-            <p className='info'>+91 94745 91609</p>
+            <p className='info'>+91 93235 87701</p>
           </div>
         </div>
 
