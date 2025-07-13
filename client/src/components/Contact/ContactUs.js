@@ -13,7 +13,7 @@ const ContactUs = () => {
         </p> */}
         {/* <p>
             <span className="tele"><img src='./pictures/phone.svg' width='25px'alt='img' />9048979758</span> 
-            <button><Link to="/sports/SAC">Click to know more..</Link></button>
+            <button><Link to="/SAC">Click to know more..</Link></button>
         </p> */}
         <h2 className="insti ISC">Institute Sports Council</h2>
         <p>
@@ -23,7 +23,7 @@ const ContactUs = () => {
             <span className="tele"><MdCall size={25} color="rgb(126, 255, 188)"/>+91 96190 00065</span> 
             </p>
             <p>
-            <button class="btn"><Link to="/sports/Council">Click to know more..</Link></button>
+            <button class="btn"><Link to="/Council">Discover the Council</Link></button>
         </p>
         <h2 className="insti WEB">Web Team</h2>
         <p>
@@ -33,7 +33,7 @@ const ContactUs = () => {
             <span className="tele"><MdCall size={25} color="rgb(126, 255, 188)"/>+91 99928 88093</span> 
             </p>
             <p>
-            <button class="btn"><Link to="/sports/Webteam">Click to know more..</Link></button>
+            <button class="btn"><Link to="/Webteam">Discover the Web Team</Link></button>
         </p>
         </div>
     );

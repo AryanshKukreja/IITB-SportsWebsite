@@ -2,29 +2,28 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Sports.css'; // Import the CSS file
 
-
 function Sports() {
   const sportsList = [
-    { name: 'Aquatics', image: '/images/aquatics.png', link: '/sports/aquatics'},
-    { name: 'Athletics', image: '/images/athletics.jpg', link: '/sports/athletics'},
-    { name: 'Badminton', image: '/images/badminton.png', link: '/sports/badminton'},
-    { name: 'Basketball', image: '/images/basketball.png', link: '/sports/basketball'},
-    { name: 'Board Games', image: '/images/boardgames.png', link: '/sports/boardgames'},
-    { name: 'Cricket', image: '/images/cricket.png', link: '/sports/cricket' },
-    { name: 'Football', image: '/images/football.png', link: '/sports/football' },
-    { name: 'Hockey', image: '/images/hockey.png', link: '/sports/hockey'},
-    { name: 'Indian Games', image: '/images/khokho.png', link: '/sports/indiangames'},
-    { name: 'Lawn Tennis', image: '/images/tennis.png', link: '/sports/tennis' },
-    { name: 'Squash', image: '/images/squash.png', link: '/sports/squash'},
-    { name: 'Table Tennis', image: '/images/tabletennis.png', link: '/sports/tabletennis'},
-    { name: 'Volleyball', image: '/images/volleyball.png', link: '/sports/volleyball'},
-    { name: 'Weightlifting', image: '/images/weightlifting.png', link: '/sports/weightlifting'},
+    { name: 'Aquatics', image: '/images/aquatics.png', link: '/aquatics'},
+    { name: 'Athletics', image: '/images/athletics.jpg', link: '/athletics'},
+    { name: 'Badminton', image: '/images/badminton.png', link: '/badminton'},
+    { name: 'Basketball', image: '/images/basketball.png', link: '/basketball'},
+    { name: 'Board Games', image: '/images/boardgames.png', link: '/boardgames'},
+    { name: 'Cricket', image: '/images/cricket.png', link: '/cricket' },
+    { name: 'Football', image: '/images/football.png', link: '/football' },
+    { name: 'Hockey', image: '/images/hockey.png', link: '/hockey'},
+    { name: 'Indian Games', image: '/images/khokho.png', link: '/indiangames'},
+    { name: 'Lawn Tennis', image: '/images/tennis.png', link: '/tennis' },
+    { name: 'Squash', image: '/images/squash.png', link: '/squash'},
+    { name: 'Table Tennis', image: '/images/tabletennis.png', link: '/tabletennis'},
+    { name: 'Volleyball', image: '/images/volleyball.png', link: '/volleyball'},
+    { name: 'Weightlifting', image: '/images/weightlifting.png', link: '/weightlifting'},
     // Add more sports as needed
-    { name: 'Adventure Club', image: '/images/adventure.png', link: '/sports/adventureclub'},
-    { name: 'Dark Knight Chess Club',image: '/images/chess.png', link: '/sports/chess'},
-    { name: "Rubik's club",image: '/images/Rubiks.png',link: '/sports/rubik'},
-    { name: "Ultimate Frisbee Club", image: '/images/Frisbee.png', link:'/sports/frisbee'},
-    { name: "Yogastha", image: '/images/yoga.png',link:'/sports/yoga'},
+    { name: 'Adventure Club', image: '/images/adventure.png', link: '/adventureclub'},
+    { name: 'Dark Knight Chess Club',image: '/images/chess.png', link: '/chess'},
+    { name: "Rubik's club",image: '/images/Rubiks.png',link: '/rubik'},
+    { name: "Ultimate Frisbee Club", image: '/images/Frisbee.png', link:'/frisbee'},
+    { name: "Yogastha", image: '/images/yoga.png',link:'/yoga'},
   ];
 
   return (
