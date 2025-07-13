@@ -129,33 +129,6 @@ const Chess = () => {
       </div>
 
 
-      <div className='events'>
-        <div className='aq-heading'>
-          <MdDoubleArrow className='arrow' />
-          <h3 className='aq-headingtext'>Events</h3>
-        </div>
-
-        <div className='cardslist'>
-          {cards.map((card, index) => {
-            const isExpanded = expandedCard === index;
-            const cardClass = ['aq-card', isExpanded ? 'expanded' : ''].filter(Boolean).join(' ');
-            return (
-              <div
-                className={cardClass}
-                key={index}
-                style={isExpanded ? { zIndex: 10 } : {}}
-                onClick={() => toggleContent(index)}
-              >
-                <h3 className="aq-card-heading">{card.title}</h3>
-                {isExpanded && (
-                  <p className="aq-card-content">{card.content}</p>
-                )}
-              </div>
-            );
-          })}
-        </div>
-        {/* cardlist */}
-      </div>
 
       <div className='achievements'>
         <div className='aq-heading' id='head-achieve'>
@@ -178,7 +151,7 @@ const Chess = () => {
           <div className='contactCard' >
             <img alt="alt" src={c1} className='contactImg' />
             <p className='aq-name'>Shreyas</p>
-            <p className='info'>Institute Chess Secretary</p>
+            <p className='info'>DKCC Manager</p>
             <p className='info'>+91 86574 14616</p>
           </div>
         </div>
@@ -204,11 +177,6 @@ const Chess = () => {
         <img src={time2} className='schimg' />
       </div> */}
 
-      <div className='location'>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1884.6801509832069!2d72.91331199999999!3d19.135699499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b808367d7489%3A0x5936f3009b0ecd48!2sBaby%20Swimming%20Pool.%20IIT%20Bombay!5e0!3m2!1sen!2sin!4v1719689561544!5m2!1sen!2sin"
-          width="700" height="450" className='map' allowFullScreen="" loading="lazy" title="chess" referrerPolicy="no-referrer-when-downgrade"></iframe>
-        <p className='sideL'>Location</p>
-      </div>
     </div>
   )
 }

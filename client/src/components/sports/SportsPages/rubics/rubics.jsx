@@ -126,32 +126,6 @@ const Rubics = () => {
         </div>
       </div>
 
-
-      <div className='events'>
-        <div className='aq-heading'>
-          <MdDoubleArrow className='arrow' />
-          <h3 className='aq-headingtext'>Events</h3>
-        </div>
-        <div className='cardslist'>
-          {cards.map((card, index) => {
-            const isExpanded = expandedCard === index;
-            const cardClass = ['aq-card', isExpanded ? 'expanded' : ''].filter(Boolean).join(' ');
-            return (
-              <div
-                className={cardClass}
-                key={index}
-                style={isExpanded ? { zIndex: 10 } : {}}
-                onClick={() => toggleContent(index)}
-              >
-                <h3 className="aq-card-heading">{card.title}</h3>
-                {isExpanded && (
-                  <p className="aq-card-content">{card.content}</p>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </div>
       <div className='achievements'>
         <div className='aq-heading' id='head-achieve'>
           <MdDoubleArrow className='arrow' />
@@ -200,11 +174,6 @@ const Rubics = () => {
         <img src={time2} className='schimg'/>
       </div> */}
 
-      <div className='location'>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.4020806480025!2d72.9093683747526!3d19.133869182082652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b80820306e3f%3A0xa4024d1ba55c8ed1!2sIITB%20New%20Gymkhana!5e0!3m2!1sen!2sin!4v1721551340933!5m2!1sen!2sin" 
-        width="700" height="450" className='map' allowFullScreen="" loading="lazy" title="rubiks" referrerPolicy="no-referrer-when-downgrade"></iframe>
-        <p className='sideL'>Location</p>
-      </div>
     </div>
   )
 }

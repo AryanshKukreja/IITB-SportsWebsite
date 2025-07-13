@@ -18,7 +18,6 @@ import y6 from "./assets/y6.JPG";
 
 
 const Yogastha = () => {
-  const [expandedCard, setExpandedCard] = useState(null);
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -33,45 +32,6 @@ const Yogastha = () => {
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
   };
-
-
-
-  const toggleContent = (cardIndex) => {
-    if (expandedCard === cardIndex) {
-      setExpandedCard(null); // Collapse the card if it's already expanded
-    } else {
-      setExpandedCard(cardIndex); // Expand the clicked card
-    }
-  };
-
-  const cards = [
-    {
-      title: 'Lawn Tennis GC',
-      content: 'This event is held once a year in the Spring Semester under three categories: Boys, Girls and PG’s. In this event the best tennis players from each hostel go head to head to determine which hostel boasts of the best talent in Lawn Tennis.'
-    },
-    {
-      title: 'NSO',
-      content: 'It’s a part of the academic curriculum for the undergraduate students. Through selections for students who opted for cricket nearly 30-40 are selected and trained throughout the academic year, 2 days a week (Monday and Tuesday).'
-    },
-    {
-      title: 'Institute Tennis League',
-      content: 'This usually follows the Institute Tennis Open, and is IIT-B’s version of the IPTL. It is a team based event in which 8 managers are in charge of 8 teams. There is an auction of the players. The teams are divided into two pools of four each and play round-robin amongst each other. The format of each tie consists of: Men’s Singles, Men’s Doubles, Women’s Singles, Mixed Doubles.'
-    },
-    {
-      title: 'Institute Tennis Open',
-      content: 'It is the flagship open tournament for Tennis at IIT Bombay. This tournament is open to all -students, alumni, professors and staff. It is a grand-slam styled open singles tournament and is held in the Autumn Semester.'         
-    },
-    {
-      title: 'Freshiesta',
-      content: 'This tournament gives the freshers a chance to showcase their talent. It gives an opportunity to the NSO students to see their improvement through the months and the non-NSO students a chance to battle it out with the regulars. It follows a compass draw format in which everyone gets to play an equal number of matches and it keeps the knockout spirit alive.'
-    },
-    {
-      title: 'Summer Slam',
-      content: '  It is conducted late in the month of March.Open for all(boys and girls) but the format is made a little different from Tennis Open( a little more exciting like best of 21 points or best of 3 mini sets) instead of the standard tennis set pattern.'
- 
-    }
-  ];
-
   // const imageSliderSettings = {
   //   dots: true,
   //   speed: 1000,
@@ -127,32 +87,6 @@ const Yogastha = () => {
         </div>
       </div>
 
-      <div className='events'>
-        <div className='aq-heading'>
-          <MdDoubleArrow className='arrow' />
-          <h3 className='aq-headingtext'>Events</h3>
-        </div>
-        <div className='cardslist'>
-          {cards.map((card, index) => {
-            const isExpanded = expandedCard === index;
-            const cardClass = ['aq-card', isExpanded ? 'expanded' : ''].filter(Boolean).join(' ');
-            return (
-              <div
-                className={cardClass}
-                key={index}
-                style={isExpanded ? { zIndex: 10 } : {}}
-                onClick={() => toggleContent(index)}
-              >
-                <h3 className="aq-card-heading">{card.title}</h3>
-                {isExpanded && (
-                  <p className="aq-card-content">{card.content}</p>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
        <div className='achievements'>
         <div className='aq-heading' id='head-achieve'>
           <MdDoubleArrow className='arrow' />
@@ -171,9 +105,9 @@ const Yogastha = () => {
         <div className='contactlist'>
           <div className='contactCard'>
             <img alt="alt" className='contactImg' />
-            <p className='aq-name'>??</p>
-            <p className='info'>Institute Adventure Club Secretary</p>
-            <p className='info'>+91  82334 70289</p>
+            <p className='aq-name'>Nidhi Verma</p>
+            <p className='info'>Institute Yoga Manager</p>
+            <p className='info'>+91 86024 09282</p>
           </div>
         </div>
       </div>
@@ -190,20 +124,6 @@ const Yogastha = () => {
             <button onClick={handleNext}>Next</button>
           </div>
         </div>
-      </div>
-
-      <div className='location'>
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.38794229164!2d72.90822443382704!3d19.134488600267908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c74281daf5e3%3A0xe0c050e0ec9a18cf!2sTennis%20court!5e0!3m2!1sen!2sin!4v1720443451101!5m2!1sen!2sin" 
-          width="600" 
-          height="450" 
-          style={{ border: 0 }} 
-          allowFullScreen="" 
-          loading="lazy" 
-          referrerPolicy="no-referrer-when-downgrade"
-          title="yoga"
-        ></iframe>
-        <p className='sideL'>Location</p>
       </div>
     </div>
   );

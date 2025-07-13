@@ -111,32 +111,6 @@ const AdventureClub = () => {
         </div>
       </div>
 
-      <div className='events'>
-        <div className='aq-heading'>
-          <MdDoubleArrow className='arrow' />
-          <h3 className='aq-headingtext'>Events</h3>
-        </div>
-        <div className='cardslist'>
-          {cards.map((card, index) => {
-            const isExpanded = expandedCard === index;
-            const cardClass = ['aq-card', isExpanded ? 'expanded' : ''].filter(Boolean).join(' ');
-            return (
-              <div
-                className={cardClass}
-                key={index}
-                style={isExpanded ? { zIndex: 10 } : {}}
-                onClick={() => toggleContent(index)}
-              >
-                <h3 className="aq-card-heading">{card.title}</h3>
-                {isExpanded && (
-                  <p className="aq-card-content">{card.content}</p>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
       <div className='contacts'>
         <div className='aq-heading'>
           <MdDoubleArrow className='arrow' />
@@ -164,20 +138,6 @@ const AdventureClub = () => {
             <button onClick={handleNext}>Next</button>
           </div>
         </div>
-      </div>
-
-      <div className='location'>
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.38794229164!2d72.90822443382704!3d19.134488600267908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c74281daf5e3%3A0xe0c050e0ec9a18cf!2sTennis%20court!5e0!3m2!1sen!2sin!4v1720443451101!5m2!1sen!2sin" 
-          width="600" 
-          height="450" 
-          style={{ border: 0 }} 
-          allowFullScreen="" 
-          loading="lazy" 
-          referrerPolicy="no-referrer-when-downgrade"
-          title="adventure club location"
-        ></iframe>
-        <p className='sideL'>Location</p>
       </div>
     </div>
   );
