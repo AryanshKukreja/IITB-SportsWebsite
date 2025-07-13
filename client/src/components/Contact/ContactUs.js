@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ContactMe from "./contactform";
 import './page.css';
 import { MdEmail, MdCall } from "react-icons/md";
 
@@ -22,7 +23,7 @@ const ContactUs = () => {
             <span className="tele"><MdCall size={25} color="rgb(126, 255, 188)"/>+91 96190 00065</span> 
             </p>
             <p>
-            <button class="btn"><Link to="/sports/Council">Explore the Sports Council</Link></button>
+            <button class="btn"><Link to="/sports/Council">Click to know more..</Link></button>
         </p>
         <h2 className="insti WEB">Web Team</h2>
         <p>
@@ -32,7 +33,7 @@ const ContactUs = () => {
             <span className="tele"><MdCall size={25} color="rgb(126, 255, 188)"/>+91 99928 88093</span> 
             </p>
             <p>
-            <button class="btn"><Link to="/sports/Webteam">Explore the Web Team</Link></button>
+            <button class="btn"><Link to="/sports/Webteam">Click to know more..</Link></button>
         </p>
         </div>
     );
