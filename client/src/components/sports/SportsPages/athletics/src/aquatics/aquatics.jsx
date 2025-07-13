@@ -23,7 +23,7 @@ import pool3 from '../assets/pool3.jpeg';
 import pool4 from '../assets/pool4.jpeg';
 import user from '../assets/user.jpg';
 
-const Aquatics = () => {
+const athletics = () => {
   const [expandedCard, setExpandedCard] = useState(null);
 
   const toggleContent = (cardIndex) => {
@@ -113,17 +113,14 @@ const Aquatics = () => {
   return (
     <div className='aq-pageContainer'>
       <div className='titleText'>
-        Aquatics
+       Athletics
       </div>
 
 
       <div className='aq-about'>
-        Comprising of Swimming and Water Polo, Aquatics is one of the most widely practiced sports at IIT Bombay.
-        The magnificent Olympic-sized pool, newly built and impeccably maintained, welcomes anyone seeking recreation
-        or competitive glory. Owing to the coaches Reddy Sir (Retd.) and Ritesh Sir,  IIT Bombay Aquatics has witnessed
-        a tremendous growth over the years.  With several exciting events spread throughout the year to cater to all levels of players,
-        IITB Aquatics functions with the sole aim of promoting Swimming and Water Polo. Fueled by exceptional coaching and unwavering commitment,
-        IIT Bombay's Swimming and Water Polo teams have built a legacy of excellence at the Inter-IIT Aquatics Meet.
+        Comprising track and field events, Athletics is one of the most spirited and inclusive sports at IIT Bombay. With a well-maintained grass track and year-round training under the guidance of Irfan Sir and Renu Ma’am — our dedicated male and female coaches — the team strives for all-round excellence.
+        Known for its strong team culture, IITB Athletics is where beginners rise to greatness, supported and cheered by teammates at every step. The journey matters just as much as the finish line.
+        Fueled by passion, hard work, and team spirit, Athletics at IIT Bombay has been building a strong legacy at the Inter-IIT Sports Meet.
       </div>
 
 
