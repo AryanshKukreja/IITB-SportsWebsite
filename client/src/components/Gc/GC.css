@@ -9,6 +9,12 @@
 }
 
 /* Main Container */
+.hostel-logo {
+  width: 70px;
+  height: 40px;
+  object-fit: contain;
+}
+
 .gc-tabs {
   display: flex;
   justify-content: center;

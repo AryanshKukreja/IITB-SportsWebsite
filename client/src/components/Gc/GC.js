@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+//import { Link } from "react-router-dom";
 import "./GC.css";
 
-// Sports data for the championship
+
 const sportsData = {
   Aquatics: [
     { name: "H3", points: 10 },
@@ -174,25 +175,25 @@ const girlssportsData = {
 
 // Overall standings data
 const standings = [
-  { name: "H2", points: 99.5 },
-  { name: "H3", points: 82.5 },
-  { name: "H18", points: 65.5 },
-  { name: "H6", points: 61.5 },
-  { name: "H5", points: 61.5 },
-  { name: "H9", points: 55 },
-  { name: "H14", points: 24 },
-   { name: "H1+16", points: 21.5 },
-  { name: "H12", points: 20 },
-  { name: "H13", points: 18.5 },
-  { name: "H17", points: 12 },
-   { name: "H4", points: 10 },
+  { name: "H2", points: 99.5, image:"/hostel_logos/H2.png" },
+  { name: "H3", points: 82.5, image:"/hostel_logos/H2.png" },
+  { name: "H18", points: 65.5, image:"/hostel_logos/H2.png"},
+  { name: "H6", points: 61.5, image:"/hostel_logos/H2.png" },
+  { name: "H5", points: 61.5, image:"/hostel_logos/H2.png" },
+  { name: "H9", points: 55, image:"/hostel_logos/H2.png" },
+  { name: "H14", points: 24, image:"/hostel_logos/H2.png" },
+   { name: "H1+16", points: 21.5, image:"/hostel_logos/H2.png" },
+  { name: "H12", points: 20, image:"/hostel_logos/H2.png" },
+  { name: "H13", points: 18.5,image:"/hostel_logos/H2.png" },
+  { name: "H17", points: 12, image:"/hostel_logos/H2.png" },
+   { name: "H4", points: 10,  image:"/hostel_logos/H2.png"},
 ];
 
 const girlsStandings = [
-  { name: "H10", points: 116 },
-  { name: "H15B", points: 100 },
-  { name: "H15A", points: 62 },
-  { name: "H11", points: 56 }
+  { name: "H10", points: 116,  },
+  { name: "H15B", points: 100,  },
+  { name: "H15A", points: 62,  },
+  { name: "H11", points: 56, }
 ];
 
 const GC = () => {
@@ -265,6 +266,7 @@ const GC = () => {
           <thead>
             <tr>
               <th>Rank</th>
+              <th>Logo</th>
               <th>Hostel</th>
               <th>Points</th>
             </tr>
@@ -272,7 +274,34 @@ const GC = () => {
           <tbody>
             {currentStandings.map((hostel, index) => (
               <tr key={index}>
-                <td>{index + 1}</td>
+                <td>{index + 1}</td>                
+                 <td>
+                  <img
+                    src={`${process.env.PUBLIC_URL}/hostel_logos/${
+                      [ "H4", "H1+16", "H1-16"].includes(hostel.name) ? "H1" : hostel.name
+                    }.png`}
+                    alt={`${hostel.name} logo`}
+                    className="hostel-logo"
+                  />
+
+
+                  <div 
+                    className="hostel-logo-placeholder"
+                    style={{ 
+                      display: 'none',
+                      width: '40px',
+                      height: '40px',
+                      backgroundColor: '#f0f0f0',
+                      border: '1px solid #ccc',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '12px',
+                      color: '#666'
+                    }}
+                  >
+                    {hostel.name}
+                  </div>
+                </td>
                 <td>{hostel.name}</td>
                 <td>{hostel.points}</td>
               </tr>
