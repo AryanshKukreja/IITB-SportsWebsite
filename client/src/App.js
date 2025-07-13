@@ -18,8 +18,7 @@ import "./App.css";
 import AdminCourtManagement from "./components/admin/AdminCourtManagement";
 import Football from './components/sports/SportsPages/football/football/Football';
 import Badminton from './components/sports/SportsPages/badminton/src/badminton/badminton';
-// Fixed import paths only:
-import Basketball from './components/sports/SportsPages/basketball/src/basketball/basketball';
+import Basketball from './components/sports/SportsPages/basketball/src/aquatics/basketball';
 import Squash from './components/sports/SportsPages/squash/squash/squash';
 import Tabletennis from './components/sports/SportsPages/tabletennis/tabletennis/tabletennis';
 import Tennis from './components/sports/SportsPages/tennis/Tennis';
@@ -28,15 +27,13 @@ import Wtlift from "./components/sports/SportsPages/wtlift/wtlift/wtlift";
 import IndianGames from "./components/sports/SportsPages/indiangames/indiangames/IndianGames";
 import Hockey from "./components/sports/SportsPages/hockey/hockey/Hockey";
 import Cricket from "./components/sports/SportsPages/cricket/cricket/Cricket";
-// Fixed import paths only:
-import BoardGames from "./components/sports/SportsPages/boardgame/src/boardgames/boardgames";
-import AdventureClub from "./components/sports/SportsPages/adventureclub/adventureclub";
+import BoardGames from "./components/sports/SportsPages/boardgame/src/aquatics/boardgames";
+import AdventureClub from "./components/sports/SportsPages/adventure club/adventureclub";
 import Yogastha from "./components/sports/SportsPages/yogastha/yogastha";
 import Chess from "./components/sports/SportsPages/chess/chess";
 import Rubics from "./components/sports/SportsPages/rubics/rubics";
 import Frisbee from "./components/sports/SportsPages/frisbee/frisbee";
-// Fixed import path only:
-import Athletics from "./components/sports/SportsPages/athletics/src/athletics/athletics";
+import Athletics from "./components/sports/SportsPages/athletics/src/aquatics/aquatics";
 
 function App() {
   // Correct basename for gymkhana server
