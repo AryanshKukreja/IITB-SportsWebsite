@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import logo from './assets/sports-logo-transparent.png';
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -7,44 +8,106 @@ import { FaBars, FaTimes } from "react-icons/fa";
 const Navbar = () => {
   const navRef = useRef();
   const head = useRef();
+  const location = useLocation();
   
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
     head.current.classList.toggle("res_head");
   };
 
+  // Close navbar when clicking on a link (for mobile)
+  const closeNavbar = () => {
+    navRef.current.classList.remove("responsive_nav");
+    head.current.classList.remove("res_head");
+  };
+
+  // Check if current route is active
+  const isActive = (path) => {
+    if (path === "/" && location.pathname === "/") return true;
+    if (path !== "/" && location.pathname === path) return true;
+    return false;
+  };
+
   return (
     <header className='head'>
       <div className='logo2' ref={head}>
-        <img src={logo} className='logoimg2' alt='logo'></img>
+        <img src={logo} className='logoimg2' alt='IITB Sports Logo'></img>
       </div>
       <nav className='mainNav' ref={navRef}>
         <div className="menu">
           <ul>
             <li className='menuItem'>
-              <a href="/sports">Home</a>
+              <Link 
+                to="/" 
+                onClick={closeNavbar}
+                className={isActive("/") ? "active" : ""}
+              >
+                Home
+              </Link>
             </li>
             <li className='menuItem'>
-              <a href="/sports/explore">Sports</a>
+              <Link 
+                to="/explore" 
+                onClick={closeNavbar}
+                className={isActive("/explore") ? "active" : ""}
+              >
+                Sports
+              </Link>
             </li>
             <li className='menuItem'>
-              <a href="/sports/CourtStatus">CourtStatus</a>
+              <Link 
+                to="/CourtStatus" 
+                onClick={closeNavbar}
+                className={isActive("/CourtStatus") ? "active" : ""}
+              >
+                Court Status
+              </Link>
             </li>
             <li className='menuItem'>
-              <a href="/sports/GC">GC</a>
+              <Link 
+                to="/GC" 
+                onClick={closeNavbar}
+                className={isActive("/GC") ? "active" : ""}
+              >
+                GC
+              </Link>
             </li>
             <li className='menuItem'>
-              <a href="/sports/events-timeline">EventsTimeLine</a>
+              <Link 
+                to="/events-timeline" 
+                onClick={closeNavbar}
+                className={isActive("/events-timeline") ? "active" : ""}
+              >
+                Events Timeline
+              </Link>
             </li>
             <li className='menuItem'>
-              <a href="/sports/turfbooking">TurfBooking</a>
+              <Link 
+                to="/turfbooking" 
+                onClick={closeNavbar}
+                className={isActive("/turfbooking") ? "active" : ""}
+              >
+                Turf Booking
+              </Link>
             </li>
             <li className='menuItem'>
-              <a href="/sports/contact">Contact Us</a>
+              <Link 
+                to="/contact" 
+                onClick={closeNavbar}
+                className={isActive("/contact") ? "active" : ""}
+              >
+                Contact Us
+              </Link>
             </li>
             {/* Admin Panel Link */}
             <li className='menuItem admin-link'>
-              <a href="/sports/admin-court-management">Admin Panel</a>
+              <Link 
+                to="/admin-court-management" 
+                onClick={closeNavbar}
+                className={isActive("/admin-court-management") ? "active" : ""}
+              >
+                Admin Panel
+              </Link>
             </li>
           </ul>
         </div>

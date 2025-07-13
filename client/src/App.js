@@ -36,8 +36,8 @@ import Frisbee from "./components/sports/SportsPages/frisbee/frisbee";
 import Athletics from "./components/sports/SportsPages/athletics/src/aquatics/aquatics";
 
 function App() {
-  // Dynamic basename for GitHub Pages vs local development
-  const basename = process.env.NODE_ENV === 'production' ? '/Sports-Website' : '';
+  // Correct basename for gymkhana server
+  const basename = "/sports";
 
   return (
     <Router basename={basename}>
@@ -45,51 +45,40 @@ function App() {
         <Navbar />
         <main className="main-content">
           <Routes>
-            {/* Root path routes */}
+            {/* Root path - this will match /sports/ */}
             <Route path="/" element={<HomePage />} />
-            <Route path="/sports" element={<HomePage />} />
             
-            {/* All your existing routes */}
-            <Route path="/sports/" element={<HomePage />} />
-            <Route path="/sports/contact" element={<ContactUs />} />
-            <Route path="/sports/explore" element={<Sports/>} />
-            <Route path="/sports/aquatics" element={<Aquatics />} />
-            <Route path="/sports/volleyball" element={<Volleyball />} />
-            <Route path="/sports/SAC" element={<SAC/>} />
-            <Route path="/sports/Council" element={<Council/>} />
-            <Route path="/sports/Webteam" element={<Webteam/>} />
-            <Route path="/sports/CourtStatus" element={<CourtStatus/>} />
-            <Route path="/sports/turfbooking" element={<BookingPage/>} />
-            <Route path="/sports/GC" element={<GC/>} />
-            <Route path="/sports/admin-turf-booking-raj" element={<AdminPage/>} />
-            <Route path="/sports/events-timeline" element={<SportsCalendar/>} />
-            <Route path="/sports/football" element={<Football />} />
-            <Route path="/sports/badminton" element={<Badminton />} />
-            <Route path="/sports/basketball" element={<Basketball />} />
-            <Route path="/sports/squash" element={<Squash />} />
-            <Route path="/sports/tabletennis" element={<Tabletennis />} />
-            <Route path="/sports/tennis" element={<Tennis />} />
-            <Route path="/sports/volleyball" element={<Volleyball />} />
-            <Route path="/sports/weightlifting" element={<Wtlift />} />
-            <Route path="/sports/indiangames" element={<IndianGames />} />
-            <Route path="/sports/hockey" element={<Hockey />} />
-            <Route path="/sports/cricket" element={<Cricket />} />
-            <Route path="/sports/boardgames" element={<BoardGames />} />
-            <Route path="/sports/admin-court-management" element={<AdminCourtManagement/>} />
-            <Route path= "/sports/adventureclub" element={<AdventureClub/>}/>
-            <Route path= "/sports/yoga" element={<Yogastha/>}/>
-            <Route path= "/sports/chess" element={<Chess/>}/>
-            <Route path= "/sports/rubik" element={<Rubics/>}/>
-            <Route path="/sports/frisbee" element={<Frisbee />} />
-            <Route path="/sports/athletics" element={<Athletics />} />
-            {/* Alternative routes without /sports prefix for easier navigation */}
+            {/* All your existing routes - remove /sports prefix since basename handles it */}
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/explore" element={<Sports/>} />
+            <Route path="/aquatics" element={<Aquatics />} />
+            <Route path="/volleyball" element={<Volleyball />} />
+            <Route path="/SAC" element={<SAC/>} />
+            <Route path="/Council" element={<Council/>} />
+            <Route path="/Webteam" element={<Webteam/>} />
             <Route path="/CourtStatus" element={<CourtStatus/>} />
             <Route path="/turfbooking" element={<BookingPage/>} />
             <Route path="/GC" element={<GC/>} />
+            <Route path="/admin-turf-booking-raj" element={<AdminPage/>} />
             <Route path="/events-timeline" element={<SportsCalendar/>} />
-            
+            <Route path="/football" element={<Football />} />
+            <Route path="/badminton" element={<Badminton />} />
+            <Route path="/basketball" element={<Basketball />} />
+            <Route path="/squash" element={<Squash />} />
+            <Route path="/tabletennis" element={<Tabletennis />} />
+            <Route path="/tennis" element={<Tennis />} />
+            <Route path="/weightlifting" element={<Wtlift />} />
+            <Route path="/indiangames" element={<IndianGames />} />
+            <Route path="/hockey" element={<Hockey />} />
+            <Route path="/cricket" element={<Cricket />} />
+            <Route path="/boardgames" element={<BoardGames />} />
+            <Route path="/admin-court-management" element={<AdminCourtManagement/>} />
+            <Route path="/adventureclub" element={<AdventureClub/>}/>
+            <Route path="/yoga" element={<Yogastha/>}/>
+            <Route path="/chess" element={<Chess/>}/>
+            <Route path="/rubik" element={<Rubics/>}/>
+            <Route path="/frisbee" element={<Frisbee />} />
+            <Route path="/athletics" element={<Athletics />} />
             
             {/* Catch-all route for unmatched paths */}
             <Route path="*" element={<Navigate to="/" replace />} />
