@@ -1,14 +1,14 @@
 import React from 'react';
-import Timel from './timeline';
-import { useState,useRef, useEffect} from 'react';
-import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
+//import Timel from './timeline';
+import { useState} from 'react';
+//import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
 import { MdDoubleArrow } from "react-icons/md"; //bold arrow
-import { MdPlayArrow } from "react-icons/md";   //filled triangle
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import ReactCardFlip from 'react-card-flip';
-import { VscArchive } from 'react-icons/vsc';
+//import { MdPlayArrow } from "react-icons/md";   //filled triangle
+//import Slider from "react-slick";
+/* import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css"; */
+//import ReactCardFlip from 'react-card-flip';
+//import { VscArchive } from 'react-icons/vsc';
 import lt1 from './assets/lt1.jpg';
 import lt2 from './assets/lt2.jpg';  
 import lt3 from './assets/lt3.jpg';
@@ -71,12 +71,12 @@ const Tennis = () => {
     }
   ];
 
-  const imageSliderSettings = {
-    dots: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+  // const imageSliderSettings = {
+  //   dots: true,
+  //   speed: 1000,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  // };
 
   const images = [
     lt1, 
@@ -147,7 +147,7 @@ const Tennis = () => {
         </div>
         <div className='contactlist'>
           <div className='contactCard'>
-            <img className='contactImg' />
+            <img alt="alt" className='contactImg' />
             <p className='aq-name'>Nehal Gupta</p>
             <p className='info'>Institute Lawn Tennis Secretary</p>
             <p className='info'>+91 82910 25201</p>
@@ -178,6 +178,7 @@ const Tennis = () => {
           allowFullScreen="" 
           loading="lazy" 
           referrerPolicy="no-referrer-when-downgrade"
+          title="lawn tennis ground location"
         ></iframe>
         <p className='sideL'>Location</p>
       </div>

@@ -1,12 +1,12 @@
 import React from 'react';
 import Timel from './timeline';
-import { useState,useRef, useEffect} from 'react';
-import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
+import { useState} from 'react';
+//import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
 import { MdDoubleArrow } from "react-icons/md"; //bold arrow
-import { MdPlayArrow } from "react-icons/md";   //filled triangle
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+//import { MdPlayArrow } from "react-icons/md";   //filled triangle
+//import Slider from "react-slick";
+/* import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css"; */
 import cricket1 from '../images/cricket_1.jpg';
 import cric1 from '../images/cric1.jpg';
 import cric2 from '../images/cric2.jpg';
@@ -40,14 +40,14 @@ const Cricket = () => {
     }
   };
 
-  const[isFlipped, setIsFlipped]= useState(false);
-  const flipcad = () => {
-    setIsFlipped(!isFlipped);
-  }
-  const[isFlipped1, setIsFlipped1]= useState(false);
-  const flipcad1 = () => {
-    setIsFlipped1(!isFlipped1);
-  }
+  // const[isFlipped, setIsFlipped]= useState(false);
+  // const flipcad = () => {
+  //   setIsFlipped(!isFlipped);
+  // }
+  // const[isFlipped1, setIsFlipped1]= useState(false);
+  // const flipcad1 = () => {
+  //   setIsFlipped1(!isFlipped1);
+  // }
 
   const cards = [
     {
@@ -78,24 +78,24 @@ const Cricket = () => {
     },
   ];
 
-  const achieve = [
-    {
-      title: 'Group Achivements',
-      content:' ',
-    },
-    {
-      title: 'Individual Achivements',
-      content:'c2',
-    }
-  ];
+  // const achieve = [
+  //   {
+  //     title: 'Group Achivements',
+  //     content:' ',
+  //   },
+  //   {
+  //     title: 'Individual Achivements',
+  //     content:'c2',
+  //   }
+  // ];
 
-  const imageSliderSettings = {
-    dots: true,
-    // infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  }
+  // const imageSliderSettings = {
+  //   dots: true,
+  //   // infinite: true,
+  //   speed: 1000,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  // }
 
   const images = [
     cricket1, cric1, cric2, cric3, cric4
@@ -123,7 +123,7 @@ const Cricket = () => {
                   The ground is situated in the heart of the gymkhana bordered by the athletic tracks. To facilitate night matches new lights have been installed on the gymkhana to provide best playing experience. There are also 4 indoor cricket pitches for practice during Monsoon, just opposite Hostel 3. 
                   We are also upcoming with customised pitches in indoor nets. The Institute Cricket team is well equipped team with all necessary equipments. We whole heartedly welcome new talents and give them space and opportunity to grow and develop game skills.
                   </p>
-                <img src={cric2} className='image' />
+                <img alt="alt" src={cric2} className='image' />
               </div>
             </div>
 
@@ -173,7 +173,7 @@ const Cricket = () => {
 
         <div className='contactlist'>
           <div className='contactCard' >
-            <img  className='contactImg' />
+            <img alt="alt" className='contactImg' />
             <p className='aq-name'>Pradyumna Gugulothu</p>
             <p className='info'>Institute Cricket Secretary</p>
               <p className='info'>+91 70139 54490</p>

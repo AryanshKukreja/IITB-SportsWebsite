@@ -1,12 +1,17 @@
 import React from 'react';
 import Timel from './timeline4';
-import { useState,useRef, useEffect} from 'react';
-import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
+import { useState} from 'react';
+//import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
 import { MdDoubleArrow } from "react-icons/md"; //bold arrow
-import { MdPlayArrow } from "react-icons/md";   //filled triangle
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import { MdPlayArrow } from "react-icons/md";   //filled triangle
+// import Slider from "react-slick";
+/* import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css"; */
+import p1 from "../assets/p1.jpg";
+import p2 from "../assets/p2.jpg";
+import p3 from "../assets/p3.jpg";
+import p4 from "../assets/p4.jpg";
+import p5 from "../assets/p5.jpg";
 
 
 
@@ -35,14 +40,14 @@ const Hockey = () => {
     }
   };
 
-  const[isFlipped, setIsFlipped]= useState(false);
-  const flipcad = () => {
-    setIsFlipped(!isFlipped);
-  }
-  const[isFlipped1, setIsFlipped1]= useState(false);
-  const flipcad1 = () => {
-    setIsFlipped1(!isFlipped1);
-  }
+  // const[isFlipped, setIsFlipped]= useState(false);
+  // const flipcad = () => {
+  //   setIsFlipped(!isFlipped);
+  // }
+  // const[isFlipped1, setIsFlipped1]= useState(false);
+  // const flipcad1 = () => {
+  //   setIsFlipped1(!isFlipped1);
+  // }
 
   const cards = [
     {
@@ -74,26 +79,27 @@ const Hockey = () => {
   
   ];
 
-  const achieve = [
-    {
-      title: 'Group Achivements',
-      content:' ',
-    },
-    {
-      title: 'Individual Achivements',
-      content:'c2',
-    }
-  ];
+  // const achieve = [
+  //   {
+  //     title: 'Group Achivements',
+  //     content:' ',
+  //   },
+  //   {
+  //     title: 'Individual Achivements',
+  //     content:'c2',
+  //   }
+  // ];
 
-  const imageSliderSettings = {
-    dots: true,
-    // infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  }
+  // const imageSliderSettings = {
+  //   dots: true,
+  //   // infinite: true,
+  //   speed: 1000,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  // }
 
   const images = [
+    p1, p2, p3, p4, p5
   ];
 
   return (
@@ -123,6 +129,7 @@ const Hockey = () => {
 
             We also ensure player safety with essential items like medical kits, sprays, and medical tape. Whether you're a beginner or an experienced player, everything you need to enjoy and play hockey is available on campus. 
           </p>
+          <img alt="alt" src={p1} className='image' />
         </div>
       </div>
 
@@ -172,7 +179,7 @@ const Hockey = () => {
 
         <div className='contactlist'>
           <div className='contactCard' >
-            <img  className='contactImg' />
+            <img alt="alt" className='contactImg' />
             <p className='aq-name'>Khushal</p>
             <p className='info'>Institute Hockey Secretary</p>
               <p className='info'>+91 9001401665</p>

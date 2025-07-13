@@ -1,24 +1,24 @@
 import React from 'react';
 import Timel from './timeline';
-import { useState,useRef, useEffect} from 'react';
-import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
+import { useState} from 'react';
+//import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
 import { MdDoubleArrow } from "react-icons/md"; //bold arrow
-import { MdPlayArrow } from "react-icons/md";   //filled triangle
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import { MdPlayArrow } from "react-icons/md";   //filled triangle
+// import Slider from "react-slick";
+/* import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css"; */
 import p1 from '../assets/squash1.jpg';
 import p2 from '../assets/squash2.jpg';
 import p3 from '../assets/squash3.jpg';
 import p4 from '../assets/squash4.jpg';
 import p5 from '../assets/squash5.jpg';
-import ReactCardFlip from 'react-card-flip';
-import time from '../assets/time.png';
-import time2 from '../assets/time2.png';
-import pool from '../assets/pool.jpg';
-import pool2 from '../assets/pool2.jpg';
-import pool3 from '../assets/pool3.jpeg';
-import asec from '../assets/asec.png';
+// import ReactCardFlip from 'react-card-flip';
+// import time from '../assets/time.png';
+// import time2 from '../assets/time2.png';
+// import pool from '../assets/pool.jpg';
+// import pool2 from '../assets/pool2.jpg';
+// import pool3 from '../assets/pool3.jpeg';
+//import asec from '../assets/asec.png';
 import user from '../assets/user.jpg';
 
 const Squash = () => {
@@ -46,14 +46,14 @@ const Squash = () => {
     }
   };
 
-  const[isFlipped, setIsFlipped]= useState(false);
-  const flipcad = () => {
-    setIsFlipped(!isFlipped);
-  }
-  const[isFlipped1, setIsFlipped1]= useState(false);
-  const flipcad1 = () => {
-    setIsFlipped1(!isFlipped1);
-  }
+  // const[isFlipped, setIsFlipped]= useState(false);
+  // const flipcad = () => {
+  //   setIsFlipped(!isFlipped);
+  // }
+  // const[isFlipped1, setIsFlipped1]= useState(false);
+  // const flipcad1 = () => {
+  //   setIsFlipped1(!isFlipped1);
+  // }
 
   const cards = [
     {
@@ -78,24 +78,24 @@ const Squash = () => {
     }
   ];
 
-  const achieve = [
-    {
-      title: 'Group Achivements',
-      content:' ',
-    },
-    {
-      title: 'Individual Achivements',
-      content:'c2',
-    }
-  ];
+  // const achieve = [
+  //   {
+  //     title: 'Group Achivements',
+  //     content:' ',
+  //   },
+  //   {
+  //     title: 'Individual Achivements',
+  //     content:'c2',
+  //   }
+  // ];
 
-  const imageSliderSettings = {
-    dots: true,
-    // infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  }
+  // const imageSliderSettings = {
+  //   dots: true,
+  //   // infinite: true,
+  //   speed: 1000,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  // }
 
   const images = [
     p1,p2,p3,p4,p5
@@ -127,7 +127,7 @@ const Squash = () => {
             Squash Courts:
             There are currently three squash courts located in the New SAC (Student Activity Centre), providing ample space for training and recreational play. In addition, one new squash court is under construction, aimed at further expanding the facility and accommodating the growing interest in the sport.
           </p>
-          <img src={p3} className='image' />
+          <img alt="alt" src={p3} className='image' />
         </div>
       </div>
 
@@ -177,7 +177,7 @@ const Squash = () => {
 
         <div className='contactlist'>
           <div className='contactCard' >
-            <img src={asec} className='contactImg' />
+            <img alt="alt" src={user} className='contactImg' />
             <p className='aq-name'>Manthan Goyal</p>
             <p className='info'>Institute Squash Secretary</p>
               <p className='info'>+91 98260 22623</p>
@@ -208,7 +208,7 @@ const Squash = () => {
 
       <div className='location'>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.4020806480025!2d72.9093683747526!3d19.133869182082652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b80820306e3f%3A0xa4024d1ba55c8ed1!2sIITB%20New%20Gymkhana!5e0!3m2!1sen!2sin!4v1721551340933!5m2!1sen!2sin" 
-        width="700" height="450" className='map' allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+        width="700" height="450" className='map' allowFullScreen="" loading="lazy" title="squash" referrerPolicy="no-referrer-when-downgrade"></iframe>
         <p className='sideL'>Location</p>
       </div>
     </div>

@@ -1,13 +1,13 @@
 import React from 'react';
 import Timel from './timeline';
-import { useState,useRef, useEffect} from 'react';
-import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
+import { useState} from 'react';
+//import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
 import { MdDoubleArrow } from "react-icons/md"; //bold arrow
-import { MdPlayArrow } from "react-icons/md";   //filled triangle
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import ReactCardFlip from 'react-card-flip';
+//import { MdPlayArrow } from "react-icons/md";   //filled triangle
+//import Slider from "react-slick";
+/* import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css"; */
+//import ReactCardFlip from 'react-card-flip';
 import bm1 from '../assets/bm1.jpeg';
 import bm2 from '../assets/bm2.jpeg';
 import bm3 from '../assets/bm3.jpeg';
@@ -17,7 +17,7 @@ import bm6 from '../assets/bm6.jpeg';
 import bm7 from '../assets/bm7.jpeg';
 import bm8 from '../assets/bm8.jpeg';
 import user from '../assets/user.jpg';
-import { VscArchive } from 'react-icons/vsc';
+//import { VscArchive } from 'react-icons/vsc';
 
 const Badminton = () => {
   const [expandedCard, setExpandedCard] = useState(null);
@@ -44,14 +44,14 @@ const Badminton = () => {
     }
   };
 
-  const[isFlipped, setIsFlipped]= useState(false);
-  const flipcad = () => {
-    setIsFlipped(!isFlipped);
-  }
-  const[isFlipped1, setIsFlipped1]= useState(false);
-  const flipcad1 = () => {
-    setIsFlipped1(!isFlipped1);
-  }
+  // const[isFlipped, setIsFlipped]= useState(false);
+  // const flipcad = () => {
+  //   setIsFlipped(!isFlipped);
+  // }
+  // const[isFlipped1, setIsFlipped1]= useState(false);
+  // const flipcad1 = () => {
+  //   setIsFlipped1(!isFlipped1);
+  // }
 
   const cards = [
     {
@@ -78,7 +78,7 @@ const Badminton = () => {
       title: 'Battle of Batches',
       content: ''
     },
-    {
+   /*  {
       title: 'Girls Workshop',
       content: ''
     },
@@ -105,27 +105,27 @@ const Badminton = () => {
     {
       title: 'Institute Doubles Open',
       content: ''
-    }
+    } */
   ];
 
-  const achieve = [
-    {
-      title: 'Group Achivements',
-      content:' ',
-    },
-    {
-      title: 'Individual Achivements',
-      content:'c2',
-    }
-  ];
+  // const achieve = [
+  //   {
+  //     title: 'Group Achivements',
+  //     content:' ',
+  //   },
+  //   {
+  //     title: 'Individual Achivements',
+  //     content:'c2',
+  //   }
+  // ];
 
-  const imageSliderSettings = {
-    dots: true,
-    // infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  }
+  // const imageSliderSettings = {
+  //   dots: true,
+  //   // infinite: true,
+  //   speed: 1000,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  // }
 
   const images = [
     bm1,bm2,bm3,bm4,bm6,bm7,bm8
@@ -152,7 +152,7 @@ const Badminton = () => {
         <div className='content'>
           <p className='facilityText'>
             Our institute has a separate indoor badminton hall consisting of 7 courts with synthetic flooring, built with a centralised air conditioning system. We've got a dedicated coach to provide training and guidance for the institute players.           </p>
-          <img src={bm5} className='image' />
+          <img alt="alt" src={bm5} className='image' />
         </div>
       </div>
 
@@ -204,13 +204,13 @@ const Badminton = () => {
 
         <div className='contactlist'>
           <div className='contactCard' >
-            <img src={user} className='contactImg' />
+            <img alt="alt" src={user} className='contactImg' />
             <p className='aq-name'>Shelendra Rasaniya</p>
             <p className='info'>Coach, Sports Officer</p>
               <p className='info'>+91 97939 90585</p>
           </div>
           <div className='contactCard' >
-            <img src={user} className='contactImg' />
+            <img alt="alt" src={user} className='contactImg' />
             <p className='aq-name'>J Sai Charan</p>
             <p className='info'>Institute Badminton  Secretary</p>
               <p className='info'>+91 73581 79779</p>

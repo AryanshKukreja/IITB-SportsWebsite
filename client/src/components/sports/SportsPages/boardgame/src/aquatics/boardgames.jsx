@@ -1,12 +1,12 @@
 import React from 'react';
 import Timel from './timeline';
-import { useState,useRef, useEffect} from 'react';
-import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
+import { useState} from 'react';
+//import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
 import { MdDoubleArrow } from "react-icons/md"; //bold arrow
-import { MdPlayArrow } from "react-icons/md";   //filled triangle
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+//import { MdPlayArrow } from "react-icons/md";   //filled triangle
+//import Slider from "react-slick";
+/* import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css"; */
 import bg1 from '../assets/bg1.jpeg';
 import bg2 from '../assets/bg2.jpeg';
 import bg3 from '../assets/bg3.jpeg';
@@ -23,7 +23,7 @@ import bg13 from '../assets/bg13.jpeg';
 import bg14 from '../assets/bg14.jpeg';
 import bg15 from '../assets/bg15.jpeg';
 import bgsec from '../assets/bgsec.jpg';
-import ReactCardFlip from 'react-card-flip';
+//import ReactCardFlip from 'react-card-flip';
 
 const BoardGames = () => {
   const [expandedCard, setExpandedCard] = useState(null);
@@ -50,14 +50,14 @@ const BoardGames = () => {
     }
   };
 
-  const[isFlipped, setIsFlipped]= useState(false);
-  const flipcad = () => {
-    setIsFlipped(!isFlipped);
-  }
-  const[isFlipped1, setIsFlipped1]= useState(false);
-  const flipcad1 = () => {
-    setIsFlipped1(!isFlipped1);
-  }
+  // const[isFlipped, setIsFlipped]= useState(false);
+  // const flipcad = () => {
+  //   setIsFlipped(!isFlipped);
+  // }
+  // const[isFlipped1, setIsFlipped1]= useState(false);
+  // const flipcad1 = () => {
+  //   setIsFlipped1(!isFlipped1);
+  // }
 
   const cards = [
     {
@@ -84,7 +84,7 @@ const BoardGames = () => {
       title: 'Carrom General Championship',
       content: ''
     },
-    {
+    /* {
       title: 'Carrom: PG Mania',
       content: ''
     },
@@ -103,27 +103,27 @@ const BoardGames = () => {
     {
       title: 'Cube of the Month ',
       content: ''
-    }
+    } */
   ];
 
-  const achieve = [
-    {
-      title: 'Group Achivements',
-      content:' ',
-    },
-    {
-      title: 'Individual Achivements',
-      content:'c2',
-    },
-  ];
+  // const achieve = [
+  //   {
+  //     title: 'Group Achivements',
+  //     content:' ',
+  //   },
+  //   {
+  //     title: 'Individual Achivements',
+  //     content:'c2',
+  //   },
+  // ];
 
-  const imageSliderSettings = {
-    dots: true,
-    // infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  }
+  // const imageSliderSettings = {
+  //   dots: true,
+  //   // infinite: true,
+  //   speed: 1000,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  // }
 
   const images = [
     bg1,bg2,bg3,bg4,bg5,bg6,bg7,bg8,bg9,bg11,bg12,bg13,bg14,bg15
@@ -168,9 +168,8 @@ const BoardGames = () => {
 
           <br/>Multiple Carrom Boards
           <br/>Multiple Chess boards
-          <br/>No rubiks cubes available as of now (will be made available soon)
           </p>
-          <img src={bg10} className='image' />
+          <img alt="alt" src={bg10} className='image' />
         </div>
       </div>
 
@@ -220,7 +219,7 @@ const BoardGames = () => {
 
         <div className='contactlist'>
           <div className='contactCard' >
-            <img src={bgsec} className='contactImg' />
+            <img alt="alt" src={bgsec} className='contactImg' />
             <p className='aq-name'>Akshat Karkar</p>
             <p className='info'>Institute Board Games Secretary</p>
               <p className='info'>+91 93216 09259</p>
@@ -250,7 +249,7 @@ const BoardGames = () => {
 
       <div className='location'>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7538.855698547374!2d72.90781494213336!3d19.132740178333854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b80820306e3f%3A0xa4024d1ba55c8ed1!2sIITB%20New%20Gymkhana!5e0!3m2!1sen!2sin!4v1719953908712!5m2!1sen!2sin" 
-        width="700" height="450" className='map' allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+        width="700" height="450" className='map' allowFullScreen="" loading="lazy" title="boardgames" referrerPolicy="no-referrer-when-downgrade"></iframe>
         <p className='sideL'>Location</p>
       </div>
     </div>

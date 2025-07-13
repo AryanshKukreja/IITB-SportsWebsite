@@ -1,12 +1,12 @@
 import React from 'react';
 import Timel from './timeline2';
-import { useState,useRef, useEffect} from 'react';
-import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
+import { useState} from 'react';
+//import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
 import { MdDoubleArrow } from "react-icons/md"; //bold arrow
-import { MdPlayArrow } from "react-icons/md";   //filled triangle
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+//import { MdPlayArrow } from "react-icons/md";   //filled triangle
+//import Slider from "react-slick";
+/* import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css"; */
 import img1 from "../images/p51.jpg";
 import img2 from "../images/p52.jpg";
 import img3 from "../images/p53.jpg";
@@ -46,14 +46,14 @@ const IndianGames = () => {
     }
   };
 
-  const[isFlipped, setIsFlipped]= useState(false);
-  const flipcad = () => {
-    setIsFlipped(!isFlipped);
-  }
-  const[isFlipped1, setIsFlipped1]= useState(false);
-  const flipcad1 = () => {
-    setIsFlipped1(!isFlipped1);
-  }
+  // const[isFlipped, setIsFlipped]= useState(false);
+  // const flipcad = () => {
+  //   setIsFlipped(!isFlipped);
+  // }
+  // const[isFlipped1, setIsFlipped1]= useState(false);
+  // const flipcad1 = () => {
+  //   setIsFlipped1(!isFlipped1);
+  // }
 
   const cards = [
     {
@@ -84,24 +84,24 @@ const IndianGames = () => {
     },
   ];
 
-  const achieve = [
-    {
-      title: 'Group Achivements',
-      content:' ',
-    },
-    {
-      title: 'Individual Achivements',
-      content:'c2',
-    }
-  ];
+  // const achieve = [
+  //   {
+  //     title: 'Group Achivements',
+  //     content:' ',
+  //   },
+  //   {
+  //     title: 'Individual Achivements',
+  //     content:'c2',
+  //   }
+  // ];
 
-  const imageSliderSettings = {
-    dots: true,
-    // infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  }
+  // const imageSliderSettings = {
+  //   dots: true,
+  //   // infinite: true,
+  //   speed: 1000,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  // }
 
   const images = [
     img1,img2,img3,img4,img5,ing,ing2,ing3,ing4,ing5,ing6
@@ -135,7 +135,7 @@ const IndianGames = () => {
                   Facilities: IIT Bombay has one fully lighted Indoor court with a mat that is open all days. 
                               Timings (Indoor Court) : 6:00 AM-10:00 PM
                 </p>
-                <img src={ing4} className='image' />
+                <img alt="alt" src={ing4} className='image' />
               </div>
             </div>
 
@@ -185,7 +185,7 @@ const IndianGames = () => {
 
         <div className='contactlist'>
           <div className='contactCard' >
-            <img  className='contactImg' />
+            <img alt="alt" className='contactImg' />
             <p className='aq-name'>Kanak Tembhare</p>
             <p className='info'>Institute Indian Games Secretary</p>
               <p className='info'>+91 9322311654</p>

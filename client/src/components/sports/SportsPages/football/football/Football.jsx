@@ -1,11 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState} from 'react';
 import Timel from './timeline';
-import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
+//import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
 import { MdDoubleArrow } from "react-icons/md"; //bold arrow
-import { MdPlayArrow } from "react-icons/md";   //filled triangle
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+//import { MdPlayArrow } from "react-icons/md";   //filled triangle
+//import Slider from "react-slick";
+/* import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css"; */
 import p1 from '../assets/p1.jpeg';
 import football_ground from '../assets/football_ground.jpeg';
 import football_team from '../assets/football_team.jpeg';
@@ -26,14 +26,14 @@ const Football  = () => {
     }
   };
 
-  const[isFlipped, setIsFlipped]= useState(false);
-  const flipcad = () => {
-    setIsFlipped(!isFlipped);
-  }
-  const[isFlipped1, setIsFlipped1]= useState(false);
-  const flipcad1 = () => {
-    setIsFlipped1(!isFlipped1);
-  }
+  // const[isFlipped, setIsFlipped]= useState(false);
+  // const flipcad = () => {
+  //   setIsFlipped(!isFlipped);
+  // }
+  // const[isFlipped1, setIsFlipped1]= useState(false);
+  // const flipcad1 = () => {
+  //   setIsFlipped1(!isFlipped1);
+  // }
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
@@ -76,24 +76,24 @@ const Football  = () => {
     },
   ];
 
-  const achieve = [
-    {
-      title: 'Group Achivements',
-      content:' ',
-    },
-    {
-      title: 'Individual Achivements',
-      content:'c2',
-    }
-  ];
+  // const achieve = [
+  //   {
+  //     title: 'Group Achivements',
+  //     content:' ',
+  //   },
+  //   {
+  //     title: 'Individual Achivements',
+  //     content:'c2',
+  //   }
+  // ];
 
-  const imageSliderSettings = {
-    dots: true,
-    // infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  }
+  // const imageSliderSettings = {
+  //   dots: true,
+  //   // infinite: true,
+  //   speed: 1000,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  // }
 
   const images = [
     p1,
@@ -181,14 +181,7 @@ const Football  = () => {
 
         <div className='contactlist'>
           <div className='contactCard' >
-            <img src={user} className='contactImg' />
-            <p className='aq-name'>XYZ</p>
-            <p className='info'>Coach, Sports Officer</p>
-            <p className='info'></p>
-
-          </div>
-          <div className='contactCard' >
-            <img src={user} className='contactImg' />
+            <img alt="alt" src={user} className='contactImg' />
             <p className='aq-name'>Yash Shah</p>
             <p className='info'>Institute Football Secretary</p>
             <p className='info'>+91 88494 68317</p>

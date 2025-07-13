@@ -1,19 +1,19 @@
 import React from 'react';
 import Timel from './timeline';
-import { useState,useRef, useEffect} from 'react';
-import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
+import { useState} from 'react';
+//import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
 import { MdDoubleArrow } from "react-icons/md"; //bold arrow
-import { MdPlayArrow } from "react-icons/md";   //filled triangle
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import ReactCardFlip from 'react-card-flip';
-import time from '../assets/time.png';
-import time2 from '../assets/time2.png';
-import pool from '../assets/pool.jpg';
-import pool2 from '../assets/pool2.jpg';
-import pool3 from '../assets/pool3.jpeg';
-import asec from '../assets/asec.png';
+//import { MdPlayArrow } from "react-icons/md";   //filled triangle
+//import Slider from "react-slick";
+/* import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css"; */
+// import ReactCardFlip from 'react-card-flip';
+// import time from '../assets/time.png';
+// import time2 from '../assets/time2.png';
+// import pool from '../assets/pool.jpg';
+// import pool2 from '../assets/pool2.jpg';
+// import pool3 from '../assets/pool3.jpeg';
+// import asec from '../assets/asec.png';
 import user from '../assets/user.jpg';
 import v1 from '../assets/v1.JPG';
 import v2 from '../assets/v2.JPG';
@@ -43,14 +43,14 @@ const Volleyball = () => {
     }
   };
 
-  const[isFlipped, setIsFlipped]= useState(false);
-  const flipcad = () => {
-    setIsFlipped(!isFlipped);
-  }
-  const[isFlipped1, setIsFlipped1]= useState(false);
-  const flipcad1 = () => {
-    setIsFlipped1(!isFlipped1);
-  }
+  // const[isFlipped, setIsFlipped]= useState(false);
+  // const flipcad = () => {
+  //   setIsFlipped(!isFlipped);
+  // }
+  // const[isFlipped1, setIsFlipped1]= useState(false);
+  // const flipcad1 = () => {
+  //   setIsFlipped1(!isFlipped1);
+  // }
 
   const cards = [
     {
@@ -75,24 +75,24 @@ const Volleyball = () => {
     }
   ];
 
-  const achieve = [
-    {
-      title: 'Group Achivements',
-      content:' ',
-    },
-    {
-      title: 'Individual Achivements',
-      content:'c2',
-    }
-  ];
+  // const achieve = [
+  //   {
+  //     title: 'Group Achivements',
+  //     content:' ',
+  //   },
+  //   {
+  //     title: 'Individual Achivements',
+  //     content:'c2',
+  //   }
+  // ];
 
-  const imageSliderSettings = {
-    dots: true,
-    // infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  }
+  // const imageSliderSettings = {
+  //   dots: true,
+  //   // infinite: true,
+  //   speed: 1000,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  // }
 
   const images = [
     v4,
@@ -142,7 +142,7 @@ const Volleyball = () => {
             Fitness & Support:
             Players also benefit from access to the institute’s gym and physiotherapy facilities for strength training, injury prevention, and rehabilitation
           </p>
-          <img src={v1} className='image' />
+          <img alt="alt" src={v1} className='image' />
         </div>
       </div>
 
@@ -191,7 +191,7 @@ const Volleyball = () => {
 
         <div className='contactlist'>
           <div className='contactCard' >
-            <img src={user} className='contactImg' />
+            <img alt="alt" src={user} className='contactImg' />
             <p className='aq-name'>Ghanshyam Choudhary</p>
             <p className='info'>Institute Volleyball Secretary</p>
               <p className='info'>+91 89494 01659</p>
@@ -222,7 +222,7 @@ const Volleyball = () => {
 
       <div className='location'>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.4020806480025!2d72.9093683747526!3d19.133869182082652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b80820306e3f%3A0xa4024d1ba55c8ed1!2sIITB%20New%20Gymkhana!5e0!3m2!1sen!2sin!4v1721551340933!5m2!1sen!2sin" 
-        width="700" height="450" className='map' allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+        width="700" height="450" className='map' allowFullScreen="" loading="lazy" title="volleyball court location" referrerPolicy="no-referrer-when-downgrade"></iframe>
         <p className='sideL'>Location</p>
       </div>
     </div>
