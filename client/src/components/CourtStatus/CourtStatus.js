@@ -13,6 +13,21 @@ const SPORTS_COORDINATES_BY_NAME = {
   Cricket:       { coords: { x: 80, y: 130 }, color: '#9C27B0' },
 };
 
+// IST utility functions
+const getISTDate = (daysToAdd = 0) => {
+  const now = new Date();
+  const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+  const istTime = new Date(utc + (5.5 * 3600000)); // IST is UTC+5:30
+  istTime.setDate(istTime.getDate() + daysToAdd);
+  return istTime.toISOString().split('T')[0];
+};
+
+const getISTDateTime = () => {
+  const now = new Date();
+  const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+  return new Date(utc + (5.5 * 3600000)); // IST is UTC+5:30
+};
+
 // 1-hour time slots from 7:00 AM to 10:00 PM
 const generateOneHourTimeSlots = () => {
   const slots = [];
@@ -36,7 +51,6 @@ const MANUAL_TIME_SLOTS = generateOneHourTimeSlots();
 // Updated API base URL for Node.js backend
 const API_BASE_URL ='https://courtstatusbackend2-oktyljgj.b4a.run/' 
 
-
 const CourtStatus = () => {
   const [sports, setSports] = useState([]);
   const [selectedSport, setSelectedSport] = useState(null);
@@ -44,9 +58,9 @@ const CourtStatus = () => {
   const [timeSlots, setTimeSlots] = useState(MANUAL_TIME_SLOTS);
   const [courtData, setCourtData] = useState([]);
   const [currentDate, setCurrentDate] = useState('');
-  const [currentTime, setCurrentTime] = useState(new Date());
+  const [currentTime, setCurrentTime] = useState(getISTDateTime());
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
+  const [selectedDate, setSelectedDate] = useState(getISTDate());
   const [authToken, setAuthToken] = useState(localStorage.getItem('adminToken') || '');
   const [showMapMarkers, setShowMapMarkers] = useState(true);
   const [isEditingMap, setIsEditingMap] = useState(false);
@@ -55,7 +69,7 @@ const CourtStatus = () => {
   // Fetch sports and align coordinates
   useEffect(() => {
     fetchSports();
-    const timer = setInterval(() => setCurrentTime(new Date()), 60000);
+    const timer = setInterval(() => setCurrentTime(getISTDateTime()), 60000);
     return () => clearInterval(timer);
   }, []);
 
@@ -238,7 +252,7 @@ const CourtStatus = () => {
     }
   };
 
-  // Check if a time slot is current or past
+  // Check if a time slot is current or past - Updated for IST
   const isCurrentOrPast = (timeString) => {
     if (!timeString) return false;
     try {
@@ -248,9 +262,12 @@ const CourtStatus = () => {
       if (isNaN(hour) || isNaN(minute)) return false;
       if (period === 'PM' && hour < 12) hour += 12;
       if (period === 'AM' && hour === 12) hour = 0;
-      const currentHour = currentTime.getHours();
-      const currentMinute = currentTime.getMinutes();
-      if (selectedDate === new Date().toISOString().split('T')[0]) {
+      
+      const istTime = getISTDateTime();
+      const currentHour = istTime.getHours();
+      const currentMinute = istTime.getMinutes();
+      
+      if (selectedDate === getISTDate()) {
         if (currentHour > hour) return true;
         if (currentHour === hour && currentMinute >= minute) return true;
       }
@@ -261,13 +278,14 @@ const CourtStatus = () => {
     }
   };
 
-  // Find current time slot
+  // Find current time slot - Updated for IST
   const getCurrentTimeSlotId = () => {
     if (!timeSlots || !Array.isArray(timeSlots) || timeSlots.length === 0) {
       return null;
     }
     try {
-      const currentHour = currentTime.getHours();
+      const istTime = getISTDateTime();
+      const currentHour = istTime.getHours();
       const currentSlot = timeSlots.find(slot => {
         if (!slot || !slot.formatted_slot || typeof slot.formatted_slot !== 'string') return false;
         const parts = slot.formatted_slot.split(' ');
@@ -357,7 +375,7 @@ const CourtStatus = () => {
   };
 
   return (
-    <div className="court-status-container">
+    <div className='turf-booking-container'>
       <header className="cs-header">
         <h1>IITB Sports Facility Booking Status</h1>
         <div className="cs-date-display">

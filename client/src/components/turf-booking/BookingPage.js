@@ -34,7 +34,7 @@ const BookingPage = () => {
   const [bookings, setBookings] = useState([]);
   const [availableSlots, setAvailableSlots] = useState([]);
   const [selectedSlotIndex, setSelectedSlotIndex] = useState(null);
-  const [existingRollNumbers, setExistingRollNumbers] = useState([]);
+  const [existingBookings, setExistingBookings] = useState([]); // Changed from existingRollNumbers
   const [formData, setFormData] = useState({
     name: '',
     rollNumber: '',
@@ -65,8 +65,7 @@ const BookingPage = () => {
         const response = await fetch('https://turfbackend1-l63zjkfl.b4a.run/students');
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const students = await response.json();
-        const rollNumbers = students.map((student) => student.rollno);
-        setExistingRollNumbers(rollNumbers);
+        setExistingBookings(students); // Store full booking data instead of just roll numbers
       } catch (error) {
         console.error('Error fetching existing bookings:', error);
       }
@@ -84,17 +83,23 @@ const BookingPage = () => {
       return;
     }
 
-    if (existingRollNumbers.includes(formData.rollNumber)) {
-      alert('You have already booked a slot. Please contact administration for further assistance.');
+    // Check if user has already booked for tomorrow's date specifically
+    const hasBookingForTomorrow = existingBookings.some(
+      (booking) => booking.rollno === formData.rollNumber && booking.date === tomorrowDate
+    );
+
+    if (hasBookingForTomorrow) {
+      alert('You have already booked a slot for tomorrow. Please contact administration for further assistance.');
       return;
     }
 
+    // Check local bookings for tomorrow's date
     const userBookingsCount = bookings.filter(
-      (booking) => booking.rollNumber === formData.rollNumber
+      (booking) => booking.rollNumber === formData.rollNumber && booking.date === tomorrowDate
     ).length;
 
     if (userBookingsCount >= 1) {
-      alert('You can only book a maximum of 1 slot.');
+      alert('You can only book a maximum of 1 slot per day.');
       return;
     }
 
@@ -224,7 +229,7 @@ const BookingPage = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Ldap ID:</label> {/* Email field */}
+          <label htmlFor="email">Ldap ID:</label>
           <input
             type="email"
             id="email"
@@ -234,21 +239,6 @@ const BookingPage = () => {
             required
           />
         </div>
-        {/* <div className="form-group">
-          <label htmlFor="purpose">Purpose:</label>
-          <select
-            id="purpose"
-            name="purpose"
-            value={formData.purpose}
-            onChange={handleInputChange}
-            required
-          >
-            <option value="">Select Purpose</option>
-            <option value="match among friends">Match Among Friends</option>
-            <option value="council match">Council Match</option>
-            <option value="frisbee club">Frisbee Club</option>
-          </select>
-        </div> */}
         <div className="form-group">
           <label htmlFor="rollnumberOfPlayers">Roll Numbers of Players (Comma Separated):</label>
           <input
@@ -276,49 +266,52 @@ const BookingPage = () => {
             required
           />
         </div>
+
         {/* Tomorrow's Slots */}
-      <h2 className='football-turf-tomorrow-slots'>Available Slots for Tomorrow ({new Date(new Date().setDate(new Date().getDate() + 1)).toLocaleDateString(undefined, { day: 'numeric', month: 'long', year: 'numeric' })})</h2>
-      <div className="slots">
-        {availableSlots
-          .filter((slot) => slot.date === tomorrowDate)
-          .map((slot, index) => {
-            // Force "8:00 PM - 9:30 PM" slot to show as booked
-            const isSpecialSlot = slotTimings[index] === "8:00 PM - 9:30 PM";
-            const status = isSpecialSlot ? 'booked' : slot.status;
-            return (
-              <button
-                key={`tomorrow-slot-${slot.slot}`}
-                onClick={() => handleSlotClick(index)}
-                style={{
-                  padding: '10px',
-                  backgroundColor: getSlotColor(status, index === selectedSlotIndex),
-                  cursor: status === 'available' ? 'pointer' : 'not-allowed',
-                }}
-                disabled={status === 'booked'}
-              >
-                {slotTimings[index]} <br />
-                Status: {status}
-              </button>
-            );
-          })}
-      </div>
-      <div className="form-group form-checkbox">
-  <input
-    type="checkbox"
-    name="acceptedTnc"
-    id="acceptedTnc"
-    checked={formData.acceptedTnc}
-    onChange={handleInputChange}
-  />
-  <label htmlFor="tnc">
-    I accept the Terms and Conditions mentioned in the <a href="https://docs.google.com/document/d/1_fEFMokJl8iC8Jt5ivA2x-5yqGFHtS5FlJNtMvUiKog/edit?addon_store&tab=t.0"> Rulebook </a>
-  </label>
-  
-</div>
-<p className="disclaimer">
-    The Institute Sports Council reserves the right to cancel any turf booking at any time for valid reasons.
-  </p>
-<button type="submit" className="submit-btn">Book Slot</button>
+        <h2 className='football-turf-tomorrow-slots'>Available Slots for Tomorrow ({new Date(new Date().setDate(new Date().getDate() + 1)).toLocaleDateString(undefined, { day: 'numeric', month: 'long', year: 'numeric' })})</h2>
+        <div className="slots">
+          {availableSlots
+            .filter((slot) => slot.date === tomorrowDate)
+            .map((slot, index) => {
+              // Force "8:00 PM - 9:30 PM" slot to show as booked
+              const isSpecialSlot = slotTimings[index] === "8:00 PM - 9:30 PM";
+              const status = isSpecialSlot ? 'booked' : slot.status;
+              return (
+                <button
+                  key={`tomorrow-slot-${slot.slot}`}
+                  onClick={() => handleSlotClick(index)}
+                  style={{
+                    padding: '10px',
+                    backgroundColor: getSlotColor(status, index === selectedSlotIndex),
+                    cursor: status === 'available' ? 'pointer' : 'not-allowed',
+                  }}
+                  disabled={status === 'booked'}
+                >
+                  {slotTimings[index]} <br />
+                  Status: {status}
+                </button>
+              );
+            })}
+        </div>
+
+        <div className="form-group form-checkbox">
+          <input
+            type="checkbox"
+            name="acceptedTnc"
+            id="acceptedTnc"
+            checked={formData.acceptedTnc}
+            onChange={handleInputChange}
+          />
+          <label htmlFor="tnc">
+            I accept the Terms and Conditions mentioned in the <a href="https://docs.google.com/document/d/1_fEFMokJl8iC8Jt5ivA2x-5yqGFHtS5FlJNtMvUiKog/edit?addon_store&tab=t.0"> Rulebook </a>
+          </label>
+        </div>
+
+        <p className="disclaimer">
+          The Institute Sports Council reserves the right to cancel any turf booking at any time for valid reasons.
+        </p>
+
+        <button type="submit" className="submit-btn">Book Slot</button>
       </form>
     </div>
   );

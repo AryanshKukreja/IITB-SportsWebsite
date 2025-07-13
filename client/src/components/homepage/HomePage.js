@@ -22,7 +22,10 @@ export const HomePage = () => {
                 <div className="bg-image"></div>
                 <div className="bg-text">
                     <h3 className="wl1">Welcome to</h3>
-                    <h1 className="wl2">IIT Bombay Sports</h1>
+                    <h1 className="wl2">
+                        <span className="iitb-text">IIT Bombay</span>
+                        <span className="sports-text">Sports</span>
+                    </h1>
                 </div>
             </div>
 
@@ -74,7 +77,10 @@ export const HomePage = () => {
                     </div>
                     <div className='apptext'>
                         <br />
-                        (Andriod + iOS)<br /><br />
+                        (Android + iOS)<br /><br />
+                        <p>Experience the future of sports management at IIT Bombay with our comprehensive mobile application. The app seamlessly integrates event registration for all sports competitions, automated e-certificate generation for participants and winners, and real-time court booking system for all facilities including basketball, volleyball, badminton, and many more. 
+                            Stay updated with live GC scores, tournament brackets, and match schedules. Access detailed player profiles and achievements.
+                        </p>
                         <div className='app-slogan'>
                         Launching Soon...
                         </div>

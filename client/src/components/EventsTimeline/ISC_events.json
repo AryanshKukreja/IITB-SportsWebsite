@@ -175,7 +175,7 @@
   },
   {
     "Month": "JULY",
-    "Sport": "Common",
+    "Sport": "Common Council",
     "Event": "PG Orientation",
     "StandardizedDate": "22 07 2025 to 28 07 2025"
   },
@@ -229,7 +229,7 @@
   },
   {
     "Month": "AUGUST",
-    "Sport": "Common",
+    "Sport": "Common Council",
     "Event": "UG Orientation",
     "StandardizedDate": "08 08 2025 to 14 08 2025"
   },
@@ -265,7 +265,7 @@
   },
   {
     "Month": "AUGUST",
-    "Sport": "Common",
+    "Sport": "Common Council",
     "Event": "Girl's Induction",
     "StandardizedDate": "08 08 2025 to 14 08 2025"
   },
@@ -1165,7 +1165,7 @@
   },
   {
     "Month": "FEBRUARY",
-    "Sport": "LT",
+    "Sport": "Lawn Tennis",
     "Event": "Girls GC",
     "StandardizedDate": "01 02 2026 to 07 02 2026"
   },
@@ -1225,7 +1225,7 @@
   },
   {
     "Month": "FEBRUARY",
-    "Sport": "LT",
+    "Sport": "Lawn Tennis",
     "Event": "PG GC",
     "StandardizedDate": "08 02 2026 to 14 02 2026"
   },
@@ -1303,7 +1303,7 @@
   },
   {
     "Month": "MARCH",
-    "Sport": "TT",
+    "Sport": "Table Tennis",
     "Event": "ITTL Auction",
     "StandardizedDate": "01 03 2026 to 07 03 2026"
   },
@@ -1321,7 +1321,7 @@
   },
   {
     "Month": "MARCH",
-    "Sport": "LT",
+    "Sport": "Lawn Tennis",
     "Event": "Doubles Open",
     "StandardizedDate": "01 03 2026 to 07 03 2026"
   },
@@ -1387,7 +1387,7 @@
   },
   {
     "Month": "MARCH",
-    "Sport": "TT",
+    "Sport": "Table Tennis",
     "Event": "ITTL",
     "StandardizedDate": "08 03 2026 to 14 03 2026"
   },
@@ -1453,7 +1453,7 @@
   },
   {
     "Month": "MARCH",
-    "Sport": "LT",
+    "Sport": "Lawn Tennis",
     "Event": "Singles Open",
     "StandardizedDate": "15 03 2026 to 21 03 2026"
   },
