@@ -28,8 +28,9 @@
   font-size: 4vw;
   font-weight: 900;
   color: #7ee7ff;
+  /* color: #ffee7d; */
   background-clip: text;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   letter-spacing: -0.02em;
   line-height: 1.1;
   position: relative;
@@ -45,80 +46,6 @@
   height: 5px;
   background: #7ee7ff;
   border-radius: 3px;
-}
-
-/* GC Type Selector */
-.gc-type-selector {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.gc-type-btn {
-  padding: 0.75rem 2rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #e2e8f0;
-  background: #2d3748;
-  border: 2px solid #4a5568;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.gc-type-btn:hover {
-  border-color: #7ee7ff;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(126, 231, 255, 0.2);
-}
-
-.gc-type-btn.active {
-  background: linear-gradient(135deg, #7ee7ff 0%, #7eff91 100%);
-  color: #0f172a;
-  border-color: #7ee7ff;
-  box-shadow: 0 8px 25px rgba(126, 231, 255, 0.3);
-}
-
-/* Logo Styles */
-.hostel-logo {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 1rem;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 3px solid rgba(255, 255, 255, 0.2);
-  background: #1a202c;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hostel-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 50%;
-}
-
-.table-logo {
-  width: 40px;
-  height: 40px;
-  margin: 0 auto;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  background: #1a202c;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.table-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 50%;
 }
 
 /* Overall Podium Section */
@@ -160,7 +87,7 @@
 
 /* First Place - Gold */
 .first-place {
-  height: 320px;
+  height: 280px;
   width: 200px;
   border-color: #d69e2e;
   background: linear-gradient(135deg, #2c2a21 0%, #3e3a2f 100%);
@@ -176,7 +103,7 @@
   font-size: 1.2rem;
   font-weight: 800;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   position: relative;
 }
 
@@ -187,15 +114,9 @@
   font-size: 1.5rem;
 }
 
-.first-place .hostel-logo {
-  width: 80px;
-  height: 80px;
-  border-color: #d69e2e;
-}
-
 /* Second Place - Silver */
 .second-place {
-  height: 280px;
+  height: 240px;
   width: 180px;
   border-color: #a0aec0;
   background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
@@ -211,7 +132,7 @@
   font-size: 1.1rem;
   font-weight: 700;
   padding: 0.875rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   position: relative;
 }
 
@@ -222,15 +143,9 @@
   font-size: 1.3rem;
 }
 
-.second-place .hostel-logo {
-  width: 70px;
-  height: 70px;
-  border-color: #a0aec0;
-}
-
 /* Third Place - Bronze */
 .third-place {
-  height: 240px;
+  height: 200px;
   width: 160px;
   border-color: #c05621;
   background: linear-gradient(135deg, #3c2e25 0%, #4f3a2e 100%);
@@ -255,12 +170,6 @@
   position: absolute;
   right: 1rem;
   font-size: 1.2rem;
-}
-
-.third-place .hostel-logo {
-  width: 60px;
-  height: 60px;
-  border-color: #c05621;
 }
 
 /* Podium Content */
@@ -300,6 +209,9 @@
   text-align: center;
   color: #ffee7d;
   margin-bottom: 2rem;
+  /* background: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
   background-clip: text;
 }
 
@@ -367,6 +279,9 @@
   font-weight: 800;
   color: #ffee7d;
   margin-bottom: 2rem;
+  /* background: linear-gradient(135deg, #38a169 0%, #48bb78 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
   background-clip: text;
 }
 
@@ -388,7 +303,7 @@
 .sport-dropdown:focus {
   outline: none;
   border-color: #7efff0;
-  box-shadow: 0 0 0 3px rgba(126, 255, 240, 0.3);
+  box-shadow: 0 0 0 3px #7efff0;
 }
 
 .sport-dropdown:hover {
@@ -423,28 +338,28 @@
   max-width: 700px;
 }
 
-.sport-podium .first-place {
-  height: 260px;
+.sport-first-place {
+  height: 220px;
   width: 160px;
   border-color: #805ad5;
   background: linear-gradient(135deg, #2a233d 0%, #3c315e 100%);
 }
 
-.sport-podium .first-place::before {
+.sport-first-place::before {
   background: linear-gradient(135deg, #805ad5, #9f7aea);
 }
 
-.sport-podium .first-place .podium-label {
+.sport-first-place .podium-label {
   background: linear-gradient(135deg, #805ad5, #9f7aea);
 }
 
-.sport-podium .second-place {
-  height: 220px;
+.sport-second-place {
+  height: 180px;
   width: 140px;
 }
 
-.sport-podium .third-place {
-  height: 180px;
+.sport-third-place {
+  height: 140px;
   width: 120px;
 }
 
@@ -503,17 +418,17 @@
   }
   
   .first-place {
-    height: 280px;
+    height: 240px;
     width: 180px;
   }
   
   .second-place {
-    height: 240px;
+    height: 200px;
     width: 160px;
   }
   
   .third-place {
-    height: 200px;
+    height: 160px;
     width: 140px;
   }
 }
@@ -523,32 +438,38 @@
     padding: 1rem 0;
   }
   
-  .gc-type-selector {
+  /* .gc-podium {
     flex-direction: column;
     align-items: center;
-  }
+    gap: 2rem;
+  } */
   
-  .gc-type-btn {
-    width: 200px;
-  }
+  /* .podium {
+    width: 250px;
+    height: 200px;
+  } */
   
-  .first-place {
-    height: 240px;
-  }
-  
-  .second-place {
+  .first-place{
     height: 200px;
   }
-  
+  .second-place {
+    height: 170px;
+  }
   .third-place {
-    height: 160px;
+    height: 140px;
   }
   
-  .sport-podium .first-place,
-  .sport-podium .second-place,
-  .sport-podium .third-place {
-    width: 140px;
-    height: 180px;
+  /* .sport-podium {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  } */
+  
+  .sport-first-place,
+  .sport-second-place,
+  .sport-third-place {
+    width: 200px;
+    height: 160px;
   }
   
   .gc-table,
@@ -557,123 +478,20 @@
     padding: 0 1rem;
   }
   
-  .gc-header {
-    padding: 0 1rem;
-  }
-  
-  .gc-header h1 {
-    font-size: 6vw;
-  }
-  
-  .gc-table h2,
-  .sport-selection h2,
-  .sport-results h3 {
-    font-size: 5vw;
-  }
-  
-  .gc-podium {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .sport-podium {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .sport-dropdown {
-    max-width: 100%;
-  }
-  
-  .gc-table table,
-  .sports-gc-table {
-    font-size: 0.9rem;
-  }
-  
   .gc-table th,
-  .sports-gc-table th {
-    padding: 1rem 0.5rem;
-    font-size: 0.9rem;
-  }
-  
   .gc-table td,
+  .sports-gc-table th,
   .sports-gc-table td {
     padding: 0.75rem 0.5rem;
-  }
-  
-  .hostel-logo {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .table-logo {
-    width: 35px;
-    height: 35px;
-  }
-  
-  .first-place .hostel-logo {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .second-place .hostel-logo {
-    width: 55px;
-    height: 55px;
-  }
-  
-  .third-place .hostel-logo {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .gc-podium .podium {
-    margin-bottom: 1rem;
-  }
-  
-  .sport-podium .podium {
-    margin-bottom: 1rem;
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .gc-container {
-    padding: 0.5rem 0;
-  }
   
   .gc-header h1 {
-    font-size: 7vw;
+    font-size: 2rem;
   }
-  
-  .gc-table h2,
-  .sport-selection h2,
-  .sport-results h3 {
-    font-size: 6vw;
-  }
-  
-  .first-place {
-    height: 200px;
-    width: 140px;
-  }
-  
-  .second-place {
-    height: 170px;
-    width: 130px;
-  }
-  
-  .third-place {
-    height: 140px;
-    width: 120px;
-  }
-  
-  .sport-podium .first-place,
-  .sport-podium .second-place,
-  .sport-podium .third-place {
-    width: 120px;
-    height: 160px;
-  }
-  
   .podium h2 {
     font-size: 1.4rem;
   }
@@ -682,74 +500,35 @@
     font-size: 1rem;
   }
   
-  .first-place h2 {
-    font-size: 1.6rem;
+  .gc-table h2,
+  .sport-selection h2,
+  .sport-results h3 {
+    font-size: 1.8rem;
   }
   
-  .first-place p {
-    font-size: 1.1rem;
-  }
-  
-  .gc-table table,
-  .sports-gc-table {
-    font-size: 0.8rem;
-  }
-  
-  .gc-table th,
-  .sports-gc-table th {
-    padding: 0.75rem 0.25rem;
-    font-size: 0.8rem;
-  }
-  
-  .gc-table td,
-  .sports-gc-table td {
-    padding: 0.5rem 0.25rem;
-  }
-  
-  .gc-footer {
-    padding: 1.5rem 1rem;
-    font-size: 0.9rem;
+  .sport-dropdown {
+    font-size: 1rem;
+    padding: 0.875rem 1.25rem;
   }
 }
 
-/* Smooth scrolling for better UX */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Focus states for accessibility */
-.gc-type-btn:focus,
-.sport-dropdown:focus {
-  outline: 2px solid #7ee7ff;
+/* Accessibility */
+.sport-dropdown:focus,
+.podium:focus-within {
+  outline: 3px solid #4299e1;
   outline-offset: 2px;
-}
-
-/* Loading state for images */
-.hostel-logo img,
-.table-logo img {
-  transition: opacity 0.3s ease;
-}
-
-.hostel-logo img:not([src]),
-.table-logo img:not([src]) {
-  opacity: 0;
 }
 
 /* Print styles */
 @media print {
   .gc-container {
-    background: white;
-    color: black;
+    background: white !important;
   }
   
   .podium,
   .gc-table table,
   .sports-gc-table {
-    box-shadow: none;
-    border: 1px solid #ccc;
-  }
-  
-  .gc-type-btn {
-    display: none;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
   }
 }

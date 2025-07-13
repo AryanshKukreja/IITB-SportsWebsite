@@ -26,6 +26,16 @@ const AdminCourtManagement = () => {
   const [courtLoading, setCourtLoading] = useState(false);
   const [updatingSlots, setUpdatingSlots] = useState(new Set()); // Track which slots are being updated
 
+  // NEW: Booking modal states
+  const [showBookingModal, setShowBookingModal] = useState(false);
+  const [bookingModalData, setBookingModalData] = useState({
+    courtId: '',
+    timeSlotId: '',
+    courtName: '',
+    timeSlot: '',
+    booking_by: ''
+  });
+
   // Time slot management states
   const [allTimeSlots, setAllTimeSlots] = useState([]);
   const [newSlot, setNewSlot] = useState({ hour: '' });
@@ -46,8 +56,7 @@ const AdminCourtManagement = () => {
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState('');
 
-  const API_BASE_URL =  'https://courtstatusbackend2-oktyljgj.b4a.run/' 
- 
+  const API_BASE_URL = 'https://courtstatusbackend2-oktyljgj.b4a.run/';
 
   // Initialize component
   useEffect(() => {
@@ -233,86 +242,135 @@ const AdminCourtManagement = () => {
     }
   };
 
-  // IMPROVED Court management function with better error handling
-  const updateBookingStatus = async (courtId, timeSlotId, newStatus) => {
-  const slotKey = `${courtId}-${timeSlotId}`;
-  
-  if (updatingSlots.has(slotKey)) {
-    return;
-  }
-
-  setUpdatingSlots(prev => new Set(prev).add(slotKey));
-  
-  try {
-    const token = localStorage.getItem('adminToken');
-    
-    console.log('Updating booking status:', {
+  // NEW: Handle booking modal
+  const openBookingModal = (courtId, timeSlotId, courtName, timeSlot) => {
+    setBookingModalData({
       courtId,
       timeSlotId,
-      newStatus,
-      date: selectedDate
+      courtName,
+      timeSlot,
+      booking_by: ''
     });
+    setShowBookingModal(true);
+  };
+
+  const closeBookingModal = () => {
+    setShowBookingModal(false);
+    setBookingModalData({
+      courtId: '',
+      timeSlotId: '',
+      courtName: '',
+      timeSlot: '',
+      booking_by: ''
+    });
+  };
+
+  const handleBookingSubmit = async (e) => {
+    e.preventDefault();
     
-    const response = await fetch(`${API_BASE_URL}/api/bookings/update`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      },
-      body: JSON.stringify({
+    if (!bookingModalData.booking_by.trim()) {
+      showMessage('Please enter who is booking this court', 'error');
+      return;
+    }
+
+    await updateBookingStatus(
+      bookingModalData.courtId, 
+      bookingModalData.timeSlotId, 
+      'booked',
+      bookingModalData.booking_by.trim()
+    );
+    
+    closeBookingModal();
+  };
+
+  // UPDATED: Court management function with booking_by support
+  const updateBookingStatus = async (courtId, timeSlotId, newStatus, booking_by = null) => {
+    const slotKey = `${courtId}-${timeSlotId}`;
+    
+    if (updatingSlots.has(slotKey)) {
+      return;
+    }
+
+    setUpdatingSlots(prev => new Set(prev).add(slotKey));
+    
+    try {
+      const token = localStorage.getItem('adminToken');
+      
+      console.log('Updating booking status:', {
+        courtId,
+        timeSlotId,
+        newStatus,
+        date: selectedDate,
+        booking_by
+      });
+      
+      const requestBody = {
         courtId,
         timeSlotId,
         status: newStatus,
         date: selectedDate
-      })
-    });
+      };
 
-    const data = await response.json();
-    console.log('Backend response:', data);
+      // Add booking_by field if status is 'booked'
+      if (newStatus === 'booked' && booking_by) {
+        requestBody.booking_by = booking_by;
+      }
+      
+      const response = await fetch(`${API_BASE_URL}/api/bookings/update`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(requestBody)
+      });
 
-    if (!response.ok) {
-      throw new Error(data.error || `HTTP error! status: ${response.status}`);
-    }
-    
-    // Check for success flag in response
-    if (data.success) {
-      // Update local state immediately for better UX
-      setCourtData(prevData => 
-        prevData.map(court => 
-          court.id === courtId 
-            ? {
-                ...court,
-                slots: {
-                  ...court.slots,
-                  [timeSlotId]: {
-                    ...court.slots[timeSlotId],
-                    status: newStatus
+      const data = await response.json();
+      console.log('Backend response:', data);
+
+      if (!response.ok) {
+        throw new Error(data.error || `HTTP error! status: ${response.status}`);
+      }
+      
+      // Check for success flag in response
+      if (data.success) {
+        // Update local state immediately for better UX
+        setCourtData(prevData => 
+          prevData.map(court => 
+            court.id === courtId 
+              ? {
+                  ...court,
+                  slots: {
+                    ...court.slots,
+                    [timeSlotId]: {
+                      ...court.slots[timeSlotId],
+                      status: newStatus,
+                      booking_by: booking_by || null
+                    }
                   }
                 }
-              }
-            : court
-        )
-      );
+              : court
+          )
+        );
+        
+        showMessage(data.message || `Court slot updated to ${newStatus}`, 'success');
+      } else {
+        throw new Error(data.error || 'Update failed - no success flag');
+      }
+    } catch (error) {
+      console.error('Failed to update booking:', error);
+      showMessage(`Failed to update booking: ${error.message}`, 'error');
       
-      showMessage(data.message || `Court slot updated to ${newStatus}`, 'success');
-    } else {
-      throw new Error(data.error || 'Update failed - no success flag');
+      // Refresh data on error to ensure consistency
+      fetchCourtStatus();
+    } finally {
+      setUpdatingSlots(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(slotKey);
+        return newSet;
+      });
     }
-  } catch (error) {
-    console.error('Failed to update booking:', error);
-    showMessage(`Failed to update booking: ${error.message}`, 'error');
-    
-    // Refresh data on error to ensure consistency
-    fetchCourtStatus();
-  } finally {
-    setUpdatingSlots(prev => {
-      const newSet = new Set(prev);
-      newSet.delete(slotKey);
-      return newSet;
-    });
-  }
-};
-
+  };
 
   // Sports management functions
   const createSport = async (e) => {
@@ -547,7 +605,7 @@ const AdminCourtManagement = () => {
     switch (status) {
       case 'available': return '#22c55e';
       case 'booked': return '#ef4444';
-      case 'maintenance': return '#f59e0b';
+      case 'closed': return '#f59e0b'; // Changed from 'maintenance' to 'closed'
       default: return '#6b7280';
     }
   };
@@ -556,7 +614,7 @@ const AdminCourtManagement = () => {
     switch (status) {
       case 'available': return '✓';
       case 'booked': return '✗';
-      case 'maintenance': return '⚠';
+      case 'closed': return '⚠'; // Changed from 'maintenance' to 'closed'
       default: return '?';
     }
   };
@@ -570,10 +628,21 @@ const AdminCourtManagement = () => {
     });
   };
 
-  // NEW: Handle status change from dropdown
+  // UPDATED: Handle status change from dropdown with booking modal
   const handleStatusChange = (courtId, timeSlotId, newStatus) => {
     if (newStatus && newStatus !== 'select') {
-      updateBookingStatus(courtId, timeSlotId, newStatus);
+      if (newStatus === 'booked') {
+        // Find court and slot info for modal
+        const court = courtData.find(c => c.id === courtId);
+        const slot = court?.slots[timeSlotId];
+        
+        if (court && slot) {
+          openBookingModal(courtId, timeSlotId, court.name, slot.time);
+        }
+      } else {
+        // For available and closed status, update directly
+        updateBookingStatus(courtId, timeSlotId, newStatus);
+      }
     }
   };
 
@@ -679,6 +748,51 @@ const AdminCourtManagement = () => {
         </div>
       )}
 
+      {/* NEW: Booking Modal */}
+      {showBookingModal && (
+        <div className="modal-overlay">
+          <div className="booking-modal">
+            <div className="modal-header">
+              <h3>Book Court Slot</h3>
+              <button onClick={closeBookingModal} className="modal-close-btn">×</button>
+            </div>
+            <div className="modal-content">
+              <div className="booking-info">
+                <p><strong>Court:</strong> {bookingModalData.courtName}</p>
+                <p><strong>Time:</strong> {bookingModalData.timeSlot}</p>
+                <p><strong>Date:</strong> {selectedDate}</p>
+              </div>
+              <form onSubmit={handleBookingSubmit}>
+                <div className="form-group">
+                  <label htmlFor="booking_by">Booked By: *</label>
+                  <input
+                    type="text"
+                    id="booking_by"
+                    value={bookingModalData.booking_by}
+                    onChange={(e) => setBookingModalData({
+                      ...bookingModalData,
+                      booking_by: e.target.value
+                    })}
+                    required
+                    className="admin-input"
+                    placeholder="Enter name of person booking"
+                    autoFocus
+                  />
+                </div>
+                <div className="modal-actions">
+                  <button type="submit" className="admin-btn primary">
+                    Confirm Booking
+                  </button>
+                  <button type="button" onClick={closeBookingModal} className="admin-btn secondary">
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="admin-content">
         {activeTab === 'court-status' && (
           <div className="court-status-section">
@@ -753,11 +867,11 @@ const AdminCourtManagement = () => {
                       <div className="legend-items">
                         <span className="legend-item available">✓ Available</span>
                         <span className="legend-item booked">✗ Booked</span>
-                        <span className="legend-item maintenance">⚠ Maintenance</span>
+                        <span className="legend-item closed">⚠ Closed</span>
                       </div>
                     </div>
                     
-                    {/* IMPROVED: Compact grid layout with dropdowns */}
+                    {/* UPDATED: Compact grid layout with dropdowns and booking info */}
                     <div className="courts-grid">
                       {courtData.map(court => (
                         <div key={court.id} className="court-card compact">
@@ -777,6 +891,12 @@ const AdminCourtManagement = () => {
                                     >
                                       {getStatusIcon(slot.status)} {slot.status.toUpperCase()}
                                     </div>
+                                    {/* Show booking info if booked */}
+                                    {slot.status === 'booked' && slot.booking_by && (
+                                      <div className="booking-info-display">
+                                        <small>Booked by: {slot.booking_by}</small>
+                                      </div>
+                                    )}
                                     <select
                                       value="select"
                                       onChange={(e) => handleStatusChange(court.id, slotId, e.target.value)}
@@ -787,7 +907,7 @@ const AdminCourtManagement = () => {
                                       <option value="select">Change Status</option>
                                       <option value="available">✓ Available</option>
                                       <option value="booked">✗ Booked</option>
-                                      <option value="maintenance">⚠ Maintenance</option>
+                                      <option value="closed">⚠ Closed</option>
                                     </select>
                                     {isUpdating && (
                                       <div className="updating-indicator">
