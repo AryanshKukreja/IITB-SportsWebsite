@@ -23,6 +23,7 @@ import bg13 from '../assets/bg13.jpeg';
 import bg14 from '../assets/bg14.jpeg';
 import bg15 from '../assets/bg15.jpeg';
 import bgsec from '../assets/bgsec.jpg';
+import user from "../assets/user.jpg";
 //import ReactCardFlip from 'react-card-flip';
 
 const BoardGames = () => {
@@ -219,7 +220,7 @@ const BoardGames = () => {
 
         <div className='contactlist'>
           <div className='contactCard' >
-            <img alt="alt" src={bgsec} className='contactImg' />
+            <img alt="alt" src={user} className='contactImg' />
             <p className='aq-name'>Akshat Karkar</p>
             <p className='info'>Institute Board Games Secretary</p>
               <p className='info'>+91 93216 09259</p>

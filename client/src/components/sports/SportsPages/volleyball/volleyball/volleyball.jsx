@@ -55,22 +55,20 @@ const Volleyball = () => {
   const cards = [
     {
       title: 'Camps',
-      content: 'Every summer, by popular demand, our coach, Ritesh Guchhait, holds camps in swimming at the beginners, intermediate and advanced levels. Camps are also held for IIT students during the semester.The beginners camps are held separately for children, ladies, students and staff. The duration is normally 15-20 days, and there is a demonstration for parents and families on the last day, when certificates are handed out. There are also intermediate camps for students looking to train in strokes such as breaststroke, butterfly and backstroke.'
     },
     {
       title: 'NSO',
-      content: 'The Government of India, through its National Sports Organization, provides a scheme in all IITs, where all incoming, i.e. first year students, must sign up for a particular sport, and undergo training. This scheme, popularly called NSO, is available to IIT students for training in various sports, such as swimming, hockey, basketball, squash, badminton, tennis, athletics, table tennis, football etc. Swimming, is a much sought after option, and since the number of students that can be accommodated in a given sport is limited, it is not surprising to see students, at the beginning of every academic year, crowding around the coach at the poolside, to give their trials and try to get in. What is extremely encouraging, is that students often develop a new interest in swimming, and continue to attend advanced coaching throughout the year, all through their college life, and not just the first year. The NSO swim training functions two evenings a week.'
     },
     {
-      title: 'Squash GC',
+      title: 'Valentine Volleyball',
       content: ''
     },
     {
-      title: 'Institute Squash League ',
+      title: 'Institute Volleyball League ',
       content: ''
     },
     {
-      title: 'Institute Squash Open',
+      title: 'SPREE',
       content: ''
     }
   ];
