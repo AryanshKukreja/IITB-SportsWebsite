@@ -213,9 +213,15 @@ body {
     font-size: 0.8rem;
   }
   .slots {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
   }
   .slots button {
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .slots {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
 }

@@ -18,21 +18,26 @@ const SPORTS_COORDINATES_BY_NAME = {
   "Baby Pool":     { coords: { x: 570, y: 35 }, color: '#81D4FA' }  // lighter blue
 };
 
-// IST utility functions
-const getISTDate = (daysToAdd = 0) => {
-  const now = new Date();
-  const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-  const istTime = new Date(utc + (5.5 * 3600000)); // IST is UTC+5:30
-  istTime.setDate(istTime.getDate() + daysToAdd);
-  return istTime.toISOString().split('T')[0];
-};
-
+// FIXED IST utility functions
+// FIXED IST utility functions
 const getISTDateTime = () => {
-  const now = new Date();
-  const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-  return new Date(utc + (5.5 * 3600000)); // IST is UTC+5:30
+    // Get current UTC time
+    const now = new Date();
+    // IST is UTC+5:30. Convert local time to UTC, then add 5 hours and 30 minutes
+    const istOffset = 5.5 * 60 * 60 * 1000; // 5 hours 30 minutes in milliseconds
+    const utc = now.getTime() + (now.getTimezoneOffset() * 60 * 1000); // Convert to UTC milliseconds
+    return new Date(utc + istOffset);
 };
 
+const getISTDate = (daysToAdd = 0) => {
+    const istDateTime = getISTDateTime();
+    istDateTime.setDate(istDateTime.getDate() + daysToAdd);
+    // Format to 'YYYY-MM-DD' directly from the IST date object
+    const year = istDateTime.getFullYear();
+    const month = (istDateTime.getMonth() + 1).toString().padStart(2, '0');
+    const day = istDateTime.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+};
 // 1-hour time slots from 7:00 AM to 10:00 PM
 const generateOneHourTimeSlots = () => {
   const slots = [];
@@ -304,7 +309,7 @@ const CourtStatus = () => {
     }
   };
 
-  // Check if a time slot is current or past - Updated for IST
+  // FIXED: Check if a time slot is current or past - Updated for proper IST handling
   const isCurrentOrPast = (timeString) => {
     if (!timeString) return false;
     try {
@@ -319,6 +324,7 @@ const CourtStatus = () => {
       const currentHour = istTime.getHours();
       const currentMinute = istTime.getMinutes();
       
+      // Only check if it's the current date
       if (selectedDate === getISTDate()) {
         if (currentHour > hour) return true;
         if (currentHour === hour && currentMinute >= minute) return true;
@@ -330,14 +336,21 @@ const CourtStatus = () => {
     }
   };
 
-  // Find current time slot - Updated for IST
+  // FIXED: Find current time slot - Updated for proper IST handling
   const getCurrentTimeSlotId = () => {
     if (!timeSlots || !Array.isArray(timeSlots) || timeSlots.length === 0) {
       return null;
     }
+    
+    // Only highlight current time slot if we're viewing today's date
+    if (selectedDate !== getISTDate()) {
+      return null;
+    }
+    
     try {
       const istTime = getISTDateTime();
       const currentHour = istTime.getHours();
+      
       const currentSlot = timeSlots.find(slot => {
         if (!slot || !slot.formatted_slot || typeof slot.formatted_slot !== 'string') return false;
         const parts = slot.formatted_slot.split(' ');
