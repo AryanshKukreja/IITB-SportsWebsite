@@ -228,7 +228,64 @@
   transition: all 0.3s ease;
   filter: grayscale(50%) brightness(0.8);
 }
+/* Social icons container */
+.social-icons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+}
 
+/* Common styles for all social media icons */
+.logos, .seclogos {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Hover effects for social icons */
+.logos:hover, .seclogos:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* Ensure links don't have default styling */
+.social-icons a {
+    text-decoration: none;
+    display: inline-block;
+    line-height: 0;
+}
+
+/* Alternative approach - if you want different sizes for different roles */
+.seclogos {
+    width: 28px;
+    height: 28px;
+}
+
+.logos {
+    width: 24px;
+    height: 24px;
+}
+
+/* Remove the separate mail logo classes since we're using consistent styling */
+.mail_logos, .sec_mail_logos {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.sec_mail_logos {
+    width: 28px;
+    height: 28px;
+}
+
+.mail_logos:hover, .sec_mail_logos:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
 .logos:hover, .mail_logos:hover, .seclogos:hover, .sec_mail_logos:hover {
   transform: scale(1.2);
   filter: grayscale(0%) brightness(1);
