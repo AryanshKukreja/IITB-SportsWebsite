@@ -2,15 +2,20 @@ import React, { useState, useEffect, useRef } from 'react';
 import './CourtStatus.css';
 import axios from 'axios';
 import mapImage from './assets/maps.png';
+import Hockey from '../sports/SportsPages/hockey/hockey/Hockey';
 
 // Manual coordinates mapped by sport name
 const SPORTS_COORDINATES_BY_NAME = {
-  Badminton:     { coords: { x: 430, y: 60 }, color: '#FF5722' },
+  Badminton:     { coords: { x: 430, y: 60 },  color: '#FF5722' },
   Volleyball:    { coords: { x: 330, y: 100 }, color: '#4CAF50' },
   Basketball:    { coords: { x: 260, y: 120 }, color: '#2196F3' },
-  Squash:        { coords: { x: 300, y: 400 }, color: '#00BCD4' },
-  "Table Tennis":   { coords: { x: 360, y: 420 }, color: '#FFC107' },
-  Cricket:       { coords: { x: 80, y: 130 }, color: '#9C27B0' },
+  Squash:        { coords: { x: 380, y: 450 }, color: '#00BCD4' },
+  "Table Tennis":{ coords: { x: 460, y: 460 }, color: '#FFC107' },
+  Cricket:       { coords: { x: 80, y: 130 },  color: '#9C27B0' },
+  Football:      { coords: { x: 205, y: 360 }, color: '#3F51B5' },  // deep indigo
+  Hockey:        { coords: { x: 680, y: 380 }, color: '#E91E63' },  // pink
+  "Swimming Pool": { coords: { x: 524, y: 65 }, color: '#122832ff' }, // light blue
+  "Baby Pool":     { coords: { x: 570, y: 35 }, color: '#81D4FA' }  // lighter blue
 };
 
 // IST utility functions

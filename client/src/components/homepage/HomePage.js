@@ -33,7 +33,9 @@ export const HomePage = () => {
                 <img src={transparentSportsLogo} className='aboutimg aboutusimg' alt='abim'/>
                 <div>
                     <div className='aboutus'>
+                        <center>
                         <h4>About Us</h4>
+                        </center>   
                     </div>
                     <div className='aboutText'>
                         <br />
@@ -49,7 +51,10 @@ export const HomePage = () => {
             <div className='blackCats'>
                 <div>
                     <div className='aboutus' id="blacat">
-                        <h4>Bombay BlackCats</h4>
+                        <center>
+                        <h4> Bombay BlackCats</h4> 
+                        </center>
+                       
                     </div>
                     <div className='aboutText' >
                         <br />
@@ -72,9 +77,21 @@ export const HomePage = () => {
                     <img src={sportsApp5} className='sportsimage fade-img' alt='sports app 5' />
                 </div>
                 <div className='sportApp-content'>
-                    <div className='aboutus' id="sportsapp">
-                        <h4>Sports App </h4>
+                    <div
+                        className="aboutus"
+                        id="sportsapp"
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            margin: '0 auto',
+                            width: 'fit-content',
+                        }}
+                        >
+                        <h4>Sports App</h4>
                     </div>
+
+
                     <div className='apptext'>
                         <br />
                         (Android + iOS)<br /><br />

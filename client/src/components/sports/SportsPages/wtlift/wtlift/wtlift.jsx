@@ -18,7 +18,6 @@ import p6 from '../assets/p6.jpg';
 // import time2 from '../assets/time2.png';
 // import pool from '../assets/pool.jpg';
 // import pool2 from '../assets/pool2.jpg';
-import pool3 from '../assets/pool3.jpeg';
 
 //import asec from '../assets/asec.png';
 import user from '../assets/user.jpg';
@@ -64,24 +63,27 @@ const Wtlift = () => {
       content: 'The Government of India, through its National Sports Organization, provides a scheme in all IITs, where all incoming, i.e. first year students, must sign up for a particular sport, and undergo training. This scheme, popularly called NSO, is available to IIT students for training in various sports, such as swimming, hockey, basketball, squash, badminton, tennis, athletics, table tennis, football etc. Swimming, is a much sought after option, and since the number of students that can be accommodated in a given sport is limited, it is not surprising to see students, at the beginning of every academic year, crowding around the coach at the poolside, to give their trials and try to get in. What is extremely encouraging, is that students often develop a new interest in swimming, and continue to attend advanced coaching throughout the year, all through their college life, and not just the first year. The NSO swim training functions two evenings a week.'
     },
     {
-      title: 'Powerlifting open',
-      content: ''
-    },
-    {
       title: 'Weightlifting GC',
       content: ''
     },
     {
-      title: 'Arm wrestling GC',
+      title: 'Arm Wrestling Open',
       content: ''
     },
     {
-      title: 'Arm wrestling open',
+      title: 'Calisthenics Open',
       content: ''
     },
     {
-      title: 'Bodybuilding open',
+      title: 'Bodybuilding Open',
       content: ''
+    },
+    {
+      title: 'Crossfit Challenge',
+      content: ''
+    },
+    {
+      title:'Calisthenics GC',
     }
   ];
 
@@ -139,7 +141,7 @@ const Wtlift = () => {
 
             Machines are also present, like lat pulldown, leg extension/curl, leg press, forearm machine, hyper extension machine etc.
           </p>
-          <img alt="alt" src={pool3} className='image' />
+          <img alt="alt" src={p3} className='image' />
         </div>
       </div>
 

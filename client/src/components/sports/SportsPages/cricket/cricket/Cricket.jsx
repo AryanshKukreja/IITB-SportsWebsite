@@ -51,10 +51,6 @@ const Cricket = () => {
 
   const cards = [
     {
-      title: 'CricFiesta',
-      content: 'An event which is a part of the Freshie Girls Week where in teams of around 7 girls play cricket on the main pitches of the gymkhana ground.Nearly 4 teams register every year and a knockout tournament is conducted among them with a tennis ball.'
-    },
-    {
       title: 'NSO',
       content: 'It’s a part of the academic curriculum for the undergraduate students. Through selections for students who opted for cricket nearly 30-40 are selected and trained throughout the academic year, 2 days a week (Monday and Tuesday).'
     },
@@ -73,7 +69,7 @@ const Cricket = () => {
       content: 'It’s a fun event which takes place in the Open Air Theatre (OAT) where in 32 teams each comprising of 5 guys and 2 girls play against each other with rules similar to street cricket.It usually takes place in October.'
     },
     {
-      title:'FreshMan Cricket League',
+      title:'FreshMan League',
       content:  'A league initiated with the goal to give the freshmen an opportunity to showcase their talent gained through NSO, GC, Cricmania and several other camps and also for those who couldn’t take part in any of them.league comprising of 4 teams formed through bidding takes place in the month of March and has been an encouragement to the cricket enthusiasts to pursue the game in the institute and also has been a source of raw talent which on being nurtured produced few of the best players of IIT Bombay.'
     },
   ];

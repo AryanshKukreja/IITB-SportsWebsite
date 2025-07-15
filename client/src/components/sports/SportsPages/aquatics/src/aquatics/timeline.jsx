@@ -15,7 +15,7 @@ const Timel = () => {
                 icon={<GiTrophyCup />}
                 date='2022-23' contentStyle={{ background: '#2F2B77', color: '#fff' }}
                 style={{ boxShadow: '0' }}>
-                    <h3>Inter IIt Aquatics Meet</h3>
+                    <h3>Inter IIT Aquatics Meet</h3>
                     <table style={{ width: '100%', borderCollapse: 'collapse', margin: 0, padding: 0 }}>
                         <tbody>
                             <tr><td>Mens Swimming</td><td>2nd place</td></tr>
@@ -28,7 +28,7 @@ const Timel = () => {
                 iconStyle={{background:'#000', color:'#fff'}}
                 icon={<GiMedal />}
                 date='2022-23' contentStyle={{ background: '#2F2B77', color: '#fff' }}>
-                    <h3 style={{ fontSize:'25px'}}>Inter IIt Aquatics Meet</h3>
+                    <h3 style={{ fontSize:'25px'}}>Inter IIT Aquatics Meet</h3>
                     {/* <h5 style={{color: '#000', wordSpacing: '40px', fontSize:'20px'}}>Events Position Players</h5> */}
                     <table style={{ width: '100%', borderCollapse: 'collapse', margin: 0, padding: 0 }}>
                         <tbody>
@@ -46,7 +46,7 @@ const Timel = () => {
                 iconStyle={{background:'#000', color:'#fff'}}
                 icon={<GiTrophyCup />}
                 date='2023' contentStyle={{ background: '#2F2B77', color: '#fff' }}>
-                    <h3 style={{color: '#E4E2FA'}}>Inter IIt Aquatics Meet</h3>
+                    <h3 style={{color: '#E4E2FA'}}>Inter IIT  Aquatics Meet</h3>
                     <p style={{color: '#E4E2FA'}}>
                         Mens Water Polo : 2nd place
                         <br/>Top Scorer (Mens Water Polo) : Suyash Bhandare
@@ -56,7 +56,7 @@ const Timel = () => {
                 iconStyle={{background:'#000', color:'#fff'}}
                 icon={<GiMedal />}
                 date='2023' contentStyle={{ background: '#2F2B77', color: '#fff' }}>
-                    <h3 style={{ fontSize:'25px'}}>Inter IIt Aquatics Meet</h3>
+                    <h3 style={{ fontSize:'25px'}}>Inter IIT  Aquatics Meet</h3>
                     {/* <h5 style={{color: '#000', wordSpacing: '40px', fontSize:'20px'}}>Events Position Players</h5> */}
                     <table style={{ width: '100%', borderCollapse: 'collapse', margin: 0, padding: 0 }}>
                         <tbody>

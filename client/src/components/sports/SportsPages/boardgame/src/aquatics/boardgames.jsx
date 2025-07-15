@@ -26,10 +26,13 @@ import bgsec from '../assets/bgsec.jpg';
 import user from "../assets/user.jpg";
 //import ReactCardFlip from 'react-card-flip';
 
+
 const BoardGames = () => {
   const [expandedCard, setExpandedCard] = useState(null);
 
+
   const [currentIndex, setCurrentIndex] = useState(0);
+
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
@@ -37,11 +40,13 @@ const BoardGames = () => {
     );
   };
 
+
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
   };
+
 
   const toggleContent = (cardIndex) => {
     if (expandedCard === cardIndex) {
@@ -51,6 +56,7 @@ const BoardGames = () => {
     }
   };
 
+
   // const[isFlipped, setIsFlipped]= useState(false);
   // const flipcad = () => {
   //   setIsFlipped(!isFlipped);
@@ -59,6 +65,7 @@ const BoardGames = () => {
   // const flipcad1 = () => {
   //   setIsFlipped1(!isFlipped1);
   // }
+
 
   const cards = [
     {
@@ -107,6 +114,7 @@ const BoardGames = () => {
     } */
   ];
 
+
   // const achieve = [
   //   {
   //     title: 'Group Achivements',
@@ -118,6 +126,7 @@ const BoardGames = () => {
   //   },
   // ];
 
+
   // const imageSliderSettings = {
   //   dots: true,
   //   // infinite: true,
@@ -126,9 +135,11 @@ const BoardGames = () => {
   //   slidesToScroll: 1,
   // }
 
+
   const images = [
     bg1,bg2,bg3,bg4,bg5,bg6,bg7,bg8,bg9,bg11,bg12,bg13,bg14,bg15
   ];
+
 
   return (
     <div className='aq-pageContainer'>
@@ -137,21 +148,49 @@ const BoardGames = () => {
       </div>
 
 
-      <div className='aq-about'>
-        Institute Board Games cater to all who want to learn any kind of Board Games. With the increasing culture of Chess, Carrom and Pool in the Institute, we also conduct events for Snooker, Rubik’s Cube among others. We even have facilities for Foosball. We envision to take our Board Games culture to a renowned and established level of sport. Being indoor we have an opportunity to serve the students all 365 days. Board Games is not for the lethargic but for the enthusiastic. The Dark Knight Club and Rubik’s Club are the subordinates of the IITB Board Games. Come be a part of the Institute Board Games!
 
-        Our Clubs! :
-        Dark Knight Chess Club (DKCC) – The Dark Knight Chess Club is IIT Bombay’s official student-run chess community. It brings together chess enthusiasts across all skill levels – from casual players to rated professionals. The club conducts friendly tournaments and All India College-level competitions like the All India Chess League (AICL). It also encourages participation in inter-college and national events, fostering a deep and competitive chess culture on campus.
+     <div className="aq-about">
+  <p>
+    Institute Board Games caters to all who want to learn any kind of Board Games. With the increasing culture of Chess, Carrom, and Pool in the Institute, we also conduct events for Snooker, Rubik's Cube, among others. We even have facilities for Foosball. We envision taking our Board Games culture to a renowned and established level of sport. Being indoors, we have an opportunity to serve the students all 365 days. Board Games is not for the lethargic but for the enthusiastic. The Dark Knight Club and Rubik's Club are the subordinates of the IITB Board Games. Come be a part of the Institute Board Games!
+  </p>
 
-        Instagram:
-        https://www.instagram.com/dkcc_iitb/?hl=en
 
-        Rubik's Club – The Rubik’s Cube Club of IIT Bombay is a vibrant space for cubing enthusiasts. It promotes speedcubing and puzzle-solving through competitions and workshops. The club nurtures problem-solving skills. From 2x2 to complex NxN and twisty puzzles, the club has something for every puzzle lover.
+  <h4>Our Clubs:</h4>
 
-        Instagram:
-        https://www.instagram.com/rubiksclub_iitb/
 
-      </div>
+  <div className="club-section">
+    <h5>Dark Knight Chess Club (DKCC)</h5>
+    <p>
+      The Dark Knight Chess Club is IIT Bombay's official student-run chess community. It brings together chess enthusiasts across all skill levels – from casual players to rated professionals. The club conducts friendly tournaments and All India College-level competitions like the All India Chess League (AICL). It also encourages participation in inter-college and national events, fostering a deep and competitive chess culture on campus.
+    </p>
+    <a 
+      href="https://www.instagram.com/dkcc_iitb/?hl=en" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      style={{ color: '#0077cc', textDecoration: 'none', fontWeight: 'bold' }}
+    >
+      Follow us on Instagram
+    </a>
+  </div>
+
+
+  <div className="club-section">
+    <h5>Rubik's Club</h5>
+    <p>
+      The Rubik's Cube Club of IIT Bombay is a vibrant space for cubing enthusiasts. It promotes speedcubing and puzzle-solving through competitions and workshops. The club nurtures problem-solving skills. From 2x2 to complex NxN and twisty puzzles, the club has something for every puzzle lover.
+    </p>
+    <a 
+      href="https://www.instagram.com/rubiksclub_iitb/" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      style={{ color: '#0077cc', textDecoration: 'none', fontWeight: 'bold' }}
+    >
+      Follow us on Instagram
+    </a>
+  </div>
+</div>
+
+
 
 
       <div className='facilities'>
@@ -167,12 +206,14 @@ const BoardGames = () => {
           <br/>1 snooker table
           <br/>1 foosball table
 
+
           <br/>Multiple Carrom Boards
           <br/>Multiple Chess boards
           </p>
           <img alt="alt" src={bg10} className='image' />
         </div>
       </div>
+
 
 
       <div className='events'>
@@ -201,15 +242,19 @@ const BoardGames = () => {
         </div>
       </div>
 
+
       <div className='achievements'>
         <div className='aq-heading' id='head-achieve'>
           <MdDoubleArrow className='arrow' />
           <h3 className='aq-headingtext'>Achievements</h3>
         </div>
 
+
         <Timel />
 
+
       </div>
+
 
 
       <div className='contacts'>
@@ -217,6 +262,7 @@ const BoardGames = () => {
           <MdDoubleArrow className='arrow' />
           <h3 className='aq-headingtext'>Contact</h3>
         </div>
+
 
         <div className='contactlist'>
           <div className='contactCard' >
@@ -226,6 +272,7 @@ const BoardGames = () => {
               <p className='info'>+91 93216 09259</p>
           </div>
         </div>
+
 
       </div>
       <div className='gallery'>
@@ -243,10 +290,12 @@ const BoardGames = () => {
       </div>
 
 
+
       {/* <div className='timing'>
         <p className='side'>Pool Timings</p>
         <img src={time2} className='schimg'/>
       </div> */}
+
 
       <div className='location'>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7538.855698547374!2d72.90781494213336!3d19.132740178333854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b80820306e3f%3A0xa4024d1ba55c8ed1!2sIITB%20New%20Gymkhana!5e0!3m2!1sen!2sin!4v1719953908712!5m2!1sen!2sin" 
@@ -256,5 +305,6 @@ const BoardGames = () => {
     </div>
   )
 }
+
 
 export default BoardGames;

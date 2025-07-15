@@ -184,6 +184,16 @@ export default function SportsCalendar() {
     setCurrentWeekStart(getWeekStart(new Date()));
   };
 
+  // Handle legend sport click
+  const handleSportClick = (sport) => {
+    setSelectedSport(sport);
+    // Scroll to the top of the page smoothly
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   // Format date
   const formatDate = (date) => {
     return date.toLocaleDateString('en-US', { 
@@ -344,7 +354,12 @@ export default function SportsCalendar() {
           <div className="sports-legend-title">Sport Categories</div>
           <div className="sports-legend-items">
             {allSports.map(sport => (
-              <div key={sport} className="sports-legend-item">
+              <div 
+                key={sport} 
+                className="sports-legend-item"
+                onClick={() => handleSportClick(sport)}
+                style={{ cursor: 'pointer' }}
+              >
                 <div 
                   className="sports-legend-color"
                   style={{ backgroundColor: sportColors[sport] }}

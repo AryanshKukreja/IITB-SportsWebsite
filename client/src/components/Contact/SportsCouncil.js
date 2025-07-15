@@ -33,7 +33,7 @@ const Council = () => {
                     <h2>General Secretary Sports Affairs</h2>
                     <img className="gen" alt="" src={councilLogo} />
                     <p className="name">Rajwardhan Toraskar<br />
-                    <b>Call: </b>9619000065
+                    <center>  <b>Call: </b>9619000065</center>
                     <div className="social_links">
                         {/* <a href="tel:+919619000065"><MdCall size={24} color="#7ee7ff"/></a> */}
                         <a href="https://www.instagram.com/iitbombaysports/"><FaInstagram size={24} color="#7ee7ff"/></a>
@@ -42,46 +42,6 @@ const Council = () => {
                 </p>
                 </div>
                 <div className="container">
-                    {/* Nominees FIRST */}
-                    <div className="info-block">
-                        <h2 style={{fontSize: "1.3rem"}} className="enc">Institute Sports Nominee-Events & Clubs</h2>
-                        <img className="circular" src={councilLogo} alt="" />
-                        <p className="name">
-                            Atharva Naik<br />
-                            <b>Call: </b>9920072252
-                            <div className="social_links">
-            {/* <a href="tel:+919920072252"><MdCall size={24} color="#7ee7ff"/></a> */}
-            <a href="https://www.instagram.com/iitbombaysports/"><FaInstagram size={24} color="#7ee7ff"/></a>
-            <a href="mailto:gsecsports@iitb.ac.in"><CiMail size={24} color="#7ee7ff"/></a>
-                            </div>
-                        </p>
-                    </div>
-                    <div className="info-block">
-                        <h2>Institute Sports Girls Nominee</h2>
-                        <img className="circular" src={councilLogo} alt="" />
-                        <p className="name">
-                            Akshara Naik<br />
-                            <b>Call: </b>9323587701
-                            <div className="social_links">
-                {/* <a href="tel:+919949970383"><MdCall size={24} color="#7ee7ff"/></a> */}
-                <a href="https://www.instagram.com/iitbombaysports/"><FaInstagram size={24} color="#7ee7ff"/></a>
-                <a href="mailto:gsecsports@iitb.ac.in"><CiMail size={24} color="#7ee7ff"/></a>
-                            </div>
-                        </p>
-                    </div>
-                    <div className="info-block">
-                        <h2>Institute Sports Admin Nominee</h2>
-                        <img className="circular" src={councilLogo} alt="" />
-                        <p className="name">
-                            Raghav Agrawal<br />
-                            <b>Call: </b>7223056784
-                            <div className="social_links">
-                {/* <a href="tel:+917223056784"><MdCall size={24} color="#7ee7ff"/></a> */}
-                <a href="https://www.instagram.com/iitbombaysports/"><FaInstagram size={24} color="#7ee7ff"/></a>
-                <a href="mailto:gsecsports@iitb.ac.in"><CiMail size={24} color="#7ee7ff"/></a>
-                            </div>
-                        </p>
-                    </div>
                     </div>
                     {/* Heads BELOW */}
                     <h1 className="con-heads"><b>Heads</b></h1>

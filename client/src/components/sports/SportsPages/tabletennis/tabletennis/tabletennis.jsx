@@ -159,6 +159,15 @@ const Tabletennis = () => {
         </div>
       </div>
 
+           <div className='achievements'>
+        <div className='aq-heading' id='head-achieve'>
+          <MdDoubleArrow className='arrow' />
+          <h3 className='aq-headingtext'>Achievements</h3>
+        </div>
+
+        <Timel />
+
+      </div>
 
       <div className='contacts'>
         <div className='aq-heading'>
