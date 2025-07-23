@@ -888,3 +888,394 @@
     gap: 0.5rem;
   }
 }
+
+/* Enhanced Photo Modal - Better centered and responsive */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.photo-modal {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  background: #1e293b;
+  border-radius: 16px;
+  border: 1px solid #334155;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.photo-modal .modal-header {
+  padding: 20px;
+  border-bottom: 1px solid #334155;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e293b;
+}
+
+.photo-modal .modal-header h3 {
+  color: #f8fafc;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.photo-modal .modal-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  overflow: auto;
+}
+
+/* Enhanced Photo Viewer - Perfectly Centered */
+.photo-viewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+.photo-viewer img {
+  max-width: 100%;
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  object-fit: contain;
+  background: #0f172a;
+  border: 2px solid #334155;
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+}
+
+.photo-viewer img:hover {
+  transform: scale(1.02);
+}
+
+.photo-info {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  word-break: break-all;
+  border: 1px solid #334155;
+  max-width: 100%;
+  text-align: center;
+}
+
+/* Enhanced Photo View Button */
+.photo-view-btn {
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.2);
+}
+
+.photo-view-btn:hover {
+  background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+}
+
+.photo-view-btn:active {
+  transform: translateY(0);
+}
+
+/* Enhanced Booking Info Display */
+.booking-info-display.enhanced {
+  margin-top: 12px;
+  padding: 12px;
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 8px;
+  border-left: 3px solid #1976d2;
+  border: 1px solid #334155;
+}
+
+.booking-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  text-align: center;
+}
+
+.booking-details small {
+  color: #cbd5e1;
+  font-size: 0.85rem;
+}
+
+/* Photo Preview in Booking Modal - Centered */
+.photo-preview {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.photo-preview img {
+  max-width: 250px;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid #334155;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.remove-photo-btn {
+  position: absolute;
+  top: -10px;
+  right: calc(50% - 125px - 12px); /* Adjusted for centered image */
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+  transition: all 0.3s ease;
+}
+
+.remove-photo-btn:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  transform: scale(1.1);
+}
+
+/* Loading State for Photo - Centered */
+.photo-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 12px;
+  border: 1px solid #334155;
+  width: 100%;
+}
+
+.photo-loading::before {
+  content: 'Loading photo...';
+  color: #94a3b8;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}
+
+.photo-loading::after {
+  content: '';
+  width: 40px;
+  height: 40px;
+  border: 4px solid #334155;
+  border-top: 4px solid #1976d2;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Enhanced File Input for Photo Upload */
+.file-input {
+  padding: 12px !important;
+  border: 2px dashed #334155 !important;
+  background: rgba(15, 23, 42, 0.5) !important;
+  transition: all 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+}
+
+.file-input:hover {
+  border-color: #1976d2 !important;
+  background: rgba(25, 118, 210, 0.1) !important;
+}
+
+.file-input:focus {
+  border-color: #1976d2 !important;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2) !important;
+}
+
+/* Upload Progress - Centered */
+.upload-progress {
+  margin: 16px 0;
+  text-align: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #334155;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.upload-progress p {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Responsive Design for Photo Elements */
+@media (max-width: 768px) {
+  .photo-modal {
+    max-width: 95vw;
+    max-height: 95vh;
+    margin: 10px;
+  }
+  
+  .photo-viewer img {
+    max-height: 60vh;
+  }
+  
+  .photo-preview img {
+    max-width: 200px;
+    max-height: 150px;
+  }
+  
+  .remove-photo-btn {
+    right: calc(50% - 100px - 12px);
+  }
+  
+  .photo-info {
+    font-size: 0.8rem;
+    padding: 10px 12px;
+  }
+  
+  .photo-view-btn {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
+  
+  .booking-details {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-overlay {
+    padding: 10px;
+  }
+  
+  .photo-modal .modal-header {
+    padding: 15px;
+  }
+  
+  .photo-modal .modal-content {
+    padding: 15px;
+  }
+  
+  .photo-viewer img {
+    max-height: 50vh;
+  }
+  
+  .photo-preview img {
+    max-width: 150px;
+    max-height: 120px;
+  }
+  
+  .remove-photo-btn {
+    right: calc(50% - 75px - 12px);
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+}
+
+/* Click-to-open behavior enhancement */
+.photo-viewer img {
+  cursor: pointer;
+}
+
+.photo-viewer img:active {
+  transform: scale(0.98);
+}
+
+/* Add smooth transitions for all photo-related elements */
+.photo-modal,
+.photo-viewer,
+.photo-preview,
+.booking-info-display.enhanced,
+.photo-view-btn {
+  transition: all 0.3s ease;
+}
+
+/* Ensure proper z-index layering */
+.modal-overlay {
+  z-index: 1000;
+}
+
+.photo-modal {
+  z-index: 1001;
+}
+
+.remove-photo-btn {
+  z-index: 1002;
+}

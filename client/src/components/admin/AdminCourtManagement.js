@@ -24,17 +24,30 @@ const AdminCourtManagement = () => {
   const [courtData, setCourtData] = useState([]);
   const [timeSlots, setTimeSlots] = useState([]);
   const [courtLoading, setCourtLoading] = useState(false);
-  const [updatingSlots, setUpdatingSlots] = useState(new Set()); // Track which slots are being updated
+  const [updatingSlots, setUpdatingSlots] = useState(new Set());
 
-  // NEW: Booking modal states
+  // Multi-slot selection states
+  const [selectedSlots, setSelectedSlots] = useState(new Set());
+  const [bulkActionMode, setBulkActionMode] = useState(false);
+  const [selectedCourt, setSelectedCourt] = useState('');
+
+  // Enhanced booking modal states
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [bookingModalData, setBookingModalData] = useState({
     courtId: '',
-    timeSlotId: '',
+    timeSlotIds: [],
     courtName: '',
-    timeSlot: '',
-    booking_by: ''
+    timeSlots: [],
+    booking_by: '',
+    isBulk: false
   });
+  const [approvalPhoto, setApprovalPhoto] = useState(null);
+  const [photoPreview, setPhotoPreview] = useState(null);
+  const [uploadProgress, setUploadProgress] = useState(0);
+
+  // Photo viewing modal
+  const [showPhotoModal, setShowPhotoModal] = useState(false);
+  const [currentPhoto, setCurrentPhoto] = useState(null);
 
   // Time slot management states
   const [allTimeSlots, setAllTimeSlots] = useState([]);
@@ -55,6 +68,12 @@ const AdminCourtManagement = () => {
   // Global states
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState('');
+
+  // AWS S3 Configuration - Replace with your actual values
+  const AWS_CONFIG = {
+    bucketName: 'court-status-approvals', // Replace with your actual bucket name
+    region: 'eu-north-1' // Replace with your AWS region (e.g., 'us-east-1', 'ap-south-1')
+  };
 
   const API_BASE_URL = 'https://courtstatusbackend2-oktyljgj.b4a.run/';
 
@@ -242,15 +261,54 @@ const AdminCourtManagement = () => {
     }
   };
 
-  // NEW: Handle booking modal
-  const openBookingModal = (courtId, timeSlotId, courtName, timeSlot) => {
+  // Multi-slot selection functions
+  const toggleSlotSelection = (courtId, timeSlotId) => {
+    if (!bulkActionMode) return;
+    
+    if (selectedCourt && selectedCourt !== courtId) {
+      showMessage('You can only select slots from one court at a time', 'warning');
+      return;
+    }
+    
+    const slotKey = `${courtId}-${timeSlotId}`;
+    const newSelectedSlots = new Set(selectedSlots);
+    
+    if (newSelectedSlots.has(slotKey)) {
+      newSelectedSlots.delete(slotKey);
+      if (newSelectedSlots.size === 0) {
+        setSelectedCourt('');
+      }
+    } else {
+      newSelectedSlots.add(slotKey);
+      setSelectedCourt(courtId);
+    }
+    
+    setSelectedSlots(newSelectedSlots);
+  };
+
+  const clearSlotSelection = () => {
+    setSelectedSlots(new Set());
+    setSelectedCourt('');
+    setBulkActionMode(false);
+  };
+
+  const enterBulkMode = () => {
+    setBulkActionMode(true);
+    showMessage('Multi-slot selection mode enabled. Click on slots to select them.', 'info');
+  };
+
+  // Enhanced booking modal functions
+  const openBookingModal = (courtId, timeSlotIds, courtName, timeSlotNames, isBulk = false) => {
     setBookingModalData({
       courtId,
-      timeSlotId,
+      timeSlotIds: Array.isArray(timeSlotIds) ? timeSlotIds : [timeSlotIds],
       courtName,
-      timeSlot,
-      booking_by: ''
+      timeSlots: Array.isArray(timeSlotNames) ? timeSlotNames : [timeSlotNames],
+      booking_by: '',
+      isBulk
     });
+    setApprovalPhoto(null);
+    setPhotoPreview(null);
     setShowBookingModal(true);
   };
 
@@ -258,13 +316,42 @@ const AdminCourtManagement = () => {
     setShowBookingModal(false);
     setBookingModalData({
       courtId: '',
-      timeSlotId: '',
+      timeSlotIds: [],
       courtName: '',
-      timeSlot: '',
-      booking_by: ''
+      timeSlots: [],
+      booking_by: '',
+      isBulk: false
     });
+    setApprovalPhoto(null);
+    setPhotoPreview(null);
   };
 
+  // Handle file upload
+  const handlePhotoUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      // Validate file type
+      if (!file.type.startsWith('image/')) {
+        showMessage('Please select a valid image file', 'error');
+        return;
+      }
+      
+      // Validate file size (5MB limit)
+      if (file.size > 5 * 1024 * 1024) {
+        showMessage('File size must be less than 5MB', 'error');
+        return;
+      }
+      
+      setApprovalPhoto(file);
+      
+      // Create preview
+      const reader = new FileReader();
+      reader.onload = (e) => setPhotoPreview(e.target.result);
+      reader.readAsDataURL(file);
+    }
+  };
+
+  // Enhanced booking submit with file upload
   const handleBookingSubmit = async (e) => {
     e.preventDefault();
     
@@ -273,17 +360,144 @@ const AdminCourtManagement = () => {
       return;
     }
 
-    await updateBookingStatus(
-      bookingModalData.courtId, 
-      bookingModalData.timeSlotId, 
-      'booked',
-      bookingModalData.booking_by.trim()
-    );
-    
-    closeBookingModal();
+    if (!approvalPhoto) {
+      showMessage('Please upload an approval photo', 'error');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('courtId', bookingModalData.courtId);
+    formData.append('status', 'booked');
+    formData.append('date', selectedDate);
+    formData.append('booking_by', bookingModalData.booking_by.trim());
+    formData.append('approval_photo', approvalPhoto);
+
+    try {
+      const token = localStorage.getItem('adminToken');
+      let response;
+
+      if (bookingModalData.isBulk) {
+        // Bulk booking
+        formData.append('timeSlotIds', JSON.stringify(bookingModalData.timeSlotIds));
+        
+        setUploadProgress(25);
+        response = await fetch(`${API_BASE_URL}/api/bookings/bulk-update`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          },
+          body: formData
+        });
+        setUploadProgress(75);
+      } else {
+        // Single booking
+        formData.append('timeSlotId', bookingModalData.timeSlotIds[0]);
+        
+        setUploadProgress(25);
+        response = await fetch(`${API_BASE_URL}/api/bookings/update`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          },
+          body: formData
+        });
+        setUploadProgress(75);
+      }
+
+      const data = await response.json();
+      setUploadProgress(100);
+
+      if (response.ok && data.success) {
+        showMessage(
+          bookingModalData.isBulk 
+            ? `Successfully booked ${bookingModalData.timeSlotIds.length} slots`
+            : 'Slot booked successfully with approval photo',
+          'success'
+        );
+        
+        fetchCourtStatus(); // Refresh data
+        clearSlotSelection(); // Clear multi-select
+        closeBookingModal();
+      } else {
+        throw new Error(data.error || 'Booking failed');
+      }
+    } catch (error) {
+      console.error('Booking error:', error);
+      showMessage(`Booking failed: ${error.message}`, 'error');
+    } finally {
+      setUploadProgress(0);
+    }
   };
 
-  // UPDATED: Court management function with booking_by support
+  // Handle bulk booking from selected slots
+  const handleBulkBooking = () => {
+    if (selectedSlots.size === 0) {
+      showMessage('Please select slots to book', 'error');
+      return;
+    }
+
+    const court = courtData.find(c => c.id === selectedCourt);
+    if (!court) return;
+
+    const timeSlotIds = Array.from(selectedSlots).map(slotKey => {
+      return slotKey.split('-')[1];
+    });
+
+    const timeSlotNames = timeSlotIds.map(slotId => {
+      return court.slots[slotId]?.time || '';
+    }).filter(Boolean);
+
+    openBookingModal(
+      selectedCourt,
+      timeSlotIds,
+      court.name,
+      timeSlotNames,
+      true // isBulk
+    );
+  };
+
+  // UPDATED: Photo viewing function using direct S3 URL
+  const viewApprovalPhoto = (photoKey) => {
+    if (!photoKey) return;
+    
+    try {
+      // Remove the 'approval-photos/' prefix if it exists in the key
+      const cleanKey = photoKey.startsWith('approval-photos/') 
+        ? photoKey 
+        : `approval-photos/${photoKey}`;
+      
+      // Construct direct S3 URL
+      const imageUrl = `https://${AWS_CONFIG.bucketName}.s3.${AWS_CONFIG.region}.amazonaws.com/${cleanKey}`;
+      
+      setCurrentPhoto({
+        url: imageUrl,
+        key: photoKey
+      });
+      setShowPhotoModal(true);
+      
+    } catch (error) {
+      console.error('Error constructing photo URL:', error);
+      showMessage('Failed to load approval photo', 'error');
+    }
+  };
+
+  // Enhanced status change handling
+  const handleStatusChange = (courtId, timeSlotId, newStatus) => {
+    if (newStatus && newStatus !== 'select') {
+      if (newStatus === 'booked') {
+        const court = courtData.find(c => c.id === courtId);
+        const slot = court?.slots[timeSlotId];
+        
+        if (court && slot) {
+          openBookingModal(courtId, timeSlotId, court.name, slot.time);
+        }
+      } else {
+        updateBookingStatus(courtId, timeSlotId, newStatus);
+      }
+    }
+  };
+
+  // Booking status update function
   const updateBookingStatus = async (courtId, timeSlotId, newStatus, booking_by = null) => {
     const slotKey = `${courtId}-${timeSlotId}`;
     
@@ -296,14 +510,6 @@ const AdminCourtManagement = () => {
     try {
       const token = localStorage.getItem('adminToken');
       
-      console.log('Updating booking status:', {
-        courtId,
-        timeSlotId,
-        newStatus,
-        date: selectedDate,
-        booking_by
-      });
-      
       const requestBody = {
         courtId,
         timeSlotId,
@@ -311,7 +517,6 @@ const AdminCourtManagement = () => {
         date: selectedDate
       };
 
-      // Add booking_by field if status is 'booked'
       if (newStatus === 'booked' && booking_by) {
         requestBody.booking_by = booking_by;
       }
@@ -326,15 +531,12 @@ const AdminCourtManagement = () => {
       });
 
       const data = await response.json();
-      console.log('Backend response:', data);
 
       if (!response.ok) {
         throw new Error(data.error || `HTTP error! status: ${response.status}`);
       }
       
-      // Check for success flag in response
       if (data.success) {
-        // Update local state immediately for better UX
         setCourtData(prevData => 
           prevData.map(court => 
             court.id === courtId 
@@ -345,7 +547,9 @@ const AdminCourtManagement = () => {
                     [timeSlotId]: {
                       ...court.slots[timeSlotId],
                       status: newStatus,
-                      booking_by: booking_by || null
+                      booking_by: booking_by || null,
+                      approval_photo_key: data.booking?.approval_photo_key || null,
+                      approval_photo_url: data.booking?.approval_photo_url || null
                     }
                   }
                 }
@@ -355,13 +559,11 @@ const AdminCourtManagement = () => {
         
         showMessage(data.message || `Court slot updated to ${newStatus}`, 'success');
       } else {
-        throw new Error(data.error || 'Update failed - no success flag');
+        throw new Error(data.error || 'Update failed');
       }
     } catch (error) {
       console.error('Failed to update booking:', error);
       showMessage(`Failed to update booking: ${error.message}`, 'error');
-      
-      // Refresh data on error to ensure consistency
       fetchCourtStatus();
     } finally {
       setUpdatingSlots(prev => {
@@ -369,77 +571,6 @@ const AdminCourtManagement = () => {
         newSet.delete(slotKey);
         return newSet;
       });
-    }
-  };
-
-  // Sports management functions
-  const createSport = async (e) => {
-    e.preventDefault();
-    
-    if (!newSport.id || !newSport.name) {
-      showMessage('Please fill in both Sport ID and Name', 'error');
-      return;
-    }
-    
-    setSportLoading(true);
-    try {
-      const token = localStorage.getItem('adminToken');
-      const response = await fetch(`${API_BASE_URL}/api/sports/create`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify(newSport)
-      });
-      
-      const data = await response.json();
-      
-      if (response.ok) {
-        showMessage(`Sport "${newSport.name}" created successfully with courts!`, 'success');
-        setNewSport({ id: '', name: '' });
-        fetchInitialData();
-        fetchSportsWithCourts();
-      } else {
-        showMessage(data.error || 'Failed to create sport', 'error');
-      }
-    } catch (error) {
-      console.error('Error creating sport:', error);
-      showMessage('Failed to create sport. Please try again.', 'error');
-    } finally {
-      setSportLoading(false);
-    }
-  };
-
-  const updateCourtCount = async (sportId, courtCount) => {
-    setCourtUpdateLoading(true);
-    try {
-      const token = localStorage.getItem('adminToken');
-      const response = await fetch(`${API_BASE_URL}/api/sports/${sportId}/courts`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ courtCount: parseInt(courtCount) })
-      });
-      
-      const data = await response.json();
-      
-      if (response.ok) {
-        showMessage(data.message || 'Court count updated successfully', 'success');
-        setEditingCourt(null);
-        setNewCourtCount('');
-        fetchSportsWithCourts();
-        fetchInitialData();
-      } else {
-        showMessage(data.error || 'Failed to update court count', 'error');
-      }
-    } catch (error) {
-      console.error('Error updating court count:', error);
-      showMessage('Failed to update court count. Please try again.', 'error');
-    } finally {
-      setCourtUpdateLoading(false);
     }
   };
 
@@ -581,6 +712,77 @@ const AdminCourtManagement = () => {
     }
   };
 
+  // Sports management functions
+  const createSport = async (e) => {
+    e.preventDefault();
+    
+    if (!newSport.id || !newSport.name) {
+      showMessage('Please fill in both Sport ID and Name', 'error');
+      return;
+    }
+    
+    setSportLoading(true);
+    try {
+      const token = localStorage.getItem('adminToken');
+      const response = await fetch(`${API_BASE_URL}/api/sports/create`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(newSport)
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        showMessage(`Sport "${newSport.name}" created successfully with courts!`, 'success');
+        setNewSport({ id: '', name: '' });
+        fetchInitialData();
+        fetchSportsWithCourts();
+      } else {
+        showMessage(data.error || 'Failed to create sport', 'error');
+      }
+    } catch (error) {
+      console.error('Error creating sport:', error);
+      showMessage('Failed to create sport. Please try again.', 'error');
+    } finally {
+      setSportLoading(false);
+    }
+  };
+
+  const updateCourtCount = async (sportId, courtCount) => {
+    setCourtUpdateLoading(true);
+    try {
+      const token = localStorage.getItem('adminToken');
+      const response = await fetch(`${API_BASE_URL}/api/sports/${sportId}/courts`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ courtCount: parseInt(courtCount) })
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        showMessage(data.message || 'Court count updated successfully', 'success');
+        setEditingCourt(null);
+        setNewCourtCount('');
+        fetchSportsWithCourts();
+        fetchInitialData();
+      } else {
+        showMessage(data.error || 'Failed to update court count', 'error');
+      }
+    } catch (error) {
+      console.error('Error updating court count:', error);
+      showMessage('Failed to update court count. Please try again.', 'error');
+    } finally {
+      setCourtUpdateLoading(false);
+    }
+  };
+
   // Utility functions
   const handleEditSlot = (slot) => {
     setEditingSlot(slot._id);
@@ -605,7 +807,7 @@ const AdminCourtManagement = () => {
     switch (status) {
       case 'available': return '#22c55e';
       case 'booked': return '#ef4444';
-      case 'closed': return '#f59e0b'; // Changed from 'maintenance' to 'closed'
+      case 'closed': return '#f59e0b';
       default: return '#6b7280';
     }
   };
@@ -614,7 +816,7 @@ const AdminCourtManagement = () => {
     switch (status) {
       case 'available': return '✓';
       case 'booked': return '✗';
-      case 'closed': return '⚠'; // Changed from 'maintenance' to 'closed'
+      case 'closed': return '⚠';
       default: return '?';
     }
   };
@@ -626,24 +828,6 @@ const AdminCourtManagement = () => {
       minute: '2-digit',
       hour12: true
     });
-  };
-
-  // UPDATED: Handle status change from dropdown with booking modal
-  const handleStatusChange = (courtId, timeSlotId, newStatus) => {
-    if (newStatus && newStatus !== 'select') {
-      if (newStatus === 'booked') {
-        // Find court and slot info for modal
-        const court = courtData.find(c => c.id === courtId);
-        const slot = court?.slots[timeSlotId];
-        
-        if (court && slot) {
-          openBookingModal(courtId, timeSlotId, court.name, slot.time);
-        }
-      } else {
-        // For available and closed status, update directly
-        updateBookingStatus(courtId, timeSlotId, newStatus);
-      }
-    }
   };
 
   // Loading state
@@ -748,20 +932,27 @@ const AdminCourtManagement = () => {
         </div>
       )}
 
-      {/* NEW: Booking Modal */}
+      {/* Enhanced Booking Modal with Photo Upload */}
       {showBookingModal && (
         <div className="modal-overlay">
-          <div className="booking-modal">
+          <div className="booking-modal enhanced">
             <div className="modal-header">
-              <h3>Book Court Slot</h3>
+              <h3>
+                {bookingModalData.isBulk ? 'Book Multiple Slots' : 'Book Court Slot'}
+              </h3>
               <button onClick={closeBookingModal} className="modal-close-btn">×</button>
             </div>
             <div className="modal-content">
               <div className="booking-info">
                 <p><strong>Court:</strong> {bookingModalData.courtName}</p>
-                <p><strong>Time:</strong> {bookingModalData.timeSlot}</p>
+                <p><strong>Time:</strong> {
+                  bookingModalData.isBulk 
+                    ? `${bookingModalData.timeSlots.length} slots: ${bookingModalData.timeSlots.join(', ')}`
+                    : bookingModalData.timeSlots[0]
+                }</p>
                 <p><strong>Date:</strong> {selectedDate}</p>
               </div>
+              
               <form onSubmit={handleBookingSubmit}>
                 <div className="form-group">
                   <label htmlFor="booking_by">Booked By: *</label>
@@ -779,15 +970,81 @@ const AdminCourtManagement = () => {
                     autoFocus
                   />
                 </div>
+
+                <div className="form-group">
+                  <label htmlFor="approval_photo">Approval Photo: *</label>
+                  <input
+                    type="file"
+                    id="approval_photo"
+                    accept="image/*"
+                    onChange={handlePhotoUpload}
+                    required
+                    className="admin-input file-input"
+                  />
+                  <p className="form-help">Upload an approval photo (max 5MB, images only)</p>
+                </div>
+
+                {photoPreview && (
+                  <div className="photo-preview">
+                    <img src={photoPreview} alt="Preview" />
+                    <button 
+                      type="button" 
+                      onClick={() => {
+                        setPhotoPreview(null);
+                        setApprovalPhoto(null);
+                      }}
+                      className="remove-photo-btn"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                )}
+
+                {uploadProgress > 0 && uploadProgress < 100 && (
+                  <div className="upload-progress">
+                    <div className="progress-bar">
+                      <div 
+                        className="progress-fill" 
+                        style={{ width: `${uploadProgress}%` }}
+                      ></div>
+                    </div>
+                    <p>Uploading... {uploadProgress}%</p>
+                  </div>
+                )}
+
                 <div className="modal-actions">
-                  <button type="submit" className="admin-btn primary">
-                    Confirm Booking
+                  <button 
+                    type="submit" 
+                    className="admin-btn primary"
+                    disabled={uploadProgress > 0 && uploadProgress < 100}
+                  >
+                    {uploadProgress > 0 ? 'Uploading...' : 'Confirm Booking'}
                   </button>
                   <button type="button" onClick={closeBookingModal} className="admin-btn secondary">
                     Cancel
                   </button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Photo Viewing Modal */}
+      {showPhotoModal && (
+        <div className="modal-overlay">
+          <div className="photo-modal">
+            <div className="modal-header">
+              <h3>Approval Photo</h3>
+              <button onClick={() => setShowPhotoModal(false)} className="modal-close-btn">×</button>
+            </div>
+            <div className="modal-content">
+              {currentPhoto && (
+                <div className="photo-viewer">
+                  <img src={currentPhoto.url} alt="Approval Photo" />
+                  <p className="photo-info">Photo Key: {currentPhoto.key}</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -832,6 +1089,36 @@ const AdminCourtManagement = () => {
               >
                 Refresh Data
               </button>
+
+              {/* Multi-slot selection controls */}
+              {!bulkActionMode ? (
+                <button 
+                  onClick={enterBulkMode}
+                  className="admin-btn primary"
+                  disabled={courtLoading || courtData.length === 0}
+                >
+                  Multi-Select Mode
+                </button>
+              ) : (
+                <div className="bulk-controls">
+                  <span className="selected-count">
+                    {selectedSlots.size} slots selected
+                  </span>
+                  <button 
+                    onClick={handleBulkBooking}
+                    className="admin-btn primary"
+                    disabled={selectedSlots.size === 0}
+                  >
+                    Book Selected
+                  </button>
+                  <button 
+                    onClick={clearSlotSelection}
+                    className="admin-btn secondary"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              )}
             </div>
 
             {courtLoading ? (
@@ -871,48 +1158,78 @@ const AdminCourtManagement = () => {
                       </div>
                     </div>
                     
-                    {/* UPDATED: Compact grid layout with dropdowns and booking info */}
+                    {/* Enhanced court grid with photo viewing and multi-select */}
                     <div className="courts-grid">
                       {courtData.map(court => (
-                        <div key={court.id} className="court-card compact">
+                        <div key={court.id} className="court-card enhanced">
                           <h3>{court.name}</h3>
-                          <div className="slots-grid compact">
+                          <div className="slots-grid">
                             {Object.entries(court.slots).map(([slotId, slot]) => {
                               const slotKey = `${court.id}-${slotId}`;
                               const isUpdating = updatingSlots.has(slotKey);
+                              const isSelected = selectedSlots.has(slotKey);
                               
                               return (
-                                <div key={slotId} className="slot-item compact">
+                                <div 
+                                  key={slotId} 
+                                  className={`slot-item enhanced ${isSelected ? 'selected' : ''}`}
+                                  onClick={() => bulkActionMode && toggleSlotSelection(court.id, slotId)}
+                                  style={{ cursor: bulkActionMode ? 'pointer' : 'default' }}
+                                >
                                   <div className="slot-time">{slot.time}</div>
                                   <div className="slot-status-container">
                                     <div 
-                                      className={`status-indicator compact ${slot.status}`}
+                                      className={`status-indicator ${slot.status}`}
                                       style={{ backgroundColor: getStatusColor(slot.status) }}
                                     >
                                       {getStatusIcon(slot.status)} {slot.status.toUpperCase()}
                                     </div>
-                                    {/* Show booking info if booked */}
-                                    {slot.status === 'booked' && slot.booking_by && (
-                                      <div className="booking-info-display">
-                                        <small>Booked by: {slot.booking_by}</small>
+                                    
+                                    {/* Enhanced booking info with photo viewing */}
+                                    {slot.status === 'booked' && (
+                                      <div className="booking-info-display enhanced">
+                                        <div className="booking-details">
+                                          <small><strong>Booked by:</strong> {slot.booking_by}</small>
+                                          {slot.approval_photo_key && (
+                                            <button 
+                                              onClick={(e) => {
+                                                e.stopPropagation();
+                                                viewApprovalPhoto(slot.approval_photo_key);
+                                              }}
+                                              className="photo-view-btn"
+                                              title="View approval photo"
+                                            >
+                                              📷 View Photo
+                                            </button>
+                                          )}
+                                        </div>
                                       </div>
                                     )}
-                                    <select
-                                      value="select"
-                                      onChange={(e) => handleStatusChange(court.id, slotId, e.target.value)}
-                                      className="status-dropdown"
-                                      disabled={isUpdating}
-                                      title="Change status"
-                                    >
-                                      <option value="select">Change Status</option>
-                                      <option value="available">✓ Available</option>
-                                      <option value="booked">✗ Booked</option>
-                                      <option value="closed">⚠ Closed</option>
-                                    </select>
+                                    
+                                    {!bulkActionMode && (
+                                      <select
+                                        value="select"
+                                        onChange={(e) => handleStatusChange(court.id, slotId, e.target.value)}
+                                        className="status-dropdown"
+                                        disabled={isUpdating}
+                                        title="Change status"
+                                        onClick={(e) => e.stopPropagation()}
+                                      >
+                                        <option value="select">Change Status</option>
+                                        <option value="available">✓ Available</option>
+                                        <option value="booked">✗ Booked</option>
+                                        <option value="closed">⚠ Closed</option>
+                                      </select>
+                                    )}
+                                    
                                     {isUpdating && (
                                       <div className="updating-indicator">
                                         <div className="mini-spinner"></div>
                                       </div>
+                                    )}
+
+                                    {bulkActionMode && isSelected && (
+                                      <div className="selection-indicator">✓</div>
                                     )}
                                   </div>
                                 </div>
@@ -929,6 +1246,7 @@ const AdminCourtManagement = () => {
           </div>
         )}
 
+        {/* Sports Management Tab */}
         {activeTab === 'sports' && (
           <div className="sports-section">
             <div className="sports-forms">
@@ -1044,6 +1362,7 @@ const AdminCourtManagement = () => {
           </div>
         )}
 
+        {/* Time Slots Management Tab */}
         {activeTab === 'time-slots' && (
           <div className="time-slots-section">
             <div className="time-slot-forms">
