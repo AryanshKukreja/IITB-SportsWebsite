@@ -175,7 +175,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 980px) {
   .nav-btn {
     display: flex;
     align-items: center;
