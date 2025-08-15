@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ContactMe from "./contactform";
 import './page.css';
 import { MdEmail, MdCall } from "react-icons/md";
 

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import './CourtStatus.css';
 import axios from 'axios';
 import mapImage from './assets/maps.png';
-import Hockey from '../sports/SportsPages/hockey/hockey/Hockey';
 
 // Manual coordinates mapped by sport name
 const SPORTS_COORDINATES_BY_NAME = {
@@ -67,7 +66,7 @@ const CourtStatus = () => {
   const [sportsCoordinates, setSportsCoordinates] = useState({});
   const [timeSlots, setTimeSlots] = useState(MANUAL_TIME_SLOTS);
   const [courtData, setCourtData] = useState([]);
-  const [currentDate, setCurrentDate] = useState('');
+  const [setCurrentDate] = useState('');
   const [currentTime, setCurrentTime] = useState(getISTDateTime());
   const [isLoading, setIsLoading] = useState(true);
   const [selectedDate, setSelectedDate] = useState(getISTDate());
@@ -193,10 +192,6 @@ const CourtStatus = () => {
     setSelectedSport(sportId);
   };
 
-  // Handle date change
-  const handleDateChange = (e) => {
-    setSelectedDate(e.target.value);
-  };
 
   // NEW: Handle cell click to show booking details
   const handleCellClick = (court, slot, slotInfo) => {
@@ -225,65 +220,6 @@ const CourtStatus = () => {
   };
 
   // UPDATED: Toggle booking status with better error handling (for admin use)
-  const toggleBooking = async (courtId, timeSlotId, currentStatus) => {
-    if (!authToken) {
-      alert('You need to be logged in as an admin to change booking status');
-      return;
-    }
-    const statusCycle = {
-      'available': 'booked',
-      'booked': 'closed', // Changed from 'maintenance' to 'closed'
-      'closed': 'available' // Changed from 'maintenance' to 'closed'
-    };
-    const newStatus = statusCycle[currentStatus] || 'available';
-    
-    try {
-      console.log('Updating booking status:', { courtId, timeSlotId, currentStatus, newStatus });
-      
-      const requestBody = {
-        courtId: courtId,
-        timeSlotId: timeSlotId,
-        status: newStatus,
-        date: selectedDate
-      };
-
-      // If changing to booked, we need booking_by field
-      if (newStatus === 'booked') {
-        const bookingBy = prompt('Enter name of person booking:');
-        if (!bookingBy) return; // User cancelled
-        requestBody.booking_by = bookingBy.trim();
-      }
-      
-      const response = await axios.post(
-        `${API_BASE_URL}/api/bookings/update`,
-        requestBody,
-        {
-          headers: {
-            'Authorization': `Bearer ${authToken}`,
-            'Content-Type': 'application/json'
-          }
-        }
-      );
-      
-      console.log('Update response:', response.data);
-      
-      if (response.data.success) {
-        // Refresh court status to get updated data
-        fetchCourtStatus(selectedSport, selectedDate);
-      } else {
-        console.error('Update failed:', response.data);
-        alert('Failed to update booking status: ' + (response.data.message || 'Unknown error'));
-      }
-    } catch (error) {
-      console.error('Error updating booking status:', error);
-      if (error.response && error.response.status === 401) {
-        alert('Authentication failed. Please log in again.');
-      } else {
-        alert('Failed to update booking status: ' + (error.response?.data?.message || error.message));
-      }
-    }
-  };
-
   // Format date for display
   const getFormattedDate = () => {
     const dateObj = new Date(selectedDate);
@@ -374,15 +310,6 @@ const CourtStatus = () => {
 
   const currentTimeSlotId = getCurrentTimeSlotId();
 
-  // Admin login/logout functionality (simplified)
-  const handleLoginLogout = () => {
-    if (authToken) {
-      localStorage.removeItem('adminToken');
-      setAuthToken('');
-    } else {
-      alert('Please use the admin login page to authenticate');
-    }
-  };
 
   // Facility map related functions
   const handleMapClick = (e) => {
@@ -413,13 +340,6 @@ const CourtStatus = () => {
     }
   }, []);
 
-  const toggleMapEditMode = () => {
-    setIsEditingMap(!isEditingMap);
-  };
-
-  const toggleMapMarkers = () => {
-    setShowMapMarkers(!showMapMarkers);
-  };
 
   const getCoordinatesString = () => {
     return JSON.stringify(sportsCoordinates, null, 2);

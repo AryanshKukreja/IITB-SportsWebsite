@@ -7,7 +7,6 @@ const AdminCourtManagement = () => {
   const [adminUser, setAdminUser] = useState(null);
   const [activeTab, setActiveTab] = useState('court-status');
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
 
   // Authentication states
   const [loginForm, setLoginForm] = useState({
