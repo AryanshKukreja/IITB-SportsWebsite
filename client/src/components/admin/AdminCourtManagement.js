@@ -1825,7 +1825,7 @@ const AdminCourtManagement = () => {
 
             <div className="existing-sports">
               <h3>Existing Sports ({sportsWithCourts.length} total)</h3>
-              <div className="sports-list">
+              <div className="admin-sports-list">
                 {sportsWithCourts.length === 0 ? (
                   <div className="no-data-message">
                     <p>No sports available. Create your first sport above.</p>
