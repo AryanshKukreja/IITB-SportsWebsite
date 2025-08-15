@@ -59,7 +59,7 @@ const generateOneHourTimeSlots = () => {
 const MANUAL_TIME_SLOTS = generateOneHourTimeSlots();
 
 // Updated API base URL for Node.js backend
-const API_BASE_URL ='https://courtstatusbackend2-oktyljgj.b4a.run/' 
+const API_BASE_URL ='https://court-status-backend-node-production.up.railway.app' 
 
 const CourtStatus = () => {
   const [sports, setSports] = useState([]);

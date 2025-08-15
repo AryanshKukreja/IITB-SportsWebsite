@@ -51,7 +51,7 @@ const BookingPage = () => {
   useEffect(() => {
     const fetchSlots = async () => {
       try {
-        const response = await fetch('https://turfbackend1-l63zjkfl.b4a.run/api/slots');
+        const response = await fetch('https://turf-backend-production.up.railway.app/api/slots');
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const slots = await response.json();
         setAvailableSlots(slots);
@@ -62,7 +62,7 @@ const BookingPage = () => {
 
     const fetchExistingBookings = async () => {
       try {
-        const response = await fetch('https://turfbackend1-l63zjkfl.b4a.run/students');
+        const response = await fetch('https://turf-backend-production.up.railway.app/students');
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const students = await response.json();
         setExistingBookings(students); // Store full booking data instead of just roll numbers
@@ -105,7 +105,7 @@ const BookingPage = () => {
 
     if (selectedSlotIndex !== null) {
       try {
-        const response = await fetch('https://turfbackend1-l63zjkfl.b4a.run/', {
+        const response = await fetch('https://turf-backend-production.up.railway.app/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

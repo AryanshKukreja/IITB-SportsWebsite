@@ -102,7 +102,7 @@ const AdminCourtManagement = () => {
     region: 'eu-north-1'
   };
 
-  const API_BASE_URL = 'http://localhost:5000';
+  const API_BASE_URL = 'https://court-status-backend-node-production.up.railway.app';
 
   // Weekday options for weekly bookings
   const WEEKDAY_OPTIONS = [

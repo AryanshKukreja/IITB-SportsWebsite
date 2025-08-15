@@ -1,6 +1,8 @@
 import React from "react";
 import './council.css'
-import councilLogo from "./pictures/Logos_for_Photos/sports-logo-transparent.png";
+import Aryansh from "./pictures/Logos_for_Photos/Aryansh.png";
+import Disha from "./pictures/Logos_for_Photos/Disha.jpg";
+import Shubh from "./pictures/Logos_for_Photos/Shubh.jpg";
 import { FaInstagram } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 
@@ -12,7 +14,7 @@ const Webteam = () => {
                 <h1 className="title">2025-2026</h1>
                 <div className="leader">
                     <h2>Technical Head</h2>
-                    <img className="gen" alt="" src="./pictures/Aryansh.png" />
+                    <img className="gen" alt="" src={Aryansh}/>
                     <p className="name"><center>Aryansh Kukreja</center>
                         <center><b>Call: </b>9992888093</center>
                         <div className="social_links">
@@ -28,7 +30,7 @@ const Webteam = () => {
                 <div className="container">
                     <div className="info-block">
                         <h2>Web Convener</h2>
-                        <img className="circular" src="./photo.png" alt="" />
+                        <img className="circular" src={Disha} alt="" />
                         <p className="name">
                             Disha Jain<br />
                             <div className="social_links">
@@ -39,7 +41,7 @@ const Webteam = () => {
                     </div>
                     <div className="info-block">
                         <h2>Web Convener</h2>
-                        <img className="circular" src="./photo.png" alt="" />
+                        <img className="circular" src={Shubh} alt="" />
                         <p className="name">
                             Shubh Sareen<br />
                             <div className="social_links">

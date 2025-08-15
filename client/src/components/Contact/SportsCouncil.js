@@ -1,21 +1,24 @@
 import React from "react";
 import "./council.css"
-import councilLogo from "./pictures/Logos_for_Photos/sports-logo-transparent.png";
+import councilLogo from "./pictures/Logos_for_Photos/IITB Sports Logo BW.png";
+import Rajvardhan from "./pictures/Logos_for_Photos/rajvardhan.jpg";
+import Aryansh from "./pictures/Logos_for_Photos/Aryansh ISC.jpg";
+import Akanksha from "./pictures/Logos_for_Photos/Akanksha.jpg";
 import adventure from './pictures/Logos_for_Photos/adventure.jpg';
-import athletics from './pictures/Logos_for_Photos/Athletics.png';
+import athletics from './pictures/Logos_for_Photos/Praveen.jpg';
 import aquatics from './pictures/Logos_for_Photos/Aquatics logo.png';
 import badminton from './pictures/Logos_for_Photos/badminton.png';
-import basketball from './pictures/Logos_for_Photos/basketball.png';
-import cricket from './pictures/Logos_for_Photos/cricket.png';
+import basketball from './pictures/Logos_for_Photos/Deepraj.jpg';
+import cricket from './pictures/Logos_for_Photos/Pradyumna.jpg';
 import chess from './pictures/Logos_for_Photos/chess.png';
-import football from './pictures/Logos_for_Photos/football.png';
-import hockey from './pictures/Logos_for_Photos/hockey.png';
-import indianGames from './pictures/Logos_for_Photos/indiangames.png';
+import football from './pictures/Logos_for_Photos/Yash.jpg';
+import hockey from './pictures/Logos_for_Photos/Khushal.jpg';
+import indianGames from './pictures/Logos_for_Photos/Kanak.jpg';
 import squash from './pictures/Logos_for_Photos/squash.png';
 import tabletennis from './pictures/Logos_for_Photos/tabletennis.png';
-import tennis from './pictures/Logos_for_Photos/tennis.png';
+import tennis from './pictures/Logos_for_Photos/Nehal.jpg';
 import volleyball from './pictures/Logos_for_Photos/volleyball.png';
-import weightlifting from './pictures/Logos_for_Photos/weightlifting.png';
+import weightlifting from './pictures/Logos_for_Photos/Prateek.jpg';
 import fitness from './pictures/Logos_for_Photos/fitness.png';
 import frisbee from './pictures/Logos_for_Photos/frisbee.png';
 /* import { MdCall } from 'react-icons/md'; */
@@ -31,7 +34,7 @@ const Council = () => {
                 <h1 className="title">2025-2026</h1>
                 <div className="leader">
                     <h2>General Secretary Sports Affairs</h2>
-                    <img className="gen" alt="" src={councilLogo} />
+                    <img className="gen" alt="" src={Rajvardhan} />
                     <p className="name">Rajwardhan Toraskar<br />
                     <center>  <b>Call: </b>9619000065</center>
                     <div className="social_links">
@@ -48,7 +51,7 @@ const Council = () => {
                     <div className="container">
                     <div className="info-block">
                         <h2>Institute Sports Technical Head</h2>
-                        <img className="circular" src={councilLogo} alt="" />
+                        <img className="circular" src={Aryansh} alt="" />
                         <p className="name">
                             Aryansh Kukreja<br />
                             <b>Call: </b>9992888093
@@ -61,7 +64,7 @@ const Council = () => {
                     </div>
                     <div className="info-block">
                         <h2>Institute Sports Creatives Head</h2>
-                        <img className="circular" src={councilLogo} alt="" />
+                        <img className="circular" src={Akanksha} alt="" />
                         <p className="name">
                             Akanksha Patel<br />
                             <b>Call: </b>9323587701

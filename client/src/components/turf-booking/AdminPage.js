@@ -43,7 +43,7 @@ const AdminPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://turfbackend1-l63zjkfl.b4a.run/students');
+        const response = await fetch('https://turf-backend-production.up.railway.app/students');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -66,7 +66,7 @@ const AdminPage = () => {
 
   const handleStatusUpdate = async (id, newStatus) => {
     try {
-      const response = await fetch(`https://turfbackend1-l63zjkfl.b4a.run/student/${id}/status`, {
+      const response = await fetch(`https://turf-backend-production.up.railway.app/student/${id}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
