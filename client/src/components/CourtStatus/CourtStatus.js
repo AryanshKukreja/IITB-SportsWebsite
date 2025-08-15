@@ -66,7 +66,7 @@ const CourtStatus = () => {
   const [sportsCoordinates, setSportsCoordinates] = useState({});
   const [timeSlots, setTimeSlots] = useState(MANUAL_TIME_SLOTS);
   const [courtData, setCourtData] = useState([]);
-  const [setCurrentDate] = useState('');
+  const [currentDate, setCurrentDate] = useState('');
   const [currentTime, setCurrentTime] = useState(getISTDateTime());
   const [isLoading, setIsLoading] = useState(true);
   const [selectedDate, setSelectedDate] = useState(getISTDate());
