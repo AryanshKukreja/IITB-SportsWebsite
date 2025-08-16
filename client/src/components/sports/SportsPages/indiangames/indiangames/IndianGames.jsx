@@ -18,6 +18,8 @@ import ing3 from "../images/ing3.JPG";
 import ing4 from "../images/ing4.JPG";
 import ing5 from "../images/ing5.png";
 import ing6 from "../images/ing6.png";
+import user from '../../../../Contact/pictures/Logos_for_Photos/Kanak.jpg';
+
 
 
 const IndianGames = () => {
@@ -185,7 +187,7 @@ const IndianGames = () => {
 
         <div className='contactlist'>
           <div className='contactCard' >
-            <img alt="alt" className='contactImg' />
+            <img alt="alt" src={user} className='contactImg' />
             <p className='aq-name'>Kanak Tembhare</p>
             <p className='info'>Institute Indian Games Secretary</p>
               <p className='info'>+91 9322311654</p>

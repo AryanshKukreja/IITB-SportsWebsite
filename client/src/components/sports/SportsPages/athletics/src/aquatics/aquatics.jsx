@@ -13,7 +13,7 @@ import p2 from '../assets/2.jpg';
 import p3 from '../assets/3.jpg';
 import p4 from '../assets/4.jpg';
 import p5 from '../assets/5.jpg';
-import user from '../assets/user.jpg';
+import user from '../../../../../Contact/pictures/Logos_for_Photos/Praveen.jpg';
 
 const Athletics = () => {
   const [expandedCard, setExpandedCard] = useState(null);

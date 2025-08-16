@@ -11,7 +11,7 @@ import football_ground from '../assets/football_ground.jpeg';
 import football_team from '../assets/football_team.jpeg';
 import logo from '../assets/logo.jpeg';
 import turf from '../assets/turf.jpeg';
-import user from '../../aquatics/src/assets/user.jpg';
+import user from '../../../../Contact/pictures/Logos_for_Photos/Yash.jpg';
 
 const Football  = () => {
   const [expandedCard, setExpandedCard] = useState(null);

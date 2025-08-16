@@ -14,6 +14,7 @@ import lt2 from './assets/lt2.jpg';
 import lt3 from './assets/lt3.jpg';
 import lt4 from './assets/lt4.jpg';
 import lt5 from './assets/lt5.jpg';
+import user from '../../../Contact/pictures/Logos_for_Photos/Nehal.jpg';
 
 
 const Tennis = () => {
@@ -147,7 +148,7 @@ const Tennis = () => {
         </div>
         <div className='contactlist'>
           <div className='contactCard'>
-            <img alt="alt" className='contactImg' />
+            <img alt="alt" src={user} className='contactImg' />
             <p className='aq-name'>Nehal Gupta</p>
             <p className='info'>Institute Lawn Tennis Secretary</p>
             <p className='info'>+91 82910 25201</p>

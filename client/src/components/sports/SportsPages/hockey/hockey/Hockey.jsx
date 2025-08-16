@@ -12,6 +12,8 @@ import p2 from "../assets/p2.jpg";
 import p3 from "../assets/p3.jpg";
 import p4 from "../assets/p4.jpg";
 import p5 from "../assets/p5.jpg";
+import user from '../../../../Contact/pictures/Logos_for_Photos/Khushal.jpg';
+
 
 
 
@@ -179,7 +181,7 @@ const Hockey = () => {
 
         <div className='contactlist'>
           <div className='contactCard' >
-            <img alt="alt" className='contactImg' />
+            <img alt="alt" src={user}className='contactImg' />
             <p className='aq-name'>Khushal</p>
             <p className='info'>Institute Hockey Secretary</p>
               <p className='info'>+91 9001401665</p>

@@ -12,6 +12,8 @@ import cric1 from '../images/cric1.jpg';
 import cric2 from '../images/cric2.jpg';
 import cric3 from '../images/cric3.jpg';
 import cric4 from '../images/cric4.jpg';
+import user from '../../../../Contact/pictures/Logos_for_Photos/Pradyumna.jpg';
+
 
 
 
@@ -169,7 +171,7 @@ const Cricket = () => {
 
         <div className='contactlist'>
           <div className='contactCard' >
-            <img alt="alt" className='contactImg' />
+            <img alt="alt" src={user} className='contactImg' />
             <p className='aq-name'>Pradyumna Gugulothu</p>
             <p className='info'>Institute Cricket Secretary</p>
               <p className='info'>+91 70139 54490</p>

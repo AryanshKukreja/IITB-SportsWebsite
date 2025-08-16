@@ -20,7 +20,7 @@ import p6 from '../assets/p6.jpg';
 // import pool2 from '../assets/pool2.jpg';
 
 //import asec from '../assets/asec.png';
-import user from '../assets/user.jpg';
+import user from '../../../../Contact/pictures/Logos_for_Photos/Prateek.jpg';
 
 const Wtlift = () => {
   const [expandedCard, setExpandedCard] = useState(null);
