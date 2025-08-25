@@ -67,7 +67,7 @@ const Council = () => {
                         <img className="circular" src={Akanksha} alt="" />
                         <p className="name">
                             Akanksha Patel<br />
-                            <b>Call: </b>9323587701
+                            <b>Call: </b>9727215454
                             <div className="social_links">
                             {/* <a href="tel:+919727215454"><MdCall size={24} color="#7ee7ff"/></a> */}
                             <a href="https://www.instagram.com/iitbombaysports/"><FaInstagram size={24} color="#7ee7ff"/></a>
@@ -97,7 +97,7 @@ const Council = () => {
                 <img className="circular" src={athletics} alt="" />
                 <p className="name">
                     Praveen Kumar<br />
-                    <b>Call: </b>6297957507
+                    <b>Call: </b>8958434190
                     <div className="social_links">
                 {/* <a href="tel:+918958434190"><MdCall size={24} color="#7ee7ff"/></a> */}
                 <a href="https://www.instagram.com/iitbombayathletics/"><FaInstagram size={24} color="#7ee7ff"/></a>
