@@ -8,6 +8,7 @@ const AdminPage = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [sortBy, setSortBy] = useState('time'); // 'time' for FIFO, 'slot' for slot-wise
   const [filterStatus, setFilterStatus] = useState('all'); // 'all', 'pending', 'accepted', 'declined'
+  const [updatingStatus, setUpdatingStatus] = useState(null); // Track which request is being updated
 
   const correctPassword = 'RAJIFS@2024';
 
@@ -135,6 +136,8 @@ const AdminPage = () => {
   };
 
   const handleStatusUpdate = async (id, newStatus) => {
+    setUpdatingStatus(id); // Set loading state for this specific request
+    
     try {
       const response = await fetch(`https://turf-backend-production.up.railway.app/student/${id}/status`, {
         method: 'PUT',
@@ -144,31 +147,82 @@ const AdminPage = () => {
         body: JSON.stringify({ status: newStatus }),
       });
 
-      if (!response.ok) {
-        throw new Error(`Failed to update status: ${response.statusText}`);
+      let result = {};
+      
+      // Try to parse response, but don't fail if it's not JSON
+      try {
+        result = await response.json();
+      } catch (jsonError) {
+        console.log('Response is not JSON, proceeding with status update');
       }
 
-      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(`Failed to update status: ${response.status} ${response.statusText}`);
+      }
+
+      // Update the local state immediately for better UX
+      setRequests((prevRequests) =>
+        prevRequests.map((req) => (req._id === id ? { ...req, status: newStatus } : req))
+      );
 
       // Refresh the data to show updated statuses and auto-declined requests
-      const refreshResponse = await fetch('https://turf-backend-production.up.railway.app/students');
-      const refreshedData = await refreshResponse.json();
-      
-      const filteredRequests = refreshedData.filter(
-        (request) => request.date === todayDate || request.date === tomorrowDate
-      );
-      setRequests(filteredRequests);
+      try {
+        const refreshResponse = await fetch('https://turf-backend-production.up.railway.app/students');
+        if (refreshResponse.ok) {
+          const refreshedData = await refreshResponse.json();
+          const filteredRequests = refreshedData.filter(
+            (request) => request.date === todayDate || request.date === tomorrowDate
+          );
+          setRequests(filteredRequests);
+        }
+      } catch (refreshError) {
+        console.log('Could not refresh data, but status update was successful');
+      }
 
       // Show success message with additional info
-      if (newStatus === 'accepted' && result.autoDeclinedCount > 0) {
-        alert(`Request accepted! ${result.autoDeclinedCount} other pending request(s) for the same slot were automatically declined.`);
-      } else {
-        alert(`Request ${newStatus} successfully!`);
+      if (newStatus === 'accepted') {
+        const autoDeclinedCount = result.autoDeclinedCount || 0;
+        if (autoDeclinedCount > 0) {
+          alert(`✅ Slot confirmed successfully! ${autoDeclinedCount} other pending request(s) for the same slot were automatically declined.`);
+        } else {
+          alert('✅ Slot confirmed successfully!');
+        }
+      } else if (newStatus === 'declined') {
+        alert('❌ Request declined successfully!');
       }
 
     } catch (error) {
       console.error('Error updating status:', error);
-      alert('Error updating status. Please try again.');
+      
+      // Check if the error is just a fetch/parse issue but status might have been updated
+      try {
+        const checkResponse = await fetch('https://turf-backend-production.up.railway.app/students');
+        if (checkResponse.ok) {
+          const checkData = await checkResponse.json();
+          const updatedRequest = checkData.find(req => req._id === id);
+          
+          if (updatedRequest && updatedRequest.status === newStatus) {
+            // Status was actually updated successfully
+            const filteredRequests = checkData.filter(
+              (request) => request.date === todayDate || request.date === tomorrowDate
+            );
+            setRequests(filteredRequests);
+            
+            if (newStatus === 'accepted') {
+              alert('✅ Slot confirmed successfully!');
+            } else {
+              alert(`✅ Request ${newStatus} successfully!`);
+            }
+            return;
+          }
+        }
+      } catch (checkError) {
+        console.error('Could not verify status update:', checkError);
+      }
+      
+      alert('❌ Error updating status. Please refresh the page and try again.');
+    } finally {
+      setUpdatingStatus(null); // Clear loading state
     }
   };
 
@@ -312,6 +366,7 @@ const AdminPage = () => {
                   <div className="action-buttons">
                     <button
                       className="accept-btn"
+                      disabled={updatingStatus === request._id}
                       onClick={() => {
                         if (queuePosition > 1) {
                           const confirm = window.confirm(
@@ -322,13 +377,14 @@ const AdminPage = () => {
                         handleStatusUpdate(request._id, 'accepted');
                       }}
                     >
-                      Accept
+                      {updatingStatus === request._id ? 'Confirming...' : 'Accept'}
                     </button>
                     <button
                       className="reject-btn"
+                      disabled={updatingStatus === request._id}
                       onClick={() => handleStatusUpdate(request._id, 'declined')}
                     >
-                      Decline
+                      {updatingStatus === request._id ? 'Declining...' : 'Decline'}
                     </button>
                   </div>
                 )}
