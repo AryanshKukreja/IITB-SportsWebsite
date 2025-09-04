@@ -11,7 +11,9 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.10.0",
     "emailjs-com": "^3.2.0",
+    "jquery": "^3.7.1",
     "lucide-react": "^0.503.0",
+    "pdfjs-dist": "^5.4.149",
     "react": "^18.3.1",
     "react-card-flip": "^1.2.3",
     "react-dom": "^18.3.1",
@@ -21,6 +23,7 @@
     "react-slick": "^0.30.2",
     "react-vertical-timeline-component": "^3.6.0",
     "slick-carousel": "^1.8.1",
+    "turn.js": "^1.0.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

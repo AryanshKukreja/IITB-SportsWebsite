@@ -74,6 +74,15 @@ const Navbar = () => {
             </li>
             <li className='menuItem'>
               <Link 
+                to="/yearbook" 
+                onClick={closeNavbar}
+                className={isActive("/GC") ? "active" : ""}
+              >
+                Yearbook
+              </Link>
+            </li>
+            <li className='menuItem'>
+              <Link 
                 to="/events-timeline" 
                 onClick={closeNavbar}
                 className={isActive("/events-timeline") ? "active" : ""}
