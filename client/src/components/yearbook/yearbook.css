@@ -1,0 +1,79 @@
+/* Container for the whole page */
+.yearbookContainer {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header styles */
+.header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 2rem;
+}
+
+/* Wrapper for the PDF viewer to position the loader correctly */
+.pdfViewerWrapper {
+  position: relative; /* Crucial for positioning the spinner */
+  height: 80vh; /* Use viewport height for responsiveness */
+  width: 100%;
+  background-color: #f0f2f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensures the iframe stays within the rounded corners */
+}
+
+/* The PDF iframe itself */
+.pdfIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  opacity: 0; /* Start invisible */
+  transform: scale(0.98); /* Start slightly smaller */
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; /* Smooth transition */
+}
+
+/* This class is added once the PDF is loaded */
+.pdfIframe.loaded {
+  opacity: 1; /* Fade in */
+  transform: scale(1); /* Scale to full size */
+}
+
+/* Loading overlay styles */
+.loadingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #34495e;
+  z-index: 10;
+}
+
+/* CSS for the loading spinner animation */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #bdc3c7;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
