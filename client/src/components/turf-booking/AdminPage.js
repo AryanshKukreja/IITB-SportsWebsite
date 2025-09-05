@@ -30,9 +30,14 @@ const AdminPage = () => {
     '8:00 PM - 9:30 PM',
   ];
 
-  // Function to format date as 'YYYY-MM-DD'
-  const formatDate = (date) => {
-    return date.toISOString().split('T')[0];
+  // Improved date calculation function
+  const getLocalDate = (offset = 0) => {
+    const date = new Date();
+    date.setDate(date.getDate() + offset);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
   };
 
   // Function to format timestamp for display
@@ -63,27 +68,36 @@ const AdminPage = () => {
     return `${diffMinutes}m ago`;
   };
 
-  // Get today's and tomorrow's dates
-  const today = new Date();
-  const tomorrow = new Date();
-  tomorrow.setDate(today.getDate() + 1);
-
-  const todayDate = formatDate(today);
-  const tomorrowDate = formatDate(tomorrow);
+  // Get today's and tomorrow's dates using improved function
+  const todayDate = getLocalDate(0);
+  const tomorrowDate = getLocalDate(1);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://turf-backend-production.up.railway.app/students');
+        const response = await fetch('https://turfbackend2-trqobkw4.b4a.run/students');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
 
-        // Filter requests for today and tomorrow
-        const filteredRequests = data.filter(
-          (request) => request.date === todayDate || request.date === tomorrowDate
-        );
+        console.log('Today:', todayDate, 'Tomorrow:', tomorrowDate); // Debug log
+        
+        // Strict filtering for only today and tomorrow with logging
+        const filteredRequests = data.filter((request) => {
+          const isToday = request.date === todayDate;
+          const isTomorrow = request.date === tomorrowDate;
+          const shouldInclude = isToday || isTomorrow;
+          
+          // Debug log (remove in production if needed)
+          if (!shouldInclude) {
+            console.log('Filtered out request with date:', request.date);
+          }
+          
+          return shouldInclude;
+        });
+        
+        console.log(`Showing ${filteredRequests.length} requests out of ${data.length} total`);
         setRequests(filteredRequests);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -110,9 +124,14 @@ const AdminPage = () => {
     return sameSlotPending.findIndex(req => req._id === request._id) + 1;
   };
 
-  // Sort and filter requests
+  // Sort and filter requests with additional safeguard
   const getSortedAndFilteredRequests = () => {
     let filteredReqs = requests;
+    
+    // Extra safeguard: ensure only today/tomorrow requests
+    filteredReqs = filteredReqs.filter(req => 
+      req.date === todayDate || req.date === tomorrowDate
+    );
     
     // Apply status filter
     if (filterStatus !== 'all') {
@@ -139,7 +158,7 @@ const AdminPage = () => {
     setUpdatingStatus(id); // Set loading state for this specific request
     
     try {
-      const response = await fetch(`https://turf-backend-production.up.railway.app/student/${id}/status`, {
+      const response = await fetch(`https://turfbackend2-trqobkw4.b4a.run/student/${id}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -167,9 +186,10 @@ const AdminPage = () => {
 
       // Refresh the data to show updated statuses and auto-declined requests
       try {
-        const refreshResponse = await fetch('https://turf-backend-production.up.railway.app/students');
+        const refreshResponse = await fetch('https://turfbackend2-trqobkw4.b4a.run/students');
         if (refreshResponse.ok) {
           const refreshedData = await refreshResponse.json();
+          // Apply the same strict filtering on refresh
           const filteredRequests = refreshedData.filter(
             (request) => request.date === todayDate || request.date === tomorrowDate
           );
@@ -196,7 +216,7 @@ const AdminPage = () => {
       
       // Check if the error is just a fetch/parse issue but status might have been updated
       try {
-        const checkResponse = await fetch('https://turf-backend-production.up.railway.app/students');
+        const checkResponse = await fetch('https://turfbackend2-trqobkw4.b4a.run/students');
         if (checkResponse.ok) {
           const checkData = await checkResponse.json();
           const updatedRequest = checkData.find(req => req._id === id);
@@ -268,7 +288,7 @@ const AdminPage = () => {
   return (
     <div className="admin-page-container">
       <div className="admin-header">
-        <h1>Turf Booking Requests (Today & Tomorrow)</h1>
+        <h1>Turf Booking Requests - {todayDate} & {tomorrowDate}</h1>
         
         {/* Controls for sorting and filtering */}
         <div className="admin-controls">
