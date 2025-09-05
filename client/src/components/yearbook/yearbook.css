@@ -77,3 +77,18 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+.yb-button-container {
+  position: absolute;
+  top: 0px;
+  right: 139px;
+  display: flex;
+  gap: 10px;
+  z-index: 20; /* Ensure buttons are above the PDF viewer */
+  padding: 7px 15px;
+}
+.yb-button-container div {
+  cursor: pointer;
+  width: 25.6px;
+  background-color: 00000044;
+  align-items: center;
+}

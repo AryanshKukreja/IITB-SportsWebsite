@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import "./yearbook.css";
+import { FaRegArrowAltCircleDown } from "react-icons/fa";
+import { PiCornersOut } from "react-icons/pi";
+import { PiCornersIn } from "react-icons/pi";
 
 const Yearbook = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -43,8 +47,8 @@ const Yearbook = () => {
     borderRadius: '4px'
   };
 
-  const buttonStyle = {
-    backgroundColor: '#007bff',
+  /* const buttonStyle = {
+    backgroundColor: '#00000000',
     color: 'white',
     border: 'none',
     padding: '10px 15px',
@@ -54,13 +58,13 @@ const Yearbook = () => {
     fontWeight: 'bold',
     boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
     marginRight: '10px',
-  };
+  }; */
 
   const buttonContainerStyle = {
     position: isFullscreen ? 'fixed' : 'absolute',
-    top: isFullscreen ? '10px' : '10px',
-    right: isFullscreen ? '10px' : '10px',
-    zIndex: 10000,
+    top: isFullscreen ? '12px' : '12px',
+    right: isFullscreen ? '160px' : '160px',
+    zIndex: 1,
     display: 'flex',
     gap: '10px',
   };
@@ -78,26 +82,46 @@ const Yearbook = () => {
         width: '100%',
         position: 'relative'
       }}>
-        <div style={buttonContainerStyle}>
-          <button 
+        <div className="yb-button-container">
+          {/* <button 
             onClick={handleDownload}
             style={buttonStyle}
-            onMouseOver={(e) => e.target.style.backgroundColor = '#28a745'}
-            onMouseOut={(e) => e.target.style.backgroundColor = '#007bff'}
+            onMouseOver={(e) => e.target.style.backgroundColor = '#00000044'}
+            onMouseOut={(e) => e.target.style.backgroundColor = '#00000000'}
             title="Download PDF"
           >
-            ⬇ Download
-          </button>
-          
-          <button 
+            
+          </button> */}
+          <div className="download-icon">
+          <FaRegArrowAltCircleDown 
+          onClick={handleDownload} 
+          size={20} 
+          style={{ verticalAlign: 'middle', cursor: "pointer" }}
+          /> </div>
+          <div>
+
+          {isFullscreen ? <PiCornersIn 
+          onClick={toggleFullscreen} 
+          size={20} 
+          style={{ verticalAlign: 'middle', cursor: "pointer" }}
+          /> : <PiCornersOut 
+          onClick={toggleFullscreen} 
+          size={20} 
+          style={{ verticalAlign: 'middle' , cursor: "pointer"}} 
+          />}
+          </div>
+
+          {/* <button 
             onClick={toggleFullscreen}
             style={buttonStyle}
-            onMouseOver={(e) => e.target.style.backgroundColor = '#0056b3'}
-            onMouseOut={(e) => e.target.style.backgroundColor = '#007bff'}
+            onMouseOver={(e) => e.target.style.backgroundColor = '#00000044'}
+            onMouseOut={(e) => e.target.style.backgroundColor = '#00000000'}
             title={isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
+            fontSize={25}
+            size={40}
           >
-            {isFullscreen ? '✕ Exit Fullscreen' : '⛶ Fullscreen'}
-          </button>
+            
+          </button> */}
         </div>
         
         <iframe
