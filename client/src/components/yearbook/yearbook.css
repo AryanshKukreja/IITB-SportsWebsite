@@ -79,8 +79,8 @@
 }
 .yb-button-container {
   position: absolute;
-  top: 0px;
-  right: 139px;
+  top: 40px;
+  right: 15px;
   display: flex;
   gap: 10px;
   z-index: 20; /* Ensure buttons are above the PDF viewer */
@@ -91,4 +91,16 @@
   width: 25.6px;
   background-color: 00000044;
   align-items: center;
+}
+.yb-corner{
+  cursor: pointer;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  background-color: 00000044;
+  align-items: center;
+  border-radius: 5px;
+}
+.yb-corner:hover{
+  background-color: #ffffff33;
 }
