@@ -111,11 +111,11 @@ const Navbar = () => {
             {/* Admin Panel Link */}
             <li className='menuItem admin-link'>
               <Link 
-                to="/admin-court-management" 
+                to="/feedback" 
                 onClick={closeNavbar}
-                className={isActive("/admin-court-management") ? "active" : ""}
+                className={isActive("/feedback") ? "active" : ""}
               >
-                Admin Panel
+                Feedback
               </Link>
             </li>
           </ul>
