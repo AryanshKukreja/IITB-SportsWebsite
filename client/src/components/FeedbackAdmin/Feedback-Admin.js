@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Feedback.css'; // Using the same CSS file
 
 // Configure API base URL using environment variable
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:3000';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'https://feedbackbackend-mlc8bmyp.b4a.run';
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
