@@ -6,7 +6,6 @@ import Aryansh from "./pictures/Logos_for_Photos/Aryansh ISC.jpg";
 import Akanksha from "./pictures/Logos_for_Photos/Akanksha.jpg";
 import adventure from './pictures/Logos_for_Photos/adventure.jpg';
 import athletics from './pictures/Logos_for_Photos/Praveen.jpg';
-import aquatics from './pictures/Logos_for_Photos/Aquatics logo.png';
 import badminton from './pictures/Logos_for_Photos/badminton.png';
 import basketball from './pictures/Logos_for_Photos/Deepraj.jpg';
 import cricket from './pictures/Logos_for_Photos/Pradyumna.jpg';
@@ -21,6 +20,8 @@ import volleyball from './pictures/Logos_for_Photos/volleyball.png';
 import weightlifting from './pictures/Logos_for_Photos/Prateek.jpg';
 import fitness from './pictures/Logos_for_Photos/fitness.png';
 import frisbee from './pictures/Logos_for_Photos/frisbee.png';
+import meet from './pictures/Logos_for_Photos/Meet.png';
+
 /* import { MdCall } from 'react-icons/md'; */
 import { FaInstagram } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
@@ -108,7 +109,7 @@ const Council = () => {
             <div className="info-block">
                 <div className="sport-number">2</div>
                 <h2>Institute Aquatics Secretary</h2>
-                <img className="circular" src={aquatics} alt="" />
+                <img className="circular" src={meet} alt="" />
                 <p className="name">
                     Meet Vanja<br />
                     <b>Call: </b>9323587701
