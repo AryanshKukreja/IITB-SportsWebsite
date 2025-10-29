@@ -134,14 +134,180 @@ const Aquatics = () => {
         </div>
         <div className='content'>
           <p className='facilityText'>
-            <b>Swimming Pool</b> : Our club has a 50m X 25m swimming pool with all the modern facilities. Various equipment for swimming like kickboards, flippers, pull buoys, pedals are also available for the members. The Swimming pool has a fully functional Ozone treatment plant for treatment of water.
-            <br /><br /><b>Baby pool</b> : We also have a baby pool for beginners and leisure activities.
+            <b>Swimming Pool</b> : Our club has a 50m x 25m swimming pool with all the modern facilities. Various equipment for swimming like kickboards, flippers, pull buoys, pedals are also available for the members. IITB Aquatics conducts regular camps for beginers and intermediate throughout the year.
+            <br /><br /><b>Baby pool</b> : We also have a baby pool for the members who come to the swimming pool for leisure activities and for those who are learning swimming. The dimensions are 15m x 10m and we are planning to increase the size to 25m x 10m to accommodate the ever-increasing enthusiasm to learn swimming.
             <br /><br /><b>Water Polo</b> : We have all the necessary equipment for water polo training of students.
+            <br /><br /><b>Gym</b> : We have a Mutistation  Gym facility, Dumbles and  Free rods. If any pool members wish to warm up and strengthen their body before entering to water, they make use of it.
           </p>
           <img alt="alt" src={pool3} className='image' />
         </div>
       </div>
+      <div className='aq-pool-timing'>
+        {/* <div className='aq-heading'>
+          <MdDoubleArrow className='arrow' />
+          <h3 className='aq-headingtext'>Info</h3>
+        </div> */}
+        <div className='aq-heading'>
+          <MdDoubleArrow className='arrow' />
+          <h3 className='aq-headingtext'>Pool Timing</h3>
+        </div>
+        <div className='content'>
+          <p className='facilityText'>
+            <table className='pool-timing-table'>
+              <thead>
+                <tr>
+                  <th className='pool-timing-table-td' colSpan={2}>SWIMMING POOL TIMING</th>
+                </tr>
+                <tr>
+                  <th>GENERAL SLOT MORNING</th>
+                  <th>GENERAL SLOT EVENING</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>7:15 AM TO 8:00 AM</td>
+                  <td>6:15 PM TO 7:00 PM</td>
+                </tr>
+                <tr>
+                  <td>8:00 AM TO 8:45 AM</td>
+                  <td>7:05 PM TO 7:50 PM</td>
+                </tr>
+                <tr>
+                  <td>8:50 AM TO 9:30 AM</td>
+                  <td>7:55 PM TO 8:30 PM</td>
+                </tr>
+                <tr>
+                  <td>9:30 AM TO 10:15 AM</td>
+                  <td>8:30 PM TO 9:00 PM</td>
+                </tr>
 
+                <tr>
+                  <td className='section-header' rowSpan={2}>LADIES SLOTS</td>
+                  <td>6:30 AM TO 7:15 AM</td>
+                </tr>
+                <td>5:20 PM TO 6:15 PM</td>
+                <tr>
+                  <td className='section-header'>CAMPUS KIDS TRAINING</td>
+                  <td>4:00 PM TO 5:15 PM</td>
+                </tr>
+
+                <tr>
+                  <td className='section-header'>NSO ( MON & WED)</td>
+                  <td>5:45 PM TO 7:00 PM</td>
+                </tr>
+
+                <tr>
+                  <td className='section-header'>INTER IIT PRACTICE</td>
+                  <td>7:30 PM TO 9:00 PM</td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+
+        </div>
+      </div>
+      <div className='aq-info'>
+        <div className='aq-heading'>
+          <MdDoubleArrow className='arrow' />
+          <h3 className='aq-headingtext'>Info</h3>
+        </div>
+        <div className='content'>
+          <p className='facilityText'>
+            <li>Students Gymkhana/ Coach have the right to use any of the slot for the students camp, inter hostel, Inter IIT Camp of any other program that has been approved by Chairman (Sports)/ Dean (SA)</li>
+            <li>The pool slots are strictly implemented during the summer months, other period if the number of swimmers in the big pool is less than 30 they may be permitted to swim without encroaching ladies slots</li>
+            <br/>
+            <b>Reaching the Swimming Pool</b>: The swimming pool is located just opposite to Hostel 2, besides the Indoor SAC.
+            <br/>
+            <br/>
+            <b>Making the membership card</b>: A membership card is a must for swimming at the pool. We will very soon implement a biometric entry-exit systems in the pool.
+            <br/>
+            <br/>
+            <b>Procedure to get a Swimming Pool Card for students</b>:<br/>
+            <li>You can take a green form from swimming pool counter or office in the evening from 5:00 PM to 8:00 PM.</li>
+            <li>You would need a passport size photograph to stick on the form and one more to stick on your swimming card.</li>
+            <li>After filling up the form you should get the General Physician’s signature and stamp from IIT Hospital. You would be checked for sensitivity to chlorine, skin problems, infection in ears etc.</li>
+            <li>You should submit the form to Swimming Pool office, along with 2 passport size photograph</li>
+            <li>Please wait for a day or two for processing of your form. You can collect you card from swimming pool office after two days from submitting the form.</li>
+            <li>Extra info: Swimming Pool office is to your right after you enter the swimming pool.</li>
+          </p>
+        </div>
+      </div>
+
+      <div className='aq-info'>
+        <div className='aq-heading'>
+          <MdDoubleArrow className='arrow' />
+          <h3 className='aq-headingtext'>General Rules</h3>
+        </div>
+        <div className='content'>
+          <ul className='facilityText'>
+            <li>Swimming is prohibited without membership card.</li>
+            <li>The membership card is not transferable. If this rule is violated, membership will stand cancelled.</li>
+            <li>The member should make entry in the register and must keep cards in the glass board.</li>
+            <li>During ladies slot no male member is permitted to swim, however female members are allowed to use the pool during general slots.</li>
+            <li>Members are advised not to move around the pool deck and distract the life guards during pool hours.</li>
+            <li>All the viewers should remain in gallery only.</li>
+            <li>No member is permitted to use separate lane during the general slots.</li>
+            <li>Student gymkhana/coach has right to use the any of the slot for students camp, inter hostel meet or any other activity that has been approved by sport committees.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className='aq-info'>
+        <div className='aq-heading'>
+          <MdDoubleArrow className='arrow' />
+          <h3 className='aq-headingtext'>Safety Rules</h3>
+        </div>
+        <div className='content'>
+          <ul className='facilityText'>
+            <li>Swimming is strictly prohibited in the absence of a life guard.</li>
+            <li>Swimming or diving cannot be done alone.</li>
+            <li>Beginners should remain at the shallow end of the pool and always wear a red cap. Beginners below 12 years should be accompanied by their parents.</li>
+            <li>Diving can be done only in presence of coach or life guard and also while practicing diving make sure that the diving area is clear of swimmers.</li>
+            <li>Drinking, smoking and eating in the pool or in the paved area around the pool is prohibited.</li>
+            <li>Never push anyone into the pool as horse play is not permitted in the pool and never swim beyond your capacity.</li>
+            <li>Photography in the pool premises is not allowed unless prior permission is obtained.</li>
+            <li>Never swim with metallic object like ring, watch, neck chain etc.</li>
+            <li>Don’t bring any valuables to the pool. Swimming club/gymkhana will not be responsible for loss of any belongings.</li>
+            <li>Life guards are strictly prohibited to teach or train the members during general slots. Members are requested not to approach life guards to teach or train during pool hours as that may lead to accidents in the pool.</li>
+            <li>If any member violates any of the above mentioned rules his/her membership will be cancelled.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className='aq-info'>
+        <div className='aq-heading'>
+          <MdDoubleArrow className='arrow' />
+          <h3 className='aq-headingtext'>Guest Rules</h3>
+        </div>
+        <div className='content'>
+          <ul className='facilityText'>
+            <li>Guest charges are Rs 20/- per dip. Only for Institute Staff.</li>
+            <li>No guest will be permitted during the peak hours of the pool if there are 30 or more members in the pool.</li>
+            <li>Guest cannot be a regular visitor to the pool.</li>
+            <li>Only the primary member of the swimming pool is allowed to bring the guest. No dependent/school children are eligible to bring the guest.</li>
+            <li>Guest will be allowed only once/twice in a week.</li>
+            <li>Primary member has to fill the guest form each time available at the pool office and entry should be made in guest entry book as well as main entry book at the counter.</li>
+            <li>It is compulsory that the guest should be accompanied by the primary member.</li>
+          </ul>
+        </div>
+      </div>
+      <div className='aq-info'>
+        <div className='aq-heading'>
+          <MdDoubleArrow className='arrow' />
+          <h3 className='aq-headingtext'>Hygiene Rules</h3>
+        </div>
+        <div className='content'>
+          <ul className='facilityText'>
+            <li>Swimming costume is mandatory for all users. Costumes must be non‑transparent and not white in colour.</li>
+            <li>Anyone with long hair must wear a swimming cap; long hair should be tied securely before entering the pool.</li>
+            <li>Persons with open cuts, wounds, eye infections or any communicable disease are not permitted to enter the pool.</li>
+            <li>Anyone under the influence of alcohol, drugs or other intoxicants is prohibited from entering the pool premises.</li>
+            <li>Please leave possessions and footwear in the cloak room; the club/gymkhana is not responsible for loss of personal belongings.</li>
+            <li>All members must shower and rinse thoroughly before entering the pool. Use soap where necessary to remove oils from hair or skin.</li>
+            <li>Use the scum gutter for spitting or blowing while inside the pool; maintain cleanliness and respect other users.</li>
+          </ul>
+        </div>
+      </div>
 
       <div className='events'>
         <div className='aq-heading'>
@@ -168,8 +334,8 @@ const Aquatics = () => {
             );
           })}
         </div>
-        {/* cardlist */}
       </div>
+
 
       <div className='achievements'>
         <div className='aq-heading' id='head-achieve'>
