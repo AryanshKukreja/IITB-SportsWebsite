@@ -37,6 +37,7 @@ import Athletics from "./components/sports/SportsPages/athletics/src/aquatics/aq
 import Yearbook from "./components/yearbook/yearbook";
 import Feedback from "./components/Feedback/Feedback";
 import AdminDashboard from "./components/FeedbackAdmin/Feedback-Admin";
+import BlogsPage from "./components/Blogs/BlogPage";
 
 function App() {
   // Correct basename for gymkhana server
@@ -85,6 +86,7 @@ function App() {
             <Route path="/yearbook" element={<Yearbook />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/feedback-admin" element={<AdminDashboard />} />
+            <Route path="/blogs" element={<BlogsPage />} />
             {/* Catch-all route for unmatched paths */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
