@@ -75,7 +75,7 @@ const AdminPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://turfbackend4-cyubkna6.b4a.run/students');
+        const response = await fetch('https://turfbackend4-33itblhy.b4a.run/students');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -158,7 +158,7 @@ const AdminPage = () => {
     setUpdatingStatus(id); // Set loading state for this specific request
     
     try {
-      const response = await fetch(`https://turfbackend4-cyubkna6.b4a.run/student/${id}/status`, {
+      const response = await fetch(`https://turfbackend4-33itblhy.b4a.run/student/${id}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -186,7 +186,7 @@ const AdminPage = () => {
 
       // Refresh the data to show updated statuses and auto-declined requests
       try {
-        const refreshResponse = await fetch('https://turfbackend4-cyubkna6.b4a.run/students');
+        const refreshResponse = await fetch('https://turfbackend4-33itblhy.b4a.run/students');
         if (refreshResponse.ok) {
           const refreshedData = await refreshResponse.json();
           // Apply the same strict filtering on refresh
@@ -216,7 +216,7 @@ const AdminPage = () => {
       
       // Check if the error is just a fetch/parse issue but status might have been updated
       try {
-        const checkResponse = await fetch('https://turfbackend4-cyubkna6.b4a.run/students');
+        const checkResponse = await fetch('https://turfbackend4-33itblhy.b4a.run/students');
         if (checkResponse.ok) {
           const checkData = await checkResponse.json();
           const updatedRequest = checkData.find(req => req._id === id);
