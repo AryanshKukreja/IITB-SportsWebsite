@@ -16,7 +16,7 @@ const ContactUs = () => {
         </p> */}
         <h2 className="insti ISC">Institute Sports Council</h2>
         <p>
-            <span className="mail"><MdEmail size={30} color="rgb(126, 255, 188)"/>gsecsports@iitb.ac.in</span>  
+            <span className="mail"><MdEmail size={30} color="rgb(126, 255, 188)"/>gsecsport@iitb.ac.in</span>  
         </p>
         <p>
             <span className="tele"><MdCall size={25} color="rgb(126, 255, 188)"/>+91 96190 00065</span> 
