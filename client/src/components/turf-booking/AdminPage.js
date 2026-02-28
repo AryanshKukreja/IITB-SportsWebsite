@@ -75,7 +75,7 @@ const AdminPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://turfbackend4-33itblhy.b4a.run/students');
+        const response = await fetch('http://10.195.160.174:3000/students');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -121,7 +121,7 @@ const AdminPage = () => {
       )
       .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
     
-    return sameSlotPending.findIndex(req => req._id === request._id) + 1;
+    return sameSlotPending.findIndex(req => req.id === request.id) + 1;
   };
 
   // Sort and filter requests with additional safeguard
@@ -158,7 +158,7 @@ const AdminPage = () => {
     setUpdatingStatus(id); // Set loading state for this specific request
     
     try {
-      const response = await fetch(`https://turfbackend4-33itblhy.b4a.run/student/${id}/status`, {
+      const response = await fetch(`http://10.195.160.174:3000/student/${id}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -181,12 +181,12 @@ const AdminPage = () => {
 
       // Update the local state immediately for better UX
       setRequests((prevRequests) =>
-        prevRequests.map((req) => (req._id === id ? { ...req, status: newStatus } : req))
+        prevRequests.map((req) => (req.id === id ? { ...req, status: newStatus } : req))
       );
 
       // Refresh the data to show updated statuses and auto-declined requests
       try {
-        const refreshResponse = await fetch('https://turfbackend4-33itblhy.b4a.run/students');
+        const refreshResponse = await fetch('http://10.195.160.174:3000/students');
         if (refreshResponse.ok) {
           const refreshedData = await refreshResponse.json();
           // Apply the same strict filtering on refresh
@@ -216,10 +216,10 @@ const AdminPage = () => {
       
       // Check if the error is just a fetch/parse issue but status might have been updated
       try {
-        const checkResponse = await fetch('https://turfbackend4-33itblhy.b4a.run/students');
+        const checkResponse = await fetch('http://10.195.160.174:3000/students');
         if (checkResponse.ok) {
           const checkData = await checkResponse.json();
-          const updatedRequest = checkData.find(req => req._id === id);
+          const updatedRequest = checkData.find(req => req.id === id);
           
           if (updatedRequest && updatedRequest.status === newStatus) {
             // Status was actually updated successfully
@@ -344,7 +344,7 @@ const AdminPage = () => {
             
             return (
               <li 
-                key={request._id} 
+                key={request.id} 
                 className={`request-item ${request.status} ${isPriorityRequest ? 'priority' : ''}`}
               >
                 <div className="request-header">
@@ -386,7 +386,7 @@ const AdminPage = () => {
                   <div className="action-buttons">
                     <button
                       className="accept-btn"
-                      disabled={updatingStatus === request._id}
+                      disabled={updatingStatus === request.id}
                       onClick={() => {
                         if (queuePosition > 1) {
                           const confirm = window.confirm(
@@ -394,17 +394,17 @@ const AdminPage = () => {
                           );
                           if (!confirm) return;
                         }
-                        handleStatusUpdate(request._id, 'accepted');
+                        handleStatusUpdate(request.id, 'accepted');
                       }}
                     >
-                      {updatingStatus === request._id ? 'Confirming...' : 'Accept'}
+                      {updatingStatus === request.id ? 'Confirming...' : 'Accept'}
                     </button>
                     <button
                       className="reject-btn"
-                      disabled={updatingStatus === request._id}
-                      onClick={() => handleStatusUpdate(request._id, 'declined')}
+                      disabled={updatingStatus === request.id}
+                      onClick={() => handleStatusUpdate(request.id, 'declined')}
                     >
-                      {updatingStatus === request._id ? 'Declining...' : 'Decline'}
+                      {updatingStatus === request.id ? 'Declining...' : 'Decline'}
                     </button>
                   </div>
                 )}
