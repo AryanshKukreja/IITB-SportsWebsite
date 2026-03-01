@@ -53,7 +53,7 @@ const BookingPage = () => {
     const fetchSlots = async () => {
       try {
         // FIXED: Correct API endpoint
-        const response = await fetch('http://10.195.160.174:3000/api/slots');
+        const response = await fetch('https://gymkhana.iitb.ac.in/sports/api/slots');
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const slots = await response.json();
         setAvailableSlots(slots);
@@ -66,7 +66,7 @@ const BookingPage = () => {
 
     const fetchExistingBookings = async () => {
       try {
-        const response = await fetch('http://10.195.160.174:3000/students');
+        const response = await fetch('https://gymkhana.iitb.ac.in/sports/students');
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const students = await response.json();
         setExistingBookings(students);
@@ -110,7 +110,7 @@ const BookingPage = () => {
 
     if (selectedSlotIndex !== null) {
       try {
-        const response = await fetch('http://10.195.160.174:3000', {
+        const response = await fetch('https://gymkhana.iitb.ac.in/sports', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
