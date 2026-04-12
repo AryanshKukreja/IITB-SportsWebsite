@@ -10,7 +10,7 @@ const AdminPage = () => {
   const [filterStatus, setFilterStatus] = useState('all'); // 'all', 'pending', 'accepted', 'declined'
   const [updatingStatus, setUpdatingStatus] = useState(null); // Track which request is being updated
 
-  const correctPassword = 'RAJIFS@2024';
+  const correctPassword = 'ADIIFS@2026';
 
   // Array to map slot numbers to corresponding timings
   const slotTimings = [
