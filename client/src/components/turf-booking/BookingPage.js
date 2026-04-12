@@ -52,14 +52,12 @@ const BookingPage = () => {
   useEffect(() => {
     const fetchSlots = async () => {
       try {
-        // FIXED: Correct API endpoint
         const response = await fetch('https://gymkhana.iitb.ac.in/sports/api/slots');
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const slots = await response.json();
         setAvailableSlots(slots);
       } catch (error) {
         console.error('Error fetching slots:', error);
-        // Add user-friendly error handling
         alert('Failed to load slot information. Please refresh the page.');
       }
     };
@@ -87,11 +85,10 @@ const BookingPage = () => {
       return;
     }
 
-    // FIXED: Check for existing bookings more accurately
     const hasBookingForTomorrow = existingBookings.some(
       (booking) => booking.rollno === formData.rollNumber && 
                    booking.date === tomorrowDate &&
-                   booking.status !== 'declined' // Don't count declined bookings
+                   booking.status !== 'declined'
     );
 
     if (hasBookingForTomorrow) {
@@ -110,7 +107,7 @@ const BookingPage = () => {
 
     if (selectedSlotIndex !== null) {
       try {
-        const response = await fetch('https://gymkhana.iitb.ac.in/sports', {
+        const response = await fetch('https://gymkhana.iitb.ac.in/sports/api/booking', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -184,9 +181,7 @@ const BookingPage = () => {
     return '#29AB87';
   };
 
-  // FIXED: Get slot status from backend without hardcoding
   const getSlotStatus = (slot, slotIndex) => {
-    // Trust the backend status instead of hardcoding
     return slot.status;
   };
 
