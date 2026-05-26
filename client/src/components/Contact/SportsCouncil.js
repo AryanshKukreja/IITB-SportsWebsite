@@ -21,6 +21,8 @@ import weightlifting from './pictures/Logos_for_Photos/Prateek.jpg';
 import fitness from './pictures/Logos_for_Photos/fitness.png';
 import frisbee from './pictures/Logos_for_Photos/frisbee.png';
 import meet from './pictures/Logos_for_Photos/Meet.png';
+import Disha from "./pictures/Logos_for_Photos/Disha.jpg";
+
 
 /* import { MdCall } from 'react-icons/md'; */
 import { FaInstagram } from "react-icons/fa";
@@ -35,11 +37,11 @@ const Council = () => {
                 <h1 className="title">2025-2026</h1>
                 <div className="leader">
                     <h2>General Secretary Sports Affairs</h2>
-                    <img className="gen" alt="" src={Rajvardhan} />
-                    <p className="name">Rajwardhan Toraskar<br />
-                    <center>  <b>Call: </b>9619000065</center>
+                    <img className="gen" alt="" src={basketball} />
+                    <p className="name">Deepraj Singh Kasherwal<br />
+                    <center>  <b>Call: </b>9761543343</center>
                     <div className="social_links">
-                        {/* <a href="tel:+919619000065"><MdCall size={24} color="#7ee7ff"/></a> */}
+                        {/* <a href="tel:+919761543343"><MdCall size={24} color="#7ee7ff"/></a> */}
                         <a href="https://www.instagram.com/iitbombaysports/"><FaInstagram size={24} color="#7ee7ff"/></a>
                         <a href="mailto:gsecsports@iitb.ac.in"><CiMail size={24} color="#7ee7ff"/></a>
                     </div>
@@ -52,12 +54,12 @@ const Council = () => {
                     <div className="container">
                     <div className="info-block">
                         <h2>Institute Sports Technical Head</h2>
-                        <img className="circular" src={Aryansh} alt="" />
+                        <img className="circular" src={Disha} alt="" />
                         <p className="name">
-                            Aryansh Kukreja<br />
-                            <b>Call: </b>9992888093
+                            Disha Jain<br />
+                            <b>Call: </b>91118 91978
                             <div className="social_links">
-                {/* <a href="tel:+919992888093"><MdCall size={24} color="#7ee7ff"/></a> */}
+                {/* <a href="tel:+919111891978"><MdCall size={24} color="#7ee7ff"/></a> */}
                 <a href="https://www.instagram.com/iitbombaysports/"><FaInstagram size={24} color="#7ee7ff"/></a>
                 <a href="mailto:gsecsports@iitb.ac.in"><CiMail size={24} color="#7ee7ff"/></a>
                             </div>

@@ -3,6 +3,7 @@ import './council.css'
 import Aryansh from "./pictures/Logos_for_Photos/Aryansh.png";
 import Disha from "./pictures/Logos_for_Photos/Disha.jpg";
 import Shubh from "./pictures/Logos_for_Photos/Shubh.jpg";
+import placeholder from "./pictures/Logos_for_Photos/image.png";
 import { FaInstagram } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 
@@ -14,9 +15,9 @@ const Webteam = () => {
                 <h1 className="title">2025-2026</h1>
                 <div className="leader">
                     <h2>Technical Head</h2>
-                    <img className="gen" alt="" src={Aryansh}/>
-                    <p className="name"><center>Aryansh Kukreja</center>
-                        <center><b>Call: </b>9992888093</center>
+                    <img className="gen" alt="" src={Disha}/>
+                    <p className="name"><center>Disha Jain</center>
+                        <center><b>Call: </b>91118 91978</center>
                         <div className="social_links">
                             <a href="https://www.instagram.com/iitbombaysports/"><FaInstagram size={24} color="#7ee7ff"/></a>
                             <a href="mailto:gsecsports@iitb.ac.in"><CiMail size={24} color="#7ee7ff"/></a>
@@ -30,9 +31,9 @@ const Webteam = () => {
                 <div className="container">
                     <div className="info-block">
                         <h2>Web Convener</h2>
-                        <img className="circular" src={Disha} alt="" />
+                        <img className="circular" src={placeholder} alt="" />
                         <p className="name">
-                            Disha Jain<br />
+                            Shivam Vishwekar<br />
                             <div className="social_links">
                                 <a href="https://www.instagram.com/iitbombaysports/"><FaInstagram size={24} color="#7ee7ff"/></a>
                                 <a href="mailto:gsecsports@iitb.ac.in"><CiMail size={24} color="#7ee7ff"/></a>
@@ -41,9 +42,9 @@ const Webteam = () => {
                     </div>
                     <div className="info-block">
                         <h2>Web Convener</h2>
-                        <img className="circular" src={Shubh} alt="" />
+                        <img className="circular" src={placeholder} alt="" />
                         <p className="name">
-                            Shubh Sareen<br />
+                            Chirag Borkar<br />
                             <div className="social_links">
                                 <a href="https://www.instagram.com/iitbombaysports/"><FaInstagram size={24} color="#7ee7ff"/></a>
                                 <a href="mailto:gsecsports@iitb.ac.in"><CiMail size={24} color="#7ee7ff"/></a>
