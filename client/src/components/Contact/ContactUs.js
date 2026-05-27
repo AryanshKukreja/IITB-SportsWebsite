@@ -19,17 +19,17 @@ const ContactUs = () => {
             <span className="mail"><MdEmail size={30} color="rgb(126, 255, 188)"/>gsecsport@iitb.ac.in</span>  
         </p>
         <p>
-            <span className="tele"><MdCall size={25} color="rgb(126, 255, 188)"/>+91 96190 00065</span> 
+            <span className="tele"><MdCall size={25} color="rgb(126, 255, 188)"/>+91 97615 43343</span> 
             </p>
             <p>
             <button class="btn"><Link to="/Council">Discover the Council</Link></button>
         </p>
         <h2 className="insti WEB">Web Team</h2>
         <p>
-            <span className="mail"><MdEmail size={30} color="rgb(126, 255, 188)"/>aryansh.techhead@gmail.com</span>  
+            <span className="mail"><MdEmail size={30} color="rgb(126, 255, 188)"/>disha.techhead@gmail.com</span>  
         </p>
         <p>
-            <span className="tele"><MdCall size={25} color="rgb(126, 255, 188)"/>+91 99928 88093</span> 
+            <span className="tele"><MdCall size={25} color="rgb(126, 255, 188)"/>+91 91118 91978</span> 
             </p>
             <p>
             <button class="btn"><Link to="/Webteam">Discover the Web Team</Link></button>
