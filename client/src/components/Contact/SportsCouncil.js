@@ -5,21 +5,22 @@ import Deepraj from "./pictures/Logos_for_Photos/Deepraj.jpg";
 import Disha from "./pictures/Logos_for_Photos/Disha.jpg";
 // import Viral from "./pictures/Logos_for_Photos/viral.jpg";
 import adventure from './pictures/Logos_for_Photos/adventure.jpg';
-// import athletics from './pictures/Logos_for_Photos/athletics.jpg';
+import athletics from './pictures/Logos_for_Photos/athletics.jpg';
 import badminton from './pictures/Logos_for_Photos/badminton.png';
-// import basketball from './pictures/Logos_for_Photos/basketball.jpg';
-// import cricket from './pictures/Logos_for_Photos/cricket.jpg';
+import basketball from './pictures/Logos_for_Photos/basketball.jpg';
+import cricket from './pictures/Logos_for_Photos/cricket.jpg';
 import chess from './pictures/Logos_for_Photos/chess.png';
-// import football from './pictures/Logos_for_Photos/football.jpg';
-// import hockey from './pictures/Logos_for_Photos/hockey.jpg';
-// import indianGames from './pictures/Logos_for_Photos/indianGames.jpg';
+import football from './pictures/Logos_for_Photos/football.jpg';
+import hockey from './pictures/Logos_for_Photos/hockey.jpg';
+import indianGames from './pictures/Logos_for_Photos/indianGames.jpg';
 import squash from './pictures/Logos_for_Photos/squash.png';
 import tabletennis from './pictures/Logos_for_Photos/tabletennis.png';
-// import tennis from './pictures/Logos_for_Photos/tennis.jpg';
+import tennis from './pictures/Logos_for_Photos/tennis.jpg';
 import volleyball from './pictures/Logos_for_Photos/volleyball.png';
-// import weightlifting from './pictures/Logos_for_Photos/weightlifting.jpg';
+import weightlifting from './pictures/Logos_for_Photos/weightlifting.jpg';
 import fitness from './pictures/Logos_for_Photos/fitness.png';
 import frisbee from './pictures/Logos_for_Photos/frisbee.png';
+import aquatics from './pictures/Logos_for_Photos/aquatics.jpg';
 
 
 /* import { MdCall } from 'react-icons/md'; */
