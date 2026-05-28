@@ -1,23 +1,23 @@
 import React from "react";
 import "./council.css"
 import councilLogo from "./pictures/Logos_for_Photos/IITB Sports Logo BW.png";
-import Deepraj from "./pictures/Logos_for_Photos/deepraj.jpg";
-import Disha from "./pictures/Logos_for_Photos/disha.jpg";
+import Deepraj from "./pictures/Logos_for_Photos/Deepraj.jpg";
+import Disha from "./pictures/Logos_for_Photos/Disha.jpg";
 // import Viral from "./pictures/Logos_for_Photos/viral.jpg";
 import adventure from './pictures/Logos_for_Photos/adventure.jpg';
-import athletics from './pictures/Logos_for_Photos/athletics.jpg';
+// import athletics from './pictures/Logos_for_Photos/athletics.jpg';
 import badminton from './pictures/Logos_for_Photos/badminton.png';
-import basketball from './pictures/Logos_for_Photos/basketball.jpg';
-import cricket from './pictures/Logos_for_Photos/cricket.jpg';
+// import basketball from './pictures/Logos_for_Photos/basketball.jpg';
+// import cricket from './pictures/Logos_for_Photos/cricket.jpg';
 import chess from './pictures/Logos_for_Photos/chess.png';
-import football from './pictures/Logos_for_Photos/football.jpg';
-import hockey from './pictures/Logos_for_Photos/hockey.jpg';
-import indianGames from './pictures/Logos_for_Photos/indianGames.jpg';
+// import football from './pictures/Logos_for_Photos/football.jpg';
+// import hockey from './pictures/Logos_for_Photos/hockey.jpg';
+// import indianGames from './pictures/Logos_for_Photos/indianGames.jpg';
 import squash from './pictures/Logos_for_Photos/squash.png';
 import tabletennis from './pictures/Logos_for_Photos/tabletennis.png';
-import tennis from './pictures/Logos_for_Photos/tennis.jpg';
+// import tennis from './pictures/Logos_for_Photos/tennis.jpg';
 import volleyball from './pictures/Logos_for_Photos/volleyball.png';
-import weightlifting from './pictures/Logos_for_Photos/weightlifting.jpg';
+// import weightlifting from './pictures/Logos_for_Photos/weightlifting.jpg';
 import fitness from './pictures/Logos_for_Photos/fitness.png';
 import frisbee from './pictures/Logos_for_Photos/frisbee.png';
 
@@ -65,7 +65,7 @@ const Council = () => {
                     </div>
                     <div className="info-block">
                         <h2>Institute Sports Creatives Head</h2>
-                        <img className="circular" src={Viral} alt="" />
+                        <img className="circular" src={councilLogo} alt="" />
                         <p className="name">
                             Viral Chhaperwal<br />
                             <b>Call: </b>9009051525
@@ -109,7 +109,7 @@ const Council = () => {
               <div className="info-block">
                   <div className="sport-number">2</div>
                   <h2>Institute Aquatics Secretary</h2>
-                  <img className="circular" src={meet} alt="" />
+                  <img className="circular" src={aquatics} alt="" />
                   <p className="name">
                       Ishanei Kumar<br />
                       <b>Call: </b>6266624331
