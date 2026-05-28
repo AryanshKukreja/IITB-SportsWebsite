@@ -3,7 +3,7 @@ import "./council.css"
 import councilLogo from "./pictures/Logos_for_Photos/IITB Sports Logo BW.png";
 import Deepraj from "./pictures/Logos_for_Photos/Deepraj.jpg";
 import Disha from "./pictures/Logos_for_Photos/Disha.jpg";
-import Viral from "./pictures/Logos_for_Photos/viral.jpg";
+// import Viral from "./pictures/Logos_for_Photos/viral.jpg";
 import adventure from './pictures/Logos_for_Photos/adventure.jpg';
 // import athletics from './pictures/Logos_for_Photos/athletics.jpg'; 
 import badminton from './pictures/Logos_for_Photos/badminton.png';
@@ -15,7 +15,7 @@ import chess from './pictures/Logos_for_Photos/chess.png';
 // import indianGames from './pictures/Logos_for_Photos/indianGames.jpg';
 import squash from './pictures/Logos_for_Photos/squash.png';
 // import tabletennis from './pictures/Logos_for_Photos/tabletennis.png';
-import tennis from './pictures/Logos_for_Photos/tennis.jpg';
+// import tennis from './pictures/Logos_for_Photos/tennis.jpg';
 import volleyball from './pictures/Logos_for_Photos/volleyball.png';
 // import weightlifting from './pictures/Logos_for_Photos/weightlifting.jpg';
 import fitness from './pictures/Logos_for_Photos/fitness.png';
@@ -261,7 +261,7 @@ const Council = () => {
               <div className="info-block">
                   <div className="sport-number">12</div>
                   <h2>Institute Table Tennis Secretary</h2>
-                  <img className="circular" src={tabletennis} alt="" />
+                  <img className="circular" src={councilLogo} alt="" />
                   <p className="name">
                       Supan Shah<br />
                       <b>Call: </b>9653396151
