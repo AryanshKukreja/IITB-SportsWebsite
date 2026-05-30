@@ -101,6 +101,15 @@ const Navbar = () => {
             </li>
             <li className='menuItem'>
               <Link 
+                to="/match-prediction" 
+                onClick={closeNavbar}
+                className={isActive("/match-prediction") ? "active" : ""}
+              >
+                Match Prediction
+              </Link>
+            </li>
+            <li className='menuItem'>
+              <Link 
                 to="/turfbooking" 
                 onClick={closeNavbar}
                 className={isActive("/turfbooking") ? "active" : ""}

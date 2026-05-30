@@ -38,6 +38,7 @@ import Yearbook from "./components/yearbook/yearbook";
 import Feedback from "./components/Feedback/Feedback";
 import AdminDashboard from "./components/FeedbackAdmin/Feedback-Admin";
 import BlogsPage from "./components/Blogs/BlogPage";
+import MatchPrediction from "./components/matchprediction/matchprediction";
 
 function App() {
   // Correct basename for gymkhana server
@@ -87,6 +88,7 @@ function App() {
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/feedback-admin" element={<AdminDashboard />} />
             <Route path="/blogs" element={<BlogsPage />} />
+            <Route path="/match-prediction" element={<MatchPrediction />} />
             {/* Catch-all route for unmatched paths */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
