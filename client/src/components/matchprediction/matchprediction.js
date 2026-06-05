@@ -1,42 +1,42 @@
 import React, { useState, useEffect } from "react";
 import "./matchprediction.css";
 import { db } from "../../firebase";
-import { ref, push, onValue, query, orderByChild, equalTo } from "firebase/database";
+import { ref, push, onValue } from "firebase/database";
 
 // ─── MATCH CONFIG ─────────────────────────────────────────────────────────────
 const MATCH_CONFIG = {
-  id:          "ipl-finals-2026",
-  event:       "IPL FINALS 2026",
-  subtitle:    "IITB Sports · Cricket",
+  id:          "NBA-finals-2026",
+  event:       "NBA FINALS 2026",
+  subtitle:    "IITB Sports · Basketball",
   allowDraw:   false,
   teamA: {
-    name:   "Royal Challengers Bengaluru",
-    short:  "RCB",
-    color:  "#CC0000",
-    accent: "#FF4444",
-    logo:   "https://scores.iplt20.com/ipl/teamlogos/RCB.png",
-    logoBg: "#CC0000",   // used only in intro circle
+    name:   "New York Knicks",
+    short:  "KNICKS",
+    color:  "#f58426",    // Knicks orange (used for badge/background)
+    accent: "#006bb6",    // Knicks blue (used for accents/text)
+    logo:   "https://upload.wikimedia.org/wikipedia/en/2/25/New_York_Knicks_logo.svg",
+    logoBg: "#006bb6",
   },
   teamB: {
-    name:      "Gujarat Titans",
-    short:     "GT",
-    color:     "#E6AF00",   // original — unchanged
-    //accent:    "#FFD700",
+    name:      "San Antonio Spurs",
+    short:     "SPURS",
+    color:     "#FFFFFF",
+    accent:    "#c4ced4",
     textColor: "#fff",
-    logo:      "https://scores.iplt20.com/ipl/teamlogos/GT.png",
-    logoBg:    "#1C3B6E",  // used only in intro circle
+    logo:      "https://upload.wikimedia.org/wikipedia/en/a/a2/San_Antonio_Spurs.svg",
+    logoBg:    "#ffffff",
   },
   scoreLabel:   "Predicted Score",
-  scoreSuffix:  "runs",
-  maxScore:     350,
-  minScore:     49,
+  scoreSuffix:  "points",
+  maxScore:     200,
+  minScore:     0,
   defaultScore: 0,
 };
 // ──────────────────────────────────────────────────────────────────────────────
 
 // Inline SVG fallbacks if CDN logos fail to load
-const RCB_SVG = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23CC0000'/><text x='50' y='62' text-anchor='middle' font-family='Impact,sans-serif' font-size='32' font-weight='bold' fill='white'>RCB</text></svg>`;
-const GT_SVG  = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%231C3B6E' stroke='%23E6AF00' stroke-width='3'/><text x='50' y='62' text-anchor='middle' font-family='Impact,sans-serif' font-size='36' font-weight='bold' fill='%23E6AF00'>GT</text></svg>`;
+const KNICKS_SVG = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23f58426'/><text x='50' y='62' text-anchor='middle' font-family='Impact,sans-serif' font-size='28' font-weight='bold' fill='%23006bb6'>NYK</text></svg>`;
+const SPURS_SVG  = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23000000'/><text x='50' y='62' text-anchor='middle' font-family='Impact,sans-serif' font-size='28' font-weight='bold' fill='%23c4ced4'>SAS</text></svg>`;
 
 function safeColor(color, fallback) {
   return color === "#F9CD05" ? "#b8940a" : (fallback || color);
@@ -69,7 +69,7 @@ function IntroOverlay({ teamA, teamB, onDone }) {
               src={teamA.logo}
               alt={teamA.short}
               className="mp-intro-logo"
-              onError={e => { e.target.src = RCB_SVG; }}
+              onError={e => { e.target.src = KNICKS_SVG; }}
             />
           </div>
           <span className="mp-intro-short" style={{ color: teamA.accent }}>{teamA.short}</span>
@@ -86,13 +86,13 @@ function IntroOverlay({ teamA, teamB, onDone }) {
               src={teamB.logo}
               alt={teamB.short}
               className="mp-intro-logo"
-              onError={e => { e.target.src = GT_SVG; }}
+              onError={e => { e.target.src = SPURS_SVG; }}
             />
           </div>
           <span className="mp-intro-short" style={{ color: safeColor(teamB.color, teamB.accent) }}>{teamB.short}</span>
         </div>
       </div>
-      <div className="mp-intro-tagline">IPL FINALS 2026</div>
+      <div className="mp-intro-tagline">NBA FINALS 2026</div>
     </div>
   );
 }
@@ -186,20 +186,19 @@ export default function MatchPrediction() {
   };
 
   useEffect(() => {
+    // Read all predictions and filter client-side by matchId.
+    // This is more robust if the DB doesn't support the expected index or child key.
     try {
-      const matchRef = query(
-        ref(db, "predictions"),
-        orderByChild("matchId"),
-        equalTo(cfg.id)
-      );
+      const allRef = ref(db, "predictions");
       const unsub = onValue(
-        matchRef,
+        allRef,
         (snapshot) => {
           const data = snapshot.val();
           if (!data) { setPredictions({ total: 0, aVotes: 0 }); return; }
-          const votes  = Object.values(data);
-          const aVotes = votes.filter(v => v.winner === "A").length;
-          setPredictions({ total: votes.length, aVotes });
+          const votes = Object.values(data);
+          const matchVotes = votes.filter(v => v && v.matchId === cfg.id);
+          const aVotes = matchVotes.filter(v => v.winner === "A").length;
+          setPredictions({ total: matchVotes.length, aVotes });
         },
         (err) => { console.error("Firebase read error:", err); setFbError(true); }
       );
@@ -244,7 +243,7 @@ export default function MatchPrediction() {
     return (
       <div className="mp-page">
         <div className="mp-card mp-success">
-          <div className="mp-success-icon">🏏</div>
+          <div className="mp-success-icon">🏀</div>
           <h2>Prediction Locked!</h2>
           <p>Thanks, <strong>{name}</strong>. You predicted:</p>
           <div className="mp-success-scores">
@@ -272,8 +271,8 @@ export default function MatchPrediction() {
         <div className="mp-header">
           <div className="mp-team-badge" style={{ background: cfg.teamA.color }}>
             {cfg.teamA.logo
-              ? <img src={cfg.teamA.logo} alt={cfg.teamA.name} className="mp-logo"
-                  onError={e => { e.target.src = RCB_SVG; }} />
+                ? <img src={cfg.teamA.logo} alt={cfg.teamA.name} className="mp-logo"
+                  onError={e => { e.target.src = KNICKS_SVG; }} />
               : <span className="mp-badge-text">{cfg.teamA.short}</span>}
           </div>
           <div className="mp-header-center">
@@ -283,8 +282,8 @@ export default function MatchPrediction() {
           </div>
           <div className="mp-team-badge" style={{ background: cfg.teamB.color }}>
             {cfg.teamB.logo
-              ? <img src={cfg.teamB.logo} alt={cfg.teamB.name} className="mp-logo"
-                  onError={e => { e.target.src = GT_SVG; }} />
+                ? <img src={cfg.teamB.logo} alt={cfg.teamB.name} className="mp-logo"
+                  onError={e => { e.target.src = SPURS_SVG; }} />
               : <span className="mp-badge-text" style={{ color: cfg.teamB.textColor || "#fff" }}>{cfg.teamB.short}</span>}
           </div>
         </div>

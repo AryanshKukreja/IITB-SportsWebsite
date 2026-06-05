@@ -13,6 +13,8 @@
   --mp-text:     #e8f0f8;
   --mp-muted:    #6b8aaa;
   --mp-accent:   #3b8beb;
+  /* default accent aligns with Team A (Knicks) blue */
+  --mp-accent:   #006bb6;
   --mp-radius:   14px;
   --mp-head:     'Bebas Neue', 'Impact', sans-serif;
   --mp-body:     'DM Sans', 'Segoe UI', sans-serif;
