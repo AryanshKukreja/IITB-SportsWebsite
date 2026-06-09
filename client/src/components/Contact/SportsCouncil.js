@@ -48,6 +48,46 @@ const Council = () => {
                 </div>
                 <div className="container">
                     </div>
+{/* Nominees BELOW */}
+<h1 className="con-heads"><b>Nominees</b></h1>
+<div className="container">
+    <div className="info-block">
+        <h2>Institute Sports Nominee - Events and Clubs</h2>
+        <img className="circular" src={councilLogo} alt="" />
+        <p className="name">
+            Aryansh Kukreja<br />
+            <b>Call: </b>99928 88093
+            <div className="social_links">
+                <a href="https://www.instagram.com/iitbombaysports/"><FaInstagram size={24} color="#7ee7ff"/></a>
+                <a href="mailto:gsecsports@iitb.ac.in"><CiMail size={24} color="#7ee7ff"/></a>
+            </div>
+        </p>
+    </div>
+    <div className="info-block">
+        <h2>Institute Sports Girls' Nominee</h2>
+        <img className="circular" src={councilLogo} alt="" />
+        <p className="name">
+            Akanksha Patel<br />
+            <b>Call: </b>97272 15454
+            <div className="social_links">
+                <a href="https://www.instagram.com/iitbombaysports/"><FaInstagram size={24} color="#7ee7ff"/></a>
+                <a href="mailto:gsecsports@iitb.ac.in"><CiMail size={24} color="#7ee7ff"/></a>
+            </div>
+        </p>
+    </div>
+    <div className="info-block">
+        <h2>Institute Sports Admin Nominee</h2>
+        <img className="circular" src={councilLogo} alt="" />
+        <p className="name">
+            Praveen Kumar<br />
+            <b>Call: </b>89584 34190
+            <div className="social_links">
+                <a href="https://www.instagram.com/iitbombaysports/"><FaInstagram size={24} color="#7ee7ff"/></a>
+                <a href="mailto:gsecsports@iitb.ac.in"><CiMail size={24} color="#7ee7ff"/></a>
+            </div>
+        </p>
+    </div>
+</div>
                     {/* Heads BELOW */}
                     <h1 className="con-heads"><b>Heads</b></h1>
                     <div className="container">
