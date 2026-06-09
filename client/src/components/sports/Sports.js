@@ -24,6 +24,7 @@ function Sports() {
     { name: "Rubik's club",image: '/images/Rubiks.png',link: '/rubik'},
     { name: "Ultimate Frisbee Club", image: '/images/Frisbee.png', link:'/frisbee'},
     { name: "Yogastha", image: '/images/yoga.png',link:'/yoga'},
+    { name: "Fitness Club", image: '/images/IITB Sports Logo BW.png', link: '/fitness'},
   ];
 
   return (
