@@ -1,12 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
 import { MdDoubleArrow } from "react-icons/md";
-import councilLogo from "../../Contact/pictures/Logos_for_Photos/IITB Sports Logo BW.png";
+
 
 const FitnessClub = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const images = [councilLogo];
+  const images = [process.env.PUBLIC_URL + '/images/sports-logo-transparent.png'];
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
