@@ -2,6 +2,9 @@ import React from "react";
 import "./council.css"
 import councilLogo from "./pictures/Logos_for_Photos/IITB Sports Logo BW.png";
 import Deepraj from "./pictures/Logos_for_Photos/Deepraj.jpg";
+import Aryansh from './pictures/Logos_for_Photos/Aryansh ISC.jpg';
+import Akanksha from './pictures/Logos_for_Photos/Akanksha.jpg';
+import Praveen from './pictures/Logos_for_Photos/Praveen.jpg';
 import Disha from "./pictures/Logos_for_Photos/Disha.jpg";
 // import Viral from "./pictures/Logos_for_Photos/viral.jpg";
 import adventure from './pictures/Logos_for_Photos/adventure.jpg';
@@ -53,7 +56,7 @@ const Council = () => {
 <div className="container">
     <div className="info-block">
         <h2>Institute Sports Nominee - Events and Clubs</h2>
-        <img className="circular" src={councilLogo} alt="" />
+        <img className="circular" src={Aryansh} alt="" />
         <p className="name">
             Aryansh Kukreja<br />
             <b>Call: </b>99928 88093
@@ -65,7 +68,7 @@ const Council = () => {
     </div>
     <div className="info-block">
         <h2>Institute Sports Girls' Nominee</h2>
-        <img className="circular" src={councilLogo} alt="" />
+        <img className="circular" src={Akanksha} alt="" />
         <p className="name">
             Akanksha Patel<br />
             <b>Call: </b>97272 15454
@@ -77,7 +80,7 @@ const Council = () => {
     </div>
     <div className="info-block">
         <h2>Institute Sports Admin Nominee</h2>
-        <img className="circular" src={councilLogo} alt="" />
+        <img className="circular" src={Praveen} alt="" />
         <p className="name">
             Praveen Kumar<br />
             <b>Call: </b>89584 34190
