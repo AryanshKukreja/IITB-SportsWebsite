@@ -30,6 +30,7 @@ import Cricket from "./components/sports/SportsPages/cricket/cricket/Cricket";
 import BoardGames from "./components/sports/SportsPages/boardgame/src/aquatics/boardgames";
 import AdventureClub from "./components/sports/SportsPages/adventure club/adventureclub";
 import Yogastha from "./components/sports/SportsPages/yogastha/yogastha";
+import FitnessClub from "./components/sports/SportsPages/fitness/FitnessClub";
 import Chess from "./components/sports/SportsPages/chess/chess";
 import Rubics from "./components/sports/SportsPages/rubics/rubics";
 import Frisbee from "./components/sports/SportsPages/frisbee/frisbee";
@@ -79,6 +80,7 @@ function App() {
             <Route path="/admin-court-management" element={<AdminCourtManagement/>} />
             <Route path="/adventureclub" element={<AdventureClub/>}/>
             <Route path="/yoga" element={<Yogastha/>}/>
+            <Route path="/fitness" element={<FitnessClub/>}/>
             <Route path="/chess" element={<Chess/>}/>
             <Route path="/rubik" element={<Rubics/>}/>
             <Route path="/frisbee" element={<Frisbee />} />
