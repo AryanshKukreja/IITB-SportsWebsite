@@ -23,7 +23,7 @@ const BlogsPage = () => {
         }
       });
     }, { threshold: 0.1 });
-    
+
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     return () => io.disconnect();
   }, [activeFilter]);
@@ -39,70 +39,127 @@ const BlogsPage = () => {
 
   return (
     <div className="blogs-wrapper">
-      <main>
-        <section className="blog-hero">
-          <span className="kicker">CELEBRATING SPORTS EXCELLENCE MONTH BY MONTH</span>
-          <h1>Event Highlights.</h1>
-          <p className="sub">Match reports, athlete profiles, councils diaries and the occasional sharply-worded column. Updated weekly by athletes, coaches and the web team.</p>
-        </section>
+      <div className="bl-page">
+        <header className="bl-masthead">
+          <div className="bl-masthead-mark">
+            <span className="crest">I</span>
+            <span>IIT Bombay Sports &nbsp;/&nbsp; The Dispatch</span>
+          </div>
+          <div className="bl-masthead-meta">
+            <span className="live"><span className="live-dot"></span>Live · Updated Weekly</span>
+            <span><strong>IIT Bombay</strong> · Powai</span>
+            <span>Season <strong>2024–25</strong></span>
+          </div>
+        </header>
 
-        <section className="section">
-          <div className="section-inner">
-            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '32px', gap: '24px', flexWrap: 'wrap'}}>
-              <div>
-                <span className="kicker"><span className="dot"></span>WEEKLY · 24 ARTICLES THIS SEASON</span>
-                <h2 className="section-title" style={{marginTop: '8px'}}>Our journey through <span className="it" style={{color: 'var(--accent)', fontStyle: 'italic'}}>sports.</span></h2>
-                <p className="section-sub" style={{marginTop: '14px'}}>Explore the remarkable events organised by the Sports Council throughout the year.</p>
+        <main>
+          <section className="blog-hero">
+            <div className="hero-inner">
+              <div className="hero-kicker">
+                <span className="vol">Weekly Dispatch</span>
+                <span className="sep">§</span>
+                <span>Celebrating Sports Excellence, Month By Month</span>
               </div>
-              
-              <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
-                {filters.map(filter => (
-                  <button 
-                    key={filter}
-                    className={`btn ${activeFilter === filter ? 'btn-primary' : ''}`}
-                    onClick={() => setActiveFilter(filter)}
-                  >
-                    {filter}
-                  </button>
+
+              <div className="hero-grid">
+                <div>
+                  <h1 className="hero-title">Event <span className="accent-italic">Highlights.</span></h1>
+                  <p className="hero-lede">
+                    Match reports, athlete profiles, council diaries and the occasional sharply worded column. Updated weekly by athletes, coaches and the web team.
+                  </p>
+                </div>
+
+                <aside className="hero-stats">
+                  <div className="hero-stat">
+                    <span className="k">Posts</span>
+                    <span className="v">{POSTS.length}</span>
+                    <span className="c">This season</span>
+                  </div>
+                  <div className="hero-stat">
+                    <span className="k">Categories</span>
+                    <span className="v">{filters.length - 1}</span>
+                    <span className="c">Reports to columns</span>
+                  </div>
+                  <div className="hero-stat">
+                    <span className="k">Cadence</span>
+                    <span className="v"><em>W</em></span>
+                    <span className="c">Weekly drop</span>
+                  </div>
+                  <div className="hero-stat">
+                    <span className="k">Season</span>
+                    <span className="v">24–25</span>
+                    <span className="c">Current cycle</span>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </section>
+
+          <section className="section">
+            <div className="section-inner">
+              <div className="section-top">
+                <div>
+                  <div className="eyebrow">
+                    <span><span className="num">§ 01</span>&nbsp;·&nbsp;The Feed</span>
+                    <span className="bar"></span>
+                  </div>
+                  <h2 className="section-title">Our journey through <span className="it">sports.</span></h2>
+                  <p className="section-sub">Explore the remarkable events organised by the Sports Council throughout the year.</p>
+                </div>
+
+                <div className="filter-tabs">
+                  {filters.map(filter => (
+                    <button
+                      key={filter}
+                      className={`btn ${activeFilter === filter ? 'btn-primary' : ''}`}
+                      onClick={() => setActiveFilter(filter)}
+                    >
+                      {filter}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="blog-feed">
+                {filteredPosts.map((post, index) => (
+                  <article key={index} className="blog-article reveal">
+                    <div
+                      className={`blog-cover ${post.photoUrl ? 'is-photo' : ''}`}
+                      style={{
+                        backgroundImage: `linear-gradient(180deg, rgba(6,8,12,0.15) 30%, rgba(6,8,12,0.9) 100%), url("${post.photoUrl}")`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                      }}
+                    >
+                      <span className="tag">{post.tag}</span>
+                      <div className="sport-label">{post.cover.sport}</div>
+                    </div>
+                    <div className="blog-body">
+                      <div className="meta">{post.month} · {post.date}</div>
+                      <h3 className="ttl">{post.title}</h3>
+                      <p className="ex">{post.ex}</p>
+                      <div className="foot">
+                        <div className="chips">
+                          {post.chips.map((chip, cIndex) => (
+                            <span key={cIndex} className="c">{chip}</span>
+                          ))}
+                        </div>
+                        <span className="arr">→</span>
+                      </div>
+                    </div>
+                  </article>
                 ))}
               </div>
             </div>
+          </section>
+        </main>
 
-            <div className="blog-feed">
-              {filteredPosts.map((post, index) => (
-                <article key={index} className="blog-article reveal">
-                  <div 
-                    className={`blog-cover ${post.photoUrl ? 'is-photo' : ''}`} 
-                    style={{
-                      backgroundImage: `linear-gradient(180deg, rgba(5,13,20,0.15) 30%, rgba(5,13,20,0.85) 100%), url("${post.photoUrl}")`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center'
-                    }}
-                  >
-                    <span className="tag">{post.tag}</span>
-                    <div style={{position: 'absolute', bottom: '14px', left: '14px', right: '14px', fontFamily: 'var(--mono)', fontSize: '10px', color: 'rgba(255,255,255,0.85)', letterSpacing: '0.14em', zIndex: 2}}>
-                      {post.cover.sport}
-                    </div>
-                  </div>
-                  <div className="blog-body">
-                    <div className="meta">{post.month} · {post.date}</div>
-                    <div className="ttl">{post.title}</div>
-                    <div className="ex">{post.ex}</div>
-                    <div className="foot">
-                      <div className="chips">
-                        {post.chips.map((chip, cIndex) => (
-                          <span key={cIndex} className="c">{chip}</span>
-                        ))}
-                      </div>
-                      <span className="arr">→</span>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      </main>
+        <footer className="bl-footer">
+          <span className="colophon"><em>Set in Fraunces &amp; JetBrains Mono.</em></span>
+          <span>IIT Bombay Sports · Weekly Dispatch · {new Date().getFullYear()}</span>
+          <span>Reports · Profiles · Columns · Tutorials</span>
+        </footer>
+      </div>
     </div>
   );
 };
