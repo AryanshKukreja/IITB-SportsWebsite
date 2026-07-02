@@ -1,3 +1,4 @@
+import PlayerDatabase from './components/PlayerDatabase/PlayerDatabase';
 import React from "react";
 import {BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import HomePage from "./components/homepage/HomePage";
@@ -54,6 +55,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             
             {/* All your existing routes - remove /sports prefix since basename handles it */}
+          <Route path="/players" element={<PlayerDatabase/>}/>
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/explore" element={<Sports/>} />
             <Route path="/aquatics" element={<Aquatics />} />
