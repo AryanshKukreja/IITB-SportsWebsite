@@ -123,8 +123,8 @@ const Navbar = () => {
     onClick={closeNavbar}
     className={isActive("/players") ? "active" : ""}
   >
-    >
-    Player Directory
+    
+    Player Database
   </Link>
 </li>
             {/* Admin Panel Link */}
