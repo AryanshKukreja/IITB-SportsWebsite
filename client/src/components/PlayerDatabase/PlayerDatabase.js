@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './PlayerDatabase.css';
 
 const PlayerDatabase = () => {
-  const SPREADSHEET_ID = '13wB7unK9gNHWPHxJBOK5R86Oi69evxQYEgcf8mY5-2A';
-  const API_KEY = 'AIzaSyB9LGXywL87P0FrFyaOkdo-V11_-ESg7nk';
+  // Disha's Demo Credentials
+  const SPREADSHEET_ID = '1ci3zIv3cWwjrLJZ4iZmQF-MW871vAal6opJIiSDZc88';
+  const API_KEY = 'AIzaSyB7cQym9gsDQ1vjO20LGBKeHzrrKyXT-Ik';
 
   const sports = [
     'Aquatics',
@@ -23,47 +24,47 @@ const PlayerDatabase = () => {
   ];
 
   const [selectedSport, setSelectedSport] = useState('Aquatics');
-  const [players, setPlayers] = useState([]);
+  const [allPlayers, setAllPlayers] = useState([]); // Stores all data from Sheet1
   const [filteredPlayers, setFilteredPlayers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Filters (No sortBy state here)
+  // Filters
   const [searchName, setSearchName] = useState('');
   const [filterLevel, setFilterLevel] = useState('');
   const [filterGender, setFilterGender] = useState('');
   const [filterHostel, setFilterHostel] = useState('');
 
-  // Fetch data from Google Sheets
-  const fetchPlayers = async (sport) => {
+  // Fetch data from Google Sheets (Fetches once from Sheet1)
+  const fetchAllPlayers = async () => {
     setLoading(true);
     setError(null);
     try {
-      const range = `${sport}!A:F`;
+      // Fetching all data from Sheet1 based on Disha's backend code
+      const range = 'Sheet1!A:F';
       const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}?key=${API_KEY}`;
 
       const response = await fetch(url);
       const data = await response.json();
 
       if (!data.values || data.values.length === 0) {
-        setPlayers([]);
+        setAllPlayers([]);
         setFilteredPlayers([]);
         setLoading(false);
         return;
       }
 
-      // Skip header row and map data
+      // Map data according to Disha's columns: Name, Sport, Hostel, Achievements, Level, Gender
       const playerData = data.values.slice(1).map((row) => ({
         name: row[0] || '',
-        hostel: row[1] || '',
-        achievements: row[2] || '',
-        level: row[3] || '',
-        gender: row[4] || '',
-        rollNo: row[5] || ''
+        sport: row[1] || '',
+        hostel: row[2] || '',
+        achievements: row[3] || '',
+        level: row[4] || '',
+        gender: row[5] || ''
       }));
 
-      setPlayers(playerData);
-      setFilteredPlayers(playerData);
+      setAllPlayers(playerData);
     } catch (err) {
       setError('Failed to fetch player data. Please try again.');
       console.error('Error:', err);
@@ -72,33 +73,40 @@ const PlayerDatabase = () => {
     }
   };
 
-  // Fetch players when sport changes
+  // Fetch all players only once when component mounts
   useEffect(() => {
-    fetchPlayers(selectedSport);
-  }, [selectedSport]);
+    fetchAllPlayers();
+  }, []);
 
-  // Apply filters and search
+  // Apply filters and search locally
   useEffect(() => {
-    let result = [...players];
+    let result = [...allPlayers];
 
-    // Search by name
+    // 1. Filter by selected sport
+    if (selectedSport) {
+      result = result.filter((player) =>
+        player.sport.toLowerCase() === selectedSport.toLowerCase()
+      );
+    }
+
+    // 2. Search by name
     if (searchName.trim()) {
       result = result.filter((player) =>
         player.name.toLowerCase().includes(searchName.toLowerCase())
       );
     }
 
-    // Filter by level
+    // 3. Filter by level
     if (filterLevel) {
       result = result.filter((player) => player.level === filterLevel);
     }
 
-    // Filter by gender
+    // 4. Filter by gender
     if (filterGender) {
       result = result.filter((player) => player.gender === filterGender);
     }
 
-    // Filter by hostel
+    // 5. Filter by hostel
     if (filterHostel) {
       result = result.filter((player) => player.hostel === filterHostel);
     }
@@ -107,7 +115,7 @@ const PlayerDatabase = () => {
     result.sort((a, b) => a.name.localeCompare(b.name));
 
     setFilteredPlayers(result);
-  }, [searchName, filterLevel, filterGender, filterHostel, players]); 
+  }, [selectedSport, searchName, filterLevel, filterGender, filterHostel, allPlayers]); 
 
   return (
     <div className="pd-container">
@@ -117,7 +125,7 @@ const PlayerDatabase = () => {
       </div>
 
       <div className="pd-controls">
-        {/* 1. Sport Dropdown */}
+        {/* Sport Dropdown */}
         <div className="control-group">
           <label>Select Sport:</label>
           <select
@@ -139,7 +147,7 @@ const PlayerDatabase = () => {
           </select>
         </div>
 
-        {/* 2. Search by Name */}
+        {/* Search by Name */}
         <div className="control-group">
           <label>Search by Name:</label>
           <input
@@ -151,7 +159,7 @@ const PlayerDatabase = () => {
           />
         </div>
 
-        {/* 3. Filter by Level */}
+        {/* Filter by Level */}
         <div className="control-group">
           <label>Filter by Level:</label>
           <select
@@ -167,7 +175,7 @@ const PlayerDatabase = () => {
           </select>
         </div>
 
-        {/* 4. Filter by Gender */}
+        {/* Filter by Gender */}
         <div className="control-group">
           <label>Filter by Gender:</label>
           <select
@@ -181,7 +189,7 @@ const PlayerDatabase = () => {
           </select>
         </div>
 
-        {/* 5. Filter by Hostel */}
+        {/* Filter by Hostel */}
         <div className="control-group">
           <label>Filter by Hostel:</label>
           <select
@@ -226,22 +234,22 @@ const PlayerDatabase = () => {
             <thead>
               <tr>
                 <th>Name</th>
+                <th>Sport</th>
                 <th>Hostel</th>
                 <th>Achievements</th>
                 <th>Level</th>
                 <th>Gender</th>
-                <th>Roll No</th>
               </tr>
             </thead>
             <tbody>
               {filteredPlayers.map((player, index) => (
                 <tr key={index}>
                   <td>{player.name}</td>
+                  <td>{player.sport}</td>
                   <td>{player.hostel}</td>
                   <td>{player.achievements}</td>
                   <td>{player.level}</td>
                   <td>{player.gender}</td>
-                  <td>{player.rollNo}</td>
                 </tr>
               ))}
             </tbody>
@@ -253,9 +261,9 @@ const PlayerDatabase = () => {
         <p className="pd-message">No players found. Try adjusting your filters.</p>
       )}
 
-      {!loading && players.length > 0 && (
+      {!loading && allPlayers.length > 0 && (
         <p className="pd-footer">
-          Showing {filteredPlayers.length} of {players.length} players
+          Showing {filteredPlayers.length} players
         </p>
       )}
     </div>
