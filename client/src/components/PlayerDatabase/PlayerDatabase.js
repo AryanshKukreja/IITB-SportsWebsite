@@ -23,7 +23,8 @@ const API_KEY = 'AIzaSyB7cQym9gsDQ1vjO20LGBKeHzrrKyXT-Ik';
     'Weightlifting'
   ];
 
-  const [selectedSport, setSelectedSport] = useState('Aquatics');
+  // Changed default state to 'All Sports'
+  const [selectedSport, setSelectedSport] = useState('All Sports');
   const [allPlayers, setAllPlayers] = useState([]); // Stores all data from Sheet1
   const [filteredPlayers, setFilteredPlayers] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -82,8 +83,8 @@ const API_KEY = 'AIzaSyB7cQym9gsDQ1vjO20LGBKeHzrrKyXT-Ik';
   useEffect(() => {
     let result = [...allPlayers];
 
-    // 1. Filter by selected sport
-    if (selectedSport) {
+    // 1. Filter by selected sport (Skips filtering if 'All Sports' is selected)
+    if (selectedSport && selectedSport !== 'All Sports') {
       result = result.filter((player) =>
         player.sport.toLowerCase() === selectedSport.toLowerCase()
       );
@@ -139,6 +140,8 @@ const API_KEY = 'AIzaSyB7cQym9gsDQ1vjO20LGBKeHzrrKyXT-Ik';
             }}
             className="control-input"
           >
+            {/* Added All Sports option to the top */}
+            <option value="All Sports">All Sports</option>
             {sports.map((sport) => (
               <option key={sport} value={sport}>
                 {sport}
