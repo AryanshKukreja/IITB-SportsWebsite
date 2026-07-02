@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './PlayerDatabase.css';
 
 const PlayerDatabase = () => {
-  // Disha's Demo Credentials
-  const SPREADSHEET_ID = '1ci3zIv3cWwjrLJZ4iZmQF-MW871vAal6opJIiSDZc88';
-  const API_KEY = 'AIzaSyB7cQym9gsDQ1vjO20LGBKeHzrrKyXT-Ik';
+// Replace with your actual spreadsheet ID and API key
+const SPREADSHEET_ID = '1ci3zIv3cVwjrLJZ4iZmQF-MW871vAal6opJIiSDZc88';
+const API_KEY = 'AIzaSyB7cQym9gsDQ1vjO20LGBKeHzrrKyXT-Ik';
 
   const sports = [
     'Aquatics',
