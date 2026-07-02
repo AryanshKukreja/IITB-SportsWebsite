@@ -117,6 +117,16 @@ const Navbar = () => {
                 Contact Us
               </Link>
             </li>
+<li className="menuItem">
+  <Link
+    to="/players"
+    onClick={closeNavbar}
+    className={isActive("/players") ? "active" : ""}
+  >
+    >
+    Player Directory
+  </Link>
+</li>
             {/* Admin Panel Link */}
             <li className='menuItem admin-link'>
               <Link 
