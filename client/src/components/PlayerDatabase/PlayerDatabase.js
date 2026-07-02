@@ -28,12 +28,11 @@ const PlayerDatabase = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Filters
+  // Filters (No sortBy state here)
   const [searchName, setSearchName] = useState('');
   const [filterLevel, setFilterLevel] = useState('');
   const [filterGender, setFilterGender] = useState('');
   const [filterHostel, setFilterHostel] = useState('');
-  const [sortBy, setSortBy] = useState('name');
 
   // Fetch data from Google Sheets
   const fetchPlayers = async (sport) => {
@@ -104,13 +103,11 @@ const PlayerDatabase = () => {
       result = result.filter((player) => player.hostel === filterHostel);
     }
 
-    // Sort
-    if (sortBy === 'name') {
-      result.sort((a, b) => a.name.localeCompare(b.name));
-    }
+    // Always sort alphabetically by name automatically
+    result.sort((a, b) => a.name.localeCompare(b.name));
 
     setFilteredPlayers(result);
-  }, [searchName, filterLevel, filterGender, filterHostel, sortBy, players]);
+  }, [searchName, filterLevel, filterGender, filterHostel, players]); 
 
   return (
     <div className="pd-container">
@@ -120,7 +117,7 @@ const PlayerDatabase = () => {
       </div>
 
       <div className="pd-controls">
-        {/* Sport Dropdown */}
+        {/* 1. Sport Dropdown */}
         <div className="control-group">
           <label>Select Sport:</label>
           <select
@@ -142,7 +139,7 @@ const PlayerDatabase = () => {
           </select>
         </div>
 
-        {/* Search by Name */}
+        {/* 2. Search by Name */}
         <div className="control-group">
           <label>Search by Name:</label>
           <input
@@ -154,7 +151,7 @@ const PlayerDatabase = () => {
           />
         </div>
 
-        {/* Filter by Level */}
+        {/* 3. Filter by Level */}
         <div className="control-group">
           <label>Filter by Level:</label>
           <select
@@ -170,7 +167,7 @@ const PlayerDatabase = () => {
           </select>
         </div>
 
-        {/* Filter by Gender */}
+        {/* 4. Filter by Gender */}
         <div className="control-group">
           <label>Filter by Gender:</label>
           <select
@@ -184,7 +181,7 @@ const PlayerDatabase = () => {
           </select>
         </div>
 
-        {/* Filter by Hostel */}
+        {/* 5. Filter by Hostel */}
         <div className="control-group">
           <label>Filter by Hostel:</label>
           <select
@@ -214,18 +211,6 @@ const PlayerDatabase = () => {
             <option value="H19">H19</option>
             <option value="H20">H20</option>
             <option value="H21">H21</option>
-          </select>
-        </div>
-
-        {/* Sort By */}
-        <div className="control-group">
-          <label>Sort by:</label>
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-            className="control-input"
-          >
-            <option value="name">Name</option>
           </select>
         </div>
       </div>
