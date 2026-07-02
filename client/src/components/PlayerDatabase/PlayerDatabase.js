@@ -107,19 +107,10 @@ const PlayerDatabase = () => {
     // Sort
     if (sortBy === 'name') {
       result.sort((a, b) => a.name.localeCompare(b.name));
-    } else if (sortBy === 'level') {
-      result.sort((a, b) => a.level.localeCompare(b.level));
-    } else if (sortBy === 'hostel') {
-      result.sort((a, b) => a.hostel.localeCompare(b.hostel));
     }
 
     setFilteredPlayers(result);
   }, [searchName, filterLevel, filterGender, filterHostel, sortBy, players]);
-
-  // Get unique values for filters
-  const uniqueLevels = [...new Set(players.map((p) => p.level).filter(Boolean))];
-  const uniqueGenders = [...new Set(players.map((p) => p.gender).filter(Boolean))];
-  const uniqueHostels = [...new Set(players.map((p) => p.hostel).filter(Boolean))];
 
   return (
     <div className="pd-container">
@@ -172,11 +163,10 @@ const PlayerDatabase = () => {
             className="control-input"
           >
             <option value="">All Levels</option>
-            {uniqueLevels.map((level) => (
-              <option key={level} value={level}>
-                {level}
-              </option>
-            ))}
+            <option value="Inter-IIT">Inter-IIT</option>
+            <option value="Camp">Camp</option>
+            <option value="Pre Camp">Pre Camp</option>
+            <option value="NSO/Beginner">NSO/Beginner</option>
           </select>
         </div>
 
@@ -189,11 +179,8 @@ const PlayerDatabase = () => {
             className="control-input"
           >
             <option value="">All Genders</option>
-            {uniqueGenders.map((gender) => (
-              <option key={gender} value={gender}>
-                {gender}
-              </option>
-            ))}
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
           </select>
         </div>
 
@@ -206,11 +193,27 @@ const PlayerDatabase = () => {
             className="control-input"
           >
             <option value="">All Hostels</option>
-            {uniqueHostels.map((hostel) => (
-              <option key={hostel} value={hostel}>
-                {hostel}
-              </option>
-            ))}
+            <option value="H1">H1</option>
+            <option value="H2">H2</option>
+            <option value="H3">H3</option>
+            <option value="H4">H4</option>
+            <option value="H5">H5</option>
+            <option value="H6">H6</option>
+            <option value="H7">H7</option>
+            <option value="H8">H8</option>
+            <option value="H9">H9</option>
+            <option value="H10">H10</option>
+            <option value="H11">H11</option>
+            <option value="H12">H12</option>
+            <option value="H13">H13</option>
+            <option value="H14">H14</option>
+            <option value="H15">H15</option>
+            <option value="H16">H16</option>
+            <option value="H17">H17</option>
+            <option value="H18">H18</option>
+            <option value="H19">H19</option>
+            <option value="H20">H20</option>
+            <option value="H21">H21</option>
           </select>
         </div>
 
@@ -223,8 +226,6 @@ const PlayerDatabase = () => {
             className="control-input"
           >
             <option value="name">Name</option>
-            <option value="level">Level</option>
-            <option value="hostel">Hostel</option>
           </select>
         </div>
       </div>
