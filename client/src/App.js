@@ -1,5 +1,6 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import ScrollToTop from './ScrollToTop';
 import HomePage from "./components/homepage/HomePage";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
@@ -39,6 +40,14 @@ import Feedback from "./components/Feedback/Feedback";
 import AdminDashboard from "./components/FeedbackAdmin/Feedback-Admin";
 import BlogsPage from "./components/Blogs/BlogPage";
 import MatchPrediction from "./components/matchprediction/matchprediction";
+import CertificatesPage from "./components/Certificates/Certificatespage";
+import VerificationPage from "./components/Certificates/Verificationpage";
+import AdminLogin            from "./components/AdminPanel/AdminLogin";
+import SecyDashboard         from "./components/AdminPanel/SecyDashboard";
+import ChairpersonDashboard  from "./components/AdminPanel/ChairpersonDashboard";
+import DeanDashboard         from "./components/AdminPanel/DeanDashboard";
+import SuperadminDashboard   from "./components/AdminPanel/SuperadminDashboard";
+import BatchDetail           from "./components/AdminPanel/BatchDetail";
 
 function App() {
   // Correct basename for gymkhana server
@@ -46,6 +55,7 @@ function App() {
 
   return (
     <Router basename={basename}>
+      <ScrollToTop />
       <div className="App">
         <Navbar />
         <main className="main-content">
@@ -89,6 +99,18 @@ function App() {
             <Route path="/feedback-admin" element={<AdminDashboard />} />
             <Route path="/blogs" element={<BlogsPage />} />
             <Route path="/match-prediction" element={<MatchPrediction />} />
+            <Route path="/certificates" element={<CertificatesPage />} />
+            <Route path="/certificate-verification/:certId" element={<VerificationPage />} /> 
+            {/* Admin panel — not linked anywhere */}
+            <Route path="/certificate-admin-gssa-0000"         element={<AdminLogin />} />
+            <Route path="/certificate-admin-chairperson-1542"  element={<AdminLogin />} />
+            <Route path="/certificate-admin-dean-3000"         element={<AdminLogin />} />
+            <Route path="/certificate-admin-superadmin-73"     element={<AdminLogin />} />
+            <Route path="/certificate-admin-gssa-0000/dashboard"        element={<SecyDashboard />} />
+            <Route path="/certificate-admin-chairperson-1542/dashboard" element={<ChairpersonDashboard />} />
+            <Route path="/certificate-admin-dean-3000/dashboard"        element={<DeanDashboard />} />
+            <Route path="/certificate-admin-superadmin-73/dashboard"    element={<SuperadminDashboard />} />
+            <Route path="/admin/batches/:batchId"              element={<BatchDetail />} />
             {/* Catch-all route for unmatched paths */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

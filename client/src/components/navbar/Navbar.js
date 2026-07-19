@@ -1,150 +1,100 @@
-import React from 'react';
-import { useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
-import "./Navbar.css";
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import './Navbar.css';
 import logo from './assets/sports-logo-transparent.png';
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes } from 'react-icons/fa';
+
+const links = [
+  { to: '/', label: 'Home' },
+  { to: '/explore', label: 'Sports' },
+  { to: '/CourtStatus', label: 'Court Status' },
+  { to: '/GC', label: 'GC' },
+  { to: '/yearbook', label: 'Yearbook' },
+  // { to: '/blogs', label: 'Blogs' },
+  { to: '/events-timeline', label: 'Events Timeline' },
+  // { to: '/certificates', label: 'Certificates' },
+  // { to: '/match-prediction', label: 'Match Prediction' },
+  { to: '/turfbooking', label: 'Turf Booking' },
+  { to: '/contact', label: 'Contact Us' },
+];
 
 const Navbar = () => {
-  const navRef = useRef();
-  const head = useRef();
+  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  
-  const showNavbar = () => {
-    navRef.current.classList.toggle("responsive_nav");
-    head.current.classList.toggle("res_head");
-  };
 
-  // Close navbar when clicking on a link (for mobile)
-  const closeNavbar = () => {
-    navRef.current.classList.remove("responsive_nav");
-    head.current.classList.remove("res_head");
-  };
+  // Close the mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
-  // Check if current route is active
   const isActive = (path) => {
-    if (path === "/" && location.pathname === "/") return true;
-    if (path !== "/" && location.pathname === path) return true;
+    if (path === '/' && location.pathname === '/') return true;
+    if (path !== '/' && location.pathname === path) return true;
     return false;
   };
 
   return (
-    <header className='head'>
-      <div className='logo2' ref={head}>
-        <img src={logo} className='logoimg2' alt='IITB Sports Logo'></img>
-      </div>
-      <nav className='mainNav' ref={navRef}>
-        <div className="menu">
-          <ul>
-            <li className='menuItem'>
-              <Link 
-                to="/" 
-                onClick={closeNavbar}
-                className={isActive("/") ? "active" : ""}
-              >
-                Home
-              </Link>
-            </li>
-            <li className='menuItem'>
-              <Link 
-                to="/explore" 
-                onClick={closeNavbar}
-                className={isActive("/explore") ? "active" : ""}
-              >
-                Sports
-              </Link>
-            </li>
-            <li className='menuItem'>
-              <Link 
-                to="/CourtStatus" 
-                onClick={closeNavbar}
-                className={isActive("/CourtStatus") ? "active" : ""}
-              >
-                Court Status
-              </Link>
-            </li>
-            <li className='menuItem'>
-              <Link 
-                to="/GC" 
-                onClick={closeNavbar}
-                className={isActive("/GC") ? "active" : ""}
-              >
-                GC
-              </Link>
-            </li>
-            <li className='menuItem'>
-              <Link 
-                to="/yearbook" 
-                onClick={closeNavbar}
-                className={isActive("/yearbook") ? "active" : ""}
-              >
-                Yearbook
-              </Link>
-            </li>
-            <li className='menuItem'>
-              <Link 
-                to="/blogs" 
-                onClick={closeNavbar}
-                className={isActive("/blogs") ? "active" : ""}
-              >
-                Blogs
-              </Link>
-            </li>
-            <li className='menuItem'>
-              <Link 
-                to="/events-timeline" 
-                onClick={closeNavbar}
-                className={isActive("/events-timeline") ? "active" : ""}
-              >
-                Events Timeline
-              </Link>
-            </li>
-            <li className='menuItem'>
-              <Link 
-                to="/match-prediction" 
-                onClick={closeNavbar}
-                className={isActive("/match-prediction") ? "active" : ""}
-              >
-                Match Prediction
-              </Link>
-            </li>
-            <li className='menuItem'>
-              <Link 
-                to="/turfbooking" 
-                onClick={closeNavbar}
-                className={isActive("/turfbooking") ? "active" : ""}
-              >
-                Turf Booking
-              </Link>
-            </li>
-            <li className='menuItem'>
-              <Link 
-                to="/contact" 
-                onClick={closeNavbar}
-                className={isActive("/contact") ? "active" : ""}
-              >
-                Contact Us
-              </Link>
-            </li>
+    <header className="nb-root">
+      <div className="nb-bar">
+        <Link to="/" className="nb-brand" onClick={() => setIsOpen(false)}>
+          <img src={logo} className="nb-logo" alt="IITB Sports Logo" />
+        </Link>
+
+        <nav className="nb-nav" aria-label="Primary">
+          <ul className="nb-links">
+            {links.map((link) => (
+              <li key={link.to} className="nb-item">
+                <Link to={link.to} className={isActive(link.to) ? 'is-active' : ''}>
+                  {link.label}
+                </Link>
+              </li>
+            ))}
             {/* Admin Panel Link */}
-            <li className='menuItem admin-link'>
-              <Link 
-                to="/feedback" 
-                onClick={closeNavbar}
-                className={isActive("/feedback") ? "active" : ""}
-              >
+            <li className="nb-item nb-item-admin">
+              <Link to="/feedback" className={isActive('/feedback') ? 'is-active' : ''}>
                 Feedback
               </Link>
             </li>
           </ul>
-        </div>
-        <button className="nav-btn nav-close-btn" onClick={showNavbar}>
-          <FaTimes />
+        </nav>
+
+        <button
+          className="nb-toggle"
+          onClick={() => setIsOpen(true)}
+          aria-label="Open menu"
+          aria-expanded={isOpen}
+        >
+          <FaBars />
         </button>
-      </nav>
-      <button className="nav-btn" onClick={showNavbar}>
-        <FaBars />
-      </button>
+      </div>
+
+      {/* MOBILE OVERLAY */}
+      <div className={`nb-overlay ${isOpen ? 'is-open' : ''}`}>
+        <div className="nb-overlay-top">
+          <img src={logo} className="nb-logo nb-logo-mobile" alt="IITB Sports Logo" />
+          <button className="nb-toggle nb-close" onClick={() => setIsOpen(false)} aria-label="Close menu">
+            <FaTimes />
+          </button>
+        </div>
+        <ul className="nb-overlay-links">
+          {links.map((link, i) => (
+            <li key={link.to} style={{ '--i': i }}>
+              <Link to={link.to} className={isActive(link.to) ? 'is-active' : ''} onClick={() => setIsOpen(false)}>
+                {link.label}
+              </Link>
+            </li>
+          ))}
+          <li style={{ '--i': links.length }} className="nb-item-admin">
+            <Link
+              to="/feedback"
+              className={isActive('/feedback') ? 'is-active' : ''}
+              onClick={() => setIsOpen(false)}
+            >
+              Feedback
+            </Link>
+          </li>
+        </ul>
+      </div>
     </header>
   );
 };
