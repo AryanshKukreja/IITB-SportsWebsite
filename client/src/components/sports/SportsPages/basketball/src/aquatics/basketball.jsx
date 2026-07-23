@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import './aquatics.css';
 import Timel from './timeline';
-import { MdDoubleArrow } from "react-icons/md";
 import bb1 from '../assets/bb1.jpeg';
 import bb2 from '../assets/bb2.png';
 import bb3 from '../assets/bb3.jpg';
@@ -22,55 +21,47 @@ import basky_girls from '../assets/basky_girls.png';
 const Basketball = () => {
   const [openStory, setOpenStory] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [slideDir, setSlideDir] = useState(null);
-  const [isVisible, setIsVisible] = useState({});
-  const rootRef = useRef(null);
-  const timelineRef = useRef(null);
-
-  // Intersection observer for reveal animations
-  useEffect(() => {
-    const targets = document.querySelectorAll('.aq-reveal, .aq-timeline-wrap');
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('is-visible');
-            io.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-    targets.forEach((t) => io.observe(t));
-    return () => io.disconnect();
-  }, []);
+  const [slideDir, setSlideDir] = useState('');
 
   const handlePrev = () => {
     setSlideDir('prev');
     setCurrentIndex((i) => (i === 0 ? images.length - 1 : i - 1));
   };
-
   const handleNext = () => {
     setSlideDir('next');
     setCurrentIndex((i) => (i === images.length - 1 ? 0 : i + 1));
   };
-
   const handleThumb = (i) => {
     setSlideDir(i > currentIndex ? 'next' : 'prev');
     setCurrentIndex(i);
   };
-
-  const toggleStory = (i) => {
-    setOpenStory(openStory === i ? null : i);
-  };
+  const toggleStory = (i) => setOpenStory(openStory === i ? null : i);
 
   const cards = [
-    { title: 'PG Mania', content: '' },
-    { title: 'Basketball Farewell', content: '' },
-    { title: 'NSO Trials', content: '' },
-    { title: 'Inter-IIT Pre-Camp', content: '' },
-    { title: 'Alumni Day', content: '' },
-    { title: "She's Got Game", content: '' },
+    {
+      title: 'PG Mania',
+      content: 'PG Mania is one of the most anticipated basketball events of the year, open exclusively to postgraduate students of IIT Bombay. Held on the indoor courts, the event brings together PG students from various departments to compete, bond, and showcase their talent on the hardwood in an electrifying single-elimination format.',
+    },
+    {
+      title: 'Basketball Farewell',
+      content: "The Basketball Farewell is a heartfelt annual tradition where the outgoing final-year players are honoured by their teammates and the broader basketball family. The event features fun scrimmage matches between seniors and juniors, awards for standout players, and a celebration of the bonds forged through years of shared training, tournaments, and triumphs.",
+    },
+    {
+      title: 'NSO Trials',
+      content: "Under the National Sports Organisation (NSO) scheme, all incoming first-year students must sign up for and train in a sport of their choice. Basketball is one of the most popular NSO options at IITB. Trials are held at the start of each academic year to select students for the NSO basketball cohort, where they receive structured coaching from the institute's dedicated coach throughout the semester.",
+    },
+    {
+      title: 'Inter-IIT Pre-Camp',
+      content: 'Every year, ahead of the prestigious Inter-IIT Sports Meet, the basketball team hosts an intensive Pre-Camp to sharpen skills, strengthen team chemistry, and finalise squads. Conducted under the guidance of coach Nilesh Sawant, the camp involves rigorous drills, tactical sessions, and intra-squad matches to prepare players for the highest level of inter-collegiate competition.',
+    },
+    {
+      title: 'Alumni Day',
+      content: "Alumni Day is a special occasion when former IITB basketball players return to campus to relive their glory days. Alumni and current players face off in friendly matches, share stories from their time on the team, and inspire the next generation. It is a celebration of the sport's enduring legacy at IIT Bombay and the lifelong connections it creates.",
+    },
+    {
+      title: "She's Got Game",
+      content: "She's Got Game is IITB Basketball's flagship women's event — a celebration of women's basketball that brings together female players from across the campus and beyond. The event features competitive matches, skills challenges, and activities designed to encourage more women to take up the sport. It reflects the team's deep commitment to inclusivity and gender equity in sports.",
+    },
   ];
 
   const images = [
@@ -78,13 +69,20 @@ const Basketball = () => {
   ];
 
   const captions = [
-    'Team 2024', 'Women's Squad', 'Men's Squad', 'Practice', 'Court Action',
-    'Training', 'Camp', 'NSO Session', 'Inter-IIT Prep', 'Game Day',
-    'Tournament', 'Match', 'Campus Cup',
+    "Team 2024", "Women's Squad", "Men's Squad", "Practice Session",
+    "Court Action", "Training Camp", "Skills Drill", "NSO Session",
+    "Inter-IIT Prep", "Game Day", "Tournament", "Match Highlights", "Campus Cup",
+  ];
+
+  const timings = [
+    { slot: 'Morning Session', time: '6:00 AM – 9:00 AM', note: 'Open to all members' },
+    { slot: 'Evening Session', time: '5:00 PM – 10:00 PM', note: 'Open to all members' },
+    { slot: 'NSO Training',    time: 'As scheduled',       note: 'First-year NSO batch' },
+    { slot: 'Inter-IIT Camp',  time: 'Pre-Meet weeks',     note: 'Selected squad only' },
   ];
 
   return (
-    <div className="aq-root" ref={rootRef}>
+    <div className="aq-root">
 
       {/* ── MASTHEAD ── */}
       <header className="aq-masthead">
@@ -100,8 +98,10 @@ const Basketball = () => {
 
       <main className="aq-app">
 
-        {/* ── HERO ── */}
-        <section className="aq-hero aq-reveal">
+        {/* ══════════════════════════════════
+            §0  HERO / OVERVIEW
+        ══════════════════════════════════ */}
+        <section className="aq-hero">
           <p className="aq-hero-kicker">
             <span className="vol">Vol. 1</span>
             <span className="sep">◆</span>
@@ -116,11 +116,12 @@ const Basketball = () => {
                 Basket<span className="italic">ball</span>
               </h1>
               <p className="aq-hero-lede">
-                The IITB Basketball family is an integral part of the dynamic sports culture of the
-                Institute. The team boasts a history of captivating performances in various tournaments,
-                leading to championships in many. This is made possible with access to state-of-the-art
-                facilities, a dedicated coach and rigorous training. The sport has left us with a plethora
-                of teachings: Camaraderie, perseverance and integrity.
+                The IITB Basketball family is an integral part of the dynamic sports
+                culture of the Institute. The team boasts a history of captivating
+                performances in various tournaments, leading to championships in many.
+                This is made possible with access to state-of-the-art facilities, a
+                dedicated coach and rigorous training. The sport has left us with a
+                plethora of teachings: Camaraderie, perseverance and integrity.
               </p>
             </div>
 
@@ -137,7 +138,7 @@ const Basketball = () => {
               </div>
               <div className="aq-hero-stat">
                 <span className="k">Evening Slot</span>
-                <span className="v">5<em>pm</em></span>
+                <span className="v">10<em>pm</em></span>
                 <span className="c">Until 10:00 PM</span>
               </div>
               <div className="aq-hero-stat">
@@ -152,7 +153,6 @@ const Basketball = () => {
             <img src={basky_team} alt="IITB Basketball Team" />
           </div>
 
-          {/* wave divider */}
           <div className="aq-wave" aria-hidden="true">
             <svg viewBox="0 0 1200 30" preserveAspectRatio="none">
               <path className="aq-wave-path aq-wave-path-1"
@@ -163,15 +163,19 @@ const Basketball = () => {
           </div>
         </section>
 
-        {/* ── FACILITIES ── */}
-        <section className="aq-section aq-reveal" style={{ '--d': '0.1s' }}>
+        {/* ══════════════════════════════════
+            §1  FACILITIES & COURTS
+        ══════════════════════════════════ */}
+        <section className="aq-section">
           <div className="aq-eyebrow">
             <span className="num">01</span>
             <span className="bar" />
             Facilities
           </div>
           <div className="aq-section-head">
-            <h2 className="aq-section-title">World-class <span className="italic">Courts</span></h2>
+            <h2 className="aq-section-title">
+              World-class <span className="italic">Courts</span>
+            </h2>
             <p className="aq-section-sub">State-of-the-art infrastructure for year-round play</p>
           </div>
 
@@ -182,46 +186,87 @@ const Basketball = () => {
               </div>
               <h3 className="aq-facility-title">Indoor Courts</h3>
               <p className="aq-facility-body">
-                The Students' Gymkhana boasts two indoor courts perfect for year-round competition
-                or casual shooting practice. The H-12 store sells shoes with gum soles specifically
-                designed for optimal grip on the smooth indoor surface.
+                The Students' Gymkhana boasts <strong>two indoor courts</strong> perfect
+                for year-round competition or casual shooting practice. The H-12 store
+                sells shoes with gum soles specifically designed for optimal grip on the
+                smooth indoor surface. Courts are fully lit for evening sessions.
               </p>
             </div>
+
             <div className="aq-facility-card">
               <div className="aq-facility-photo">
                 <img src={basky_boys} alt="Outdoor Basketball Courts" />
               </div>
-              <h3 className="aq-facility-title">Outdoor Courts & Equipment</h3>
+              <h3 className="aq-facility-title">Outdoor Courts &amp; Equipment</h3>
               <p className="aq-facility-body">
-                Two outdoor courts supplement the indoor facilities. The institute provides two
-                basketball storage trolleys stocked with size-6 and 7 balls, air pumps and medical
-                kits. Some hostels also have their own courts, expanding your options for a quick game.
-                <br /><br />
-                Court timings: <strong style={{ color: 'var(--cream)' }}>6:00 AM – 9:00 AM</strong> &amp; <strong style={{ color: 'var(--cream)' }}>5:00 PM – 10:00 PM</strong>. Basketballs are provided at the courts.
+                Two outdoor courts supplement the indoor facilities. Some hostels also
+                have their own courts, expanding your options for a quick pick-up game.
+                The institute provides <strong>two basketball storage trolleys</strong>{' '}
+                stocked with size-6 and size-7 balls, air pumps, and medical kits.
+                Basketballs are available directly at the courts.
               </p>
+            </div>
+          </div>
+
+          {/* Practice Timings Table */}
+          <div style={{ marginTop: '2px' }}>
+            <div className="aq-table-wrap">
+              <table className="aq-table">
+                <thead>
+                  <tr>
+                    <th colSpan={3} style={{ textAlign: 'center', letterSpacing: '0.3em' }}>
+                      COURT PRACTICE TIMINGS
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>Session</th>
+                    <th>Timing</th>
+                    <th>Eligibility</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {timings.map((row, i) => (
+                    <tr key={i}>
+                      <td className="aq-section-header">{row.slot}</td>
+                      <td>
+                        <span className={i < 2 ? 'aq-pill aq-pill-morning' : 'aq-pill aq-pill-evening'}>
+                          {row.time}
+                        </span>
+                      </td>
+                      <td style={{ color: 'var(--muted)', fontSize: '0.9rem' }}>{row.note}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
 
-        {/* ── PHOTO BREAK ── */}
-        <div className="aq-photobreak aq-reveal" style={{ '--d': '0.15s' }}>
-          <img className="aq-photobreak-img" src={basky_girls} alt="Women's Basketball" />
+        {/* ══════════════════════════════════
+            PHOTO BREAK
+        ══════════════════════════════════ */}
+        <div className="aq-photobreak">
+          <img className="aq-photobreak-img" src={basky_girls} alt="IITB Women's Basketball" />
           <div className="aq-photobreak-caption">
-            <span>Women's Basketball</span>
-            <span>IITB · She's Got Game</span>
+            <span>She's Got Game</span>
+            <span>IITB Women's Basketball · Champions 2024</span>
           </div>
         </div>
 
-        {/* ── EVENTS ── */}
-        <section className="aq-section aq-reveal" style={{ '--d': '0.1s' }}>
+        {/* ══════════════════════════════════
+            §2  EVENTS & TOURNAMENTS
+        ══════════════════════════════════ */}
+        <section className="aq-section">
           <div className="aq-eyebrow">
             <span className="num">02</span>
             <span className="bar" />
-            Events
+            Events &amp; Tournaments
           </div>
           <div className="aq-section-head">
-            <h2 className="aq-section-title">Annual <span className="italic">Events</span></h2>
-            <p className="aq-section-sub">Click any event to read more</p>
+            <h2 className="aq-section-title">
+              Annual <span className="italic">Events</span>
+            </h2>
+            <p className="aq-section-sub">Click any event card to read the full story</p>
           </div>
 
           <div className="aq-story-columns">
@@ -230,7 +275,6 @@ const Basketball = () => {
                 key={i}
                 className={`aq-story${openStory === i ? ' is-open' : ''}`}
                 onClick={() => toggleStory(i)}
-                style={{ '--d': `${i * 0.05}s` }}
               >
                 <div className="aq-story-photo">
                   <img src={images[i % images.length]} alt={card.title} />
@@ -238,7 +282,7 @@ const Basketball = () => {
                 <span className="aq-story-no">Event {String(i + 1).padStart(2, '0')}</span>
                 <h3 className="aq-story-title">{card.title}</h3>
                 <p className={`aq-story-content${openStory === i ? ' is-full' : ' is-clamped'}`}>
-                  {card.content || 'More details coming soon. Click to toggle.'}
+                  {card.content}
                 </p>
                 <span className="aq-story-toggle">
                   {openStory === i ? '↑ Collapse' : '↓ Read more'}
@@ -248,33 +292,66 @@ const Basketball = () => {
           </div>
         </section>
 
-        {/* ── ACHIEVEMENTS ── */}
-        <section className="aq-section aq-reveal" style={{ '--d': '0.1s' }}>
+        {/* ══════════════════════════════════
+            §3  ACHIEVEMENTS & RECORDS
+        ══════════════════════════════════ */}
+        <section className="aq-section">
           <div className="aq-eyebrow">
             <span className="num">03</span>
             <span className="bar" />
-            Achievements
+            Achievements &amp; Records
           </div>
           <div className="aq-section-head">
-            <h2 className="aq-section-title">A Legacy of <span className="italic">Excellence</span></h2>
-            <p className="aq-section-sub">Honours earned on the court</p>
+            <h2 className="aq-section-title">
+              A Legacy of <span className="italic">Excellence</span>
+            </h2>
+            <p className="aq-section-sub">Honours earned on the hardwood</p>
           </div>
 
-          <div className="aq-timeline-wrap" ref={timelineRef}>
+          {/* Achievement stat strip */}
+          <div className="aq-hero-stats" style={{ marginBottom: '2px' }}>
+            <div className="aq-hero-stat">
+              <span className="k">Inter-IIT Titles</span>
+              <span className="v">3<em>+</em></span>
+              <span className="c">Boys team championships</span>
+            </div>
+            <div className="aq-hero-stat">
+              <span className="k">Girls 2024</span>
+              <span className="v">1<em>st</em></span>
+              <span className="c">Inter-IIT Champions</span>
+            </div>
+            <div className="aq-hero-stat">
+              <span className="k">Silver</span>
+              <span className="v">2<em>×</em></span>
+              <span className="c">Boys &amp; Girls runner-up</span>
+            </div>
+            <div className="aq-hero-stat">
+              <span className="k">Podium Streak</span>
+              <span className="v">3<em>yr</em></span>
+              <span className="c">Consecutive 2022–2024</span>
+            </div>
+          </div>
+
+          {/* Timeline */}
+          <div className="aq-timeline-wrap">
             <Timel />
           </div>
         </section>
 
-        {/* ── CONTACT ── */}
-        <section className="aq-section aq-reveal" style={{ '--d': '0.1s' }}>
+        {/* ══════════════════════════════════
+            §4  PEOPLE / COUNCIL / CONTACT
+        ══════════════════════════════════ */}
+        <section className="aq-section">
           <div className="aq-eyebrow">
             <span className="num">04</span>
             <span className="bar" />
-            Contact
+            People &amp; Council
           </div>
           <div className="aq-section-head">
-            <h2 className="aq-section-title">Get in <span className="italic">Touch</span></h2>
-            <p className="aq-section-sub">Reach out to our team</p>
+            <h2 className="aq-section-title">
+              Get in <span className="italic">Touch</span>
+            </h2>
+            <p className="aq-section-sub">Reach out to the team leadership</p>
           </div>
 
           <div className="aq-contact-grid">
@@ -287,7 +364,7 @@ const Basketball = () => {
             <div className="aq-contact-card">
               <img src={user} alt="Nilesh Sawant" className="aq-contact-img" />
               <p className="aq-contact-name">Nilesh Sawant</p>
-              <p className="aq-contact-role">Coach</p>
+              <p className="aq-contact-role">Head Coach</p>
               <p className="aq-contact-detail">+91 94220 95558</p>
             </div>
           </div>
@@ -295,30 +372,44 @@ const Basketball = () => {
 
       </main>
 
-      {/* ── GALLERY ── */}
+      {/* ══════════════════════════════════
+          §5  GALLERY (full-bleed)
+      ══════════════════════════════════ */}
       <section className="aq-gallery-section">
-        <div className="aq-eyebrow" style={{ marginTop: '56px' }}>
+        <div className="aq-eyebrow" style={{ marginTop: '56px', paddingLeft: 'clamp(20px,4vw,56px)' }}>
           <span className="num">05</span>
           <span className="bar" />
           Gallery
         </div>
-        <div className="aq-section-head">
-          <h2 className="aq-section-title">Moments from the <span className="italic">Court</span></h2>
+        <div
+          className="aq-section-head"
+          style={{ paddingLeft: 'clamp(20px,4vw,56px)', paddingRight: 'clamp(20px,4vw,56px)' }}
+        >
+          <h2 className="aq-section-title">
+            Moments from the <span className="italic">Court</span>
+          </h2>
         </div>
 
         <div className="aq-strip">
           <img
             key={currentIndex}
             src={images[currentIndex]}
-            alt={captions[currentIndex] || 'Basketball'}
-            className={`aq-strip-image${slideDir === 'next' ? ' aq-slide-next' : slideDir === 'prev' ? ' aq-slide-prev' : ''}`}
+            alt={captions[currentIndex]}
+            className={`aq-strip-image${
+              slideDir === 'next' ? ' aq-slide-next' :
+              slideDir === 'prev' ? ' aq-slide-prev' : ''
+            }`}
           />
           <div className="aq-strip-caption">
-            <span>{captions[currentIndex] || 'Basketball'}</span>
+            <span>{captions[currentIndex]}</span>
             <span>IITB Basketball · {currentIndex + 1} / {images.length}</span>
           </div>
-          <button className="aq-strip-btn aq-strip-prev" onClick={handlePrev} aria-label="Previous">‹</button>
-          <button className="aq-strip-btn aq-strip-next" onClick={handleNext} aria-label="Next">›</button>
+          <button className="aq-strip-btn aq-strip-prev" onClick={handlePrev} aria-label="Previous">
+            &#8249;
+          </button>
+          <button className="aq-strip-btn aq-strip-next" onClick={handleNext} aria-label="Next">
+            &#8250;
+          </button>
         </div>
 
         <div className="aq-strip-thumbs">
@@ -327,24 +418,28 @@ const Basketball = () => {
               key={i}
               className={`aq-strip-thumb${i === currentIndex ? ' is-active' : ''}`}
               onClick={() => handleThumb(i)}
-              aria-label={captions[i] || `Image ${i + 1}`}
+              aria-label={captions[i]}
             >
-              <img src={img} alt={captions[i] || `Thumb ${i + 1}`} />
+              <img src={img} alt={captions[i]} />
             </button>
           ))}
         </div>
       </section>
 
-      {/* ── LOCATION ── */}
+      {/* ══════════════════════════════════
+          §6  LOCATION
+      ══════════════════════════════════ */}
       <div className="aq-app" style={{ paddingTop: '56px' }}>
-        <section className="aq-section aq-reveal" style={{ '--d': '0.1s' }}>
+        <section className="aq-section">
           <div className="aq-eyebrow">
             <span className="num">06</span>
             <span className="bar" />
             Location
           </div>
           <div className="aq-section-head">
-            <h2 className="aq-section-title">Find the <span className="italic">Courts</span></h2>
+            <h2 className="aq-section-title">
+              Find the <span className="italic">Courts</span>
+            </h2>
             <p className="aq-section-sub">Indoor Basketball Courts, IIT Bombay</p>
           </div>
           <div className="aq-location">
@@ -359,7 +454,6 @@ const Basketball = () => {
           </div>
         </section>
 
-        {/* ── FOOTER ── */}
         <footer className="aq-footer">
           <span className="aq-footer-colophon">
             IITB Basketball · <em>Sports Gymkhana, IIT Bombay</em>

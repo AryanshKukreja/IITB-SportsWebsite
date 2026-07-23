@@ -1,225 +1,369 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './cricket.css';
 import Timel from './timeline4';
-import { useState} from 'react';
-//import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
-import { MdDoubleArrow } from "react-icons/md"; //bold arrow
-// import { MdPlayArrow } from "react-icons/md";   //filled triangle
-// import Slider from "react-slick";
-/* import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css"; */
-import p1 from "../assets/p1.jpg";
-import p2 from "../assets/p2.jpg";
-import p3 from "../assets/p3.jpg";
-import p4 from "../assets/p4.jpg";
-import p5 from "../assets/p5.jpg";
+
+import p1 from '../assets/p1.jpg';
+import p2 from '../assets/p2.jpg';
+import p3 from '../assets/p3.jpg';
+import p4 from '../assets/p4.jpg';
+import p5 from '../assets/p5.jpg';
 import user from '../../../../Contact/pictures/Logos_for_Photos/Khushal.jpg';
 
-
-
-
 const Hockey = () => {
-  const [expandedCard, setExpandedCard] = useState(null);
-
+  const [openStory, setOpenStory] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const toggleContent = (cardIndex) => {
-    if (expandedCard === cardIndex) {
-      setExpandedCard(null); // Collapse the card if it's already expanded
-    } else {
-      setExpandedCard(cardIndex); // Expand the clicked card
-    }
-  };
-
-  // const[isFlipped, setIsFlipped]= useState(false);
-  // const flipcad = () => {
-  //   setIsFlipped(!isFlipped);
-  // }
-  // const[isFlipped1, setIsFlipped1]= useState(false);
-  // const flipcad1 = () => {
-  //   setIsFlipped1(!isFlipped1);
-  // }
+  const [slideDir, setSlideDir] = useState('');
 
   const cards = [
     {
       title: 'Hockey GC',
-      content: 'Being scheduled towards the end of the season every year, it many a times turns out to be the Overall Championship decider.The event sees a great amount of participation and students show Great Spirit and learn and enjoy the sport.'
-
+      content: 'Being scheduled towards the end of the season every year, it many times turns out to be the Overall Championship decider. The event sees great participation and hostel spirit.'
     },
     {
       title: 'NSO',
-      content: 'It’s a part of the academic curriculum for the undergraduate students. Through selections for students who opted for cricket nearly 30-40 are selected and trained throughout the academic year, 2 days a week (Monday and Tuesday).'
+      content: "Part of the academic curriculum for undergraduate students. Selected students undergo structured training 2 days a week throughout the academic year under the coach's guidance."
     },
     {
       title: 'Institute Hockey League',
-      content: 'The top enthusiastic hockey players from the institute as well as the alumni available in the city participate in this league.It’s a great opportunity to play alongside great players across the institute which is restricted in the GC format.'
-
-
+      content: 'Top enthusiastic hockey players from the institute and alumni in the city participate in this league. A great opportunity to play alongside seasoned Inter-IIT players.'
     },
     {
-      title: 'Girls Camp',
-      content: 'The Girl’s Camp is for all the girls in the institute who have enthu in Hockey.As it is a beginner’s camp no Prerequisite is required.'
-
-                   
+      title: "Girls' Camp",
+      content: "The Girls' Camp is open to all women in the institute interested in hockey. As a beginner-friendly camp, no prior experience is required."
     },
     {
       title: 'Beginners Camp',
-      content: 'This to train the people who are enthusiastic for joining the Inter IIT practice or who just learn Hockey in general.This will be a week long camp held on the hockey field or in the sac outdoor facilities depending upon the condition of the field during rains.'
-
-    },
-  
+      content: 'A week-long camp held on the hockey field to train students enthusiastic about joining Inter-IIT practice or learning hockey from scratch.'
+    }
   ];
 
-  // const achieve = [
-  //   {
-  //     title: 'Group Achivements',
-  //     content:' ',
-  //   },
-  //   {
-  //     title: 'Individual Achivements',
-  //     content:'c2',
-  //   }
-  // ];
+  const images = [p1, p2, p3, p4, p5].filter(Boolean);
 
-  // const imageSliderSettings = {
-  //   dots: true,
-  //   // infinite: true,
-  //   speed: 1000,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  // }
-
-  const images = [
-    p1, p2, p3, p4, p5
+  const captions = [
+    "Hockey Match Action",
+    "Field Practice Drill",
+    "Penalty Corner Prep",
+    "Team Training Session",
+    "Inter-IIT Squad"
   ];
+
+  const handlePrev = () => {
+    setSlideDir('prev');
+    setCurrentIndex((i) => (i === 0 ? (images?.length || 1) - 1 : i - 1));
+  };
+
+  const handleNext = () => {
+    setSlideDir('next');
+    setCurrentIndex((i) => (i === (images?.length || 1) - 1 ? 0 : i + 1));
+  };
+
+  const handleThumb = (i) => {
+    setSlideDir(i > currentIndex ? 'next' : 'prev');
+    setCurrentIndex(i);
+  };
+
+  const toggleStory = (i) => setOpenStory(openStory === i ? null : i);
+
+  const safeImages = images?.length > 0 ? images : [p1];
+  const safeIndex = (currentIndex >= 0 && currentIndex < safeImages.length) ? currentIndex : 0;
 
   return (
-    <div className='aq-pageContainer'>
-      <div className='titleText'>
-        Hockey
-      </div>
+    <div className="aq-root">
 
-
-      <div className='aq-about'>
-      Hockey is one of the competitive and well-loved sports at IIT Bombay. With a dedicated hockey ground and proper facilities, it offers a great space for both casual play and serious competition.
-
-      Under the guidance of our coach Dr. Harish, IIT Bombay Hockey has shown steady growth over the years. Various tournaments and events are conducted throughout the year to help players of all levels improve and enjoy the sport.
-
-      With hard work, strong team spirit, and excellent coaching, the IIT Bombay Hockey team has built a proud record at the Inter-IIT Sports Meet — winning medals for three years in a row, including silver in the last two editions and a bronze before that.
-      </div>
-
-
-      <div className='facilities'>
-        <div className='aq-heading'>
-          <MdDoubleArrow className='arrow' />
-          <h3 className='aq-headingtext'>Facilities</h3>
+      {/* ── MASTHEAD ── */}
+      <header className="aq-masthead">
+        <span className="aq-masthead-mark">
+          <span className="aq-crest">H</span>
+          IITB Hockey
+        </span>
+        <div className="aq-masthead-meta">
+          <span>Sports Gymkhana</span>
+          <span><strong>IIT Bombay</strong></span>
         </div>
-        <div className='content'>
-          <p className='facilityText'>
-            IIT Bombay has a proper, standard hockey ground available for all players to practice and play matches. To support everyone, we have well-maintained equipment including shin pads, stockings, hockey sticks, grips, balls, goalie kits, and more.
+      </header>
 
-            We also ensure player safety with essential items like medical kits, sprays, and medical tape. Whether you're a beginner or an experienced player, everything you need to enjoy and play hockey is available on campus. 
+      <main className="aq-app">
+
+        {/* ══════════════════════════════════
+            §0  HERO / OVERVIEW
+        ══════════════════════════════════ */}
+        <section className="aq-hero">
+          <p className="aq-hero-kicker">
+            <span className="vol">Vol. 1</span>
+            <span className="sep">◆</span>
+            Institute Sports
+            <span className="sep">◆</span>
+            Hockey
           </p>
-          <img alt="alt" src={p1} className='image' />
-        </div>
-      </div>
 
+          <div className="aq-hero-grid">
+            <div>
+              <h1 className="aq-hero-title">
+                Hoc<span className="italic">key</span>
+              </h1>
+              <p className="aq-hero-lede">
+                Hockey is one of the competitive and well-loved sports at IIT Bombay. Under the guidance of coach Dr. Harish, IIT Bombay Hockey has shown steady growth over the years, winning podium finishes at the Inter-IIT Sports Meet for three consecutive years — including Silver in recent editions!
+              </p>
+            </div>
 
-      <div className='events'>
-        <div className='aq-heading'>
-          <MdDoubleArrow className='arrow' />
-          <h3 className='aq-headingtext'>Events</h3>
-        </div>
-        <div className='cardslist'>
-          {cards.map((card, index) => {
-            const isExpanded = expandedCard === index;
-            const cardClass = ['aq-card', isExpanded ? 'expanded' : ''].filter(Boolean).join(' ');
-            return (
-              <div
-                className={cardClass}
-                key={index}
-                style={isExpanded ? { zIndex: 10 } : {}}
-                onClick={() => toggleContent(index)}
-              >
-                <h3 className="aq-card-heading">{card.title}</h3>
-                {isExpanded && (
-                  <p className="aq-card-content">{card.content}</p>
-                )}
+            <div className="aq-hero-stats">
+              <div className="aq-hero-stat">
+                <span className="k">Ground</span>
+                <span className="v">1<em></em></span>
+                <span className="c">Standard regulation hockey field</span>
               </div>
-            );
-          })}
-        </div>
-      </div>
+              <div className="aq-hero-stat">
+                <span className="k">Coach</span>
+                <span className="v">Dr.H<em></em></span>
+                <span className="c">Dr. Harish (Head Coach)</span>
+              </div>
+              <div className="aq-hero-stat">
+                <span className="k">Events</span>
+                <span className="v">5<em>+</em></span>
+                <span className="c">IHL, Hockey GC &amp; Camps</span>
+              </div>
+              <div className="aq-hero-stat">
+                <span className="k">Streak</span>
+                <span className="v">3<em>yr</em></span>
+                <span className="c">Inter-IIT Podium Medals</span>
+              </div>
+            </div>
+          </div>
 
-      <div className='achievements'>
-        <div className='aq-heading' id='head-achieve'>
-          <MdDoubleArrow className='arrow' />
-          <h3 className='aq-headingtext'>Achievements</h3>
-        </div>
+          <div className="aq-hero-photo">
+            <img src={p1 || p2} alt="IITB Hockey Field" />
+          </div>
 
-        <Timel />
+          <div className="aq-wave" aria-hidden="true">
+            <svg viewBox="0 0 1200 30" preserveAspectRatio="none">
+              <path className="aq-wave-path aq-wave-path-1"
+                d="M0,15 C150,0 300,30 450,15 C600,0 750,30 900,15 C1050,0 1200,30 1200,15" />
+              <path className="aq-wave-path aq-wave-path-2"
+                d="M0,15 C200,30 400,0 600,15 C800,30 1000,0 1200,15" />
+            </svg>
+          </div>
+        </section>
 
-      </div>
+        {/* ══════════════════════════════════
+            §1  FACILITIES
+        ══════════════════════════════════ */}
+        <section className="aq-section">
+          <div className="aq-eyebrow">
+            <span className="num">01</span>
+            <span className="bar" />
+            Facilities
+          </div>
+          <div className="aq-section-head">
+            <h2 className="aq-section-title">
+              Standard <span className="italic">Hockey Field</span>
+            </h2>
+            <p className="aq-section-sub">Full gear kit, safety equipment, and medical support</p>
+          </div>
 
+          <div className="aq-facility-grid">
+            <div className="aq-facility-card">
+              <div className="aq-facility-photo">
+                <img src={p2 || p1} alt="Hockey Field & Equipment" />
+              </div>
+              <h3 className="aq-facility-title">Regulation Ground &amp; Equipment</h3>
+              <p className="aq-facility-body">
+                IIT Bombay has a standard regulation hockey ground available for all players. We provide well-maintained gear including <strong>shin pads, stockings, composite hockey sticks, grips, balls, and full Goalie Kits</strong>. Medical kits and sprays ensure complete player safety.
+              </p>
+            </div>
+          </div>
+        </section>
 
-      <div className='contacts'>
-        <div className='aq-heading'>
-          <MdDoubleArrow className='arrow' />
-          <h3 className='aq-headingtext'>Contact</h3>
-        </div>
-
-        <div className='contactlist'>
-          <div className='contactCard' >
-            <img alt="alt" src={user}className='contactImg' />
-            <p className='aq-name'>Khushal</p>
-            <p className='info'>Institute Hockey Secretary</p>
-              <p className='info'>+91 9001401665</p>
-            
+        {/* ══════════════════════════════════
+            PHOTO BREAK
+        ══════════════════════════════════ */}
+        <div className="aq-photobreak">
+          <img className="aq-photobreak-img" src={p3 || p1} alt="Hockey Action" />
+          <div className="aq-photobreak-caption">
+            <span>Speed &amp; Precision</span>
+            <span>IITB Hockey · 3-Year Inter-IIT Medal Legacy</span>
           </div>
         </div>
 
-      </div>
-
-      <div className='gallery'>
-        <div className='aq-heading'>
-          <MdDoubleArrow className='arrow' />
-          <h3 className='aq-headingtext'>Gallery</h3>
-        </div>
-        <div className='new-gallery'>
-          <img src={images[currentIndex]} alt="Gallery" className="gallery-image" />
-          <div className="gallery-buttons">
-            <button onClick={handlePrev}>Previous</button>
-            <button onClick={handleNext}>Next</button>
+        {/* ══════════════════════════════════
+            §2  EVENTS
+        ══════════════════════════════════ */}
+        <section className="aq-section">
+          <div className="aq-eyebrow">
+            <span className="num">02</span>
+            <span className="bar" />
+            Events &amp; Tournaments
           </div>
+          <div className="aq-section-head">
+            <h2 className="aq-section-title">
+              Annual <span className="italic">Events</span>
+            </h2>
+            <p className="aq-section-sub">Click any event card to view details</p>
+          </div>
+
+          <div className="aq-story-columns">
+            {(cards || []).map((card, i) => (
+              <div
+                key={i}
+                className={`aq-story${openStory === i ? ' is-open' : ''}`}
+                onClick={() => toggleStory(i)}
+              >
+                <div className="aq-story-photo">
+                  <img src={safeImages[i % safeImages.length]} alt={card?.title || 'Event'} />
+                </div>
+                <span className="aq-story-no">Event {String(i + 1).padStart(2, '0')}</span>
+                <h3 className="aq-story-title">{card?.title}</h3>
+                <p className={`aq-story-content${openStory === i ? ' is-full' : ' is-clamped'}`}>
+                  {card?.content}
+                </p>
+                <span className="aq-story-toggle">
+                  {openStory === i ? '↑ Collapse' : '↓ Read more'}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════
+            §3  ACHIEVEMENTS
+        ══════════════════════════════════ */}
+        <section className="aq-section">
+          <div className="aq-eyebrow">
+            <span className="num">03</span>
+            <span className="bar" />
+            Achievements &amp; Honours
+          </div>
+          <div className="aq-section-head">
+            <h2 className="aq-section-title">
+              A Legacy of <span className="italic">Excellence</span>
+            </h2>
+            <p className="aq-section-sub">Silver &amp; Bronze medals at Inter-IIT Sports Meets</p>
+          </div>
+
+          <div className="aq-timeline-wrap">
+            <Timel />
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════
+            §4  CONTACT
+        ══════════════════════════════════ */}
+        <section className="aq-section">
+          <div className="aq-eyebrow">
+            <span className="num">04</span>
+            <span className="bar" />
+            People &amp; Leadership
+          </div>
+          <div className="aq-section-head">
+            <h2 className="aq-section-title">
+              Get in <span className="italic">Touch</span>
+            </h2>
+            <p className="aq-section-sub">Reach out to our institute hockey secretary</p>
+          </div>
+
+          <div className="aq-contact-grid">
+            <div className="aq-contact-card">
+              <img src={user} alt="Khushal" className="aq-contact-img" />
+              <p className="aq-contact-name">Khushal</p>
+              <p className="aq-contact-role">Institute Hockey Secretary</p>
+              <p className="aq-contact-detail">+91 90014 01665</p>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      {/* ══════════════════════════════════
+          §5  GALLERY
+      ══════════════════════════════════ */}
+      <section className="aq-gallery-section">
+        <div className="aq-eyebrow" style={{ marginTop: '56px', paddingLeft: 'clamp(16px,3vw,48px)' }}>
+          <span className="num">05</span>
+          <span className="bar" />
+          Gallery
         </div>
+        <div
+          className="aq-section-head"
+          style={{ paddingLeft: 'clamp(16px,3vw,48px)', paddingRight: 'clamp(16px,3vw,48px)' }}
+        >
+          <h2 className="aq-section-title">
+            Moments from the <span className="italic">Turf</span>
+          </h2>
+        </div>
+
+        <div className="aq-strip">
+          <img
+            key={safeIndex}
+            src={safeImages[safeIndex]}
+            alt={captions[safeIndex] || 'Hockey Gallery'}
+            className={`aq-strip-image${
+              slideDir === 'next' ? ' aq-slide-next' :
+              slideDir === 'prev' ? ' aq-slide-prev' : ''
+            }`}
+          />
+          <div className="aq-strip-caption">
+            <span>{captions[safeIndex] || 'Hockey'}</span>
+            <span>IITB Hockey · {safeIndex + 1} / {safeImages.length}</span>
+          </div>
+          <button className="aq-strip-btn aq-strip-prev" onClick={handlePrev} aria-label="Previous">
+            &#8249;
+          </button>
+          <button className="aq-strip-btn aq-strip-next" onClick={handleNext} aria-label="Next">
+            &#8250;
+          </button>
+        </div>
+
+        <div className="aq-strip-thumbs">
+          {(safeImages || []).map((img, i) => (
+            <button
+              key={i}
+              className={`aq-strip-thumb${i === safeIndex ? ' is-active' : ''}`}
+              onClick={() => handleThumb(i)}
+              aria-label={captions[i] || `Image ${i + 1}`}
+            >
+              <img src={img} alt={captions[i] || `Thumb ${i + 1}`} />
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════
+          §6  LOCATION
+      ══════════════════════════════════ */}
+      <div className="aq-app" style={{ paddingTop: '56px' }}>
+        <section className="aq-section">
+          <div className="aq-eyebrow">
+            <span className="num">06</span>
+            <span className="bar" />
+            Location
+          </div>
+          <div className="aq-section-head">
+            <h2 className="aq-section-title">
+              Find the <span className="italic">Ground</span>
+            </h2>
+            <p className="aq-section-sub">Hockey Ground, Gymkhana Grounds, IIT Bombay</p>
+          </div>
+          <div className="aq-location">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.3881728360093!2d72.90822443404429!3d19.134478500000018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b9b74d4b5f75%3A0xfbea904fa3f2af3!2sGymkhana%20Grounds!5e0!3m2!1sen!2sin!4v1720442540019!5m2!1sen!2sin"
+              className="aq-map"
+              allowFullScreen=""
+              loading="lazy"
+              title="Hockey Ground Location"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </section>
+
+        <footer className="aq-footer">
+          <span className="aq-footer-colophon">
+            IITB Hockey · <em>Sports Gymkhana, IIT Bombay</em>
+          </span>
+          <span>© {new Date().getFullYear()}</span>
+        </footer>
       </div>
 
-    <div className='location'>
-        <iframe
-         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.3881728360093!2d72.90822443404429!3d19.134478500000018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b9b74d4b5f75%3A0xfbea904fa3f2af3!2sGymkhana%20Grounds!5e0!3m2!1sen!2sin!4v1720442540019!5m2!1sen!2sin" 
-          width="700"
-          height="450"
-          className='map'
-          allowFullScreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Hockey Ground Location">
-        </iframe>
-  <p className='sideL'>Location</p>
-  </div>
-  </div>
-  )
-}
+    </div>
+  );
+};
 
 export default Hockey;
