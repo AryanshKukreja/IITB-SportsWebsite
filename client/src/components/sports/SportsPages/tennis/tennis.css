@@ -1,18 +1,18 @@
 /* ============================================================
-   VOLLEYBALL — minimal additions on top of aquatics.css
-   Import order in Volleyball.jsx:
+   LAWN TENNIS — minimal additions on top of aquatics.css
+   Import order in Tennis.jsx:
      import './aquatics.css';
-     import './volleyball.css';
+     import './tennis.css';
 ============================================================ */
 
-/* ── Accent: indigo — distinct from all other sport pages.
+/* ── Accent: lime/lawn green — distinct from all other sport pages.
    Comment both lines to revert to the standard aquatics blue. ── */
-.vb-root-overrides {
-  --primary:       #4f46e5;
-  --primary-light: #818cf8;
+.lt-root-overrides {
+  --primary:       #65a30d;
+  --primary-light: #a3e635;
 }
 
 /* ── Hero photo: court shots crop best anchored to center ── */
-.vb-root-overrides .aq-hero-photo img {
+.lt-root-overrides .aq-hero-photo img {
   object-position: center 45%;
 }

@@ -1,13 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import './aquatics.css';
+import './frisbee.css';
 import Timel from './timeline';
-import { useState} from 'react';
-//import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
-import { MdDoubleArrow } from "react-icons/md"; //bold arrow
-//import { MdPlayArrow } from "react-icons/md";   //filled triangle
-//import Slider from "react-slick";
-/* import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css"; */
-//import ReactCardFlip from 'react-card-flip';
 import pic_1 from './assets/pic_1.jpg';
 import pic_2 from './assets/pic_2.jpg';
 import pic_3 from './assets/pic_3.jpg';
@@ -15,168 +9,430 @@ import pic_4 from './assets/pic_4.jpg';
 import pic_5 from './assets/pic_5.jpg';
 import pic_6 from './assets/pic_6.jpg';
 
+/* ============================================================
+   REVEAL
+============================================================ */
+function Reveal({ as: Tag = 'div', className = '', delay = 0, children, ...rest }) {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return undefined;
+    let done = false;
+    const reveal = () => { if (!done) { done = true; setVisible(true); } };
+    const reduce = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const fallback = setTimeout(reveal, 1200);
+    if (reduce || typeof IntersectionObserver === 'undefined') { reveal(); return () => clearTimeout(fallback); }
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) reveal();
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) { reveal(); io.unobserve(e.target); } }),
+      { threshold: 0.05, rootMargin: '0px 0px -5% 0px' }
+    );
+    io.observe(el);
+    return () => { io.disconnect(); clearTimeout(fallback); };
+  }, []);
+  return (
+    <Tag ref={ref} className={`aq-reveal ${visible ? 'is-visible' : ''} ${className}`} style={{ '--d': `${delay}ms` }} {...rest}>
+      {children}
+    </Tag>
+  );
+}
+
+/* ============================================================
+   COUNT-UP
+============================================================ */
+function useCountUp(target, durationMs = 900) {
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    let raf, start, cancelled = false;
+    const reduce = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) { setValue(target); return undefined; }
+    const tick = (t) => {
+      if (cancelled) return;
+      if (start === undefined) start = t;
+      const p = Math.min((t - start) / durationMs, 1);
+      setValue(Math.round(p * target));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => { cancelled = true; cancelAnimationFrame(raf); };
+  }, [target, durationMs]);
+  return value;
+}
+
+/* ============================================================
+   WAVE DIVIDER
+============================================================ */
+function WaveDivider() {
+  return (
+    <div className="aq-wave" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+        <path className="aq-wave-path aq-wave-path-1"
+          d="M0 20 Q 100 0 200 20 T 400 20 T 600 20 T 800 20 T 1000 20 T 1200 20 V40 H0 Z" />
+        <path className="aq-wave-path aq-wave-path-2"
+          d="M0 26 Q 100 6 200 26 T 400 26 T 600 26 T 800 26 T 1000 26 T 1200 26 V40 H0 Z" />
+      </svg>
+    </div>
+  );
+}
+
+/* ============================================================
+   PHOTO BREAK
+============================================================ */
+function PhotoBreak({ image, caption, tag }) {
+  return (
+    <Reveal as="div" className="aq-photobreak">
+      <img src={image} alt={caption} className="aq-photobreak-img" />
+      <div className="aq-photobreak-caption">
+        <span>{tag}</span>
+        <span>{caption}</span>
+      </div>
+    </Reveal>
+  );
+}
+
+/* ============================================================
+   DATA
+============================================================ */
+const facilities = [
+  {
+    title: 'Equipment',
+    image: pic_5,
+    bullets: [
+      'Ultimate frisbee discs, cones, markers, and bibs for matches and sessions.',
+      'Full kit maintained to run camps and tournaments end to end.',
+    ],
+  },
+  {
+    title: 'Grounds',
+    image: pic_2,
+    bullets: [
+      'Plays across the Football ground, Hockey ground, Outdoor Turf, Indoor Turf, and Kho-Kho area, as per convenience.',
+      'Flexible venue use lets the club run sessions rain or shine.',
+    ],
+  },
+];
+
+const cards = [
+  {
+    title: 'General Championships',
+    content:
+      'The club\'s flagship inter-hostel competition, bringing together undergraduates, postgraduates, staff, and alumni to compete for hostel glory on the ultimate field.',
+  },
+  {
+    title: 'Beginners Camp',
+    content:
+      'An entry point for newcomers to the sport, run by the club to teach the fundamentals of ultimate frisbee — throws, cuts, and the sport\'s self-refereed "Spirit of the Game" ethos.',
+  },
+  {
+    title: 'Women\u2019s Camp',
+    content:
+      'A dedicated camp welcoming women across campus into the sport, building skills and confidence in a supportive, beginner-friendly environment.',
+  },
+  {
+    title: 'Ultimate Frisbee Open (UFO)',
+    content:
+      'The club\'s open tournament, welcoming teams and players from across the institute and beyond to compete on IIT Bombay\'s grounds.',
+  },
+  {
+    title: 'Competitive Circuit',
+    content:
+      'Beyond campus, the team competes in the National College Ultimate Championship (NCUC), West Sectionals, and IIT Bombay\'s own Aavhan Sports Festival, and is part of the wider Mumbai Ultimate Community.',
+  },
+];
+
+const galleryImages = [pic_1, pic_2, pic_3, pic_4, pic_5, pic_6];
+
+/* ============================================================
+   FRISBEE
+============================================================ */
 const Frisbee = () => {
-  const [expandedCard, setExpandedCard] = useState(null);
+  const [expandedCard, setExpandedCard]       = useState(null);
+  const [currentIndex, setCurrentIndex]       = useState(0);
+  const [slideDir, setSlideDir]               = useState('next');
+  const timelineWrapRef                       = useRef(null);
+  const [timelineVisible, setTimelineVisible] = useState(false);
 
-  const toggleContent = (cardIndex) => {
-    if (expandedCard === cardIndex) {
-      setExpandedCard(null); // Collapse the card if it's already expanded
-    } else {
-      setExpandedCard(cardIndex); // Expand the clicked card
-    }
-  };
+  const eventsCount = useCountUp(cards.length, 800);
+  const yearsCount  = useCountUp(10, 800);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const toggleContent = (i) => setExpandedCard((prev) => (prev === i ? null : i));
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex - 1
+  const handlePrev = useCallback(() => {
+    setSlideDir('prev');
+    setCurrentIndex((i) => (i === 0 ? galleryImages.length - 1 : i - 1));
+  }, []);
+
+  const handleNext = useCallback(() => {
+    setSlideDir('next');
+    setCurrentIndex((i) => (i === galleryImages.length - 1 ? 0 : i + 1));
+  }, []);
+
+  useEffect(() => {
+    const el = timelineWrapRef.current;
+    if (!el) return undefined;
+    let done = false;
+    const reveal = () => { if (!done) { done = true; setTimelineVisible(true); } };
+    const fallback = setTimeout(reveal, 1200);
+    if (typeof IntersectionObserver === 'undefined') { reveal(); return () => clearTimeout(fallback); }
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) { reveal(); io.unobserve(e.target); } }),
+      { threshold: 0.05 }
     );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  // eslint-disable-next-line no-unused-vars
-  const cards = [
-    {
-      title: 'Camps',
-      content: 'Every summer, by popular demand, our coach, Ritesh Guchhait, holds camps in swimming at the beginners, intermediate and advanced levels. Camps are also held for IIT students during the semester.The beginners camps are held separately for children, ladies, students and staff. The duration is normally 15-20 days, and there is a demonstration for parents and families on the last day, when certificates are handed out. There are also intermediate camps for students looking to train in strokes such as breaststroke, butterfly and backstroke.'
-    },
-    {
-      title: 'NSO',
-      content: 'The Government of India, through its National Sports Organization, provides a scheme in all IITs, where all incoming, i.e. first year students, must sign up for a particular sport, and undergo training. This scheme, popularly called NSO, is available to IIT students for training in various sports, such as swimming, hockey, basketball, squash, badminton, tennis, athletics, table tennis, football etc. Swimming, is a much sought after option, and since the number of students that can be accommodated in a given sport is limited, it is not surprising to see students, at the beginning of every academic year, crowding around the coach at the poolside, to give their trials and try to get in. What is extremely encouraging, is that students often develop a new interest in swimming, and continue to attend advanced coaching throughout the year, all through their college life, and not just the first year. The NSO swim training functions two evenings a week.'
-    },
-    {
-      title: 'Swimmathon',
-      content: 'Swimathon is the largest Event organised by IIT Bombay Swimming Club and is held annually during the end of Spring season. Swimathon started in 1989 and has a duration of 6 hours. Its open to everyone on campus, and one can see hoards of IIT students participating quite happily along with kids, professors and middle-aged ladies. Over the years, Swimathon has grown exponentially and now attracts 100+ participants every year.'
-    },
-    {
-      title: 'Swimming GC',
-      content: 'Every year we have an Inter hostel swimming competition - The Swimming General Championship, with assorted supporters crying themselves hoarse in support of their hostel mates, irrespective of the level of swimming. It\'s an ideal platform to flaunt your swimming skills and make your hostel proud! With no restrictions on participation, the swimming pool is the place to be during the days of the swimming GC.'
-    },
-    {
-      title: 'Triathlon GC',
-      content: 'The IIT Swimming club holds triathlon competition every year. This tri sport of event includes swimming, cycling, and running. The event is organized in two categories: Team Triathlon- Team of 3 (at least one female member) & Individual Triathlon.'
-    },
-    {
-      title: 'Waterpolo GC',
-      content: 'Every year we have an inter hostel water polo general championship where all the hostels battle to prove their supremacy in the sport. The GC is organized according to the rules of FINA. '
-    }
-  ];
-
-  // const achieve = [
-  //   {
-  //     title: 'Group Achivements',
-  //     content: ' ',
-  //   },
-  //   {
-  //     title: 'Individual Achivements',
-  //     content: 'c2',
-  //   }
-  // ];
-
-  // const imageSliderSettings = {
-  //   dots: true,
-  //   // infinite: true,
-  //   speed: 1000,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  // }
-
-  const images = [
-    pic_1,
-    pic_2,
-    pic_3,
-    pic_4,
-    pic_5,
-    pic_6
-  ];
+    io.observe(el);
+    return () => { io.disconnect(); clearTimeout(fallback); };
+  }, []);
 
   return (
-    <div className='aq-pageContainer'>
-      <div className='titleText'>
-        Ultimate Frisbee Club 
-      </div>
+    <div className="aq-root fr-root-overrides">
 
-
-      <div className='aq-about'>
-        Ultimate frisbee is a mixed gender, self refereed sport rapidly growing around the world, and in India. Played earlier by a group of dedicated students and later formally inaugurated in 2022, the Ultimate Frisbee Club pioneers the sport on IIT Bombay campus. The club regularly organizes exciting events, sessions, camps, and tournaments to involve its vibrant community of undergraduate students, postgraduates, staff, and alumni. These include General Championships, Beginners Camp, Women’s Camp, and the Ultimate Frisbee Open (UFO).
-
-        The IIT Bombay Ultimate Frisbee Club competes in the National College Ultimate Championship (NCUC), West Sectionals, and IIT Bombay's Aavhan Sports Festival. It is also a part of the Mumbai Ultimate Community. 
-
-        The club's new coach, Maksood Chaudhary has 10+ years of experience in Ultimate Frisbee. He has both represented and coached Team India. He is gearing the club towards competitive success in the future.
-      </div>
-
-
-      <div className='facilities'>
-        <div className='aq-heading'>
-          <MdDoubleArrow className='arrow' />
-          <h3 className='aq-headingtext'>Facilities</h3>
+      {/* ── MASTHEAD ── */}
+      <Reveal as="header" className="aq-masthead">
+        <div className="aq-masthead-mark">
+          <span className="aq-crest">UF</span>
+          <span>IIT Bombay Ultimate Frisbee Club</span>
         </div>
-        <div className='content'>
-          <p className='facilityText'>
-            Equpiment:
-            The IIT Bombay Ultimate Frisbee Club has all the necessary equipment to organize matches and sessions including ultimate frisbee discs, cones, markers, and bibs.
-            Grounds:
-            The club plays on the Football ground, Hockey ground, Outdoor Turf, Indoor Turf, and Kho-Kho area as per convenience.
-          </p>
-          <img alt="alt" src={pic_5} className='image' />
+        <div className="aq-masthead-meta">
+          <span>Coach&nbsp;<strong>Maksood Chaudhary</strong></span>
+          <span>Founded&nbsp;<strong>2022</strong></span>
+          <span><strong>Powai</strong>&nbsp;·&nbsp;IIT Bombay</span>
         </div>
-      </div>
+      </Reveal>
 
+      <div className="aq-app">
 
-      <div className='achievements'>
-        <div className='aq-heading' id='head-achieve'>
-          <MdDoubleArrow className='arrow' />
-          <h3 className='aq-headingtext'>Achievements</h3>
-        </div>
-
-        <Timel />
-
-      </div>
-
-
-      <div className='contacts'>
-        <div className='aq-heading'>
-          <MdDoubleArrow className='arrow' />
-          <h3 className='aq-headingtext'>Contact</h3>
-        </div>
-
-        <div className='contactlist'>
-          <div className='contactCard' >
-            <img alt="alt" src={pic_1} className='contactImg' />
-            <p className='aq-name'>Shaashvat Sekhar</p>
-            <p className='info'>Institute Frisbee Secretary</p>
-            <p className='info'>+91 78878 64446</p>
+        {/* ── HERO ── */}
+        <Reveal as="section" className="aq-hero">
+          <div className="aq-hero-kicker">
+            <span className="vol">Dossier No. 15</span>
+            <span className="sep">§</span>
+            <span>Ultimate Frisbee&nbsp;·&nbsp;Campus Grounds</span>
           </div>
-        </div>
-      </div>
 
-    <div className='gallery'>
-            <div className='aq-heading'>
-              <MdDoubleArrow className='arrow' />
-              <h3 className='aq-headingtext'>Gallery</h3>
+          <div className="aq-hero-grid">
+            <div>
+              <h1 className="aq-hero-title">
+                <span className="italic">Ultimate Frisbee</span>
+                <br />
+                at IIT Bombay.
+              </h1>
+              <p className="aq-hero-lede">
+                Ultimate frisbee is a mixed-gender, self-refereed sport rapidly growing around the
+                world and in India. Played earlier by a group of dedicated students and formally
+                inaugurated in 2022, the Ultimate Frisbee Club pioneers the sport on the IIT Bombay
+                campus — organising Championships, camps, and the Ultimate Frisbee Open for a vibrant
+                community of undergraduates, postgraduates, staff, and alumni. Under new coach
+                Maksood Chaudhary, who has both played for and coached Team India, the club is
+                gearing towards competitive success.
+              </p>
             </div>
-            <div className='new-gallery'>
-              <img src={images[currentIndex]} alt="Gallery" className="gallery-image" />
-              <div className="gallery-buttons">
-                <button onClick={handlePrev}>Previous</button>
-                <button onClick={handleNext}>Next</button>
+
+            <aside className="aq-hero-stats">
+              <div className="aq-hero-stat">
+                <span className="k">Founded</span>
+                <span className="v"><em>2022</em></span>
+                <span className="c">Formally inaugurated</span>
               </div>
-            </div>
+              <div className="aq-hero-stat">
+                <span className="k">Annual Events</span>
+                <span className="v">{eventsCount}</span>
+                <span className="c">GCs, camps &amp; UFO</span>
+              </div>
+              <div className="aq-hero-stat">
+                <span className="k">Coach's Experience</span>
+                <span className="v" style={{ fontSize: '1.2rem' }}>
+                  <em>{yearsCount}+ yrs</em>
+                </span>
+                <span className="c">Played &amp; coached Team India</span>
+              </div>
+              <div className="aq-hero-stat">
+                <span className="k">Secretary</span>
+                <span className="v" style={{ fontSize: '1rem', lineHeight: 1.4 }}>
+                  <em>Shaashvat</em>
+                </span>
+                <span className="c">Institute Frisbee Secretary</span>
+              </div>
+            </aside>
           </div>
 
+          <div className="aq-hero-photo">
+            <img src={pic_3} alt="IIT Bombay Ultimate Frisbee" />
+          </div>
+        </Reveal>
 
-      {/* <div className='timing'>
-        <p className='side'>Pool Timings</p>
-        <img src={time2} className='schimg' />
-      </div> */}
+        <WaveDivider />
+
+        {/* ── § 01 FACILITIES ── */}
+        <Reveal as="section" className="aq-section">
+          <div className="aq-eyebrow">
+            <span className="num">§ 01</span>&nbsp;·&nbsp;Facilities
+            <span className="bar" />
+          </div>
+          <div className="aq-section-head">
+            <h2 className="aq-section-title">
+              What's <span className="italic">on offer</span>.
+            </h2>
+            <p className="aq-section-sub">Full kit · Five grounds · Weather-flexible.</p>
+          </div>
+
+          <div className="aq-facility-grid">
+            {facilities.map((f, i) => (
+              <Reveal as="div" key={f.title} className="aq-facility-card" delay={i * 90}>
+                <div className="aq-facility-photo">
+                  <img src={f.image} alt={f.title} />
+                </div>
+                <h3 className="aq-facility-title">{f.title}</h3>
+                <ul className="aq-facility-bullets">
+                  {f.bullets.map((b) => <li key={b}>{b}</li>)}
+                </ul>
+              </Reveal>
+            ))}
+          </div>
+        </Reveal>
+
+        <PhotoBreak image={pic_4} tag="Fig. A" caption="Practice on the Outdoor Turf." />
+
+        {/* ── § 02 EVENTS ── */}
+        <Reveal as="section" className="aq-section">
+          <div className="aq-eyebrow">
+            <span className="num">§ 02</span>&nbsp;·&nbsp;Events
+            <span className="bar" />
+          </div>
+          <div className="aq-section-head">
+            <h2 className="aq-section-title">
+              The <span className="italic">fixtures</span>.
+            </h2>
+            <p className="aq-section-sub">Five events. Tap a headline to read the full brief.</p>
+          </div>
+
+          <div className="aq-story-columns">
+            {cards.map((card, index) => {
+              const isOpen = expandedCard === index;
+              return (
+                <div
+                  key={card.title}
+                  className={`aq-story ${isOpen ? 'is-open' : ''}`}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => toggleContent(index)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleContent(index); }
+                  }}
+                  aria-expanded={isOpen}
+                >
+                  <div className="aq-story-photo">
+                    <img src={galleryImages[index % galleryImages.length]} alt={card.title} />
+                  </div>
+                  <span className="aq-story-no">N&deg;&nbsp;{String(index + 1).padStart(2, '0')}</span>
+                  <h3 className="aq-story-title">{card.title}</h3>
+                  <p className={`aq-story-content ${isOpen ? 'is-full' : 'is-clamped'}`}>
+                    {card.content}
+                  </p>
+                  <span className="aq-story-toggle">{isOpen ? 'Close —' : 'Continue reading →'}</span>
+                </div>
+              );
+            })}
+          </div>
+        </Reveal>
+
+        <PhotoBreak image={pic_6} tag="Fig. B" caption="Ultimate Frisbee Open — the club's flagship tournament." />
+
+        {/* ── § 03 ACHIEVEMENTS ── */}
+        <Reveal as="section" className="aq-section">
+          <div className="aq-eyebrow">
+            <span className="num">§ 03</span>&nbsp;·&nbsp;Achievements
+            <span className="bar" />
+          </div>
+          <div className="aq-section-head">
+            <h2 className="aq-section-title">
+              The <span className="italic">record</span>.
+            </h2>
+          </div>
+          <div
+            ref={timelineWrapRef}
+            className={`aq-timeline-wrap ${timelineVisible ? 'is-visible' : ''}`}
+          >
+            <Timel />
+          </div>
+        </Reveal>
+
+        {/* ── § 04 CONTACT ── */}
+        <Reveal as="section" className="aq-section">
+          <div className="aq-eyebrow">
+            <span className="num">§ 04</span>&nbsp;·&nbsp;Contact
+            <span className="bar" />
+          </div>
+          <div className="aq-section-head">
+            <h2 className="aq-section-title">
+              Get in <span className="italic">touch</span>.
+            </h2>
+          </div>
+          <div className="aq-contact-grid">
+            <div className="aq-contact-card">
+              <img alt="Shaashvat Sekhar" src={pic_1} className="aq-contact-img" />
+              <p className="aq-contact-name">Shiv Patil</p>
+              <p className="aq-contact-role">Frisbee Club Manager</p>
+              <p className="aq-contact-detail">+91 98904 38497</p>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* ── § 05 GALLERY ── */}
+        <Reveal as="section" className="aq-section aq-gallery-section">
+          <div className="aq-eyebrow">
+            <span className="num">§ 05</span>&nbsp;·&nbsp;Gallery
+            <span className="bar" />
+          </div>
+          <div className="aq-section-head">
+            <h2 className="aq-section-title">
+              From the <span className="italic">field</span>.
+            </h2>
+          </div>
+
+          <div className="aq-strip">
+            <img
+              key={currentIndex}
+              src={galleryImages[currentIndex]}
+              alt={`Ultimate Frisbee gallery ${currentIndex + 1}`}
+              className={`aq-strip-image aq-slide-${slideDir}`}
+            />
+            <div className="aq-strip-caption">
+              <span>
+                Fig.&nbsp;{String(currentIndex + 1).padStart(2, '0')}&nbsp;/&nbsp;{String(galleryImages.length).padStart(2, '0')}
+              </span>
+              <span>Ultimate Frisbee&nbsp;·&nbsp;Campus Grounds</span>
+            </div>
+            <button className="aq-strip-btn aq-strip-prev" onClick={handlePrev} aria-label="Previous photo">←</button>
+            <button className="aq-strip-btn aq-strip-next" onClick={handleNext} aria-label="Next photo">→</button>
+          </div>
+
+          <div className="aq-strip-thumbs">
+            {galleryImages.map((image, index) => (
+              <button
+                key={index}
+                className={`aq-strip-thumb ${index === currentIndex ? 'is-active' : ''}`}
+                onClick={() => { setSlideDir(index > currentIndex ? 'next' : 'prev'); setCurrentIndex(index); }}
+                aria-label={`Go to photo ${index + 1}`}
+              >
+                <img src={image} alt="" />
+              </button>
+            ))}
+          </div>
+        </Reveal>
+
+        {/* ── FOOTER ── */}
+        {/* <footer className="aq-footer">
+          <span className="aq-footer-colophon">
+            <em>Set in Fraunces &amp; JetBrains Mono.</em>
+          </span>
+          <span>IIT Bombay&nbsp;·&nbsp;Ultimate Frisbee&nbsp;·&nbsp;Campus Grounds</span>
+          <span>Print / Digital&nbsp;·&nbsp;Final Edition</span>
+        </footer> */}
+
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default Frisbee;

@@ -1,0 +1,37 @@
+/* ============================================================
+   BOARD GAMES — minimal additions on top of aquatics.css
+   Import order in BoardGames.jsx:
+     import './aquatics.css';
+     import './boardgames.css';
+============================================================ */
+
+/* ── Accent: violet — distinct from all other sport pages.
+   Comment both lines to revert to the standard aquatics blue. ── */
+.bg-root-overrides {
+  --primary:       #4c1d95;
+  --primary-light: #8b5cf6;
+}
+
+/* ── Hero photo: board game room shots crop well at center ── */
+.bg-root-overrides .aq-hero-photo img {
+  object-position: center 35%;
+}
+
+/* ── Club link — sits inside aq-rulecard ── */
+.bg-club-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary-light);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.35);
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+.bg-club-link:hover {
+  opacity: 0.7;
+  border-color: var(--primary-light);
+}

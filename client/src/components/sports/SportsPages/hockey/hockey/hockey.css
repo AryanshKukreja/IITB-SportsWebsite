@@ -1,0 +1,18 @@
+/* ============================================================
+   HOCKEY — minimal additions on top of aquatics.css
+   Import order in Hockey.jsx:
+     import './aquatics.css';
+     import './hockey.css';
+============================================================ */
+
+/* ── Accent: cyan/sky — distinct from all other sport pages.
+   Comment both lines to revert to the standard aquatics blue. ── */
+.hk-root-overrides {
+  --primary:       #0e7490;
+  --primary-light: #22d3ee;
+}
+
+/* ── Hero photo: action shots crop best anchored to center ── */
+.hk-root-overrides .aq-hero-photo img {
+  object-position: center 40%;
+}
