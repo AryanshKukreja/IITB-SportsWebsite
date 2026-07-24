@@ -756,13 +756,13 @@ const Aquatics = () => {
         </Reveal>
 
         {/* FOOTER */}
-        <footer className="aq-footer">
+        {/* <footer className="aq-footer">
           <span className="aq-footer-colophon">
             <em>Set in Fraunces &amp; JetBrains Mono.</em>
           </span>
           <span>IIT Bombay · Aquatics · Swimming &amp; Water Polo</span>
           <span>Print / Digital · Final Edition</span>
-        </footer>
+        </footer> */}
       </div>
     </div>
   );

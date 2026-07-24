@@ -1,5 +1,29 @@
 /* Import matching font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+/* ============================================================
+   ATHLETICS — minimal additions on top of aquatics.css
+   Import order in Athletics.jsx:
+     import './aquatics.css';
+     import './athletics.css';
+   Everything in aquatics.css is reused as-is.
+   This file only overrides the accent colour and the crest letter.
+============================================================ */
+
+/* ── Accent: amber/orange to distinguish Athletics from Aquatics blue ── */
+.aq-root {
+  --primary:       #b45309;
+  --primary-light: #f59e0b;
+}
+
+/* Remove the variable override above if you want the same blue as Aquatics/homepage.
+   The lines below are the only places colour appears that aquatics.css doesn't cover. */
+
+/* ── Strip thumb active border inherits --primary-light automatically ── */
+
+/* ── Hero photo: slightly different object-position for track photo ── */
+.aq-hero-photo img {
+  object-position: center 40%;
+}
 
 /* Reset and base styles */
 * {
