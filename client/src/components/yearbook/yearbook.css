@@ -1,106 +1,219 @@
-/* Container for the whole page */
-.yearbookContainer {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* ============================================================
+   YEARBOOK — additions on top of aquatics.css design system
+   Import order in Yearbook.jsx:
+     import './aquatics.css';
+     import './yearbook.css';
+============================================================ */
+
+/* ── Accent colour overrides: teal (matches homepage) ── */
+.yb-root-overrides .aq-crest            { border-color: #3b82f6; color: #3b82f6; }
+.yb-root-overrides .aq-masthead-mark    { color: #3b82f6; }
+.yb-root-overrides .aq-hero-kicker .sep,
+.yb-root-overrides .aq-hero-kicker .vol { color: #3b82f6; }
+.yb-root-overrides .aq-eyebrow .num     { color: #3b82f6; }
+.yb-root-overrides .aq-hero-title .italic,
+.yb-root-overrides .aq-section-title .italic { color: #3b82f6; }
+.yb-root-overrides .aq-hero-stat .v em  { color: #3b82f6; }
+.yb-root-overrides .aq-wave-path-2      { stroke: #3b82f6; }
+
+/* ── Hero: no photo strip on yearbook page ── */
+.yb-hero .aq-hero-photo { display: none; }
+.yb-hero { padding-bottom: 20px; }
+
+/* Keep hero grid single-column on mobile */
+@media (max-width: 899px) {
+  .yb-hero-grid { grid-template-columns: 1fr !important; }
 }
 
-/* Header styles */
-.header h1 {
-  font-size: 2.5rem;
-  color: #2c3e50;
-  margin-bottom: 0.5rem;
+/* ══════════════════════════════════════════════════════
+   PDF VIEWER CARD
+══════════════════════════════════════════════════════ */
+.yb-viewer-card {
+  border: 1px solid var(--rule-strong);
+  background: var(--panel-2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-.header p {
-  font-size: 1.2rem;
-  color: #7f8c8d;
-  margin-bottom: 2rem;
+/* ── Toolbar ── */
+.yb-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--rule-strong);
+  background: var(--panel);
+  flex-wrap: wrap;
 }
 
-/* Wrapper for the PDF viewer to position the loader correctly */
-.pdfViewerWrapper {
-  position: relative; /* Crucial for positioning the spinner */
-  height: 80vh; /* Use viewport height for responsiveness */
+.yb-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.yb-toolbar-label { color: var(--cream); font-weight: 600; }
+.yb-toolbar-sep   { color: var(--rule-strong); }
+
+.yb-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.yb-tool-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--rule);
+  padding: 7px 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.yb-tool-btn:hover {
+  color: #3ee5e5;
+  border-color: rgba(62, 229, 229, 0.4);
+  background: rgba(62, 229, 229, 0.05);
+}
+
+/* ── iframe wrapper ── */
+.yb-iframe-wrap {
+  position: relative;
+  height: clamp(500px, 78vh, 900px);
   width: 100%;
-  background-color: #f0f2f5;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Ensures the iframe stays within the rounded corners */
+  background: var(--void);
 }
 
-/* The PDF iframe itself */
-.pdfIframe {
+.yb-iframe {
   width: 100%;
   height: 100%;
   border: none;
-  opacity: 0; /* Start invisible */
-  transform: scale(0.98); /* Start slightly smaller */
-  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; /* Smooth transition */
+  opacity: 0;
+  transform: scale(0.985);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.yb-iframe.is-loaded {
+  opacity: 1;
+  transform: scale(1);
 }
 
-/* This class is added once the PDF is loaded */
-.pdfIframe.loaded {
-  opacity: 1; /* Fade in */
-  transform: scale(1); /* Scale to full size */
-}
-
-/* Loading overlay styles */
-.loadingOverlay {
+/* ── Loading state ── */
+.yb-loading {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  color: #34495e;
+  justify-content: center;
+  gap: 18px;
+  background: var(--void);
   z-index: 10;
 }
-
-/* CSS for the loading spinner animation */
-.spinner {
-  width: 50px;
-  height: 50px;
-  border: 5px solid #bdc3c7;
-  border-top: 5px solid #3498db;
+.yb-spinner {
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--rule-strong);
+  border-top-color: #3ee5e5;
   border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-bottom: 1rem;
+  animation: yb-spin 0.9s linear infinite;
+}
+@keyframes yb-spin {
+  to { transform: rotate(360deg); }
+}
+.yb-loading-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-.yb-button-container {
-  position: absolute;
-  top: 40px;
-  right: 15px;
+/* ── Viewer footer bar ── */
+.yb-viewer-foot {
   display: flex;
-  gap: 10px;
-  z-index: 20; /* Ensure buttons are above the PDF viewer */
-  padding: 7px 15px;
-}
-.yb-button-container div {
-  cursor: pointer;
-  width: 25.6px;
-  background-color: 00000044;
   align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  border-top: 1px solid var(--rule);
+  background: var(--panel);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  flex-wrap: wrap;
 }
-.yb-corner{
-  cursor: pointer;
-  padding: 5px;
-  width: 30px;
-  height: 30px;
-  background-color: 00000044;
+.yb-dl-link {
+  color: #3ee5e5;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.yb-dl-link:hover { opacity: 0.7; }
+
+/* ══════════════════════════════════════════════════════
+   FULLSCREEN OVERLAY
+══════════════════════════════════════════════════════ */
+.yb-fs-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--void);
+  display: flex;
+  flex-direction: column;
+}
+
+.yb-fs-close {
+  display: inline-flex;
   align-items: center;
-  border-radius: 5px;
+  gap: 8px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10000;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: rgba(6, 8, 12, 0.72);
+  border: 1px solid var(--rule-strong);
+  padding: 9px 16px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+  backdrop-filter: blur(6px);
 }
-.yb-corner:hover{
-  background-color: #ffffff33;
+.yb-fs-close:hover {
+  border-color: #3ee5e5;
+  color: #3ee5e5;
+}
+
+.yb-fs-iframe {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ══════════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .yb-toolbar { padding: 12px 14px; }
+  .yb-toolbar-meta { display: none; }
+  .yb-viewer-foot { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .yb-iframe-wrap { height: clamp(420px, 72vh, 700px); }
 }

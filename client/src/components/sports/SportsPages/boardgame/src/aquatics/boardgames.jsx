@@ -22,7 +22,6 @@ import bg12 from '../assets/bg12.jpeg';
 import bg13 from '../assets/bg13.jpeg';
 import bg14 from '../assets/bg14.jpeg';
 import bg15 from '../assets/bg15.jpeg';
-import bgsec from '../assets/bgsec.jpg';
 import user from "../assets/user.jpg";
 //import ReactCardFlip from 'react-card-flip';
 

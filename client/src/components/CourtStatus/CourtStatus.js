@@ -66,13 +66,11 @@ const CourtStatus = () => {
   const [sportsCoordinates, setSportsCoordinates] = useState({});
   const [timeSlots, setTimeSlots] = useState(MANUAL_TIME_SLOTS);
   const [courtData, setCourtData] = useState([]);
-  const [currentDate, setCurrentDate] = useState('');
   const [currentTime, setCurrentTime] = useState(getISTDateTime());
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedDate, setSelectedDate] = useState(getISTDate());
-  const [authToken, setAuthToken] = useState(localStorage.getItem('adminToken') || '');
-  const [showMapMarkers, setShowMapMarkers] = useState(true);
-  const [isEditingMap, setIsEditingMap] = useState(false);
+  const [selectedDate] = useState(getISTDate());
+  const [showMapMarkers] = useState(true);
+  const [isEditingMap] = useState(false);
   
   // NEW: Modal state for booking details
   const [showBookingModal, setShowBookingModal] = useState(false);
@@ -177,8 +175,6 @@ const CourtStatus = () => {
         console.warn('No court data in response');
         setCourtData([]);
       }
-      
-      setCurrentDate(response.data.date || date);
       setIsLoading(false);
     } catch (error) {
       console.error('Error fetching court status:', error);
@@ -361,242 +357,255 @@ const CourtStatus = () => {
 
   return (
     <div className='turf-booking-container'>
-      <header className="cs-header">
-        <h1>IITB Sports Facility Booking Status</h1>
-        <div className="cs-date-display">
-          <span className="cs-date">{getFormattedDate()}</span>
-          <span className="cs-time">{currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}</span>
-        </div>
-      </header>
+      <div className="cs-shell">
+        <header className="cs-header">
+          <h1>
+            IITB Sports <span className="italic">Booking Status</span>
+          </h1>
+          <p className="cs-subtitle">Live availability across courts and time slots</p>
+          <div className="cs-date-display">
+            <span className="cs-date">{getFormattedDate()}</span>
+            <span className="cs-time">{currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}</span>
+          </div>
+        </header>
 
-      {/* Sport Selection */}
-      <div className="cs-sport-tabs">
-        {sports.map(sport => {
-          const sportId = sport.id || sport._id;
-          return (
-            <button
-              key={sportId}
-              onClick={() => handleSportChange(sportId)}
-              className={`cs-sport-tab ${selectedSport === sportId ? 'active' : ''}`}
-            >
-              <span className="cs-sport-name" style={{
-                fontFamily: 'Georgia, Times New Roman, Times, serif',
-                fontSize: '1.1rem',
-                textAlign: 'center',
+        <section className="cs-panel">
+          <div className="cs-sport-tabs">
+            {sports.map(sport => {
+              const sportId = sport.id || sport._id;
+              const sportColor = sportsCoordinates[sportId]?.color || '#999';
+              return (
+                <button
+                  key={sportId}
+                  onClick={() => handleSportChange(sportId)}
+                  className={`cs-sport-tab ${selectedSport === sportId ? 'active' : ''}`}
+                >
+                  <span 
+                    className="cs-sport-dot" 
+                    style={{
+                      display: 'inline-block',
+                      width: '12px',
+                      height: '12px',
+                      borderRadius: '50%',
+                      backgroundColor: sportColor,
+                      border: '2px solid white',
+                      marginRight: '8px',
+                      verticalAlign: 'middle'
+                    }}
+                  />
+                  <span className="cs-sport-name">
+                    {sport.name}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="cs-panel cs-facility-map-container">
+          <h2>IITB Sports Facilities Map</h2>
+          <div className="cs-map-controls">
+            {isEditingMap && (
+              <>
+                <button 
+                  onClick={() => alert(getCoordinatesString())}
+                  className="cs-map-control-btn"
+                >
+                  Export Coordinates
+                </button>
+                <button 
+                  onClick={importCoordinates}
+                  className="cs-map-control-btn"
+                >
+                  Import Coordinates
+                </button>
+              </>
+            )}
+          </div>
+          <div 
+            className="cs-facility-map" 
+            ref={mapRef}
+            onClick={handleMapClick}
+            style={{
+              backgroundImage: `url(${mapImage})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              border: '1px solid rgba(255,255,255,0.14)',
+              cursor: isEditingMap ? 'crosshair' : 'default'
+            }}
+          >
+            {showMapMarkers && Object.entries(sportsCoordinates).map(([sportId, sportData]) => {
+              const isSelected = sportId === selectedSport;
+              return (
+                <div
+                  key={sportId}
+                  className={`cs-map-marker ${isSelected ? 'selected' : 'unselected'}`}
+                  style={{
+                    position: 'absolute',
+                    left: `${sportData.coords.x/8}%`,
+                    top: `${sportData.coords.y/5}%`,
+                    transform: 'translate(-50%, -50%)',
+                    width: '24px',
+                    height: '24px',
+                    borderRadius: '50%',
+                    backgroundColor: sportData.color,
+                    border: '2px solid #FFFFFF',
+                    boxShadow: '0 0 0 2px #000000',
+                    zIndex: isSelected ? 20 : 10,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    color: '#FFFFFF',
+                    fontWeight: 'bold',
+                    fontSize: '10px',
+                    cursor: 'pointer',
+                    opacity: isSelected ? 1.0 : 0.4,
+                    transition: 'opacity 0.3s ease'
+                  }}
+                  title={sportData.name}
+                  onClick={() => handleSportChange(sportId)}
+                >
+                  {sportData.name[0]}
+                </div>
+              );
+            })}
+            {isEditingMap && (
+              <div className="cs-map-edit-info" style={{
+                position: 'absolute',
+                bottom: '10px',
+                left: '10px',
+                backgroundColor: 'rgba(0,0,0,0.7)',
+                color: 'white',
+                padding: '8px',
+                borderRadius: '4px',
+                fontSize: '14px'
               }}>
-                {sport.name}
-              </span>
-            </button>
-          );
-        })}
-      </div>
+                Click on the map to set location for {sportsCoordinates[selectedSport]?.name || 'selected sport'}
+              </div>
+            )}
+          </div>
+        </section>
 
-      {/* Facility Map */}
-      <div className="cs-facility-map-container">
-        <h2>IITB Sports Facilities Map</h2>
-        <div className="cs-map-controls">
-          {isEditingMap && (
-            <>
-              <button 
-                onClick={() => alert(getCoordinatesString())}
-                className="cs-map-control-btn"
-              >
-                Export Coordinates
-              </button>
-              <button 
-                onClick={importCoordinates}
-                className="cs-map-control-btn"
-              >
-                Import Coordinates
-              </button>
-            </>
-          )}
-        </div>
-        <div 
-          className="cs-facility-map" 
-          ref={mapRef}
-          onClick={handleMapClick}
-          style={{
-            backgroundImage: `url(${mapImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            border: '2px solid #1e293b',
-            cursor: isEditingMap ? 'crosshair' : 'default'
-          }}
-        >
-          {/* UPDATED: Show all sport markers with different opacity */}
-          {showMapMarkers && Object.entries(sportsCoordinates).map(([sportId, sportData]) => {
-            const isSelected = sportId === selectedSport;
-            return (
-              <div
-                key={sportId}
-                className={`cs-map-marker ${isSelected ? 'selected' : 'unselected'}`}
-                style={{
-                  position: 'absolute',
-                  left: `${sportData.coords.x/8}%`,
-                  top: `${sportData.coords.y/5}%`,
-                  transform: 'translate(-50%, -50%)',
-                  width: '24px',
-                  height: '24px',
-                  borderRadius: '50%',
-                  backgroundColor: sportData.color,
-                  border: '2px solid #FFFFFF',
-                  boxShadow: '0 0 0 2px #000000',
-                  zIndex: isSelected ? 20 : 10,
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  color: '#FFFFFF',
-                  fontWeight: 'bold',
-                  fontSize: '10px',
-                  cursor: 'pointer',
-                  opacity: isSelected ? 1.0 : 0.4, // High opacity for selected, low for others
-                  transition: 'opacity 0.3s ease'
-                }}
-                title={sportData.name}
-                onClick={() => handleSportChange(sportId)}
-              >
-                {sportData.name[0]}
-              </div>
-            );
-          })}
-          {isEditingMap && (
-            <div className="cs-map-edit-info" style={{
-              position: 'absolute',
-              bottom: '10px',
-              left: '10px',
-              backgroundColor: 'rgba(0,0,0,0.7)',
-              color: 'white',
-              padding: '8px',
-              borderRadius: '4px',
-              fontSize: '14px'
-            }}>
-              Click on the map to set location for {sportsCoordinates[selectedSport]?.name || 'selected sport'}
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Status Legend */}
-      <div className="cs-legend">
-        <div className="cs-legend-item">
-          <div className="cs-legend-color available"></div>
-          <span>Available</span>
-        </div>
-        <div className="cs-legend-item">
-          <div className="cs-legend-color booked"></div>
-          <span>Booked</span>
-        </div>
-        <div className="cs-legend-item">
-          <div className="cs-legend-color closed"></div>
-          <span>Closed</span>
-        </div>
-      </div>
-
-      {/* NEW: Booking Details Modal */}
-      {showBookingModal && (
-        <div className="cs-modal-overlay" onClick={closeBookingModal}>
-          <div className="cs-booking-modal" onClick={(e) => e.stopPropagation()}>
-            <div className="cs-modal-header">
-              <h3>Booking Details</h3>
-              <button onClick={closeBookingModal} className="cs-modal-close">×</button>
-            </div>
-            <div className="cs-modal-content">
-              <div className="cs-booking-detail">
-                <strong>Court:</strong> {bookingModalData.courtName}
-              </div>
-              <div className="cs-booking-detail">
-                <strong>Time:</strong> {bookingModalData.timeSlot}
-              </div>
-              <div className="cs-booking-detail">
-                <strong>Date:</strong> {new Date(bookingModalData.date).toLocaleDateString('en-US', { 
-                  weekday: 'long', 
-                  year: 'numeric', 
-                  month: 'long', 
-                  day: 'numeric' 
-                })}
-              </div>
-              <div className="cs-booking-detail">
-                <strong>Status:</strong> 
-                <span className={`cs-status-badge ${bookingModalData.status}`}>
-                  {getStatusLabel(bookingModalData.status)}
-                </span>
-              </div>
-              {bookingModalData.status === 'booked' && bookingModalData.booking_by && (
-                <div className="cs-booking-detail">
-                  <strong>Booked By:</strong> {bookingModalData.booking_by}
-                </div>
-              )}
-              {bookingModalData.status === 'available' && (
-                <div className="cs-booking-detail">
-                  <em>This slot is available for booking</em>
-                </div>
-              )}
-              {bookingModalData.status === 'closed' && (
-                <div className="cs-booking-detail">
-                  <em>This slot is closed for maintenance or other reasons</em>
-                </div>
-              )}
-            </div>
+        <div className="cs-legend">
+          <div className="cs-legend-item">
+            <div className="cs-legend-color available"></div>
+            <span>Available</span>
+          </div>
+          <div className="cs-legend-item">
+            <div className="cs-legend-color booked"></div>
+            <span>Booked</span>
+          </div>
+          <div className="cs-legend-item">
+            <div className="cs-legend-color closed"></div>
+            <span>Closed</span>
           </div>
         </div>
-      )}
 
-      {/* Court Status Table */}
-      <div className="cs-table-container">
-        {isLoading ? (
-          <div className="cs-loading">
-            <div className="cs-spinner"></div>
-            <p>Loading booking data...</p>
-          </div>
-        ) : (
-          <table className="cs-table">
-            <thead>
-              <tr>
-                <th className="cs-court-column">Court / Time</th>
-                {timeSlots.map(slot => (
-                  <th 
-                    key={slot.id}
-                    className={`cs-time-column ${slot.id === currentTimeSlotId ? 'current-time' : ''} ${
-                      isCurrentOrPast(slot.formatted_slot) ? 'past-time' : ''
-                    }`}
-                  >
-                    {slot.formatted_slot}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {courtData.map(court => (
-                <tr key={court.id}>
-                  <td className="cs-court-name">{court.name}</td>
-                  {timeSlots.map(slot => {
-                    const slotInfo = court.slots[slot.id];
-                    const status = slotInfo?.status || 'available';
-                    return (
-                      <td 
-                        key={slot.id}
-                        className={`cs-slot ${status} ${slot.id === currentTimeSlotId ? 'current-time' : ''}`}
-                        onClick={() => handleCellClick(court, slot, slotInfo)}
-                        title={`Click to view details - ${getStatusLabel(status)}`}
-                        style={{ cursor: 'pointer' }}
-                      >
-                        <span className="cs-status-indicator">
-                          {getStatusLabel(status).charAt(0)}
-                        </span>
-                      </td>
-                    );
+        {showBookingModal && (
+          <div className="cs-modal-overlay" onClick={closeBookingModal}>
+            <div className="cs-booking-modal" onClick={(e) => e.stopPropagation()}>
+              <div className="cs-modal-header">
+                <h3>Booking Details</h3>
+                <button onClick={closeBookingModal} className="cs-modal-close">×</button>
+              </div>
+              <div className="cs-modal-content">
+                <div className="cs-booking-detail">
+                  <strong>Court:</strong> {bookingModalData.courtName}
+                </div>
+                <div className="cs-booking-detail">
+                  <strong>Time:</strong> {bookingModalData.timeSlot}
+                </div>
+                <div className="cs-booking-detail">
+                  <strong>Date:</strong> {new Date(bookingModalData.date).toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
                   })}
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                </div>
+                <div className="cs-booking-detail">
+                  <strong>Status:</strong> 
+                  <span className={`cs-status-badge ${bookingModalData.status}`}>
+                    {getStatusLabel(bookingModalData.status)}
+                  </span>
+                </div>
+                {bookingModalData.status === 'booked' && bookingModalData.booking_by && (
+                  <div className="cs-booking-detail">
+                    <strong>Booked By:</strong> {bookingModalData.booking_by}
+                  </div>
+                )}
+                {bookingModalData.status === 'available' && (
+                  <div className="cs-booking-detail">
+                    <em>This slot is available for booking</em>
+                  </div>
+                )}
+                {bookingModalData.status === 'closed' && (
+                  <div className="cs-booking-detail">
+                    <em>This slot is closed for maintenance or other reasons</em>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
         )}
+
+        <section className="cs-panel">
+          <div className="cs-table-container">
+            {isLoading ? (
+              <div className="cs-loading">
+                <div className="cs-spinner"></div>
+                <p>Loading booking data...</p>
+              </div>
+            ) : (
+              <table className="cs-table">
+                <thead>
+                  <tr>
+                    <th className="cs-court-column">Court / Time</th>
+                    {timeSlots.map(slot => (
+                      <th 
+                        key={slot.id}
+                        className={`cs-time-column ${slot.id === currentTimeSlotId ? 'current-time' : ''} ${
+                          isCurrentOrPast(slot.formatted_slot) ? 'past-time' : ''
+                        }`}
+                      >
+                        {slot.formatted_slot}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {courtData.map(court => (
+                    <tr key={court.id}>
+                      <td className="cs-court-name">{court.name}</td>
+                      {timeSlots.map(slot => {
+                        const slotInfo = court.slots[slot.id];
+                        const status = slotInfo?.status || 'available';
+                        return (
+                          <td 
+                            key={slot.id}
+                            className={`cs-slot ${status} ${slot.id === currentTimeSlotId ? 'current-time' : ''}`}
+                            onClick={() => handleCellClick(court, slot, slotInfo)}
+                            title={`Click to view details - ${getStatusLabel(status)}`}
+                            style={{ cursor: 'pointer' }}
+                          >
+                            <span className="cs-status-indicator">
+                              {getStatusLabel(status).charAt(0)}
+                            </span>
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </div>
+        </section>
+        
+        <footer className="cs-footer">
+          <p className="cs-facility-info"></p>
+        </footer>
       </div>
-      
-      <footer className="cs-footer">
-        <p className="cs-facility-info"></p>
-      </footer>
     </div>
   );
 };

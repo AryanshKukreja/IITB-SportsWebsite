@@ -25,6 +25,7 @@ const SecyDashboard = () => {
   const [alert, setAlert]         = useState(null);   // { type, message }
   const [dragOver, setDragOver]   = useState(false);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { fetchBatches(); }, []);
 
   const fetchBatches = async () => {

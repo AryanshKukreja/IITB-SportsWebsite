@@ -1,6 +1,5 @@
 import React from 'react';
-import Timel from './timeline';
-import { useState} from 'react';
+import { useState } from 'react';
 //import { TfiAngleDoubleRight } from "react-icons/tfi"; //thin arrow
 import { MdDoubleArrow } from "react-icons/md"; //bold arrow
 // import { MdPlayArrow } from "react-icons/md";   //filled triangle

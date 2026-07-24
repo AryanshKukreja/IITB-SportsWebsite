@@ -24,6 +24,7 @@ const SuperadminDashboard = () => {
   const [revoking, setRevoking]       = useState(false);
   const [statusFilter, setStatusFilter] = useState("all");
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { fetchBatches(); }, []);
 
   const fetchBatches = async () => {

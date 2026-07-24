@@ -45,6 +45,7 @@ const AdventureClub = () => {
     }
   };
 
+  // eslint-disable-next-line no-unused-vars
   const cards = [
     {
       title: 'Lawn Tennis GC',

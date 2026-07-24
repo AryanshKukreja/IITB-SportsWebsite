@@ -43,6 +43,7 @@ const BatchDetail = () => {
       }
     };
     fetch_();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [batchId]);
 
   const fmt = (dt) => dt

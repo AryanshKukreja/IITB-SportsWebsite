@@ -50,8 +50,9 @@ import SuperadminDashboard   from "./components/AdminPanel/SuperadminDashboard";
 import BatchDetail           from "./components/AdminPanel/BatchDetail";
 
 function App() {
-  // Correct basename for gymkhana server
-  const basename = "/sports";
+  // Use a root basename during local development so the homepage renders at localhost,
+  // while keeping the /sports base path on the deployed site.
+  const basename = process.env.NODE_ENV === "development" ? "" : "/sports";
 
   return (
     <Router basename={basename}>

@@ -215,6 +215,7 @@ const AdminDashboard = () => {
   };
 
   // Fetch feedbacks when filters change
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (isAuthenticated && activeTab === 'feedbacks') {
       fetchFeedbacks();

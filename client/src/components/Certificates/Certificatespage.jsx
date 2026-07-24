@@ -12,6 +12,7 @@ const CertificatesPage = () => {
   const [error, setError]         = useState("");
   const [showLogin, setShowLogin] = useState(false);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const saved = localStorage.getItem("cert_user");
     if (saved) {

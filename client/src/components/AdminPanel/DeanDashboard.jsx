@@ -25,6 +25,7 @@ const DeanDashboard = () => {
   const [rejectReason, setRejectReason] = useState("");
   const [alert, setAlert]       = useState(null);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { fetchData(); }, []);
 
   const fetchData = async () => {

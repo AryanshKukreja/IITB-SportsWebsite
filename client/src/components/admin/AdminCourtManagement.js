@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './AdminCourtManagement.css';
 
 const AdminCourtManagement = () => {
@@ -130,18 +129,21 @@ const AdminCourtManagement = () => {
     if (isAuthenticated && selectedSport) {
       fetchCourtStatus();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedSport, selectedDate, isAuthenticated]);
 
   useEffect(() => {
     if (activeTab === 'time-slots' && isAuthenticated) {
       fetchTimeSlots();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab, isAuthenticated]);
 
   useEffect(() => {
     if (activeTab === 'sports' && isAuthenticated) {
       fetchSportsWithCourts();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab, isAuthenticated]);
 
   // NEW: Load user bookings when user-bookings tab is active
@@ -149,6 +151,7 @@ const AdminCourtManagement = () => {
     if (activeTab === 'user-bookings' && isAuthenticated) {
       fetchUserBookings();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab, isAuthenticated]);
 
   // Utility function to show messages
@@ -1532,7 +1535,7 @@ const AdminCourtManagement = () => {
             <div className="modal-content">
               {currentPhoto && (
                 <div className="photo-viewer">
-                  <img src={currentPhoto.url} alt="Approval Photo" />
+                  <img src={currentPhoto.url} alt="Photo" />
                   <p className="photo-info">Photo Key: {currentPhoto.key}</p>
                 </div>
               )}

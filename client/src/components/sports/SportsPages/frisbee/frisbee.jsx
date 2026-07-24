@@ -26,16 +26,6 @@ const Frisbee = () => {
     }
   };
 
-  // const [isFlipped, setIsFlipped] = useState(false);
-  // const flipcad = () => {
-  //   setIsFlipped(!isFlipped);
-  // }
-  // const [isFlipped1, setIsFlipped1] = useState(false);
-  // const flipcad1 = () => {
-  //   setIsFlipped1(!isFlipped1);
-  // }
-
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -50,8 +40,7 @@ const Frisbee = () => {
     );
   };
 
-
-
+  // eslint-disable-next-line no-unused-vars
   const cards = [
     {
       title: 'Camps',
