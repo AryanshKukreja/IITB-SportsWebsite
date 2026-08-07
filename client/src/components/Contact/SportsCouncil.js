@@ -8,7 +8,7 @@ import Deepraj from './pictures/Logos_for_Photos/Deepraj.jpg';
 import Aryansh from './pictures/Logos_for_Photos/Aryansh ISC.jpg';
 import Akanksha from './pictures/Logos_for_Photos/Akanksha.jpg';
 import Praveen from './pictures/Logos_for_Photos/Praveen.jpg';
-import Disha from './pictures/Logos_for_Photos/Disha.jpg';
+import Disha from './pictures/Logos_for_Photos/disha.jpeg';
 import adventure from './pictures/Logos_for_Photos/adventure.jpg';
 import badminton from './pictures/Logos_for_Photos/badminton.png';
 import chess from './pictures/Logos_for_Photos/chess.png';
@@ -16,6 +16,17 @@ import squash from './pictures/Logos_for_Photos/squash.png';
 import volleyball from './pictures/Logos_for_Photos/volleyball.png';
 import fitness from './pictures/Logos_for_Photos/fitness.png';
 import frisbee from './pictures/Logos_for_Photos/frisbee.png';
+import Radhika from './pictures/Logos_for_Photos/radhika.JPG';
+import manikarnika from './pictures/Logos_for_Photos/mani.JPG';
+import Ishanei from './pictures/Logos_for_Photos/ishanei.jpeg';
+import viral from './pictures/Logos_for_Photos/viral.JPG';
+import rishiraaj from './pictures/Logos_for_Photos/rishi.JPG';
+import jay from './pictures/Logos_for_Photos/jay.JPG';
+import param from './pictures/Logos_for_Photos/param.JPG';
+import manan from './pictures/Logos_for_Photos/manan.JPG';
+import supan from './pictures/Logos_for_Photos/supan.JPG';
+import darshan from './pictures/Logos_for_Photos/darshan.JPG';
+import varad from './pictures/Logos_for_Photos/varad.JPG';
 
 /* ============================================================
    REVEAL — scroll-triggered entrance, with a hard fallback so
@@ -207,7 +218,7 @@ const heads = [
     role: 'Institute Sports Creatives Head',
     name: 'Viral Chhaperwal',
     phone: 'Call: 9009051525',
-    img: councilLogo,
+    img: viral,
     instagram: 'https://www.instagram.com/iitbombaysports/',
     mail: 'mailto:24b3028@iitb.ac.in',
   },
@@ -215,7 +226,7 @@ const heads = [
     role: 'Institute Sports Media Head',
     name: 'Rishiraaj Khurma',
     phone: 'Call: 9818846623',
-    img: councilLogo,
+    img: rishiraaj,
     instagram: 'https://www.instagram.com/iitbombaysports/',
     mail: 'mailto:gsecsports@iitb.ac.in',
   },
@@ -234,7 +245,7 @@ const secretaries = [
     role: 'Institute Aquatics Secretary',
     name: 'Ishanei Kumar',
     phone: 'Call: 6266624331',
-    img: councilLogo,
+    img: Ishanei,
     instagram: 'https://www.instagram.com/aquatics_iitb/',
     mail: 'mailto:aquatics@iitb.ac.in',
   },
@@ -242,7 +253,7 @@ const secretaries = [
     role: 'Institute Badminton Secretary',
     name: 'Radhika Bansal',
     phone: 'Call: 9649570774',
-    img: badminton,
+    img: Radhika,
     instagram: 'https://www.instagram.com/badmintonclub_iitbombay/',
     mail: 'mailto:badminton@iitb.ac.in',
   },
@@ -250,7 +261,7 @@ const secretaries = [
     role: 'Institute Basketball Secretary',
     name: 'Manikarnika Sharma',
     phone: 'Call: 7878112350',
-    img: councilLogo,
+    img: manikarnika,
     instagram: 'https://www.instagram.com/basketball_iitb/',
     mail: 'mailto:basketball@iitb.ac.in',
   },
@@ -258,7 +269,7 @@ const secretaries = [
     role: 'Institute Board Games Secretary',
     name: 'Varad',
     phone: 'Call: 7722097837',
-    img: chess,
+    img: varad,
     instagram: '/\\#',
     mail: 'mailto:boardgames@iitb.ac.in',
   },
@@ -266,7 +277,7 @@ const secretaries = [
     role: 'Institute Cricket Secretary',
     name: 'Param Shilu',
     phone: 'Call: 8141229825',
-    img: councilLogo,
+    img: param,
     instagram: 'https://www.instagram.com/cricket_club_iitb/',
     mail: 'mailto:cricket@iitb.ac.in',
   },
@@ -290,7 +301,7 @@ const secretaries = [
     role: 'Institute Indian Games Secretary',
     name: 'Darshan Jain',
     phone: 'Call: 9406213933',
-    img: councilLogo,
+    img: darshan,
     instagram: 'https://www.instagram.com/indiangames_iitb/',
     mail: 'mailto:indiangames@iitb.ac.in',
   },
@@ -298,7 +309,7 @@ const secretaries = [
     role: 'Institute Lawn Tennis Secretary',
     name: 'Manan Agrawal',
     phone: 'Call: 9828378888',
-    img: councilLogo,
+    img: manan,
     instagram: '/\\#',
     mail: 'mailto:lawntennis@iitb.ac.in',
   },
@@ -306,7 +317,7 @@ const secretaries = [
     role: 'Institute Squash Secretary',
     name: 'Jay Motwani',
     phone: 'Call: 7777903995',
-    img: squash,
+    img: jay,
     instagram: 'https://www.instagram.com/tennis_club_iitb/',
     mail: 'mailto:squash@iitb.ac.in',
   },
@@ -314,7 +325,7 @@ const secretaries = [
     role: 'Institute Table Tennis Secretary',
     name: 'Supan Shah',
     phone: 'Call: 9653396151',
-    img: councilLogo,
+    img: supan,
     instagram: 'https://www.instagram.com/table.tennis_iitb/',
     mail: 'mailto:tabletennis@iitb.ac.in',
   },

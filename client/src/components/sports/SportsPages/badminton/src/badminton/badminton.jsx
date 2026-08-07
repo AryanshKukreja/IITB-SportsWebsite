@@ -11,6 +11,8 @@ import bm6 from '../assets/bm6.jpeg';
 import bm7 from '../assets/bm7.jpeg';
 import bm8 from '../assets/bm8.jpeg';
 import user from '../assets/user.jpg';
+import councilLogo from '../../../../../Contact/pictures/Logos_for_Photos/IITB Sports Logo BW.png';
+import radhika from '../../../../../Contact/pictures/Logos_for_Photos/radhika.JPG';
 
 /* ============================================================
    REVEAL
@@ -393,13 +395,13 @@ const Badminton = () => {
           </div>
           <div className="aq-contact-grid">
             <div className="aq-contact-card">
-              <img alt="Shelendra Rasaniya" src={user} className="aq-contact-img" />
+              <img alt="Shelendra Rasaniya" src={councilLogo} className="aq-contact-img" />
               <p className="aq-contact-name">Shelendra Rasaniya</p>
               <p className="aq-contact-role">Coach, Sports Officer</p>
               <p className="aq-contact-detail">+91 97939 90585</p>
             </div>
             <div className="aq-contact-card">
-              <img alt="J Sai Charan" src={user} className="aq-contact-img" />
+              <img alt="Radhika Bansal" src={radhika} className="aq-contact-img" />
               <p className="aq-contact-name">Radhika Bansal</p>
               <p className="aq-contact-role">Institute Badminton Secretary</p>
               <p className="aq-contact-detail">+91 96495 70774</p>

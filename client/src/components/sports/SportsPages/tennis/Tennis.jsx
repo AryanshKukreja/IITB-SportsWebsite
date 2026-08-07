@@ -6,7 +6,7 @@ import lt2 from './assets/lt2.jpg';
 import lt3 from './assets/lt3.jpg';
 import lt4 from './assets/lt4.jpg';
 import lt5 from './assets/lt5.jpg';
-import user from '../../../Contact/pictures/Logos_for_Photos/Nehal.jpg';
+import tennisLogo from '../../../Contact/pictures/Logos_for_Photos/tennis.png';
 
 /* ============================================================
    REVEAL
@@ -337,7 +337,7 @@ const Tennis = () => {
           </div>
           <div className="aq-contact-grid">
             <div className="aq-contact-card">
-              <img alt="Nehal Gupta" src={user} className="aq-contact-img" />
+              <img alt="Nehal Gupta" src={tennisLogo} className="aq-contact-img" />
               <p className="aq-contact-name">Manan Agarwal</p>
               <p className="aq-contact-role">Institute Lawn Tennis Secretary</p>
               <p className="aq-contact-detail">+91 98283 78888</p>

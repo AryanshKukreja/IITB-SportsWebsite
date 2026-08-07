@@ -17,7 +17,8 @@ import bg12 from '../assets/bg12.jpeg';
 import bg13 from '../assets/bg13.jpeg';
 import bg14 from '../assets/bg14.jpeg';
 import bg15 from '../assets/bg15.jpeg';
-import user from '../assets/user.jpg';
+import boardGamesLogo from '../../../../../Contact/pictures/Logos_for_Photos/chess.png';
+import varad from '../../../../../Contact/pictures/Logos_for_Photos/varad.JPG';
 
 /* ============================================================
    REVEAL
@@ -441,7 +442,7 @@ const BoardGames = () => {
           </div>
           <div className="aq-contact-grid">
             <div className="aq-contact-card">
-              <img alt="Akshat Karkar" src={user} className="aq-contact-img" />
+              <img alt="Varad Walde" src={varad} className="aq-contact-img" />
               <p className="aq-contact-name">Varad Walde</p>
               <p className="aq-contact-role">Institute Board Games Secretary</p>
               <p className="aq-contact-detail">+91 77220 97837</p>

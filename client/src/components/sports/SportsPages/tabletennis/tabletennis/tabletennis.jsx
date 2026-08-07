@@ -7,7 +7,7 @@ import p2 from '../assets/p2.jpg';
 import p3 from '../assets/p3.jpg';
 import p4 from '../assets/p4.jpg';
 import p5 from '../assets/p5.jpg';
-import user from '../assets/user.jpg';
+import tableTennisLogo from '../../../../Contact/pictures/Logos_for_Photos/tabletennis.png';
 
 /* ============================================================
    REVEAL
@@ -385,7 +385,7 @@ const Tabletennis = () => {
           </div>
           <div className="aq-contact-grid">
             <div className="aq-contact-card">
-              <img alt="Sameer Chopra" src={user} className="aq-contact-img" />
+              <img alt="Sameer Chopra" src={tableTennisLogo} className="aq-contact-img" />
               <p className="aq-contact-name">Supan Shah</p>
               <p className="aq-contact-role">Institute Table Tennis Secretary</p>
               <p className="aq-contact-detail">+91 96533 96151</p>

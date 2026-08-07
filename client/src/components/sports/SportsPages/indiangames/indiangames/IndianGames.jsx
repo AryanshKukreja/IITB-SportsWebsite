@@ -13,7 +13,8 @@ import ing3 from "../images/ing3.JPG";
 import ing4 from "../images/ing4.JPG";
 import ing5 from "../images/ing5.png";
 import ing6 from "../images/ing6.png";
-import user from '../../../../Contact/pictures/Logos_for_Photos/Kanak.jpg';
+import indianGamesLogo from '../../../../Contact/pictures/Logos_for_Photos/indiangames.png';
+import darshan from '../../../../Contact/pictures/Logos_for_Photos/darshan.JPG';
 
 /* ============================================================
    REVEAL
@@ -396,7 +397,7 @@ const IndianGames = () => {
           </div>
           <div className="aq-contact-grid">
             <div className="aq-contact-card">
-              <img alt="Kanak Tembhare" src={user} className="aq-contact-img" />
+              <img alt="Darshan Jain" src={darshan} className="aq-contact-img" />
               <p className="aq-contact-name">Darshan Jain</p>
               <p className="aq-contact-role">Institute Indian Games Secretary</p>
               <p className="aq-contact-detail">+91 94062 13933</p>

@@ -7,7 +7,7 @@ import p2 from '../assets/squash2.jpg';
 import p3 from '../assets/squash3.jpg';
 import p4 from '../assets/squash4.jpg';
 import p5 from '../assets/squash5.jpg';
-import user from '../assets/user.jpg';
+import squashLogo from '../../../../Contact/pictures/Logos_for_Photos/squash.png';
 
 /* ============================================================
    REVEAL
@@ -370,7 +370,7 @@ const Squash = () => {
           </div>
           <div className="aq-contact-grid">
             <div className="aq-contact-card">
-              <img alt="Manthan Goyal" src={user} className="aq-contact-img" />
+              <img alt="Manthan Goyal" src={squashLogo} className="aq-contact-img" />
               <p className="aq-contact-name">Jay Motwani</p>
               <p className="aq-contact-role">Institute Squash Secretary</p>
               <p className="aq-contact-detail">+91 77779 03995</p>

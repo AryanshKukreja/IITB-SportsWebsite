@@ -7,7 +7,8 @@ import cric1 from '../images/cric1.jpg';
 import cric2 from '../images/cric2.jpg';
 import cric3 from '../images/cric3.jpg';
 import cric4 from '../images/cric4.jpg';
-import user from '../../../../Contact/pictures/Logos_for_Photos/Pradyumna.jpg';
+import cricketLogo from '../../../../Contact/pictures/Logos_for_Photos/Cricket.png';
+import param from '../../../../Contact/pictures/Logos_for_Photos/param.JPG';
 
 /* ============================================================
    REVEAL
@@ -381,7 +382,7 @@ const Cricket = () => {
           </div>
           <div className="aq-contact-grid">
             <div className="aq-contact-card">
-              <img alt="Pradyumna Gugulothu" src={user} className="aq-contact-img" />
+              <img alt="Param Shilu" src={param} className="aq-contact-img" />
               <p className="aq-contact-name">Param Shilu</p>
               <p className="aq-contact-role">Institute Cricket Secretary</p>
               <p className="aq-contact-detail">+91 81412 29825</p>

@@ -14,10 +14,12 @@ import bb11 from '../assets/bb11.jpg';
 import bb12 from '../assets/bb12.jpg';
 import basky_team from '../assets/basky_team.png';
 import deep from '../assets/deepraj.jpg';
-import user from '../assets/user.jpg';
 import nso from '../assets/nso.jpg';
 import basky_boys from '../assets/basky_boys.png';
 import basky_girls from '../assets/basky_girls.png';
+import councilLogo from '../../../../../Contact/pictures/Logos_for_Photos/IITB Sports Logo BW.png';
+import basketballLogo from '../../../../../Contact/pictures/Logos_for_Photos/basketball.png';
+import manikarnika from '../../../../../Contact/pictures/Logos_for_Photos/mani.JPG';
 
 /* ============================================================
    REVEAL
@@ -401,13 +403,13 @@ const Basketball = () => {
           </div>
           <div className="aq-contact-grid">
             <div className="aq-contact-card">
-              <img alt="Manikarnika Sharma" src={user} className="aq-contact-img" />
+              <img alt="Manikarnika Sharma" src={manikarnika} className="aq-contact-img" />
               <p className="aq-contact-name">Manikarnika Sharma</p>
               <p className="aq-contact-role">Institute Basketball Secretary</p>
               <p className="aq-contact-detail">+91 78781 12350</p>
             </div>
             <div className="aq-contact-card">
-              <img alt="Nilesh Sawant" src={user} className="aq-contact-img" />
+              <img alt="Nilesh Sawant" src={basketballLogo} className="aq-contact-img" />
               <p className="aq-contact-name">Nilesh Sawant</p>
               <p className="aq-contact-role">Coach</p>
               <p className="aq-contact-detail">+91 94220 95558</p>
