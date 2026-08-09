@@ -162,15 +162,6 @@
   margin: 4px 0 0;
   text-align: justify;
 }
-.aq-hero-lede::first-letter {
-  font-style: normal;
-  font-variation-settings: 'opsz' 144, 'wght' 600;
-  font-size: 3.4em;
-  float: left;
-  line-height: 0.9;
-  padding: 6px 12px 0 0;
-  color: var(--cream);
-}
 
 .aq-hero-stats {
   display: grid; grid-template-columns: 1fr 1fr;
