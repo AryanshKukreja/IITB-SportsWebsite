@@ -1,0 +1,38 @@
+/* Global Typography Design System - IITB Sports Website */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Global Font Family Variables (Faktum Transition) */
+  --font-display: "Faktum", "Geom Graphic", "Orbitron", sans-serif;
+  --font-heading: "Faktum", "Geom Graphic", "Orbitron", sans-serif;
+  --font-text:    "Faktum", "Inter", sans-serif;
+  --font-mono:    "Space Grotesk", "JetBrains Mono", monospace;
+  --font-caption: "Faktum", "Inter", sans-serif;
+  --font-kicker:  "Editorial", serif;
+
+  /* Legacy Council Component Fallback Maps */
+  --cc-font-display: "Faktum", sans-serif;
+  --cc-font-heading: "Faktum", sans-serif;
+  --cc-font-serif:   "Editorial", serif;
+  --cc-font-mono:    "Space Grotesk", "JetBrains Mono", monospace;
+}
+
+/* Base Typographic Hierarchy */
+body {
+  font-family: var(--font-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+.kicker-title,
+.vertical-kicker {
+  font-family: var(--font-kicker);
+  line-height: 1.15;
+}
+
+.mono-index,
+.mono-fraction {
+  font-family: var(--font-mono);
+}
