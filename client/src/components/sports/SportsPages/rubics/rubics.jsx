@@ -41,15 +41,7 @@ const Rubics = () => {
     }
   };
 
-  // const[isFlipped, setIsFlipped]= useState(false);
-  // const flipcad = () => {
-  //   setIsFlipped(!isFlipped);
-  // }
-  // const[isFlipped1, setIsFlipped1]= useState(false);
-  // const flipcad1 = () => {
-  //   setIsFlipped1(!isFlipped1);
-  // }
-
+  // eslint-disable-next-line no-unused-vars
   const cards = [
     {
       title: 'Camps',

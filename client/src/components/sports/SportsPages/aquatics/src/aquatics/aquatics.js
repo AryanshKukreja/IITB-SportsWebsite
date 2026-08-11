@@ -9,7 +9,8 @@ import p5 from '../assets/p5.JPG';
 import p6 from '../assets/p6.JPG';
 import pool3 from '../assets/pool3.jpeg';
 import pool4 from '../assets/pool4.jpeg';
-import user from '../assets/user.jpg';
+import councilLogo from '../../../../../Contact/pictures/Logos_for_Photos/IITB Sports Logo BW.png';
+const user = `${process.env.PUBLIC_URL}/pictures/ishanei.jpeg`;
 
 /* ============================================================
    REVEAL — scroll-triggered entrance, with a hard fallback so
@@ -379,7 +380,7 @@ const Aquatics = () => {
     };
   }, []);
 
-  const coachCount = useCountUp(2, 800);
+  const coachCount = useCountUp(1, 800);
   const fixtureCount = useCountUp(cards.length, 800);
 
   const activeItems = ruleCategories.find((c) => c.key === activeCategory)?.items || [];
@@ -425,7 +426,7 @@ const Aquatics = () => {
                 Comprising of Swimming and Water Polo, Aquatics is one of the most widely
                 practiced sports at IIT Bombay. The magnificent Olympic-sized pool, newly built
                 and impeccably maintained, welcomes anyone seeking recreation or competitive
-                glory. Owing to the coaches Reddy Sir (Retd.) and Ritesh Sir, IIT Bombay Aquatics
+                glory. Owing to the coaching of Ritesh Sir, IIT Bombay Aquatics
                 has witnessed a tremendous growth over the years. With several exciting events
                 spread throughout the year to cater to all levels of players, IITB Aquatics
                 functions with the sole aim of promoting Swimming and Water Polo. Fueled by
@@ -450,7 +451,7 @@ const Aquatics = () => {
                 <span className="v">
                   <em>{coachCount}</em>
                 </span>
-                <span className="c">Reddy Sir · Ritesh Sir</span>
+                <span className="c">Ritesh Sir</span>
               </div>
               <div className="aq-hero-stat">
                 <span className="k">Fixtures</span>
@@ -677,13 +678,13 @@ const Aquatics = () => {
           </div>
           <div className="aq-contact-grid">
             <div className="aq-contact-card">
-              <img alt="Ritesh Guchhait" src={user} className="aq-contact-img" />
+              <img alt="Ritesh Guchhait" src={councilLogo} className="aq-contact-img" />
               <p className="aq-contact-name">Ritesh Guchhait</p>
               <p className="aq-contact-role">Coach, Sports Officer</p>
             </div>
             <div className="aq-contact-card">
-              <img alt="Meet Vanja" src={user} className="aq-contact-img" />
-              <p className="aq-contact-name">Meet Vanja</p>
+              <img alt="Ishanei" src={user} className="aq-contact-img" />
+              <p className="aq-contact-name">Ishanei Kumar</p>
               <p className="aq-contact-role">Institute Aquatics Secretary</p>
               <p className="aq-contact-detail">+91 93235 87701</p>
             </div>
@@ -756,13 +757,13 @@ const Aquatics = () => {
         </Reveal>
 
         {/* FOOTER */}
-        <footer className="aq-footer">
+        {/* <footer className="aq-footer">
           <span className="aq-footer-colophon">
             <em>Set in Fraunces &amp; JetBrains Mono.</em>
           </span>
           <span>IIT Bombay · Aquatics · Swimming &amp; Water Polo</span>
           <span>Print / Digital · Final Edition</span>
-        </footer>
+        </footer> */}
       </div>
     </div>
   );

@@ -1,512 +1,278 @@
-/* Import Google Fonts for better typography */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+/* ============================================================
+   HOMEPAGE — additions on top of aquatics.css design system
+   Import order in HomePage.jsx:
+     import './aquatics.css';
+     import './HomePage.css';
+============================================================ */
 
-/* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ── Hero photo: use the gymkhana background ── */
+.hp-root-overrides .aq-hero-photo {
+  background: #06080c;
+}
+.hp-root-overrides .aq-hero-photo img {
+  /* fallback if import path needs adjustment */
+  object-position: center 30%;
 }
 
-.content-page {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  color: #1a202c;
-  /* background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); */
-  min-height: 100vh;
-  overflow-x: hidden;
-  background-color: #0f172a;
-}
+/* ── Keep the hero lead text visually plain ── */
 
-/* Hero Section with Blurred Background */
-.bg-container {
-  position: relative;
-  height: 75vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: #2d3748;
+/* ── Crest accent colour for Sports (matching the shared blue) ── */
+.hp-root-overrides .aq-crest {
+  border-color: #3b82f6;
+  color: #3b82f6;
 }
+.hp-root-overrides .aq-masthead-mark {
+  color: #3b82f6;
+}
+.hp-root-overrides .aq-hero-kicker .sep { color: #3b82f6; }
+.hp-root-overrides .aq-hero-kicker .vol { color: #3b82f6; }
+.hp-root-overrides .aq-eyebrow .num     { color: #3b82f6; }
+.hp-root-overrides .aq-hero-title .italic,
+.hp-root-overrides .aq-section-title .italic { color: #3b82f6; }
+.hp-root-overrides .aq-rulecard-head    { color: #3b82f6; }
+.hp-root-overrides .aq-wave-path-2     { stroke: #3b82f6; }
+.hp-root-overrides .aq-photobreak-caption span:first-child { color: #3b82f6; }
+.hp-root-overrides .aq-hero-stat .v em { color: #3b82f6; }
+.hp-root-overrides .aq-story-no,
+.hp-root-overrides .aq-story-toggle    { color: #3b82f6; }
+.hp-root-overrides .aq-tab.is-active   { background: #3b82f6; color: #06080c; }
+.hp-root-overrides .aq-tab:hover       { color: #3b82f6; }
+.hp-root-overrides .aq-facility-bullets li::before { color: #3b82f6; }
 
-.bg-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('./assets/gymkhana.jpg') no-repeat center center/cover;
-  filter: blur(3px) brightness(0.6);
-  transform: scale(1.00);
-  transition: transform 0.3s ease;
+/* ── Two-column layout for About & BlackCats ── */
+.hp-two-col {
+  grid-template-columns: 1fr 1fr !important;
 }
-
-.bg-container:hover .bg-image {
-  transform: scale(1.02);
-}
-
-.bg-text {
-  height: 100%;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  z-index: 2;
-  text-align: center;
-  max-width: 800px;
-}
-
-.wl1 {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  opacity: 0.95;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  color: white;
-}
-
-.wl2 {
-  font-size: 4.2rem;
-  font-weight: 900;
-  margin: 0;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  text-shadow: 0 4px 8px rgba(0,0,0,0.4);
-  color: #3ee5e5;
-}
-
-.iitb-text {
-  opacity: 0;
-  animation: fadeInIITB 1s ease-in-out 0.5s forwards;
-  margin-right: 1rem;
-  display: inline-block;
-}
-
-.sports-text {
-  opacity: 0;
-  animation: fadeInSports 1s ease-in-out 1.25s forwards;
-  display: inline-block;
-}
-
-@keyframes fadeInIITB {
-  0% {
-    opacity: 0;
-    transform: translateY(30px) scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes fadeInSports {
-  0% {
-    opacity: 0;
-    transform: translateY(30px) scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.wl2::after {
-  width: 80%;
-}
-
-/* Section Styling - Clean White Cards */
-.about, .blackCats, .sportApp {
-  padding: 4rem 3rem;
-  margin: 3rem auto;
-  max-width: 1200px;
-  display: flex;
-  /* align-items: center; */
-  /* justify-content: space-between; */
-  gap: 3rem;
-  background: white;
-  border-radius: 24px;
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.08),
-    0 4px 20px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.about:hover, .blackCats:hover, .sportApp:hover {
-  transform: translateY(-8px);
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.12),
-    0 8px 30px rgba(0, 0, 0, 0.08);
-}
-
-/* About Section Specific */
-.aboutimg {
-  width: 300px;
-  height: 300px;
-  object-fit: contain;
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s ease;
-  /* background: #f8fafc; */
-  padding: 1rem;
-}
-
-
-.aboutimg:hover {
-  transform: scale(1.05);
-}
-
-.aboutus h4, #blacat h4, .sportApp h4 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: white;
-  margin-bottom: 1.5rem;
-  position: relative;
-  display: inline-block;
-}
-
-.aboutus h4::after, #blacat h4::after, #sportsapp h4::after {
-  content: '';
-  position: absolute;
-  bottom: -12px;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background: #3ee5e5;
-  border-radius: 3px;
-  text-align: center;
-}
-
-.about-text-para {
-  color: white;
-}
-
-.aboutText, .apptext {
-  width: 100%;
-  flex: 1;
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: white;
-  text-align: center;
-}
-
-.aboutText p, .apptext p {
-  margin-bottom: 1.5rem;
-}
-
-.slogan {
-  font-size: 2rem;
-  font-weight: 900;
-  color: #3ee5e5;
-  margin-top: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  text-align: center;
-  padding: 1.5rem;
-  border: 3px solid #3ee5e5;
-  border-radius: 15px;
-  background: linear-gradient(135deg, rgba(62, 229, 229, 0.05), rgba(62, 229, 229, 0.1));
-  position: relative;
-  overflow: hidden;
-}
-
-.slogan::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(62, 229, 229, 0.1), transparent);
-  animation: shimmer 3s infinite;
-}
-
-.bg-container {
-  font-size: 1.1rem;
-  font-weight: 900;
-  color: #3ee5e5;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  text-align: center;
-  padding: 1.5rem;
-  border-bottom: 3px solid #3ee5e5;
-  background: linear-gradient(135deg, rgba(62, 229, 229, 0.05), rgba(62, 229, 229, 0.1));
-  position: relative;
-  overflow: hidden;
-}
-
-.app-slogan {
-  padding-left: 100%;
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: #50ffb9;
-  margin-top: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  text-align: center;
-  padding: 1.5rem;
-  border: 3px solid #50ffb9;
-  border-radius: 15px;
-  background: linear-gradient(135deg, rgba(80, 255, 185, 0.1) 0%, rgba(80, 255, 185, 0.1) 100%);
-  position: relative;
-  overflow: hidden;
-}
-.app-slogan::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(80, 255, 185, 0.1), transparent);
-  animation: shimmer 3s infinite;
-}
-
-
-@keyframes heading-shimmer {
-  0% {
-    left: -100%;
-    top: -100%;
-  }
-  100% {
-    left: 100%;
-    top: 100%;
-  }
-  100% {
-    background-position: -100% -100%;
-  }
-}
-
-
-@keyframes shimmer {
-  0% { left: -100%; }
-  100% { left: 100%; }
-}
-
-/* BlackCats Section - Dark Theme */
-.blackCats {
-  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.about {
-  margin-top: 50px;
-  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.blackCats .aboutText {
-  color: #e2e8f0;
-}
-
-#blacat h4 {
-  color: #f7fafc;
-}
-
-#blacat h4::after {
-  background: linear-gradient(135deg, #ffd700, #ffed4e);
-}
-
-#catimg {
-  border: 3px solid #ffd700;
-  background: rgba(255, 215, 0, 0.1);
-}
-#sportsapp h4::after {
-  background: linear-gradient(135deg, #50ffb9, #47ff91);
-}
-
-/* Sports App Section - Gradient Theme */
-.sportApp {
-  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 4rem 3rem;
-  margin: 3rem auto;
-  max-width: 1200px;
-  display: flex;
-/*   align-items: center;
-    justify-content: ; */
-  gap: 3rem;
-  border-radius: 24px;
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.08),
-    0 4px 20px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.appImages {
-  position: relative;
-  width: 233px;
-  padding: 16px;
-  height: 400px;
-}
-.sportsimage {
-  position: absolute;
-  width: auto; height: 400px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  animation: fadeinout 5s linear infinite;
-}
-
-  .sportsimage:nth-child(1) { animation-delay: 0s; }
-  .sportsimage:nth-child(2) { animation-delay: 1s; }
-  .sportsimage:nth-child(3) { animation-delay: 2s; }
-  .sportsimage:nth-child(4) { animation-delay: 3s; }
-  .sportsimage:nth-child(5) { animation-delay: 4s; }
-
-@keyframes fadeinout {
-  0%   { opacity: 0; }
-  10%  { opacity: 1; }
-  30%  { opacity: 1; }
-  40%  { opacity: 0; }
-  100% { opacity: 0; }
-}
-
-.sportApp:hover {
-  transform: translateY(-8px);
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.12),
-    0 8px 30px rgba(0, 0, 0, 0.08);
-}
-
-.sportApp .apptext {
-  flex: 1;
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: white;
-  text-align: center;
-}
-.sportApp-content {
-  width: 100%;
-  height: 100%;
-  align-items: start;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .about, .blackCats, .sportApp{
-    justify-content: center;
-    align-items: center;
-    margin: 2rem 1rem ;
-  }
-  .sportApp-content {
-    align-items: center;
-  }
-  .bg-container {
-    height: 60vh;
-  }
-  .aboutimg {
-    margin-bottom: 2rem;
-    width: 250px;
-    height: 250px;
-  }
-}
-
 @media (max-width: 768px) {
-  .about, .blackCats, .sportApp {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    padding: 3rem 2rem;
-  }
-  .wl1 {
-    font-size: 1.4rem;
-  }
-  
-  .wl2 {
-    font-size: 3rem;
-  }
-  
-  .bg-container {
-    height: 45vh;
-  }
-  
-  .about, .blackCats, .sportApp {
-    padding: 2.5rem 1.5rem;
-    margin: 2rem 1rem;
-  }
-  
-  .aboutus h4, #blacat h4, #sportsapp h4 {
-    font-size: 2.2rem;
-  }
-  
-  .aboutimg {
-    width: 200px;
-    height: 200px;
-  }
-  
-  .aboutText, .apptext {
-    font-size: 1rem;
-  }
-  
-  .slogan {
-    font-size: 1.6rem;
-    padding: 1.2rem;
-  }
+  .hp-two-col { grid-template-columns: 1fr !important; }
+  .hp-reverse { direction: ltr; }
+}
+.hp-reverse {
+  direction: rtl;
+}
+.hp-reverse > * { direction: ltr; }
+
+/* ── Logo card (image-only panel) ── */
+.hp-logo-card {
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 320px;
+  padding: 48px 36px !important;
+}
+.hp-about-logo {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 28px rgba(59, 130, 246, 0.2));
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.5s ease;
+}
+.hp-logo-card:hover .hp-about-logo {
+  transform: scale(1.06);
+  filter: drop-shadow(0 0 44px rgba(59, 130, 246, 0.4));
 }
 
-@media (max-width: 480px) {
-  .about, .blackCats, .sportApp {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    padding: 3rem 2rem;
-  }
-  .bg-container {
-    height: 45vh;
-  } 
-  .wl2 {
-    font-size: 2.4rem;
-  }
-  
-  .about, .blackCats, .sportApp {
-    align-items: center;
-    padding: 2rem 1rem;
-    border-radius: 16px;
-  }
-  .sportApp {
-    flex-direction: column;
-  }
-  .sportApp-content {
-    align-items: center;
-  }
-  .aboutimg {
-    width: 180px;
-    height: 180px;
-  }
-  
-  .aboutus h4, #blacat h4, #sportsapp h4 {
-    font-size: 1.8rem;
-  }
-  
-  .slogan {
-    font-size: 1.4rem;
-  }
+/* BlackCats: gold glow */
+.hp-logo-gold .hp-about-logo {
+  filter: drop-shadow(0 0 28px rgba(255, 215, 0, 0.22));
+}
+.hp-logo-gold:hover .hp-about-logo {
+  filter: drop-shadow(0 0 44px rgba(255, 215, 0, 0.45));
 }
 
-/* Accessibility improvements */
-@media (prefers-reduced-motion: reduce) {
-  .about, .blackCats, .sportApp,
-  .aboutimg, .bg-image,
-  .slogan::before, .iitb-text, .sports-text {
-    transition: none;
-    animation: none;
-  }
+/* ── Copy card ── */
+.hp-copy-card {
+  padding: 40px 36px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 28px !important;
+  justify-content: center !important;
 }
 
-/* Focus states for accessibility */
-.about:focus-within, .blackCats:focus-within, .sportApp:focus-within {
-  outline: 3px solid #4299e1;
-  outline-offset: 2px;
+/* slogan inside about */
+.hp-slogan {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: #3b82f6;
+  padding: 14px 20px;
+  border: 1px solid rgba(59, 130, 246, 0.32);
+  background: rgba(59, 130, 246, 0.04);
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+.hp-slogan::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(59,130,246,0.08), transparent);
+  animation: hp-shimmer 3.5s linear infinite;
+}
+@keyframes hp-shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+/* BlackCats tag */
+.hp-blackcats-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #ffd700;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  background: rgba(255, 215, 0, 0.05);
+}
+.hp-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #ffd700;
+  flex-shrink: 0;
+  animation: hp-pulse 1.8s ease infinite;
+}
+@keyframes hp-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.35; transform: scale(0.6); }
+}
+
+/* ══════════════════════════════════════
+   SPORTS APP LAYOUT
+══════════════════════════════════════ */
+.hp-app-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2px;
+  background: var(--rule);
+  border: 1px solid var(--rule-strong);
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .hp-app-layout { grid-template-columns: 1fr; }
+}
+
+/* Phone strip */
+.hp-phone-strip {
+  background: var(--panel-2);
+  padding: 40px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: sticky;
+  top: 20px;
+}
+@media (max-width: 900px) {
+  .hp-phone-strip { position: static; }
+}
+
+.hp-phone-frame {
+  position: relative;
+  width: 150px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid var(--rule-strong);
+  background: var(--void);
+  box-shadow: 0 0 40px rgba(80, 255, 185, 0.08);
+}
+.hp-phone-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 22px;
+}
+.hp-slide-next {
+  animation: hp-slide-next 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hp-slide-prev {
+  animation: hp-slide-prev 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes hp-slide-next {
+  from { opacity: 0; transform: translateX(6%) scale(1.02); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+@keyframes hp-slide-prev {
+  from { opacity: 0; transform: translateX(-6%) scale(1.02); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+/* Thumbnails */
+.hp-phone-thumbs {
+  display: flex;
+  gap: 6px;
+}
+.hp-phone-thumb {
+  width: 36px; height: 56px;
+  border: 1px solid var(--rule);
+  background: none;
+  cursor: pointer;
+  opacity: 0.45;
+  padding: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: opacity 0.25s ease, border-color 0.25s ease;
+}
+.hp-phone-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hp-phone-thumb.is-active { opacity: 1; border-color: #50ffb9; }
+
+/* Nav row */
+.hp-phone-nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.hp-phone-counter {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+.hp-phone-nav .aq-strip-btn {
+  position: static;
+  transform: none;
+  width: 36px; height: 36px;
+  font-size: 14px;
+}
+
+/* Feature card grid override */
+.hp-feature-grid {
+  background: var(--panel-2) !important;
+  border: none !important;
+}
+
+/* Launch badge */
+.hp-launch-wrap {
+  margin-top: 2px;
+  background: var(--panel-2);
+  border: 1px solid var(--rule-strong);
+  border-top: none;
+  padding: 28px 32px;
+  display: flex;
+  justify-content: center;
+}
+.hp-launch-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: #50ffb9;
+  padding: 16px 28px;
+  border: 1px solid rgba(80, 255, 185, 0.32);
+  background: rgba(80, 255, 185, 0.04);
+}
+.hp-pulse-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #50ffb9;
+  animation: hp-pulse 1.6s ease infinite;
+  flex-shrink: 0;
 }

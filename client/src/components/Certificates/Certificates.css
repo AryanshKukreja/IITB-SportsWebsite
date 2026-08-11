@@ -1,0 +1,626 @@
+/* ═══════════════════════════════════════════════════
+   IITB Sports — Certificates (dark theme)
+   Colors:
+     bg-deep:    #080B14
+     bg-card:    #0D1421
+     blue:       #00C8FF
+     cyan:       #00FFD1
+     text:       #E8F4FD
+     text-muted: #7A9BB5
+   ═══════════════════════════════════════════════════ */
+
+/* ── Page shell ────────────────────────────────────── */
+.cert-page {
+  min-height: 100vh;
+  background: #080B14;
+  color: #E8F4FD;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Hero ──────────────────────────────────────────── */
+.cert-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 90px 24px 70px;
+  text-align: center;
+  background: linear-gradient(180deg, #050810 0%, #080B14 100%);
+  border-bottom: 1px solid rgba(0, 200, 255, 0.12);
+}
+
+.cert-hero-glow {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(0,200,255,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cert-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.cert-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #00C8FF;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+}
+
+.cert-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  margin: 0 0 16px;
+  background: linear-gradient(135deg, #ffffff 30%, #00FFD1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.15;
+}
+
+.cert-subtitle {
+  font-size: 1rem;
+  color: #7A9BB5;
+  margin: 0 0 36px;
+  line-height: 1.6;
+}
+
+/* ── Buttons ───────────────────────────────────────── */
+.cert-btn-primary {
+  display: inline-block;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #00C8FF, #00FFD1);
+  color: #080B14;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 24px rgba(0, 200, 255, 0.35);
+}
+.cert-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 36px rgba(0, 200, 255, 0.55);
+}
+.cert-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.cert-btn-ghost {
+  padding: 8px 20px;
+  background: transparent;
+  border: 1px solid rgba(0, 200, 255, 0.35);
+  color: #00C8FF;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.cert-btn-ghost:hover {
+  background: rgba(0, 200, 255, 0.08);
+  border-color: #00C8FF;
+}
+
+/* ── User bar (logged in state) ────────────────────── */
+.cert-user-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(0, 200, 255, 0.07);
+  border: 1px solid rgba(0, 200, 255, 0.18);
+  border-radius: 50px;
+  padding: 8px 8px 8px 20px;
+}
+
+.cert-user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #E8F4FD;
+  font-weight: 500;
+}
+
+.cert-user-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00FFD1;
+  box-shadow: 0 0 8px #00FFD1;
+  flex-shrink: 0;
+}
+
+/* ── Content area ──────────────────────────────────── */
+.cert-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 52px 24px 80px;
+}
+
+.cert-count {
+  font-size: 0.85rem;
+  color: #7A9BB5;
+  margin: 0 0 28px;
+  letter-spacing: 0.5px;
+}
+
+/* ── Certificate grid ──────────────────────────────── */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* ── Certificate card ──────────────────────────────── */
+.cert-card {
+  position: relative;
+  background: #0D1421;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.cert-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 200, 255, 0.3);
+  box-shadow: 0 8px 40px rgba(0, 200, 255, 0.12);
+}
+
+.cert-card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at top left,
+    rgba(0, 200, 255, 0.05) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.cert-card-bar {
+  height: 4px;
+  width: 100%;
+}
+
+.cert-card-body {
+  padding: 24px 24px 16px;
+}
+
+.cert-card-position {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--pos-color, #00C8FF);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50px;
+  padding: 4px 12px;
+  margin-bottom: 14px;
+}
+
+.cert-card-event {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #E8F4FD;
+  margin: 0 0 10px;
+  line-height: 1.35;
+}
+
+.cert-card-date {
+  font-size: 0.8rem;
+  color: #7A9BB5;
+  margin: 0;
+}
+
+.cert-card-footer {
+  padding: 16px 24px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cert-card-error {
+  font-size: 0.8rem;
+  color: #FF6B6B;
+  margin: 0 0 10px;
+}
+
+/* ── Download button ───────────────────────────────── */
+.cert-btn-download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px 20px;
+  background: transparent;
+  border: 1px solid rgba(0, 200, 255, 0.4);
+  color: #00C8FF;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.cert-btn-download:hover {
+  background: rgba(0, 200, 255, 0.1);
+  border-color: #00C8FF;
+  box-shadow: 0 0 16px rgba(0, 200, 255, 0.2);
+}
+.cert-btn-download:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cert-btn-download-loading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Loading & empty states ────────────────────────── */
+.cert-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 80px 24px;
+  color: #7A9BB5;
+  font-size: 0.95rem;
+}
+
+.cert-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(0, 200, 255, 0.15);
+  border-top-color: #00C8FF;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.cert-spinner-sm {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(0, 200, 255, 0.2);
+  border-top-color: #00C8FF;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.cert-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 80px 24px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.cert-empty-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  filter: grayscale(0.3);
+}
+
+.cert-empty-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #E8F4FD;
+  margin: 0 0 10px;
+}
+
+.cert-empty-sub {
+  font-size: 0.9rem;
+  color: #7A9BB5;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cert-error {
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  color: #FF6B6B;
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 0.9rem;
+}
+
+/* ── Login Modal ───────────────────────────────────── */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 24px;
+}
+
+.modal-box {
+  position: relative;
+  background: #0D1421;
+  border: 1px solid rgba(0, 200, 255, 0.2);
+  border-radius: 20px;
+  padding: 40px 36px 36px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(0, 200, 255, 0.08);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  color: #7A9BB5;
+  font-size: 1rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #E8F4FD;
+}
+
+.modal-logo-ring {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(0, 200, 255, 0.1);
+  border: 1px solid rgba(0, 200, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 20px;
+}
+
+.modal-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #E8F4FD;
+  text-align: center;
+  margin: 0 0 8px;
+}
+
+.modal-sub {
+  font-size: 0.88rem;
+  color: #7A9BB5;
+  text-align: center;
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+.modal-tabs {
+  display: flex;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 24px;
+}
+
+.modal-tab {
+  flex: 1;
+  padding: 9px;
+  border: none;
+  background: transparent;
+  color: #7A9BB5;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.modal-tab.active {
+  background: rgba(0, 200, 255, 0.15);
+  color: #00C8FF;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.modal-field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #7A9BB5;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.modal-field input {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: #E8F4FD;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.modal-field input::placeholder { color: #3D5A72; }
+.modal-field input:focus {
+  border-color: rgba(0, 200, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(0, 200, 255, 0.08);
+}
+
+.modal-error {
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  color: #FF8080;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.modal-submit {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.modal-hint {
+  font-size: 0.8rem;
+  color: #3D5A72;
+  text-align: center;
+  margin: 16px 0 0;
+  line-height: 1.5;
+}
+
+/* ── Verification Page (public, light-ish neutral) ─── */
+.verify-page {
+  min-height: 100vh;
+  background: #080B14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.verify-card {
+  background: #0D1421;
+  border: 1px solid rgba(0, 200, 255, 0.15);
+  border-radius: 20px;
+  padding: 48px 40px 36px;
+  width: 100%;
+  max-width: 460px;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+
+.verify-brand {
+  margin-bottom: 36px;
+}
+
+.verify-brand-text {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #00C8FF;
+  margin: 0 0 4px;
+}
+
+.verify-brand-sub {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #E8F4FD;
+  margin: 0;
+}
+
+.verify-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: #7A9BB5;
+  padding: 24px 0;
+}
+
+.verify-result { padding: 8px 0; }
+
+.verify-icon { font-size: 3rem; margin-bottom: 16px; }
+
+.verify-status {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 0 0 28px;
+}
+.verify-result.valid   .verify-status { color: #00FFD1; }
+.verify-result.invalid .verify-status { color: #FF6B6B; }
+
+.verify-details {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.verify-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  gap: 12px;
+}
+.verify-row:last-child { border-bottom: none; }
+
+.verify-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #7A9BB5;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.verify-value {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #E8F4FD;
+  text-align: right;
+}
+
+.verify-message {
+  color: #7A9BB5;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.verify-footer {
+  margin-top: 32px;
+  font-size: 0.78rem;
+  color: #3D5A72;
+  letter-spacing: 0.5px;
+}
+
+/* ── Responsive ────────────────────────────────────── */
+@media (max-width: 600px) {
+  .cert-hero   { padding: 70px 16px 50px; }
+  .cert-content { padding: 36px 16px 60px; }
+  .modal-box   { padding: 32px 20px 28px; }
+  .verify-card { padding: 36px 20px 28px; }
+  .cert-user-bar {
+    flex-direction: column;
+    border-radius: 14px;
+    padding: 16px;
+    gap: 12px;
+  }
+}

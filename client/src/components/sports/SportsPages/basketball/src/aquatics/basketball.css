@@ -1,0 +1,19 @@
+/* ============================================================
+   BASKETBALL — minimal additions on top of aquatics.css
+   Import order in Basketball.jsx:
+     import './aquatics.css';
+     import './basketball.css';
+============================================================ */
+
+/* ── Accent: orange — distinct from Aquatics (blue), Athletics (amber),
+   and Badminton (green).
+   Comment both lines to revert to the standard aquatics blue. ── */
+.bb-root-overrides {
+  --primary:       #9a3412;
+  --primary-light: #f97316;
+}
+
+/* ── Hero photo: team shot works best anchored to top-center ── */
+.bb-root-overrides .aq-hero-photo img {
+  object-position: center 20%;
+}

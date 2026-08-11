@@ -1,7 +1,7 @@
 import React from "react";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import 'react-vertical-timeline-component/style.min.css';
-import { GiTrophyCup, GiMedal} from "react-icons/gi";
+import { GiMedal } from "react-icons/gi";
 
 // background='#2F2B77'
 // #DDFF00

@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Trophy, Medal, Award, Flame } from "lucide-react";
 import "./GC.css";
 
@@ -218,13 +217,7 @@ const introSteps = [
     metaR: ["LAND · WATER", "INDOOR · OUTDOOR"],
   },
   {
-    value: 1,
-    label: "Trophy",
-    sub: "Only one name gets engraved.",
-    isTrophy: true,
-    fileTag: "§ III  ·  THE PRIZE",
-    metaL: ["FRAME / 03", "FINAL"],
-    metaR: ["GENERAL", "CHAMPIONSHIP"],
+    isSilencio: true,
   },
 ];
 
@@ -258,9 +251,178 @@ function initials(name) {
 }
 
 /* ============================================================
+   SILENCIO FRAME — kinetic payoff frame (frame 3)
+============================================================ */
+const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#§%";
+
+function useScramble(target, active) {
+  const [display, setDisplay] = useState(target);
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!active) { setDisplay(target); return; }
+    let iter = 0;
+    clearInterval(ref.current);
+    ref.current = setInterval(() => {
+      setDisplay(
+        target.split("").map((c, i) => {
+          if (c === " ") return " ";
+          if (i < iter) return target[i];
+          return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+        }).join("")
+      );
+      iter += 0.45;
+      if (iter >= target.length) clearInterval(ref.current);
+    }, 28);
+    return () => clearInterval(ref.current);
+  }, [target, active]);
+  return display;
+}
+
+function SilencioFrame({ onWipeStart, onFinish }) {
+  const [phase, setPhase] = useState("enter");
+  const [scrambleActive, setScrambleActive] = useState(false);
+  const gcDisplay = useScramble("TITLE", scrambleActive);
+  const subDisplay = useScramble("GENERAL CHAMPIONSHIP", scrambleActive);
+
+  const canvasRef = useRef(null);
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    let frame;
+    const draw = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const img = ctx.createImageData(canvas.width, canvas.height);
+      const buf = new Uint32Array(img.data.buffer);
+      for (let i = 0; i < buf.length; i++) {
+        const v = (Math.random() * 255) | 0;
+        buf[i] = (255 << 24) | (v << 16) | (v << 8) | v;
+      }
+      ctx.putImageData(img, 0, 0);
+      frame = setTimeout(draw, 80);
+    };
+    draw();
+    return () => clearTimeout(frame);
+  }, []);
+
+  useEffect(() => {
+    const t1 = setTimeout(() => setScrambleActive(true), 400);
+    const t2 = setTimeout(() => {
+      setPhase("exit");
+      onWipeStart();
+    }, 2400);
+    const t3 = setTimeout(() => onFinish(), 2400 + 900);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const skip = () => {
+    if (phase !== "exit") {
+      setPhase("exit");
+      onWipeStart();
+      setTimeout(onFinish, 900);
+    }
+  };
+
+  return (
+    <div
+      className={`gc-intro gc-silencio-frame ${phase === "exit" ? "gc-intro-wiping" : ""}`}
+      onClick={skip}
+      style={{ cursor: "pointer", background: "#000" }}
+    >
+      <canvas
+        ref={canvasRef}
+        style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          zIndex: 0, opacity: 0.045, mixBlendMode: "screen",
+        }}
+      />
+
+      <div className="gc-intro-corners" aria-hidden="true">
+        <span /><span /><span /><span />
+      </div>
+
+      <div className="gc-silencio-ticker" aria-hidden="true">
+        <div className="gc-silencio-ticker-inner">
+          {Array(6).fill(null).map((_, i) => (
+            <React.Fragment key={i}>
+              <span>Inter-Hostel</span>
+              <span className="gc-silencio-ticker-dot">✦</span>
+              <span>General Championship</span>
+              <span className="gc-silencio-ticker-dot">✦</span>
+              <span>Vol. LXVI</span>
+              <span className="gc-silencio-ticker-dot">✦</span>
+              <span>IIT Bombay</span>
+              <span className="gc-silencio-ticker-dot">✦</span>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+
+      <div className={`gc-silencio-stage ${phase === "enter" ? "gc-silencio-enter" : ""}`}>
+        <div className="gc-silencio-eyebrow">
+          <span className="gc-silencio-eyebrow-line" />
+          <span>§ III · THE PRIZE</span>
+          <span className="gc-silencio-eyebrow-line" />
+        </div>
+
+        <div className="gc-silencio-numeral" aria-hidden="true">1</div>
+
+        <div className="gc-silencio-gc" aria-label="General Championship">
+          {gcDisplay}
+        </div>
+
+        <div className="gc-silencio-sub">{subDisplay}</div>
+
+        <div className="gc-silencio-meta">
+          <span>12 Hostels</span>
+          <span className="gc-silencio-meta-sep">·</span>
+          <span>14 Sports</span>
+          <span className="gc-silencio-meta-sep">·</span>
+          <span>One name engraved</span>
+        </div>
+      </div>
+
+      <div className="gc-intro-progress" aria-hidden="true">
+        <span className="pip is-done" />
+        <span className="pip is-done" />
+        <span className="pip is-active" />
+      </div>
+
+      <div className="gc-silencio-ticker gc-silencio-ticker-bottom" aria-hidden="true">
+        <div className="gc-silencio-ticker-inner gc-silencio-ticker-reverse">
+          {Array(6).fill(null).map((_, i) => (
+            <React.Fragment key={i}>
+              <span>Aquatics</span><span className="gc-silencio-ticker-dot">✦</span>
+              <span>Athletics</span><span className="gc-silencio-ticker-dot">✦</span>
+              <span>Cricket</span><span className="gc-silencio-ticker-dot">✦</span>
+              <span>Football</span><span className="gc-silencio-ticker-dot">✦</span>
+              <span>Hockey</span><span className="gc-silencio-ticker-dot">✦</span>
+              <span>Basketball</span><span className="gc-silencio-ticker-dot">✦</span>
+              <span>Volleyball</span><span className="gc-silencio-ticker-dot">✦</span>
+              <span>Chess</span><span className="gc-silencio-ticker-dot">✦</span>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+
+      <button className="gc-intro-skip" onClick={skip}>
+        Skip <span aria-hidden="true">→</span>
+      </button>
+
+      <div className="gc-intro-wipe" aria-hidden="true" />
+    </div>
+  );
+}
+
+/* ============================================================
    INTRO ANIMATION — Dossier teletype reveal
 ============================================================ */
-function IntroSequence({ onWipeStart, onFinish }) {
+// Dossier steps — only the first two (Hostels, Sports)
+const dossierSteps = introSteps.filter((s) => !s.isSilencio);
+
+function IntroSequence({ onDossierDone }) {
   const [stage, setStage] = useState(0);
   const [exiting, setExiting] = useState(false);
   const [wiping, setWiping] = useState(false);
@@ -270,44 +432,37 @@ function IntroSequence({ onWipeStart, onFinish }) {
       typeof window !== "undefined" &&
       window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) {
-      onWipeStart();
-      onFinish();
-    }
+    if (reduce) onDossierDone();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     if (wiping) {
-      const t = setTimeout(onFinish, 900);
+      const t = setTimeout(onDossierDone, 900);
       return () => clearTimeout(t);
     }
-    const holdTime = stage === 2 ? 1700 : 1300;
+    const holdTime = 1300;
     const t1 = setTimeout(() => setExiting(true), holdTime);
     const t2 = setTimeout(() => {
-      if (stage < introSteps.length - 1) {
+      if (stage < dossierSteps.length - 1) {
         setStage((s) => s + 1);
         setExiting(false);
       } else {
-        setWiping(true);
-        onWipeStart();
+        // Hand off to Silencio frame — no wipe, just cut
+        onDossierDone();
       }
     }, holdTime + 240);
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-    };
+    return () => { clearTimeout(t1); clearTimeout(t2); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stage, wiping]);
 
   const skip = () => {
     if (!wiping) {
       setWiping(true);
-      onWipeStart();
     }
   };
 
-  const step = introSteps[stage];
+  const step = dossierSteps[stage];
   const count = useCountUp(step.value, 650);
 
   return (
@@ -329,18 +484,14 @@ function IntroSequence({ onWipeStart, onFinish }) {
 
       {!wiping && (
         <div
-          className={`gc-intro-stage ${exiting ? "is-exit" : "is-enter"} ${
-            step.isTrophy ? "is-trophy" : ""
-          }`}
+          className={`gc-intro-stage ${exiting ? "is-exit" : "is-enter"}`}
         >
           <div className="gc-intro-content">
             <div className="gc-intro-meta-l">
               {step.metaL.map((line, i) => (
                 <React.Fragment key={i}>
                   {i === 1 && <hr />}
-                  <div>
-                    {i === 0 ? line : <strong>{line}</strong>}
-                  </div>
+                  <div>{i === 0 ? line : <strong>{line}</strong>}</div>
                 </React.Fragment>
               ))}
             </div>
@@ -358,9 +509,7 @@ function IntroSequence({ onWipeStart, onFinish }) {
               {step.metaR.map((line, i) => (
                 <React.Fragment key={i}>
                   {i === 1 && <hr />}
-                  <div>
-                    {i === 0 ? line : <strong>{line}</strong>}
-                  </div>
+                  <div>{i === 0 ? line : <strong>{line}</strong>}</div>
                 </React.Fragment>
               ))}
             </div>
@@ -395,7 +544,7 @@ function IntroSequence({ onWipeStart, onFinish }) {
    MAIN COMPONENT
 ============================================================ */
 const GC = () => {
-  const [phase, setPhase] = useState("intro"); // intro | wipe | done
+  const [phase, setPhase] = useState("dossier"); // dossier | silencio | wipe | done
   const [activeTab, setActiveTab] = useState("boys");
   const [selectedSport, setSelectedSport] = useState("");
 
@@ -412,15 +561,21 @@ const GC = () => {
 
   return (
     <div className="gc-root" data-testid="gc-root">
-      {phase !== "done" && (
+      {phase === "dossier" && (
         <IntroSequence
+          onDossierDone={() => setPhase("silencio")}
+        />
+      )}
+
+      {phase === "silencio" && (
+        <SilencioFrame
           onWipeStart={() => setPhase("wipe")}
           onFinish={() => setPhase("done")}
         />
       )}
 
       <div
-        className={`gc-app ${phase === "intro" ? "gc-app-hidden" : "gc-app-visible"}`}
+        className={`gc-app ${phase === "dossier" || phase === "silencio" ? "gc-app-hidden" : "gc-app-visible"}`}
         data-testid="gc-app"
       >
         {/* MASTHEAD */}
