@@ -8,8 +8,9 @@ import p3 from '../assets/p3.jpg';
 import p4 from '../assets/p4.jpg';
 import p5 from '../assets/p5.jpg';
 import user from '../assets/user.jpg';
+import tableTennisLogo from '../../../../Contact/pictures/Logos_for_Photos/tabletennis.png';
 
-const Tabletennis = () => {
+const LegacyTabletennis = () => {
   const [openStory, setOpenStory] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideDir, setSlideDir] = useState('');
@@ -365,10 +366,6 @@ const Tabletennis = () => {
     </div>
   );
 };
-
-export default Tabletennis;
-=======
-import tableTennisLogo from '../../../../Contact/pictures/Logos_for_Photos/tabletennis.png';
 
 /* ============================================================
    REVEAL

@@ -11,8 +11,10 @@ import bm6 from '../assets/bm6.jpeg';
 import bm7 from '../assets/bm7.jpeg';
 import bm8 from '../assets/bm8.jpeg';
 import user from '../assets/user.jpg';
+import councilLogo from '../../../../../Contact/pictures/Logos_for_Photos/IITB Sports Logo BW.png';
+import radhika from '../../../../../Contact/pictures/Logos_for_Photos/radhika.JPG';
 
-const Badminton = () => {
+const LegacyBadminton = () => {
   const [openStory, setOpenStory] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideDir, setSlideDir] = useState('');
@@ -390,9 +392,6 @@ const Badminton = () => {
     </div>
   );
 };
-=======
-import councilLogo from '../../../../../Contact/pictures/Logos_for_Photos/IITB Sports Logo BW.png';
-import radhika from '../../../../../Contact/pictures/Logos_for_Photos/radhika.JPG';
 
 /* ============================================================
    REVEAL

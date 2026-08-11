@@ -9,7 +9,7 @@ import p4 from '../assets/p4.jpg';
 import p5 from '../assets/p5.jpg';
 import user from '../../../../Contact/pictures/Logos_for_Photos/Khushal.jpg';
 
-const Hockey = () => {
+const LegacyHockey = () => {
   const [openStory, setOpenStory] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideDir, setSlideDir] = useState('');
@@ -365,7 +365,7 @@ const Hockey = () => {
     </div>
   );
 };
-=======
+
 /* ============================================================
    REVEAL
 ============================================================ */

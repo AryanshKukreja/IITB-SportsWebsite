@@ -8,8 +8,9 @@ import p3 from '../assets/squash3.jpg';
 import p4 from '../assets/squash4.jpg';
 import p5 from '../assets/squash5.jpg';
 import user from '../assets/user.jpg';
+import squashLogo from '../../../../Contact/pictures/Logos_for_Photos/squash.png';
 
-const Squash = () => {
+const LegacySquash = () => {
   const [openStory, setOpenStory] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideDir, setSlideDir] = useState('');
@@ -365,10 +366,6 @@ const Squash = () => {
     </div>
   );
 };
-
-export default Squash;
-=======
-import squashLogo from '../../../../Contact/pictures/Logos_for_Photos/squash.png';
 
 /* ============================================================
    REVEAL

@@ -19,8 +19,10 @@ import bg14 from '../assets/bg14.jpeg';
 import bg15 from '../assets/bg15.jpeg';
 import bgsec from '../assets/bgsec.jpg';
 import user from '../assets/user.jpg';
+import boardGamesLogo from '../../../../../Contact/pictures/Logos_for_Photos/chess.png';
+import varad from '../../../../../Contact/pictures/Logos_for_Photos/varad.JPG';
 
-const BoardGames = () => {
+const LegacyBoardGames = () => {
   const [openStory, setOpenStory] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideDir, setSlideDir] = useState('');
@@ -445,9 +447,6 @@ const BoardGames = () => {
     </div>
   );
 };
-=======
-import boardGamesLogo from '../../../../../Contact/pictures/Logos_for_Photos/chess.png';
-import varad from '../../../../../Contact/pictures/Logos_for_Photos/varad.JPG';
 
 /* ============================================================
    REVEAL
@@ -497,6 +496,7 @@ function useCountUp(target, durationMs = 900) {
     };
     raf = requestAnimationFrame(tick);
     return () => { cancelled = true; cancelAnimationFrame(raf); };
+  }, [target, durationMs]);
   return value;
 }
 

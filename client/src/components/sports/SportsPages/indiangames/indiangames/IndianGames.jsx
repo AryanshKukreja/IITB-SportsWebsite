@@ -15,8 +15,9 @@ import ing5 from "../images/ing5.png";
 import ing6 from "../images/ing6.png";
 import indianGamesLogo from '../../../../Contact/pictures/Logos_for_Photos/indiangames.png';
 import darshan from '../../../../Contact/pictures/Logos_for_Photos/darshan.JPG';
+import user from '../../../../Contact/pictures/Logos_for_Photos/darshan.JPG';
 
-const IndianGames = () => {
+const LegacyIndianGames = () => {
   const [openStory, setOpenStory] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideDir, setSlideDir] = useState('');
@@ -384,7 +385,7 @@ const IndianGames = () => {
     </div>
   );
 };
-=======
+
 /* ============================================================
    REVEAL
 ============================================================ */

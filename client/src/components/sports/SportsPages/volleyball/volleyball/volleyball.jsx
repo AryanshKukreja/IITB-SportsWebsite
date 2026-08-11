@@ -8,7 +8,7 @@ import v2 from '../assets/v2.JPG';
 import v3 from '../assets/v3.JPG';
 import v4 from '../assets/v4.JPG';
 
-const Volleyball = () => {
+const LegacyVolleyball = () => {
   const [openStory, setOpenStory] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideDir, setSlideDir] = useState('');

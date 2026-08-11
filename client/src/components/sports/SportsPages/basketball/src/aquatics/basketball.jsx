@@ -20,8 +20,9 @@ import basky_girls from '../assets/basky_girls.png';
 import councilLogo from '../../../../../Contact/pictures/Logos_for_Photos/IITB Sports Logo BW.png';
 import basketballLogo from '../../../../../Contact/pictures/Logos_for_Photos/basketball.png';
 import manikarnika from '../../../../../Contact/pictures/Logos_for_Photos/mani.JPG';
+import user from '../assets/user.jpg';
 
-const Basketball = () => {
+const LegacyBasketball = () => {
   const [openStory, setOpenStory] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideDir, setSlideDir] = useState('');
@@ -468,7 +469,7 @@ const Basketball = () => {
     </div>
   );
 };
-=======
+
 /* ============================================================
    REVEAL
 ============================================================ */

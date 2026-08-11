@@ -7,7 +7,8 @@ import p2 from '../assets/2.jpg';
 import p3 from '../assets/3.jpg';
 import p4 from '../assets/4.jpg';
 import p5 from '../assets/5.jpg';
-const Athletics = () => {
+import user from '../assets/user.jpg';
+const LegacyAthletics = () => {
   const [openStory, setOpenStory] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideDir, setSlideDir] = useState('');
@@ -377,7 +378,7 @@ const Athletics = () => {
     </div>
   );
 };
-=======
+
 /* ============================================================
    REVEAL
 ============================================================ */
@@ -845,14 +846,12 @@ const Athletics = () => {
           </div>
         </Reveal>
 
-        {/* ── FOOTER ── */}
-        {/* <footer className="aq-footer">
+        <footer className="aq-footer">
           <span className="aq-footer-colophon">
-            <em>Set in Fraunces &amp; JetBrains Mono.</em>
+            IITB Athletics · <em>Sports Gymkhana, IIT Bombay</em>
           </span>
-          <span>IIT Bombay&nbsp;·&nbsp;Athletics&nbsp;·&nbsp;Track &amp; Field</span>
-          <span>Print / Digital&nbsp;·&nbsp;Final Edition</span>
-        </footer> */}
+          <span>© {new Date().getFullYear()}</span>
+        </footer>
 
       </div>
     </div>

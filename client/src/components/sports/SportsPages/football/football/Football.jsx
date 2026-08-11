@@ -9,12 +9,12 @@ import logo from '../assets/logo.jpeg';
 import turf from '../assets/turf.jpeg';
 import user from '../../../../Contact/pictures/Logos_for_Photos/Yash.jpg';
 
-const Football = () => {
+const LegacyFootball = () => {
   const [openStory, setOpenStory] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideDir, setSlideDir] = useState('');
 
-  const cards = [
+  const legacyCards = [
     {
       title: 'Institute Turf League',
       content: 'Gaming enthusiasts do cherish this one! It is an open tournament, one of its kind in the institute.'
@@ -50,7 +50,7 @@ const Football = () => {
     "Football Crest",
     "6-a-side Turf Pitch"
   ];
-=======
+
 /* ============================================================
    REVEAL
 ============================================================ */
@@ -243,28 +243,9 @@ const Football = () => {
       (entries) => entries.forEach((e) => { if (e.isIntersecting) { reveal(); io.unobserve(e.target); } }),
       { threshold: 0.05 }
     );
+    io.observe(el);
     return () => { io.disconnect(); clearTimeout(fallback); };
   }, []);
-
-  const handlePrev = () => {
-    setSlideDir('prev');
-    setCurrentIndex((i) => (i === 0 ? (images?.length || 1) - 1 : i - 1));
-  };
-
-  const handleNext = () => {
-    setSlideDir('next');
-    setCurrentIndex((i) => (i === (images?.length || 1) - 1 ? 0 : i + 1));
-  };
-
-  const handleThumb = (i) => {
-    setSlideDir(i > currentIndex ? 'next' : 'prev');
-    setCurrentIndex(i);
-  };
-
-  const toggleStory = (i) => setOpenStory(openStory === i ? null : i);
-
-  const safeImages = images?.length > 0 ? images : [p1];
-  const safeIndex = (currentIndex >= 0 && currentIndex < safeImages.length) ? currentIndex : 0;
 
   return (
     <div className="aq-root">
@@ -811,16 +792,14 @@ const Football = () => {
           </div>
         </Reveal>
 
-        {/* ── FOOTER ── */}
-        {/* <footer className="aq-footer">
+        <footer className="aq-footer">
           <span className="aq-footer-colophon">
-            <em>Set in Fraunces &amp; JetBrains Mono.</em>
+            IITB Football · <em>Sports Gymkhana, IIT Bombay</em>
           </span>
-          <span>IIT Bombay&nbsp;·&nbsp;Football&nbsp;·&nbsp;Ground &amp; Turf</span>
-          <span>Print / Digital&nbsp;·&nbsp;Final Edition</span>
-        </footer> */}
+          <span>© {new Date().getFullYear()}</span>
+        </footer>
 
-      </div>
+      </main>
     </div>
   );
 };

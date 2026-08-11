@@ -10,7 +10,7 @@ import p5 from '../assets/p5.jpg';
 import p6 from '../assets/p6.jpg';
 import user from '../../../../Contact/pictures/Logos_for_Photos/Prateek.jpg';
 
-const Wtlift = () => {
+const LegacyWtlift = () => {
   const [openStory, setOpenStory] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideDir, setSlideDir] = useState('');

@@ -9,8 +9,9 @@ import cric3 from '../images/cric3.jpg';
 import cric4 from '../images/cric4.jpg';
 import cricketLogo from '../../../../Contact/pictures/Logos_for_Photos/Cricket.png';
 import param from '../../../../Contact/pictures/Logos_for_Photos/param.JPG';
+import user from '../../../../Contact/pictures/Logos_for_Photos/param.JPG';
 
-const Cricket = () => {
+const LegacyCricket = () => {
   const [openStory, setOpenStory] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideDir, setSlideDir] = useState('');
@@ -376,7 +377,7 @@ const Cricket = () => {
     </div>
   );
 };
-=======
+
 /* ============================================================
    REVEAL
 ============================================================ */
