@@ -9,6 +9,15 @@ import p4 from '../assets/p4.jpg';
 import p5 from '../assets/p5.jpg';
 import user from '../../../../Contact/pictures/Logos_for_Photos/Khushal.jpg';
 
+// Updated to use the scale trick to allow X-axis panning
+const imageAlignments = {
+  [p1]: { objectPosition: '10% 70%', transform: 'scale(1.15)', transformOrigin: '80% 70%' },
+  [p2]: { objectPosition: '50% 65%', transform: 'scale(1.15)', transformOrigin: '50% 65%' },
+  [p3]: { objectPosition: '50% 45%', transform: 'scale(1.15)', transformOrigin: '50% 45%' },
+  [p4]: { objectPosition: '50% 40%', transform: 'scale(1.15)', transformOrigin: '50% 40%' },
+  [p5]: { objectPosition: '50% 33%', transform: 'scale(1.15)', transformOrigin: '95% 33%' },
+};
+
 /* ============================================================
    REVEAL
 ============================================================ */
@@ -83,7 +92,12 @@ function WaveDivider() {
 function PhotoBreak({ image, caption, tag }) {
   return (
     <Reveal as="div" className="aq-photobreak">
-      <img src={image} alt={caption} className="aq-photobreak-img" />
+      <img 
+        src={image} 
+        alt={caption} 
+        className="aq-photobreak-img" 
+        style={imageAlignments[image] || {}}
+      />
       <div className="aq-photobreak-caption">
         <span>{tag}</span>
         <span>{caption}</span>
@@ -271,7 +285,11 @@ const Hockey = () => {
           </div>
 
           <div className="aq-hero-photo">
-            <img src={p2} alt="IIT Bombay Hockey" />
+            <img 
+              src={p2} 
+              alt="IIT Bombay Hockey" 
+              style={imageAlignments[p2] || {}}
+            />
           </div>
         </Reveal>
 
@@ -294,7 +312,11 @@ const Hockey = () => {
             {facilities.map((f, i) => (
               <Reveal as="div" key={f.title} className="aq-facility-card" delay={i * 90}>
                 <div className="aq-facility-photo">
-                  <img src={f.image} alt={f.title} />
+                  <img 
+                    src={f.image} 
+                    alt={f.title} 
+                    style={imageAlignments[f.image] || {}}
+                  />
                 </div>
                 <h3 className="aq-facility-title">{f.title}</h3>
                 <ul className="aq-facility-bullets">
@@ -336,7 +358,11 @@ const Hockey = () => {
                   aria-expanded={isOpen}
                 >
                   <div className="aq-story-photo">
-                    <img src={galleryImages[index % galleryImages.length]} alt={card.title} />
+                    <img 
+                      src={galleryImages[index % galleryImages.length]} 
+                      alt={card.title} 
+                      style={imageAlignments[galleryImages[index % galleryImages.length]] || {}}
+                    />
                   </div>
                   <span className="aq-story-no">N&deg;&nbsp;{String(index + 1).padStart(2, '0')}</span>
                   <h3 className="aq-story-title">{card.title}</h3>
@@ -410,6 +436,7 @@ const Hockey = () => {
               src={galleryImages[currentIndex]}
               alt={`Hockey gallery ${currentIndex + 1}`}
               className={`aq-strip-image aq-slide-${slideDir}`}
+              style={imageAlignments[galleryImages[currentIndex]] || {}}
             />
             <div className="aq-strip-caption">
               <span>
