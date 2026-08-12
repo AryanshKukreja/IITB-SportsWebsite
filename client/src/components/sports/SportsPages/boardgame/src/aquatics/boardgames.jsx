@@ -20,6 +20,18 @@ import bg15 from '../assets/bg15.jpeg';
 import boardGamesLogo from '../../../../../Contact/pictures/Logos_for_Photos/chess.png';
 import varad from '../../../../../Contact/pictures/Logos_for_Photos/varad.JPG';
 
+const imageAlignments = {
+  [bg1]: '50% 20%',
+  [bg4]: '50% 50%',
+  [bg5]: '50% 15%',
+  [bg6]: '50% 20%',
+  [bg7]: '50% 20%',
+  [bg8]: '50% 20%',
+  [bg11]: '50% 25%',
+  [bg12]: '50% 15%',
+  [bg13]: '50% 20%',
+};
+
 /* ============================================================
    REVEAL
 ============================================================ */
@@ -94,7 +106,12 @@ function WaveDivider() {
 function PhotoBreak({ image, caption, tag }) {
   return (
     <Reveal as="div" className="aq-photobreak">
-      <img src={image} alt={caption} className="aq-photobreak-img" />
+      <img 
+        src={image} 
+        alt={caption} 
+        className="aq-photobreak-img" 
+        style={imageAlignments[image] ? { objectPosition: imageAlignments[image] } : {}}
+      />
       <div className="aq-photobreak-caption">
         <span>{tag}</span>
         <span>{caption}</span>
@@ -298,7 +315,11 @@ const BoardGames = () => {
           </div>
 
           <div className="aq-hero-photo">
-            <img src={bg5} alt="IIT Bombay Board Games" />
+            <img 
+              src={bg5} 
+              alt="IIT Bombay Board Games" 
+              style={imageAlignments[bg5] ? { objectPosition: imageAlignments[bg5] } : {}} 
+            />
           </div>
         </Reveal>
 
@@ -321,7 +342,11 @@ const BoardGames = () => {
             {facilities.map((f, i) => (
               <Reveal as="div" key={f.title} className="aq-facility-card" delay={i * 90}>
                 <div className="aq-facility-photo">
-                  <img src={f.image} alt={f.title} />
+                  <img 
+                    src={f.image} 
+                    alt={f.title} 
+                    style={imageAlignments[f.image] ? { objectPosition: imageAlignments[f.image] } : {}} 
+                  />
                 </div>
                 <h3 className="aq-facility-title">{f.title}</h3>
                 <ul className="aq-facility-bullets">
@@ -394,7 +419,11 @@ const BoardGames = () => {
                   aria-expanded={isOpen}
                 >
                   <div className="aq-story-photo">
-                    <img src={galleryImages[index % galleryImages.length]} alt={card.title} />
+                    <img 
+                      src={galleryImages[index % galleryImages.length]} 
+                      alt={card.title} 
+                      style={imageAlignments[galleryImages[index % galleryImages.length]] ? { objectPosition: imageAlignments[galleryImages[index % galleryImages.length]] } : {}} 
+                    />
                   </div>
                   <span className="aq-story-no">N&deg;&nbsp;{String(index + 1).padStart(2, '0')}</span>
                   <h3 className="aq-story-title">{card.title}</h3>
@@ -468,6 +497,7 @@ const BoardGames = () => {
               src={galleryImages[currentIndex]}
               alt={`Board Games gallery ${currentIndex + 1}`}
               className={`aq-strip-image aq-slide-${slideDir}`}
+              style={imageAlignments[galleryImages[currentIndex]] ? { objectPosition: imageAlignments[galleryImages[currentIndex]] } : {}}
             />
             <div className="aq-strip-caption">
               <span>
