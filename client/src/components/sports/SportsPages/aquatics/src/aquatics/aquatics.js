@@ -139,7 +139,7 @@ function WaveDivider() {
 function PhotoBreak({ image, caption, tag }) {
   return (
     <Reveal as="div" className="aq-photobreak">
-      <img src={image} alt={caption} className="aq-photobreak-img" />
+      <img src={image} alt={caption} className="aq-photobreak-img" style={{ objectPosition: '50% 45%' }} />
       <div className="aq-photobreak-caption">
         <span>{tag}</span>
         <span>{caption}</span>
@@ -147,7 +147,6 @@ function PhotoBreak({ image, caption, tag }) {
     </Reveal>
   );
 }
-
 /* ============================================================
    DATA
 ============================================================ */
@@ -316,6 +315,11 @@ const cards = [
 ];
 
 const galleryImages = [p1, p2, p3, p4, p5, pool4, p6];
+const imageAlignments = {
+  [p1]: '70% 40%',
+  [p2]: '50% 100%',
+  [p6]: '50% 35%',
+};
 
 /* ============================================================
    MAIN COMPONENT
@@ -485,8 +489,12 @@ const Aquatics = () => {
             {facilities.map((f, i) => (
               <Reveal as="div" key={f.title} className="aq-facility-card" delay={i * 90}>
                 <div className="aq-facility-photo">
-                  <img src={f.image} alt={f.title} />
-                </div>
+  <img 
+    src={f.image} 
+    alt={f.title} 
+    style={imageAlignments[f.image] ? { objectPosition: imageAlignments[f.image] } : {}}
+  />
+</div>
                 <h3 className="aq-facility-title">{f.title}</h3>
                 <ul className="aq-facility-bullets">
                   {f.bullets.map((b) => (
@@ -642,8 +650,12 @@ const Aquatics = () => {
                   aria-expanded={isOpen}
                 >
                   <div className="aq-story-photo">
-                    <img src={eventImages[index % eventImages.length]} alt={card.title} />
-                  </div>
+  <img 
+    src={eventImages[index % eventImages.length]} 
+    alt={card.title} 
+    style={imageAlignments[eventImages[index % eventImages.length]] ? { objectPosition: imageAlignments[eventImages[index % eventImages.length]] } : {}}
+  />
+</div>
                   <span className="aq-story-no">N&deg; {String(index + 1).padStart(2, '0')}</span>
                   <h3 className="aq-story-title">{card.title}</h3>
                   <p className={`aq-story-content ${isOpen ? 'is-full' : 'is-clamped'}`}>
@@ -704,6 +716,7 @@ const Aquatics = () => {
               src={galleryImages[currentIndex]}
               alt={`Aquatics gallery ${currentIndex + 1}`}
               className={`aq-strip-image aq-slide-${slideDir}`}
+              style={imageAlignments[galleryImages[currentIndex]] ? { objectPosition: imageAlignments[galleryImages[currentIndex]] } : {}}
             />
             <div className="aq-strip-caption">
               <span>
