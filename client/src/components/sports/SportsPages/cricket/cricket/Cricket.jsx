@@ -10,6 +10,10 @@ import cric4 from '../images/cric4.jpg';
 import cricketLogo from '../../../../Contact/pictures/Logos_for_Photos/Cricket.png';
 import param from '../../../../Contact/pictures/Logos_for_Photos/param.JPG';
 
+const imageAlignments = {
+  [cric3]: '50% 29%',
+};
+
 /* ============================================================
    REVEAL
 ============================================================ */
@@ -84,7 +88,12 @@ function WaveDivider() {
 function PhotoBreak({ image, caption, tag }) {
   return (
     <Reveal as="div" className="aq-photobreak">
-      <img src={image} alt={caption} className="aq-photobreak-img" />
+      <img 
+        src={image} 
+        alt={caption} 
+        className="aq-photobreak-img" 
+        style={imageAlignments[image] ? { objectPosition: imageAlignments[image] } : {}}
+      />
       <div className="aq-photobreak-caption">
         <span>{tag}</span>
         <span>{caption}</span>
@@ -269,7 +278,11 @@ const Cricket = () => {
           </div>
 
           <div className="aq-hero-photo">
-            <img src={cricket1} alt="IIT Bombay Cricket Ground" />
+            <img 
+              src={cricket1} 
+              alt="IIT Bombay Cricket Ground" 
+              style={imageAlignments[cricket1] ? { objectPosition: imageAlignments[cricket1] } : {}}
+            />
           </div>
         </Reveal>
 
@@ -292,7 +305,11 @@ const Cricket = () => {
             {facilities.map((f, i) => (
               <Reveal as="div" key={f.title} className="aq-facility-card" delay={i * 90}>
                 <div className="aq-facility-photo">
-                  <img src={f.image} alt={f.title} />
+                  <img 
+                    src={f.image} 
+                    alt={f.title} 
+                    style={imageAlignments[f.image] ? { objectPosition: imageAlignments[f.image] } : {}}
+                  />
                 </div>
                 <h3 className="aq-facility-title">{f.title}</h3>
                 <ul className="aq-facility-bullets">
@@ -334,7 +351,11 @@ const Cricket = () => {
                   aria-expanded={isOpen}
                 >
                   <div className="aq-story-photo">
-                    <img src={galleryImages[index % galleryImages.length]} alt={card.title} />
+                    <img 
+                      src={galleryImages[index % galleryImages.length]} 
+                      alt={card.title} 
+                      style={imageAlignments[galleryImages[index % galleryImages.length]] ? { objectPosition: imageAlignments[galleryImages[index % galleryImages.length]] } : {}}
+                    />
                   </div>
                   <span className="aq-story-no">N&deg;&nbsp;{String(index + 1).padStart(2, '0')}</span>
                   <h3 className="aq-story-title">{card.title}</h3>
@@ -408,6 +429,7 @@ const Cricket = () => {
               src={galleryImages[currentIndex]}
               alt={`Cricket gallery ${currentIndex + 1}`}
               className={`aq-strip-image aq-slide-${slideDir}`}
+              style={imageAlignments[galleryImages[currentIndex]] ? { objectPosition: imageAlignments[galleryImages[currentIndex]] } : {}}
             />
             <div className="aq-strip-caption">
               <span>
