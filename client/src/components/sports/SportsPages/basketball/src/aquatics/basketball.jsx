@@ -20,6 +20,13 @@ import basky_girls from '../assets/basky_girls.png';
 import councilLogo from '../../../../../Contact/pictures/Logos_for_Photos/IITB Sports Logo BW.png';
 import basketballLogo from '../../../../../Contact/pictures/Logos_for_Photos/basketball.png';
 import manikarnika from '../../../../../Contact/pictures/Logos_for_Photos/mani.JPG';
+const imageAlignments = {
+  [basky_team]: '50% 45%',
+  [basky_boys]: '50% 49%',
+  [basky_girls]: '50% 35%',
+  [bb2]: '50% 40%',
+  [bb12]: '50% 90%',
+};
 
 /* ============================================================
    REVEAL
@@ -95,8 +102,12 @@ function WaveDivider() {
 function PhotoBreak({ image, caption, tag }) {
   return (
     <Reveal as="div" className="aq-photobreak">
-      <img src={image} alt={caption} className="aq-photobreak-img" />
-      <div className="aq-photobreak-caption">
+<img 
+  src={image} 
+  alt={caption} 
+  className="aq-photobreak-img" 
+  style={imageAlignments[image] ? { objectPosition: imageAlignments[image] } : {}}
+/>      <div className="aq-photobreak-caption">
         <span>{tag}</span>
         <span>{caption}</span>
       </div>
@@ -290,8 +301,11 @@ const Basketball = () => {
           </div>
 
           <div className="aq-hero-photo">
-            <img src={basky_team} alt="IITB Basketball team" />
-          </div>
+<img 
+  src={basky_team} 
+  alt="IITB Basketball team" 
+  style={imageAlignments[basky_team] ? { objectPosition: imageAlignments[basky_team] } : {}}
+/>          </div>
         </Reveal>
 
         <WaveDivider />
@@ -313,7 +327,11 @@ const Basketball = () => {
             {facilities.map((f, i) => (
               <Reveal as="div" key={f.title} className="aq-facility-card" delay={i * 90}>
                 <div className="aq-facility-photo">
-                  <img src={f.image} alt={f.title} />
+                  <img 
+  src={f.image} 
+  alt={f.title} 
+  style={imageAlignments[f.image] ? { objectPosition: imageAlignments[f.image] } : {}}
+/>
                 </div>
                 <h3 className="aq-facility-title">{f.title}</h3>
                 <ul className="aq-facility-bullets">
@@ -355,7 +373,11 @@ const Basketball = () => {
                   aria-expanded={isOpen}
                 >
                   <div className="aq-story-photo">
-                    <img src={galleryImages[index % galleryImages.length]} alt={card.title} />
+                    <img 
+  src={galleryImages[index % galleryImages.length]} 
+  alt={card.title} 
+  style={imageAlignments[galleryImages[index % galleryImages.length]] ? { objectPosition: imageAlignments[galleryImages[index % galleryImages.length]] } : {}}
+/>
                   </div>
                   <span className="aq-story-no">N&deg;&nbsp;{String(index + 1).padStart(2, '0')}</span>
                   <h3 className="aq-story-title">{card.title}</h3>
@@ -435,6 +457,7 @@ const Basketball = () => {
               src={galleryImages[currentIndex]}
               alt={`Basketball gallery ${currentIndex + 1}`}
               className={`aq-strip-image aq-slide-${slideDir}`}
+              style={imageAlignments[galleryImages[currentIndex]] ? { objectPosition: imageAlignments[galleryImages[currentIndex]] } : {}}
             />
             <div className="aq-strip-caption">
               <span>
