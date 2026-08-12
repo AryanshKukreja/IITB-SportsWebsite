@@ -13,6 +13,12 @@ import bm8 from '../assets/bm8.jpeg';
 import user from '../assets/user.jpg';
 import councilLogo from '../../../../../Contact/pictures/Logos_for_Photos/IITB Sports Logo BW.png';
 import radhika from '../../../../../Contact/pictures/Logos_for_Photos/radhika.JPG';
+const imageAlignments = {
+  [bm1]: '50% 35%',
+  [bm4]: '50% 35%',
+  [bm6]: '50% 31%',
+  [bm8]: '50% 35%',
+};
 
 /* ============================================================
    REVEAL
@@ -88,8 +94,12 @@ function WaveDivider() {
 function PhotoBreak({ image, caption, tag }) {
   return (
     <Reveal as="div" className="aq-photobreak">
-      <img src={image} alt={caption} className="aq-photobreak-img" />
-      <div className="aq-photobreak-caption">
+<img 
+  src={image} 
+  alt={caption} 
+  className="aq-photobreak-img" 
+  style={imageAlignments[image] ? { objectPosition: imageAlignments[image] } : {}}
+/>      <div className="aq-photobreak-caption">
         <span>{tag}</span>
         <span>{caption}</span>
       </div>
@@ -282,7 +292,11 @@ const Badminton = () => {
           </div>
 
           <div className="aq-hero-photo">
-            <img src={bm1} alt="IIT Bombay Badminton courts" />
+            <img 
+  src={bm1} 
+  alt="IIT Bombay Badminton courts" 
+  style={imageAlignments[bm1] ? { objectPosition: imageAlignments[bm1] } : {}}
+/>
           </div>
         </Reveal>
 
@@ -305,7 +319,11 @@ const Badminton = () => {
             {facilities.map((f, i) => (
               <Reveal as="div" key={f.title} className="aq-facility-card" delay={i * 90}>
                 <div className="aq-facility-photo">
-                  <img src={f.image} alt={f.title} />
+                  <img 
+  src={f.image} 
+  alt={f.title} 
+  style={imageAlignments[f.image] ? { objectPosition: imageAlignments[f.image] } : {}}
+/>
                 </div>
                 <h3 className="aq-facility-title">{f.title}</h3>
                 <ul className="aq-facility-bullets">
@@ -347,7 +365,11 @@ const Badminton = () => {
                   aria-expanded={isOpen}
                 >
                   <div className="aq-story-photo">
-                    <img src={galleryImages[index % galleryImages.length]} alt={card.title} />
+                    <img 
+  src={galleryImages[index % galleryImages.length]} 
+  alt={card.title} 
+  style={imageAlignments[galleryImages[index % galleryImages.length]] ? { objectPosition: imageAlignments[galleryImages[index % galleryImages.length]] } : {}}
+/>
                   </div>
                   <span className="aq-story-no">N&deg;&nbsp;{String(index + 1).padStart(2, '0')}</span>
                   <h3 className="aq-story-title">{card.title}</h3>
@@ -427,6 +449,7 @@ const Badminton = () => {
               src={galleryImages[currentIndex]}
               alt={`Badminton gallery ${currentIndex + 1}`}
               className={`aq-strip-image aq-slide-${slideDir}`}
+              style={imageAlignments[galleryImages[currentIndex]] ? { objectPosition: imageAlignments[galleryImages[currentIndex]] } : {}}
             />
             <div className="aq-strip-caption">
               <span>
