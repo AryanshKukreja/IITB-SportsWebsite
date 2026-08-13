@@ -22,9 +22,7 @@
   --muted-2: #6b7382;
   --silver: #d6d9de;
   --bronze: #a7a39b;
-  --gold-tint: #ffffff;
   --shadow-1: 0 24px 80px rgba(0, 0, 0, 0.55);
-
   position: relative;
   min-height: 100vh;
   background: var(--ink);

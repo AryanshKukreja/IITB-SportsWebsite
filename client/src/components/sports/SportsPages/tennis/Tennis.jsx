@@ -6,6 +6,8 @@ import lt2 from './assets/lt2.jpg';
 import lt3 from './assets/lt3.jpg';
 import lt4 from './assets/lt4.jpg';
 import lt5 from './assets/lt5.jpg';
+import Timel from './timeline';
+import user from './assets/lt1.jpg';
 import tennisLogo from '../../../Contact/pictures/Logos_for_Photos/tennis.png';
 
 // MASTER ALIGNMENT DICTIONARY
@@ -77,14 +79,12 @@ function WaveDivider() {
   return (
     <div className="aq-wave" aria-hidden="true">
       <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
-        <path className="aq-wave-path aq-wave-path-1"
-          d="M0 20 Q 100 0 200 20 T 400 20 T 600 20 T 800 20 T 1000 20 T 1200 20 V40 H0 Z" />
         <path className="aq-wave-path aq-wave-path-2"
           d="M0 26 Q 100 6 200 26 T 400 26 T 600 26 T 800 26 T 1000 26 T 1200 26 V40 H0 Z" />
       </svg>
     </div>
   );
-}
+};
 
 /* ============================================================
    PHOTO BREAK

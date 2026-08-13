@@ -466,14 +466,12 @@ const Football = () => {
           </div>
         </Reveal>
 
-        {/* ── FOOTER ── */}
-        {/* <footer className="aq-footer">
+        <footer className="aq-footer">
           <span className="aq-footer-colophon">
-            <em>Set in Fraunces &amp; JetBrains Mono.</em>
+            IITB Football · <em>Sports Gymkhana, IIT Bombay</em>
           </span>
-          <span>IIT Bombay&nbsp;·&nbsp;Football&nbsp;·&nbsp;Ground &amp; Turf</span>
-          <span>Print / Digital&nbsp;·&nbsp;Final Edition</span>
-        </footer> */}
+          <span>© {new Date().getFullYear()}</span>
+        </footer>
 
       </div>
     </div>

@@ -7,7 +7,29 @@ import p2 from '../assets/2.jpg';
 import p3 from '../assets/3.jpg';
 import p4 from '../assets/4.jpg';
 import p5 from '../assets/5.jpg';
-import user from '../../../../../Contact/pictures/Logos_for_Photos/Praveen.jpg';
+import user from '../assets/user.jpg';
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d752.6671652193382!2d72.91190082224743!3d19.134256741593973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b80820306e3f%3A0xa4024d1ba55c8ed1!2sIITB%20New%20Gymkhana!5e1!3m2!1sen!2sin!4v1752435717790!5m2!1sen!2sin"
+              className="aq-map"
+              allowFullScreen=""
+              loading="lazy"
+              title="IIT Bombay Athletics Location"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </section>
+
+        <footer className="aq-footer">
+          <span className="aq-footer-colophon">
+            IITB Athletics · <em>Sports Gymkhana, IIT Bombay</em>
+          </span>
+          <span>© {new Date().getFullYear()}</span>
+        </footer>
+      </div>
+
+    </div>
+  );
+};
 
 /* ============================================================
    REVEAL
@@ -45,7 +67,6 @@ function Reveal({ as: Tag = 'div', className = '', delay = 0, children, ...rest 
       style={{ '--d': `${delay}ms` }}
       {...rest}
     >
-      {children}
     </Tag>
   );
 }
@@ -477,14 +498,12 @@ const Athletics = () => {
           </div>
         </Reveal>
 
-        {/* ── FOOTER ── */}
-        {/* <footer className="aq-footer">
+        <footer className="aq-footer">
           <span className="aq-footer-colophon">
-            <em>Set in Fraunces &amp; JetBrains Mono.</em>
+            IITB Athletics · <em>Sports Gymkhana, IIT Bombay</em>
           </span>
-          <span>IIT Bombay&nbsp;·&nbsp;Athletics&nbsp;·&nbsp;Track &amp; Field</span>
-          <span>Print / Digital&nbsp;·&nbsp;Final Edition</span>
-        </footer> */}
+          <span>© {new Date().getFullYear()}</span>
+        </footer>
 
       </div>
     </div>

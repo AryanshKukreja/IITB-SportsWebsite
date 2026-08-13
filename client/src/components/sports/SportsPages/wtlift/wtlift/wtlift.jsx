@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './aquatics.css';
 import './wtlift.css';
+import Timel from './timeline';
 import p1 from '../assets/p1.jpg';
 import p2 from '../assets/p2.jpg';
 import p3 from '../assets/p3.jpg';
@@ -45,7 +46,6 @@ function Reveal({ as: Tag = 'div', className = '', delay = 0, children, ...rest 
   }, []);
   return (
     <Tag ref={ref} className={`aq-reveal ${visible ? 'is-visible' : ''} ${className}`} style={{ '--d': `${delay}ms` }} {...rest}>
-      {children}
     </Tag>
   );
 }

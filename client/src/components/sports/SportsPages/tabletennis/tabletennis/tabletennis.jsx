@@ -7,6 +7,7 @@ import p2 from '../assets/p2.jpg';
 import p3 from '../assets/p3.jpg';
 import p4 from '../assets/p4.jpg';
 import p5 from '../assets/p5.jpg';
+import user from '../assets/user.jpg';
 import tableTennisLogo from '../../../../Contact/pictures/Logos_for_Photos/tabletennis.png';
 
 // MASTER ALIGNMENT DICTIONARY

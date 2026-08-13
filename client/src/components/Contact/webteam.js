@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './council.css';
-//import Aryansh from './pictures/Logos_for_Photos/Aryansh.png';
 import Disha from './pictures/Logos_for_Photos/disha.jpeg';
 import chirag from './pictures/Logos_for_Photos/chirag.png';
 import shivam from './pictures/Logos_for_Photos/shivam.jpeg';
-//import Shubh from './pictures/Logos_for_Photos/Shubh.jpg';
 import placeholder from './pictures/Logos_for_Photos/image.png';
 import { FaInstagram } from 'react-icons/fa';
 import { CiMail } from 'react-icons/ci';

@@ -313,12 +313,6 @@ function SilencioFrame({ onWipeStart, onFinish }) {
       onWipeStart();
     }, 2400);
     const t3 = setTimeout(() => onFinish(), 2400 + 900);
-  //   const t3 = setTimeout(() => {
-  //   const whoosh = new Audio('https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3');
-  //   whoosh.volume = 0.5;
-  //   whoosh.play().catch(() => {});
-  //   onFinish();
-  // }, 2400 + 900);
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

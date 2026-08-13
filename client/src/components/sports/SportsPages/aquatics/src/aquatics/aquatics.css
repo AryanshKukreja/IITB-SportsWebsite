@@ -163,6 +163,7 @@
   text-align: justify;
 }
 
+
 .aq-hero-stats {
   display: grid; grid-template-columns: 1fr 1fr;
   border: 1px solid var(--rule);
