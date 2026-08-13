@@ -16,6 +16,22 @@ import ing6 from "../images/ing6.png";
 import indianGamesLogo from '../../../../Contact/pictures/Logos_for_Photos/indiangames.png';
 import darshan from '../../../../Contact/pictures/Logos_for_Photos/darshan.JPG';
 
+// MASTER ALIGNMENT DICTIONARY
+// First percentage = X-axis (Left/Right). Second percentage = Y-axis (Up/Down).
+const imageAlignments = {
+  [img1]: { objectPosition: '50% 50%', transform: 'scale(1.15)', transformOrigin: '50% 50%' },
+  [img2]: { objectPosition: '50% 68%', transform: 'scale(1.15)', transformOrigin: '50% 68%' },
+  [img3]: { objectPosition: '50% 50%', transform: 'scale(1.15)', transformOrigin: '50% 50%' },
+  [img4]: { objectPosition: '50% 43%', transform: 'scale(1.15)', transformOrigin: '50% 50%' },
+  [img5]: { objectPosition: '50% 50%', transform: 'scale(1.15)', transformOrigin: '50% 50%' },
+  [ing]:  { objectPosition: '50% 70%', transform: 'scale(1.15)', transformOrigin: '50% 50%' },
+  [ing2]: { objectPosition: '50% 140%', transform: 'scale(1.15)', transformOrigin: '50% 50%' },
+  [ing3]: { objectPosition: '50% 80%', transform: 'scale(1.15)', transformOrigin: '50% 50%' },
+  [ing4]: { objectPosition: '50% 50%', transform: 'scale(1.15)', transformOrigin: '50% 50%' },
+  [ing5]: { objectPosition: '50% 15%', transform: 'scale(1.15)', transformOrigin: '50% 15%' },
+  [ing6]: { objectPosition: '50% 81%', transform: 'scale(1.15)', transformOrigin: '50% 50%' },
+};
+
 /* ============================================================
    REVEAL
 ============================================================ */
@@ -90,7 +106,12 @@ function WaveDivider() {
 function PhotoBreak({ image, caption, tag }) {
   return (
     <Reveal as="div" className="aq-photobreak">
-      <img src={image} alt={caption} className="aq-photobreak-img" />
+      <img 
+        src={image} 
+        alt={caption} 
+        className="aq-photobreak-img" 
+        style={imageAlignments[image] || {}}
+      />
       <div className="aq-photobreak-caption">
         <span>{tag}</span>
         <span>{caption}</span>
@@ -284,7 +305,11 @@ const IndianGames = () => {
           </div>
 
           <div className="aq-hero-photo">
-            <img src={ing4} alt="IIT Bombay Indian Games" />
+            <img 
+              src={ing4} 
+              alt="IIT Bombay Indian Games" 
+              style={imageAlignments[ing4] || {}}
+            />
           </div>
         </Reveal>
 
@@ -307,7 +332,11 @@ const IndianGames = () => {
             {facilities.map((f, i) => (
               <Reveal as="div" key={f.title} className="aq-facility-card" delay={i * 90}>
                 <div className="aq-facility-photo">
-                  <img src={f.image} alt={f.title} />
+                  <img 
+                    src={f.image} 
+                    alt={f.title} 
+                    style={imageAlignments[f.image] || {}}
+                  />
                 </div>
                 <h3 className="aq-facility-title">{f.title}</h3>
                 <ul className="aq-facility-bullets">
@@ -349,7 +378,11 @@ const IndianGames = () => {
                   aria-expanded={isOpen}
                 >
                   <div className="aq-story-photo">
-                    <img src={galleryImages[index % galleryImages.length]} alt={card.title} />
+                    <img 
+                      src={galleryImages[index % galleryImages.length]} 
+                      alt={card.title} 
+                      style={imageAlignments[galleryImages[index % galleryImages.length]] || {}}
+                    />
                   </div>
                   <span className="aq-story-no">N&deg;&nbsp;{String(index + 1).padStart(2, '0')}</span>
                   <h3 className="aq-story-title">{card.title}</h3>
@@ -423,6 +456,7 @@ const IndianGames = () => {
               src={galleryImages[currentIndex]}
               alt={`Indian Games gallery ${currentIndex + 1}`}
               className={`aq-strip-image aq-slide-${slideDir}`}
+              style={imageAlignments[galleryImages[currentIndex]] || {}}
             />
             <div className="aq-strip-caption">
               <span>
