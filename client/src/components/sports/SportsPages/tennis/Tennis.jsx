@@ -8,6 +8,16 @@ import lt4 from './assets/lt4.jpg';
 import lt5 from './assets/lt5.jpg';
 import tennisLogo from '../../../Contact/pictures/Logos_for_Photos/tennis.png';
 
+// MASTER ALIGNMENT DICTIONARY
+// First percentage = X-axis (Left/Right). Second percentage = Y-axis (Up/Down).
+const imageAlignments = {
+  [lt1]: { objectPosition: '50% 35%', transform: 'scale(1.15)', transformOrigin: '50% 50%' },
+  [lt2]: { objectPosition: '50% 40%', transform: 'scale(1.15)', transformOrigin: '50% 50%' },
+  [lt3]: { objectPosition: '50% 34%', transform: 'scale(1.15)', transformOrigin: '50% 50%' },
+  [lt4]: { objectPosition: '50% 39%', transform: 'scale(1.15)', transformOrigin: '50% 50%' },
+  [lt5]: { objectPosition: '5% 53%', transform: 'scale(1.15)', transformOrigin: '5% 50%' },
+};
+
 /* ============================================================
    REVEAL
 ============================================================ */
@@ -82,7 +92,12 @@ function WaveDivider() {
 function PhotoBreak({ image, caption, tag }) {
   return (
     <Reveal as="div" className="aq-photobreak">
-      <img src={image} alt={caption} className="aq-photobreak-img" />
+      <img 
+        src={image} 
+        alt={caption} 
+        className="aq-photobreak-img" 
+        style={imageAlignments[image] || {}}
+      />
       <div className="aq-photobreak-caption">
         <span>{tag}</span>
         <span>{caption}</span>
@@ -243,7 +258,11 @@ const Tennis = () => {
           </div>
 
           <div className="aq-hero-photo">
-            <img src={lt3} alt="IIT Bombay Lawn Tennis" />
+            <img 
+              src={lt3} 
+              alt="IIT Bombay Lawn Tennis" 
+              style={imageAlignments[lt3] || {}}
+            />
           </div>
         </Reveal>
 
@@ -266,7 +285,11 @@ const Tennis = () => {
             {facilities.map((f, i) => (
               <Reveal as="div" key={f.title} className="aq-facility-card" delay={i * 90}>
                 <div className="aq-facility-photo">
-                  <img src={f.image} alt={f.title} />
+                  <img 
+                    src={f.image} 
+                    alt={f.title} 
+                    style={imageAlignments[f.image] || {}}
+                  />
                 </div>
                 <h3 className="aq-facility-title">{f.title}</h3>
                 <ul className="aq-facility-bullets">
@@ -308,7 +331,11 @@ const Tennis = () => {
                   aria-expanded={isOpen}
                 >
                   <div className="aq-story-photo">
-                    <img src={galleryImages[index % galleryImages.length]} alt={card.title} />
+                    <img 
+                      src={galleryImages[index % galleryImages.length]} 
+                      alt={card.title} 
+                      style={imageAlignments[galleryImages[index % galleryImages.length]] || {}}
+                    />
                   </div>
                   <span className="aq-story-no">N&deg;&nbsp;{String(index + 1).padStart(2, '0')}</span>
                   <h3 className="aq-story-title">{card.title}</h3>
@@ -363,6 +390,7 @@ const Tennis = () => {
               src={galleryImages[currentIndex]}
               alt={`Lawn Tennis gallery ${currentIndex + 1}`}
               className={`aq-strip-image aq-slide-${slideDir}`}
+              style={imageAlignments[galleryImages[currentIndex]] || {}}
             />
             <div className="aq-strip-caption">
               <span>
