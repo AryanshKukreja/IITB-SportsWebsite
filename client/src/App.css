@@ -34,6 +34,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
 }
 
 body {
@@ -43,6 +44,9 @@ body {
   background: #0f172a;
   overflow-x: hidden;
   font-style: normal;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 p, span, li, label, a, button, input, textarea, select, small, strong, td, th {
@@ -76,6 +80,9 @@ blockquote,
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-width: 100vw;
+  overflow-x: hidden;
 }
 
 /* Main Content Area */
