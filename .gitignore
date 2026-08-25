@@ -1,0 +1,15 @@
+# dependencies
+/node_modules/
+/client/node_modules/
+
+# production build output
+/client/build/
+
+# local archives and temporary deployment files
+*.zip
+*.tar.gz
+
+# local environment files
+.env
+.env.*
+!.env.example
