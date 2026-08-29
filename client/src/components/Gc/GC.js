@@ -3,197 +3,217 @@ import { Trophy, Medal, Award, Flame } from "lucide-react";
 import "./GC.css";
 
 /* ============================================================
-   DATA
+   DATA (Season 2025–26, per GC_Points_2025-26.pdf)
 ============================================================ */
 const sportsData = {
-  Aquatics: [
-    { name: "H3", points: 10 },
-    { name: "H18", points: 6 },
-    { name: "H2", points: 4 },
+  LawnTennis: [
+    { name: "H18+6", points: 10 },
+    { name: "H1+16", points: 6 },
+    { name: "H3+8", points: 4 },
   ],
   Athletics: [
-    { name: "H2", points: 20 },
-    { name: "H3", points: 12 },
-    { name: "H5", points: 8 },
+    { name: "H3+8", points: 20 },
+    { name: "H17+9", points: 12 },
+    { name: "H2+7", points: 8 },
+  ],
+  Crossy1: [
+    { name: "H17+9", points: 10 },
+    { name: "H18+6", points: 6 },
+    { name: "H2+7", points: 4 },
+  ],
+  Crossy2: [
+    { name: "H17+9", points: 10 },
+    { name: "H18+6", points: 6 },
+    { name: "H3+8", points: 4 },
+  ],
+  Aquatics: [
+    { name: "H2+7", points: 10 },
+    { name: "H3+8", points: 6 },
+    { name: "H13", points: 4 },
+  ],
+  Waterpolo: [
+    { name: "H2+7", points: 2 },
+  ],
+  Triathlon: [
+    { name: "H3+8", points: 10 },
+    { name: "H18+6", points: 6 },
+    { name: "H13", points: 4 },
   ],
   Badminton: [
-    { name: "H6", points: 10 },
-    { name: "H2", points: 6 },
-    { name: "H3", points: 4 },
+    { name: "H3+8", points: 10 },
+    { name: "H2+7", points: 6 },
+    { name: "H18+6", points: 4 },
   ],
   Basketball: [
-    { name: "H2", points: 10 },
-    { name: "H13-14", points: 6 },
-    { name: "H5", points: 4 },
+    { name: "H2+7", points: 10 },
+    { name: "H1+16", points: 4 },
+    { name: "H14", points: 3 },
   ],
   Carrom: [
     { name: "H12", points: 10 },
-    { name: "H1,16", points: 6 },
-    { name: "H6", points: 4 },
+    { name: "H17+9", points: 6 },
+    { name: "H3+8", points: 2 },
   ],
   Chess: [
-    { name: "H6", points: 10 },
-    { name: "H2", points: 6 },
-    { name: "H9", points: 4 },
+    { name: "H2+7", points: 10 },
+    { name: "H18+6", points: 6 },
+    { name: "H3+8", points: 4 },
   ],
   Cricket: [
-    { name: "H18", points: 10 },
-    { name: "H2", points: 6 },
-    { name: "H5", points: 4 },
+    { name: "H2+7", points: 10 },
+    { name: "H14", points: 6 },
+    { name: "H17+9", points: 4 },
   ],
   Football: [
-    { name: "H2", points: 10 },
-    { name: "H3", points: 6 },
+    { name: "H17+9", points: 6 },
+    { name: "H14", points: 5 },
+    { name: "H13", points: 5 },
   ],
   Hockey: [
-    { name: "H5", points: 10 },
-    { name: "H12,14", points: 6 },
-    { name: "H3", points: 4 },
+    { name: "H18+6", points: 10 },
+    { name: "H5+Tansa+H4", points: 6 },
+    { name: "H3+8", points: 4 },
   ],
   KhoKho: [
-    { name: "H3", points: 10 },
-    { name: "H5", points: 6 },
-    { name: "H2", points: 4 },
-  ],
-  LawnTennis: [
-    { name: "H3", points: 10 },
-    { name: "H6", points: 6 },
-    { name: "H1,16", points: 4 },
-  ],
-  Squash: [
-    { name: "H5", points: 10 },
-    { name: "H6", points: 6 },
-    { name: "H18", points: 4 },
-  ],
-  TableTennis: [
-    { name: "H9", points: 10 },
-    { name: "H1-16", points: 6 },
-    { name: "H2", points: 4 },
-  ],
-  Triathlon: [
-    { name: "H18", points: 10 },
-    { name: "H9", points: 6 },
-    { name: "H5", points: 4 },
+    { name: "H5+Tansa+H4", points: 10 },
+    { name: "H2+7", points: 6 },
+    { name: "H3+8", points: 4 },
   ],
   TugofWar: [
-    { name: "H18", points: 10 },
+    { name: "H13", points: 10 },
     { name: "H14", points: 6 },
-    { name: "H13", points: 4 },
-  ],
-  Volleyball: [
-    { name: "H9", points: 10 },
-    { name: "H3", points: 6 },
     { name: "H12", points: 4 },
   ],
-  Waterpolo: [
-    { name: "H2", points: 10 },
-    { name: "H6", points: 6 },
-    { name: "H3", points: 4 },
+  Frisbee: [
+    { name: "H3+8", points: 10 },
+    { name: "H2+7", points: 6 },
+    { name: "H1+16", points: 4 },
+  ],
+  Kabaddi: [
+    { name: "H17+9", points: 10 },
+    { name: "H5+Tansa+H4", points: 6 },
+    { name: "H1+16", points: 4 },
+  ],
+  Squash: [
+    { name: "H17+9", points: 10 },
+    { name: "H5+Tansa+H4", points: 6 },
+    { name: "H18+6", points: 4 },
+  ],
+  TableTennis: [
+    { name: "H17+9", points: 10 },
+    { name: "H2+7", points: 6 },
+    { name: "H3+8", points: 4 },
+  ],
+  Volleyball: [
+    { name: "H17+9", points: 10 },
+    { name: "H14", points: 6 },
+    { name: "H18+6", points: 4 },
   ],
   Weightlifting: [
-    { name: "H2", points: 10 },
-    { name: "H6", points: 6 },
-    { name: "H18", points: 4 },
+    { name: "H2+7", points: 10 },
+    { name: "H3+8", points: 6 },
+    { name: "H18+6", points: 4 },
   ],
 };
 
 const girlsSportsData = {
+  LawnTennis: [
+    { name: "H11+21", points: 10 },
+  ],
+  Athletics: [
+    { name: "H11+21", points: 20 },
+    { name: "H10", points: 12 },
+    { name: "H15B", points: 8 },
+  ],
+  Crossy1: [
+    { name: "H10", points: 10 },
+    { name: "H11+21", points: 6 },
+    { name: "H15B", points: 4 },
+  ],
+  Crossy2: [
+    { name: "H10", points: 10 },
+    { name: "H11+21", points: 6 },
+    { name: "H15A", points: 4 },
+  ],
   Aquatics: [
     { name: "H10", points: 10 },
     { name: "H15A", points: 6 },
-    { name: "H15B", points: 4 },
+    { name: "H11+21", points: 4 },
   ],
-  Athletics: [
-    { name: "H15A", points: 20 },
-    { name: "H10", points: 12 },
-    { name: "H11", points: 8 },
+  Triathlon: [
+    { name: "H10", points: 10 },
+    { name: "H11+21", points: 6 },
   ],
   Badminton: [
-    { name: "H15B", points: 10 },
-    { name: "H10", points: 6 },
-    { name: "H11", points: 4 },
+    { name: "H10", points: 10 },
+    { name: "H11+21", points: 6 },
+    { name: "H16C", points: 4 },
   ],
   Basketball: [
     { name: "H10", points: 10 },
-    { name: "H15A", points: 6 },
+    { name: "H11+21", points: 6 },
     { name: "H15B", points: 4 },
-  ],
-  Carrom: [
-    { name: "H11", points: 10 },
-    { name: "H10", points: 6 },
-    { name: "H15A", points: 4 },
   ],
   Chess: [
-    { name: "H15A", points: 10 },
-    { name: "H10", points: 6 },
-    { name: "H15B", points: 4 },
-  ],
-  Cricket: [
-    { name: "H15B", points: 10 },
-    { name: "H10", points: 6 },
-    { name: "H11", points: 4 },
-  ],
-  Football: [
     { name: "H10", points: 10 },
-    { name: "H15A", points: 6 },
-  ],
-  Hockey: [
-    { name: "H11", points: 10 },
-    { name: "H15B", points: 6 },
-    { name: "H10", points: 4 },
-  ],
-  KhoKho: [
-    { name: "H10", points: 10 },
-    { name: "H11", points: 6 },
+    { name: "H11+21", points: 6 },
     { name: "H15A", points: 4 },
   ],
-  LawnTennis: [
+  Football: [
+    { name: "H11+21", points: 10 },
+    { name: "H10", points: 6 },
+    { name: "H15A", points: 2 },
+  ],
+  Hockey: [
     { name: "H10", points: 10 },
-    { name: "H15A", points: 6 },
-    { name: "H15B", points: 4 },
+    { name: "H11+21", points: 6 },
+  ],
+  KhoKho: [
+    { name: "H15B", points: 10 },
+    { name: "H10", points: 6 },
+    { name: "H11+21", points: 4 },
+  ],
+  TugofWar: [
+    { name: "H11+21", points: 10 },
+    { name: "H10", points: 6 },
   ],
   Squash: [
-    { name: "H11", points: 10 },
-    { name: "H15A", points: 6 },
-    { name: "H15B", points: 4 },
+    { name: "H11+21", points: 10 },
+    { name: "H10", points: 6 },
   ],
   TableTennis: [
     { name: "H15B", points: 10 },
-    { name: "H10", points: 6 },
-    { name: "H11", points: 4 },
+    { name: "H11+21", points: 6 },
+    { name: "H10", points: 4 },
   ],
   Volleyball: [
-    { name: "H15B", points: 10 },
-    { name: "H10", points: 6 },
-    { name: "H11", points: 4 },
-  ],
-  Waterpolo: [
     { name: "H10", points: 10 },
-    { name: "H15A", points: 6 },
-    { name: "H15B", points: 4 },
+    { name: "H11+21", points: 6 },
+  ],
+  Weightlifting: [
+    { name: "H10", points: 10 },
+    { name: "H11+21", points: 6 },
   ],
 };
 
 const standings = [
-  { name: "H2", points: 99.5 },
-  { name: "H3", points: 82.5 },
-  { name: "H18", points: 65.5 },
-  { name: "H6", points: 61.5 },
-  { name: "H5", points: 61.5 },
-  { name: "H9", points: 55 },
-  { name: "H14", points: 24 },
-  { name: "H1+16", points: 21.5 },
-  { name: "H12", points: 20 },
-  { name: "H13", points: 18.5 },
-  { name: "H17", points: 12 },
-  { name: "H4", points: 10 },
+  { name: "H17+9", points: 95.5 },
+  { name: "H3+8", points: 85.5 },
+  { name: "H2+7", points: 83 },
+  { name: "H18+6", points: 67.5 },
+  { name: "H5+Tansa+H4", points: 55.5 },
+  { name: "H14", points: 29.16 },
+  { name: "H12", points: 26.66 },
+  { name: "H13", points: 25.66 },
+  { name: "H1+16", points: 19.5 },
 ];
 
 const girlsStandings = [
-  { name: "H10", points: 116 },
-  { name: "H15B", points: 100 },
-  { name: "H15A", points: 62 },
-  { name: "H11", points: 56 },
+  { name: "H10", points: 140 },
+  { name: "H11+21", points: 128 },
+  { name: "H15B", points: 43 },
+  { name: "H15A", points: 25 },
+  { name: "H16C", points: 6 },
 ];
 
 /* ============================================================
@@ -201,15 +221,15 @@ const girlsStandings = [
 ============================================================ */
 const introSteps = [
   {
-    value: 12,
+    value: 14,
     label: "Hostels",
-    sub: "Twelve houses. One campus.",
+    sub: "Fourteen houses. One campus.",
     fileTag: "§ I  ·  ROSTER",
     metaL: ["FRAME / 01", "VOL. LXVI"],
     metaR: ["EST. 1958", "POWAI"],
   },
   {
-    value: 14,
+    value: 22,
     label: "Sports",
     sub: "Every arena. Every discipline.",
     fileTag: "§ II  ·  ARENA",
@@ -382,9 +402,9 @@ function SilencioFrame({ onWipeStart, onFinish }) {
         <div className="gc-silencio-sub">{subDisplay}</div>
 
         <div className="gc-silencio-meta">
-          <span>12 Hostels</span>
+          <span>14 Hostels</span>
           <span className="gc-silencio-meta-sep">·</span>
-          <span>14 Sports</span>
+          <span>22 Sports</span>
           <span className="gc-silencio-meta-sep">·</span>
           <span>One name engraved</span>
         </div>
@@ -563,7 +583,7 @@ const GC = () => {
     i === 0 ? "rank-gold" : i === 1 ? "rank-silver" : i === 2 ? "rank-bronze" : "";
 
   const sportsCount = Object.keys(sportsData).length;
-  const hostelsCount = 18;
+  const hostelsCount = 14;
 
   return (
     <div className="gc-root" data-testid="gc-root">
@@ -593,7 +613,7 @@ const GC = () => {
           <div className="gc-masthead-meta">
             <span><strong>IIT Bombay</strong> · Powai</span>
             <span>Est. <strong>1958</strong></span>
-            <span>Season <strong>2024–25</strong></span>
+            <span>Season <strong>2025–26</strong></span>
           </div>
         </header>
 
@@ -614,7 +634,7 @@ const GC = () => {
                 <span className="underline-mark">Championship</span>.
               </h1>
               <p className="gc-hero-lede">
-                Twelve houses. Every arena on campus. One name gets etched into
+                Fourteen houses. Every arena on campus. One name gets etched into
                 the trophy &mdash; the rest go home rewriting their story for
                 next season.
               </p>
@@ -623,7 +643,7 @@ const GC = () => {
             <aside className="gc-hero-stats" data-testid="gc-hero-stats">
               <div className="gc-hero-stat">
                 <span className="k">Hostels</span>
-                <span className="v">12</span>
+                <span className="v">14</span>
                 <span className="c">Contesting</span>
               </div>
               <div className="gc-hero-stat">
@@ -959,13 +979,13 @@ const GC = () => {
         )}
 
         {/* FOOTER */}
-        <footer className="gc-footer" data-testid="gc-footer">
+        {/* <footer className="gc-footer" data-testid="gc-footer">
           <span className="colophon">
             <em>Set in Fraunces &amp; JetBrains Mono.</em>
           </span>
           <span>IIT Bombay · Inter-Hostel · § Vol. LXVI · {new Date().getFullYear()}</span>
           <span>Print / Digital · Final Edition</span>
-        </footer>
+        </footer> */}
       </div>
     </div>
   );
