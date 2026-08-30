@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Trophy, Medal, Award, Flame } from "lucide-react";
+import { Trophy, Medal, Award, Flame, Clock, MapPin, ChevronDown, ChevronUp } from "lucide-react";
+import { Link } from "react-router-dom";
 import "./GC.css";
+import { db } from "../../firebase";
+import { ref, onValue } from "firebase/database";
 
 /* ============================================================
    DATA
@@ -548,16 +551,50 @@ const GC = () => {
   const [activeTab, setActiveTab] = useState("boys");
   const [selectedSport, setSelectedSport] = useState("");
 
-  const currentSportsData = activeTab === "boys" ? sportsData : girlsSportsData;
-  const currentStandings = activeTab === "boys" ? standings : girlsStandings;
+  const [standingsState, setStandingsState] = useState({ boys: standings, girls: girlsStandings });
+  const [sportsDataState, setSportsDataState] = useState({ boys: sportsData, girls: girlsSportsData });
+  const [matches, setMatches] = useState({});
+  const [expandedMatchId, setExpandedMatchId] = useState(null);
+
+  useEffect(() => {
+    const gcRef = ref(db, "gc");
+    const unsub = onValue(gcRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        if (data.standings) {
+          setStandingsState({
+            boys: data.standings.boys || standings,
+            girls: data.standings.girls || girlsStandings
+          });
+        }
+        if (data.sportsData) {
+          setSportsDataState({
+            boys: data.sportsData.boys || sportsData,
+            girls: data.sportsData.girls || girlsSportsData
+          });
+        }
+        if (data.matches) {
+          setMatches(data.matches);
+        }
+      }
+    });
+    return () => unsub();
+  }, []);
+
+  const currentSportsData = activeTab === "boys" ? sportsDataState.boys : sportsDataState.girls;
+  const currentStandings = activeTab === "boys" ? standingsState.boys : standingsState.girls;
   const podium = currentStandings.slice(0, 3);
   const selectedSportData = currentSportsData[selectedSport] || [];
 
   const rankClass = (i) =>
     i === 0 ? "rank-gold" : i === 1 ? "rank-silver" : i === 2 ? "rank-bronze" : "";
 
-  const sportsCount = Object.keys(sportsData).length;
+  const sportsCount = Object.keys(currentSportsData).length;
   const hostelsCount = 18;
+
+  const activeMatches = Object.values(matches).filter(
+    (m) => m && m.category === activeTab
+  );
 
   return (
     <div className="gc-root" data-testid="gc-root">
@@ -670,6 +707,117 @@ const GC = () => {
             <span className="idx">B.</span>Girls&rsquo; GC
           </button>
         </nav>
+
+        {/* LIVE MATCH TICKER */}
+        {activeMatches.length > 0 && (
+          <section className="gc-section gc-matches-section">
+            <div className="gc-eyebrow">
+              <span>
+                <span className="num">§ 01.5</span> &nbsp;·&nbsp; Live & Upcoming Battles
+              </span>
+              <span className="bar" />
+            </div>
+            <div className="gc-section-head">
+              <h2 className="gc-section-title">
+                Match <span className="italic">ticker</span>.
+              </h2>
+              <p className="gc-section-sub">
+                Real-time score updates and commentary from the fields.
+              </p>
+            </div>
+
+            <div className="gc-matches-grid">
+              {activeMatches.map((match) => {
+                const isLive = match.status === "live";
+                const isExpanded = expandedMatchId === match.id;
+                
+                return (
+                  <div key={match.id} className={`gc-match-card ${isLive ? "is-live" : ""}`}>
+                    <div className="gc-match-badge-wrap">
+                      <span className={`gc-match-badge ${match.status}`}>
+                        {isLive && "● "}
+                        {match.status}
+                      </span>
+                      <span className="gc-match-sport-info">
+                        {match.sport} &middot; {match.stage}
+                      </span>
+                    </div>
+
+                    <div className="gc-match-teams-grid">
+                      <div className="gc-match-team-block">
+                        <span className="gc-match-team-name">{match.teamA}</span>
+                        <span className="gc-match-team-emblem">{initials(match.teamA)}</span>
+                      </div>
+                      <div className="gc-match-score">
+                        {match.scoreA} <span className="gc-match-vs">&nbsp;vs&nbsp;</span> {match.scoreB}
+                      </div>
+                      <div className="gc-match-team-block">
+                        <span className="gc-match-team-name">{match.teamB}</span>
+                        <span className="gc-match-team-emblem">{initials(match.teamB)}</span>
+                      </div>
+                    </div>
+
+                    <div className="gc-match-meta-list">
+                      {match.venue && (
+                        <div className="gc-match-meta-item">
+                          <MapPin className="gc-match-meta-icon" size={14} />
+                          <span>{match.venue}</span>
+                        </div>
+                      )}
+                      {match.time && (
+                        <div className="gc-match-meta-item">
+                          <Clock className="gc-match-meta-icon" size={14} />
+                          <span>{match.time}</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {match.liveUpdates && (
+                      <button
+                        className="gc-match-commentary-btn"
+                        onClick={() => setExpandedMatchId(isExpanded ? null : match.id)}
+                      >
+                        {isExpanded ? (
+                          <>
+                            Hide Commentary <ChevronUp size={14} />
+                          </>
+                        ) : (
+                          <>
+                            View Live Commentary <ChevronDown size={14} />
+                          </>
+                        )}
+                      </button>
+                    )}
+
+                    {isExpanded && match.liveUpdates && (
+                      <div className="gc-match-commentary-feed">
+                        <h4>Play-by-play Feed</h4>
+                        <div className="gc-match-commentary-list">
+                          {Object.values(match.liveUpdates)
+                            .sort((a, b) => b.timestamp - a.timestamp)
+                            .map((update, idx) => (
+                              <div key={idx} className="gc-match-commentary-item">
+                                <span className="gc-match-comm-time">
+                                  {new Date(update.timestamp).toLocaleTimeString([], {
+                                    hour: "2-digit",
+                                    minute: "2-digit"
+                                  })}
+                                </span>
+                                <span className="gc-match-comm-score">
+                                  [{update.scoreA} - {update.scoreB}]
+                                </span>
+                                <span className="gc-match-comm-msg">{update.message}</span>
+                              </div>
+                            ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        )}
 
         {/* PODIUM */}
         <section className="gc-section" aria-label="Top three overall">
@@ -955,7 +1103,10 @@ const GC = () => {
         {/* FOOTER */}
         <footer className="gc-footer" data-testid="gc-footer">
           <span className="colophon">
-            <em>Set in Fraunces &amp; JetBrains Mono.</em>
+            <em>Set in Fraunces &amp; JetBrains Mono.</em> &nbsp;·&nbsp;{" "}
+            <Link to="/gc-admin" style={{ color: "var(--primary-light)", textDecoration: "none" }}>
+              Admin Portal
+            </Link>
           </span>
           <span>IIT Bombay · Inter-Hostel · § Vol. LXVI · {new Date().getFullYear()}</span>
           <span>Print / Digital · Final Edition</span>

@@ -1119,3 +1119,239 @@
   .gc-silencio-ticker-reverse,
   .gc-silencio-enter > * { animation: none !important; opacity: 1; }
 }
+
+/* ============================================================
+   LIVE MATCH SCORECARDS & commentary css
+   ============================================================ */
+.gc-matches-section {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.gc-matches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.gc-match-card {
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gc-match-card:hover {
+  border-color: var(--rule-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.gc-match-card.is-live {
+  border-top: 2px solid var(--primary-light);
+}
+
+.gc-match-badge-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.gc-match-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.gc-match-badge.live {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  animation: pulse-border 2s infinite;
+}
+
+.gc-match-badge.upcoming {
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.gc-match-badge.completed {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+@keyframes pulse-border {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+.gc-match-sport-info {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.gc-match-teams-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--panel-2);
+  padding: 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  margin-bottom: 16px;
+}
+
+.gc-match-team-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+}
+
+.gc-match-team-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cream);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.gc-match-team-emblem {
+  width: 32px;
+  height: 32px;
+  background: var(--primary-deep);
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--primary-light);
+}
+
+.gc-match-score {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-light);
+  line-height: 1;
+}
+
+.gc-match-vs {
+  font-size: 11px;
+  color: var(--muted-2);
+  font-weight: 600;
+}
+
+.gc-match-meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gc-match-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gc-match-meta-icon {
+  color: var(--muted-2);
+  flex-shrink: 0;
+}
+
+.gc-match-commentary-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--cream);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.gc-match-commentary-btn:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.gc-match-commentary-feed {
+  margin-top: 14px;
+  background: var(--panel-2);
+  border-radius: 6px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.gc-match-commentary-feed h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  margin: 0 0 10px 0;
+}
+
+.gc-match-commentary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gc-match-commentary-item {
+  font-size: 12px;
+  line-height: 1.4;
+  border-left: 1px solid var(--primary-light);
+  padding-left: 8px;
+}
+
+.gc-match-comm-time {
+  color: var(--muted-2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.gc-match-comm-score {
+  color: var(--primary-light);
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.gc-match-comm-msg {
+  color: var(--cream);
+}
+

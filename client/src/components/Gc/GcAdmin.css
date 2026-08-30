@@ -1,0 +1,683 @@
+/* ============================================================
+   GC ADMIN PANEL STYLE
+   Editorial Dossier Theme Integration
+   ============================================================ */
+
+.gc-admin-login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background-color: #06080c;
+  font-family: 'Inter Tight', sans-serif;
+  color: #f4f1ea;
+  padding: 24px;
+}
+
+.gc-admin-login-card {
+  background: #11161f;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 8px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+}
+
+.gc-admin-logo-mark {
+  width: 60px;
+  height: 60px;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.gc-admin-logo-mark .logo-icon {
+  color: #3b82f6;
+}
+
+.gc-admin-login-card h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.gc-admin-login-card p {
+  color: #9aa3b2;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+.gc-admin-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: #0a0d13;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 1rem;
+  margin-bottom: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.gc-admin-input:focus {
+  border-color: #3b82f6;
+}
+
+.gc-admin-login-error {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+/* Base Dashboard Grid */
+.gc-admin-root {
+  background-color: #06080c;
+  color: #f4f1ea;
+  min-height: 100vh;
+  padding: 40px 24px;
+  font-family: 'Inter Tight', sans-serif;
+}
+
+.gc-admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+
+.gc-admin-title-area {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.gc-admin-title-area h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  margin: 0;
+  color: #ffffff;
+}
+
+.gc-admin-title-area p {
+  margin: 4px 0 0 0;
+  color: #9aa3b2;
+  font-size: 0.9rem;
+}
+
+.gc-admin-header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Alert styles */
+.gc-admin-alert {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  padding: 16px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.gc-admin-alert.success {
+  background-color: #065f46;
+  color: #34d399;
+  border: 1px solid #059669;
+}
+
+.gc-admin-alert.error {
+  background-color: #991b1b;
+  color: #fca5a5;
+  border: 1px solid #dc2626;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Buttons */
+.gc-admin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.gc-admin-btn.primary {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+.gc-admin-btn.primary:hover {
+  background-color: #2563eb;
+}
+
+.gc-admin-btn.outline {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f4f1ea;
+}
+
+.gc-admin-btn.outline:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.gc-admin-btn.danger {
+  background-color: #dc2626;
+  color: #ffffff;
+}
+
+.gc-admin-btn.danger:hover {
+  background-color: #b91c1c;
+}
+
+.gc-admin-btn.full-width {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Tabs Navigation */
+.gc-admin-tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 32px;
+}
+
+.gc-admin-tab {
+  background: none;
+  border: none;
+  color: #9aa3b2;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.gc-admin-tab:hover {
+  color: #ffffff;
+}
+
+.gc-admin-tab.active {
+  color: #3b82f6;
+  border-bottom-color: #3b82f6;
+}
+
+/* Layout Cards */
+.gc-admin-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .gc-admin-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gc-admin-card {
+  background: #11161f;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gc-admin-card.full-width-card {
+  grid-column: span 2;
+}
+
+.gc-admin-card h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 12px;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  color: #9aa3b2;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px 14px;
+  background: #0a0d13;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #3b82f6;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Matches Panel List */
+.no-matches-msg {
+  color: #9aa3b2;
+  text-align: center;
+  padding: 40px 0;
+  font-style: italic;
+}
+
+.matches-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.match-admin-card {
+  background: #0a0d13;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+  transition: border-color 0.2s;
+}
+
+.match-admin-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.match-admin-card.live {
+  border-left: 3px solid #ef4444;
+}
+
+.match-admin-card.completed {
+  border-left: 3px solid #10b981;
+}
+
+.match-admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 8px;
+}
+
+.status-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.status-badge.live {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.status-badge.upcoming {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.status-badge.completed {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.match-meta {
+  color: #9aa3b2;
+  font-size: 0.85rem;
+  font-family: 'JetBrains Mono', monospace;
+  flex: 1;
+}
+
+.delete-match-btn {
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  padding: 4px;
+}
+
+.delete-match-btn:hover {
+  opacity: 1;
+}
+
+.match-teams-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: #11161f;
+  padding: 16px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.match-teams-score .team {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.match-teams-score .team-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.score-edit-input {
+  width: 60px;
+  padding: 8px;
+  text-align: center;
+  background: #0a0d13;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  font-family: 'JetBrains Mono', monospace;
+  outline: none;
+}
+
+.score-edit-input:focus {
+  border-color: #3b82f6;
+}
+
+.vs-sign {
+  color: #6b7382;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.match-status-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: #9aa3b2;
+  margin-bottom: 16px;
+}
+
+.match-status-row select {
+  background: #0a0d13;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.save-score-btn {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  background-color: #10b981;
+}
+
+.save-score-btn:hover {
+  background-color: #059669;
+}
+
+/* Commentary list inside Admin Panel */
+.commentary-input-section {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.commentary-input-section input {
+  flex: 1;
+  padding: 8px 12px;
+  background: #11161f;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 0.85rem;
+}
+
+.send-commentary-btn {
+  background: #3b82f6;
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.send-commentary-btn:hover {
+  background-color: #2563eb;
+}
+
+.admin-commentary-feed {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 12px;
+}
+
+.admin-commentary-feed h4 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #6b7382;
+  margin: 0 0 8px 0;
+}
+
+.admin-commentary-feed ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-commentary-feed li {
+  font-size: 0.8rem;
+  color: #9aa3b2;
+  margin-bottom: 6px;
+  display: flex;
+  gap: 8px;
+}
+
+.admin-commentary-feed li .time {
+  color: #555c68;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.admin-commentary-feed li .score {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.admin-commentary-feed li .msg {
+  flex: 1;
+}
+
+/* Category Toggles on card headers */
+.card-header-with-tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 12px;
+}
+
+.card-header-with-tabs h2 {
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.category-toggles {
+  display: flex;
+  background: #0a0d13;
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #9aa3b2;
+  padding: 6px 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggle-btn.active {
+  background: #11161f;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* Edit Tables */
+.standings-edit-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 24px;
+}
+
+.admin-edit-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-edit-table th,
+.admin-edit-table td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.admin-edit-table th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #6b7382;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.table-input {
+  background: #0a0d13;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  color: #ffffff;
+  padding: 8px 12px;
+  width: 100%;
+  outline: none;
+}
+
+.table-input:focus {
+  border-color: #3b82f6;
+}
+
+.table-input.points-input {
+  width: 120px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.action-btn.delete {
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  padding: 6px;
+}
+
+.action-btn.delete:hover {
+  opacity: 1;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+}
+
+/* Sport-wise selector bar */
+.sport-selector-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #0a0d13;
+  padding: 16px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sport-selector-row label {
+  color: #9aa3b2;
+  font-size: 0.9rem;
+}
+
+.sport-selector-row select {
+  background: #11161f;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  outline: none;
+}
+
+.empty-row-msg {
+  text-align: center;
+  color: #6b7382;
+  padding: 32px 0;
+  font-style: italic;
+}

@@ -50,6 +50,7 @@ import ChairpersonDashboard  from "./components/AdminPanel/ChairpersonDashboard"
 import DeanDashboard         from "./components/AdminPanel/DeanDashboard";
 import SuperadminDashboard   from "./components/AdminPanel/SuperadminDashboard";
 import BatchDetail           from "./components/AdminPanel/BatchDetail";
+import GcAdmin               from "./components/Gc/GcAdmin";
 
 function App() {
   // Use a root basename during local development so the homepage renders at localhost,
@@ -106,6 +107,7 @@ function App() {
             <Route path="/match-prediction" element={<MatchPrediction />} />
             <Route path="/certificates" element={<CertificatesPage />} />
             <Route path="/certificate-verification/:certId" element={<VerificationPage />} /> 
+            <Route path="/gc-admin" element={<GcAdmin />} />
             {/* Admin panel — not linked anywhere */}
             <Route path="/certificate-admin-gssa-0000"         element={<AdminLogin />} />
             <Route path="/certificate-admin-chairperson-1542"  element={<AdminLogin />} />

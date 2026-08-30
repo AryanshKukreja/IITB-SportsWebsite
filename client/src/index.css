@@ -1,1 +1,12 @@
 @import './assets/fonts/iitb-sports-fonts.css';
+
+@import './assets/fonts/iitb-sports-fonts.css';
+
+/* NUCLEAR OVERRIDE: Force the entire website to span 100% width */
+html, body, #root, .App {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
