@@ -8,7 +8,7 @@ const links = [
   { to: '/', label: 'Home' },
   { to: '/explore', label: 'Sports' },
   { to: '/CourtStatus', label: 'Court Status' },
-  { to: '/GC', label: 'GC' },
+  { to: '/GC', label: 'Live GC Scorecard' },
   { to: '/yearbook', label: 'Yearbook' },
   // { to: '/blogs', label: 'Blogs' },
   { to: '/events-timeline', label: 'Events Timeline' },
@@ -16,6 +16,7 @@ const links = [
   // { to: '/match-prediction', label: 'Match Prediction' },
   { to: '/turfbooking', label: 'Turf Booking' },
   { to: '/contact', label: 'Contact Us' },
+  { to: '/player-database', label: 'Player Database' }
 ];
 
 const Navbar = () => {

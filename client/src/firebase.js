@@ -2,13 +2,14 @@ import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-  apiKey:            "AIzaSyCZwMj0rXIv7q1io0PkozWrHoSuw10q840",
-  authDomain:        "matchpredictions-iitbsportsweb.firebaseapp.com",
-  databaseURL:       "https://matchpredictions-iitbsportsweb-default-rtdb.asia-southeast1.firebasedatabase.app/",
-  projectId:         "matchpredictions-iitbsportsweb",
-  storageBucket:     "matchpredictions-iitbsportsweb.firebasestorage.app",
-  messagingSenderId: "271440988360",
-  appId:             "1:271440988360:web:3f25b47160ceb7615efdfd",
+  apiKey: "AIzaSyAYJYcY8g0HlTlYE6URz1RjwT-pU12hxeo",
+  authDomain: "iitb-gc-26-27.firebaseapp.com",
+  databaseURL: "https://iitb-gc-26-27-default-rtdb.asia-southeast1.firebasedatabase.app/",
+  projectId: "iitb-gc-26-27",
+  storageBucket: "iitb-gc-26-27.firebasestorage.app",
+  messagingSenderId: "469460404402",
+  appId: "1:469460404402:web:4889301de41890e49621ab",
+  measurementId: "G-LLG7KP2KMV"
 };
 
 const app = initializeApp(firebaseConfig);

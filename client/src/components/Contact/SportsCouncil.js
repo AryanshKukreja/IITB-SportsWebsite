@@ -27,6 +27,7 @@ import manan from './pictures/Logos_for_Photos/manan.JPG';
 import supan from './pictures/Logos_for_Photos/supan.JPG';
 import darshan from './pictures/Logos_for_Photos/darshan.JPG';
 import varad from './pictures/Logos_for_Photos/varad.JPG';
+import Aditya from './pictures/Logos_for_Photos/Aditya.jpeg';
 
 /* ============================================================
    REVEAL — scroll-triggered entrance, with a hard fallback so
@@ -285,7 +286,7 @@ const secretaries = [
     role: 'Institute Football Secretary',
     name: 'Aditya Patil',
     phone: 'Call: 7507990444',
-    img: councilLogo,
+    img: Aditya,
     instagram: 'https://www.instagram.com/iitb_football/',
     mail: 'mailto:football@iitb.ac.in',
   },

@@ -686,7 +686,7 @@ const Aquatics = () => {
               <img alt="Ishanei" src={user} className="aq-contact-img" />
               <p className="aq-contact-name">Ishanei Kumar</p>
               <p className="aq-contact-role">Institute Aquatics Secretary</p>
-              <p className="aq-contact-detail">+91 93235 87701</p>
+              <p className="aq-contact-detail">+91 6266624331</p>
             </div>
           </div>
         </Reveal>

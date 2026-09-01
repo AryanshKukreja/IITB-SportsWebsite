@@ -7,7 +7,8 @@ import football_ground from '../assets/football_ground.jpeg';
 import football_team from '../assets/football_team.jpeg';
 import logo from '../assets/logo.jpeg';
 import turf from '../assets/turf.jpeg';
-import user from '../../../../Contact/pictures/Logos_for_Photos/Yash.jpg';
+import user from '../../../../Contact/pictures/Logos_for_Photos/Aditya.jpeg';
+
 
 /* ============================================================
    REVEAL

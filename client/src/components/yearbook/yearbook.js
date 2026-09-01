@@ -311,9 +311,10 @@ function PersonAvatar({ person, size = 64 }) {
   const candidates = useMemo(() => {
     if (PERSON_PHOTOS[person.name]) return [PERSON_PHOTOS[person.name]];
 
-    const awsCandidates = [];
+    const orderedCandidates = [];
+
     if (isAwsS3PhotoUrl(person.photo)) {
-      awsCandidates.push(person.photo);
+      orderedCandidates.push(person.photo);
     }
 
     const sportsList = person.sports && person.sports.length > 0
@@ -322,16 +323,18 @@ function PersonAvatar({ person, size = 64 }) {
 
     const extensions = ["jpeg", "jpg", "png", "JPG", "JPEG", "PNG", "webp", "WEBP"];
 
-    const generatedCandidates = sportsList.flatMap((personSport) => {
+    sportsList.forEach((personSport) => {
       const folder = assetFolderNames[personSport] || personSport;
-      return fileStemVariants.flatMap((stem) =>
-        extensions.map(
-          (ext) => `${assetsBaseUrl}/${encodeURIComponent(folder)}/${encodeURIComponent(stem)}.${ext}`
-        )
-      );
+      const variants = fileStemVariants.slice(0, 3);
+      variants.forEach((stem) => {
+        const candidatesForStem = extensions
+          .slice(0, 3)
+          .map((ext) => `${assetsBaseUrl}/${encodeURIComponent(folder)}/${encodeURIComponent(stem)}.${ext}`);
+        orderedCandidates.push(...candidatesForStem);
+      });
     });
 
-    return [...awsCandidates, ...generatedCandidates];
+    return [...new Set(orderedCandidates)];
   }, [person.name, person.photo, person.sports, fileStemVariants]);
 
   const style = { width: `${size}px`, height: `${size}px`, minWidth: `${size}px` };

@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Trophy, Medal, Award, Flame } from "lucide-react";
+import { ref, onValue } from "firebase/database";
+import { db } from "../../firebase";
 import "./GC.css";
 
 /* ============================================================
@@ -573,6 +575,18 @@ const GC = () => {
   const [phase, setPhase] = useState("dossier"); // dossier | silencio | wipe | done
   const [activeTab, setActiveTab] = useState("boys");
   const [selectedSport, setSelectedSport] = useState("");
+  const [liveMatches, setLiveMatches] = useState([]);
+
+  useEffect(() => {
+    const matchesRef = ref(db, "gc/matches");
+    const unsubscribe = onValue(matchesRef, (snapshot) => {
+      const data = snapshot.val();
+      const matches = data ? Object.values(data) : [];
+      setLiveMatches(matches);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const currentSportsData = activeTab === "boys" ? sportsData : girlsSportsData;
   const currentStandings = activeTab === "boys" ? standings : girlsStandings;
@@ -665,9 +679,77 @@ const GC = () => {
           </div>
         </section>
 
+        <section className="gc-section" aria-label="Live scorecard">
+          <div className="gc-eyebrow">
+            <span>
+              <span className="num">§ 01</span> &nbsp;·&nbsp; Live Scorecard
+            </span>
+            <span className="bar" />
+          </div>
+          <div className="gc-section-head">
+            <h2 className="gc-section-title">
+              Live <span className="italic">match centre</span>.
+            </h2>
+            <p className="gc-section-sub">
+              Scores update in real time from the admin panel.
+            </p>
+          </div>
+
+          {liveMatches.length === 0 ? (
+            <div className="gc-table-wrap">
+              <p style={{ padding: "1.5rem", textAlign: "center", color: "#c8d1ef" }}>
+                No matches scheduled yet. Check back soon.
+              </p>
+            </div>
+          ) : (
+            <div className="gc-podium" style={{ marginTop: "1.2rem" }}>
+              {liveMatches.map((match) => (
+                <div key={match.id} className="gc-podium-card" style={{ minWidth: "220px" }}>
+                  <div className="gc-podium-meta">
+                    <span className="gc-podium-place">
+                      <span className="ord">{(match.status || "upcoming").toUpperCase()}</span>
+                    </span>
+                    <span className="gc-podium-place" style={{ fontSize: "0.72rem" }}>
+                      {match.sport} · {match.category}
+                    </span>
+                  </div>
+                  <h3 style={{ margin: "0.5rem 0" }}>{match.stage}</h3>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "0.75rem", fontWeight: 700, fontSize: "1.1rem" }}>
+                    <span>{match.teamA}</span>
+                    <span>{match.scoreA ?? 0}</span>
+                    <span>:</span>
+                    <span>{match.scoreB ?? 0}</span>
+                    <span>{match.teamB}</span>
+                  </div>
+                  {(match.venue || match.time) && (
+                    <p style={{ marginTop: "0.8rem", color: "#dfe7ff", fontSize: "0.82rem" }}>
+                      {match.venue || "Venue TBD"} · {match.time || "Time TBD"}
+                    </p>
+                  )}
+                  {match.liveUpdates && (
+                    <div style={{ marginTop: "0.8rem", borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "0.8rem" }}>
+                      {Object.values(match.liveUpdates)
+                        .sort((a, b) => b.timestamp - a.timestamp)
+                        .slice(0, 2)
+                        .map((update, idx) => (
+                          <p key={idx} style={{ margin: "0.25rem 0", fontSize: "0.8rem", color: "#dfe7ff" }}>
+                            {new Date(update.timestamp).toLocaleTimeString([], {
+                              hour: "2-digit",
+                              minute: "2-digit",
+                            })} · {update.message}
+                          </p>
+                        ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+
         {/* TABS */}
         <div className="gc-eyebrow">
-          <span><span className="num">§ 01</span> &nbsp;·&nbsp; Category</span>
+          <span><span className="num">§ 02</span> &nbsp;·&nbsp; Category</span>
           <span className="bar" />
         </div>
         <nav

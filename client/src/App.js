@@ -42,12 +42,14 @@ import BlogsPage from "./components/Blogs/BlogPage";
 import MatchPrediction from "./components/matchprediction/matchprediction";
 import CertificatesPage from "./components/Certificates/Certificatespage";
 import VerificationPage from "./components/Certificates/Verificationpage";
+import GcAdmin from "./components/Gc/GCAdmin";
 import AdminLogin            from "./components/AdminPanel/AdminLogin";
 import SecyDashboard         from "./components/AdminPanel/SecyDashboard";
 import ChairpersonDashboard  from "./components/AdminPanel/ChairpersonDashboard";
 import DeanDashboard         from "./components/AdminPanel/DeanDashboard";
 import SuperadminDashboard   from "./components/AdminPanel/SuperadminDashboard";
 import BatchDetail           from "./components/AdminPanel/BatchDetail";
+import PlayerDatabase from './components/PlayerDatabase/PlayerDatabase';
 
 function App() {
   // Use a root basename during local development so the homepage renders at localhost,
@@ -75,6 +77,7 @@ function App() {
             <Route path="/CourtStatus" element={<CourtStatus/>} />
             <Route path="/turfbooking" element={<BookingPage/>} />
             <Route path="/GC" element={<GC/>} />
+            <Route path="/gc-admin" element={<GcAdmin />} />
             <Route path="/admin-turf-booking-raj" element={<AdminPage/>} />
             <Route path="/events-timeline" element={<SportsCalendar/>} />
             <Route path="/football" element={<Football />} />
@@ -99,6 +102,7 @@ function App() {
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/feedback-admin" element={<AdminDashboard />} />
             <Route path="/blogs" element={<BlogsPage />} />
+            <Route path="/player-database" element={<PlayerDatabase />} />
             <Route path="/match-prediction" element={<MatchPrediction />} />
             <Route path="/certificates" element={<CertificatesPage />} />
             <Route path="/certificate-verification/:certId" element={<VerificationPage />} /> 
