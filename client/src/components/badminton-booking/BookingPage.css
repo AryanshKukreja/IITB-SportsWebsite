@@ -1,0 +1,22 @@
+.badminton-booking-container { --happy-green: #73d9a0; --happy-green-deep: #10b981; --primary-light: #3b82f6; }
+.badminton-slots-note { max-width: 620px; }
+.badminton-load-status { position: relative; z-index: 1; text-align: center; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
+.badminton-courts { position: relative; z-index: 1; max-width: 1200px; margin: 1.5rem auto 2.5rem; padding: 0 clamp(20px, 4vw, 56px); }
+.badminton-court { padding: 1.25rem 0 1.75rem; border-top: 1px solid var(--rule-strong); }
+.badminton-court-heading { margin: 0 0 1rem; color: var(--cream); font-family: 'JetBrains Mono', monospace; font-size: .9rem; font-weight: 600; text-transform: uppercase; }
+.badminton-courts .badminton-slots { max-width: none; margin: 0; padding: 0; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+.badminton-slots button { min-height: 78px; }
+.badminton-slot small { color: rgba(255, 255, 255, .8); font: inherit; font-size: .7rem; }
+.badminton-slot.selected { border-color: #fff; box-shadow: 0 0 0 2px var(--primary-light); }
+.badminton-slot:disabled { cursor: not-allowed; opacity: .78; }
+.badminton-selection { padding: .9rem 1rem; border-left: 3px solid var(--happy-green); background: rgba(52, 211, 153, .07); color: var(--cream); font-family: 'JetBrains Mono', monospace; font-size: .86rem; }
+.badminton-booking-container .badminton-booking-form { max-width: 700px; }
+.badminton-notice { margin: 1rem 0; text-align: center; }
+.badminton-notice.error { color: #fca5a5; }
+.badminton-notice.success { color: var(--happy-green); }
+.badminton-booking-form .submit-btn:disabled { cursor: wait; opacity: .65; transform: none; }
+
+@media (max-width: 520px) {
+  .badminton-courts .badminton-slots { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .badminton-slots button { min-height: 72px; padding: .8rem .45rem; font-size: .7rem; }
+}

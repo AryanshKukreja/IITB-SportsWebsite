@@ -1,5 +1,8 @@
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 import { getDatabase } from "firebase/database";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAYJYcY8g0HlTlYE6URz1RjwT-pU12hxeo",
@@ -13,4 +16,11 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const feedbackApp = initializeApp(firebaseConfig, "feedback");
 export const db = getDatabase(app);
+export const adminAuth = getAuth(app);
+export const adminDb = getFirestore(app);
+export const adminStorage = getStorage(app);
+export const feedbackAuth = getAuth(feedbackApp);
+export const feedbackDb = getFirestore(feedbackApp);
+export const feedbackStorage = getStorage(feedbackApp);

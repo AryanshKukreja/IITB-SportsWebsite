@@ -12,6 +12,8 @@ import Council from "./components/Contact/SportsCouncil";
 import Webteam from "./components/Contact/webteam";
 import BookingPage from "./components/turf-booking/BookingPage";
 import AdminPage from "./components/turf-booking/AdminPage";
+import BadmintonBookingPage from "./components/badminton-booking/BookingPage";
+import BadmintonAdminPage from "./components/badminton-booking/AdminPage";
 import GC from "./components/Gc/GC";
 import SportsCalendar from "./components/EventsTimeline";
 import CourtStatus from "./components/CourtStatus/CourtStatus";
@@ -76,6 +78,8 @@ function App() {
             <Route path="/Webteam" element={<Webteam/>} />
             <Route path="/CourtStatus" element={<CourtStatus/>} />
             <Route path="/turfbooking" element={<BookingPage/>} />
+            <Route path="/badmintonbooking" element={<BadmintonBookingPage/>} />
+            <Route path="/admin-badminton-booking" element={<BadmintonAdminPage/>} />
             <Route path="/GC" element={<GC/>} />
             <Route path="/gc-admin" element={<GcAdmin />} />
             <Route path="/admin-turf-booking-raj" element={<AdminPage/>} />

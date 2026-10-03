@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 //import './aquatics.css';
 import './Feedback.css';
+import { signInAnonymously } from 'firebase/auth';
+import { collection, doc, serverTimestamp, setDoc } from 'firebase/firestore';
+import { deleteObject, ref, uploadBytes } from 'firebase/storage';
+import { feedbackAuth, feedbackDb, feedbackStorage } from '../../firebase';
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'https://feedbackbackend-mlc8bmyp.b4a.run';
+const CONTACTS_API_URL = process.env.REACT_APP_API_BASE_URL || 'https://feedbackbackend-mlc8bmyp.b4a.run';
 
 /* ============================================================
    REVEAL
@@ -75,7 +79,7 @@ export const Feedback = ({ onSubmit }) => {
     let isMounted = true;
     const fetchContacts = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}/api/feedback/contacts`);
+        const response = await fetch(`${CONTACTS_API_URL}/api/feedback/contacts`);
         if (response.ok) {
           const data = await response.json();
           if (isMounted) setContacts(data.contacts || []);
@@ -138,33 +142,55 @@ export const Feedback = ({ onSubmit }) => {
     }
     setSubmitting(true);
     try {
-      const formData = new FormData();
-      formData.append('name', name.trim());
-      formData.append('rollNumber', rollNumber.trim());
-      formData.append('ldapId', ldapId.trim());
-      formData.append('problemDescription', problemDescription.trim());
-      const taggedPersons = [person1];
-      if (person2) taggedPersons.push(person2);
-      formData.append('taggedPersons', JSON.stringify(taggedPersons));
-      if (image) formData.append('image', image);
-
-      const response = await fetch(`${API_BASE_URL}/api/feedback/submit`, { method: 'POST', body: formData });
-      if (response.ok) {
-        const result = await response.json();
-        setSubmitted(true);
-        setName(''); setRollNumber(''); setLdapId(''); setProblemDescription('');
-        setPerson1(''); setPerson2(''); setImage(null); setImagePreview(null); setErrors({});
-        const fileInput = document.getElementById('image');
-        if (fileInput) fileInput.value = '';
-        if (onSubmit) onSubmit(result);
-      } else {
-        const errorData = await response.json();
-        const errorMessage = errorData.error || 'Failed to submit feedback';
-        if (errorData.field) setErrors({ [errorData.field]: errorMessage });
-        else setErrors({ submit: errorMessage });
+      let user = feedbackAuth.currentUser;
+      if (!user || !user.isAnonymous) {
+        const credential = await signInAnonymously(feedbackAuth);
+        user = credential.user;
       }
-    } catch {
-      setErrors({ submit: 'Network error. Please check your connection and try again.' });
+      const feedbackRef = doc(collection(feedbackDb, 'feedback'));
+      const imagePath = `feedback/${user.uid}/${feedbackRef.id}/${image.name.replace(/[^\w.-]/g, '_')}`;
+      const imageRef = ref(feedbackStorage, imagePath);
+      let imageUploaded = false;
+
+      try {
+        await uploadBytes(imageRef, image, { contentType: image.type });
+        imageUploaded = true;
+        const taggedPersons = [person1, person2].filter(Boolean).map((ldap) => {
+          const contact = contacts.find((entry) => entry.ldapId === ldap);
+          return { ldapId: ldap, entityName: contact?.entityName || ldap };
+        });
+        await setDoc(feedbackRef, {
+          ownerUid: user.uid,
+          name: name.trim(),
+          rollNumber: rollNumber.trim(),
+          ldapId: ldapId.trim(),
+          problemDescription: problemDescription.trim(),
+          taggedPersons,
+          imagePath,
+          status: 'pending',
+          adminNotes: '',
+          createdAt: serverTimestamp(),
+        });
+      } catch (error) {
+        if (imageUploaded) {
+          try {
+            await deleteObject(imageRef);
+          } catch (cleanupError) {
+            console.error('Could not clean up an incomplete feedback image upload:', cleanupError);
+          }
+        }
+        throw error;
+      }
+
+      setSubmitted(true);
+      setName(''); setRollNumber(''); setLdapId(''); setProblemDescription('');
+      setPerson1(''); setPerson2(''); setImage(null); setImagePreview(null); setErrors({});
+      const fileInput = document.getElementById('image');
+      if (fileInput) fileInput.value = '';
+      if (onSubmit) onSubmit({ id: feedbackRef.id });
+    } catch (error) {
+      console.error('Could not submit feedback to Firebase:', error);
+      setErrors({ submit: 'Feedback could not be submitted. Please check your connection and try again.' });
     } finally {
       setSubmitting(false);
     }

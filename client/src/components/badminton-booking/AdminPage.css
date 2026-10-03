@@ -1,0 +1,25 @@
+.badminton-admin-page { min-height: 100vh; padding: 2.5rem clamp(1rem, 5vw, 4rem); background: #06080c; color: #f4f1ea; font-family: 'Inter Tight', sans-serif; }
+.badminton-admin-header { display: flex; justify-content: space-between; align-items: end; gap: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, .22); }
+.badminton-admin-header h1, .badminton-admin-login h1 { margin: .35rem 0; font-family: 'Fraunces', Georgia, serif; font-size: 2.4rem; font-weight: 500; line-height: 1.1; }
+.badminton-admin-header p { max-width: 650px; color: #9aa3b2; }
+.badminton-admin-eyebrow { color: #73d9a0 !important; font: .76rem 'JetBrains Mono', monospace; text-transform: uppercase; }
+.badminton-admin-actions { display: flex; align-items: center; gap: .65rem; }
+.badminton-admin-actions label { color: #9aa3b2; }
+.badminton-admin-actions select, .badminton-admin-actions button, .badminton-admin-login input { min-height: 42px; padding: .6rem .8rem; border: 1px solid rgba(255, 255, 255, .22); border-radius: 2px; background: #0a0d13; color: #f4f1ea; }
+.badminton-admin-counts { display: flex; flex-wrap: wrap; gap: 1.5rem; padding: 1rem 0; color: #9aa3b2; font-family: 'JetBrains Mono', monospace; font-size: .82rem; }
+.badminton-request-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.badminton-request { padding: 1.2rem; border: 1px solid rgba(255, 255, 255, .14); border-left: 3px solid #fb923c; background: #0a0d13; }
+.badminton-request.accepted { border-left-color: #34d399; }.badminton-request.declined { border-left-color: #f87171; }
+.badminton-request > header, .badminton-request > header > div { display: flex; justify-content: space-between; align-items: center; gap: .75rem; }
+.badminton-request h2 { margin: 0; font-size: 1.1rem; }.badminton-queue-number { color: #73d9a0; font: .8rem 'JetBrains Mono', monospace; }
+.badminton-status { padding: .3rem .55rem; border: 1px solid currentColor; color: #fb923c; font: .72rem 'JetBrains Mono', monospace; text-transform: uppercase; }
+.badminton-status.accepted { color: #34d399; }.badminton-status.declined { color: #f87171; }
+.badminton-request-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem 1rem; margin: 1.25rem 0; }
+.badminton-request-details p { min-width: 0; margin: 0; overflow-wrap: anywhere; color: #d4d8de; }
+.badminton-request-details strong { display: block; margin-bottom: .2rem; color: #9aa3b2; font-size: .75rem; font-weight: 500; text-transform: uppercase; }
+.badminton-request footer { display: flex; gap: .6rem; }.badminton-request footer button, .badminton-admin-login button { padding: .7rem 1rem; border: 1px solid #34d399; border-radius: 2px; background: rgba(52, 211, 153, .08); color: #9cebc8; cursor: pointer; }
+.badminton-request footer button + button { border-color: #f87171; background: rgba(248, 113, 113, .08); color: #fca5a5; }
+.badminton-request footer button:disabled { opacity: .55; cursor: wait; }.badminton-empty, .badminton-admin-loading { padding: 2rem; color: #9aa3b2; text-align: center; }
+.badminton-admin-error { color: #fca5a5; }.badminton-admin-login { display: grid; gap: .9rem; width: min(100%, 420px); margin: 10vh auto; padding: 2rem; border: 1px solid rgba(255, 255, 255, .2); background: #0a0d13; }
+.badminton-admin-login label { color: #9aa3b2; }.badminton-admin-login button { margin-top: .4rem; }
+@media (max-width: 700px) { .badminton-admin-header { align-items: start; flex-direction: column; }.badminton-admin-actions { width: 100%; flex-wrap: wrap; }.badminton-request-details { grid-template-columns: 1fr; } }
