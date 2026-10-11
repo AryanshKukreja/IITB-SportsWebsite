@@ -2,6 +2,13 @@ import React, { useEffect, useState } from 'react';
 import '../turf-booking/BookingPage.css';
 import './BookingPage.css';
 import '../turf-booking/form.css';
+import {
+  hasActiveBookingConflict,
+  isNumberOfPlayersValid,
+  isPlayerRollNumberCountValid,
+  normalizeRollNumber,
+  parsePlayerRollNumbers,
+} from './bookingUtils';
 
 const COURTS = [6, 7];
 const API_BASE_URL = 'https://gymkhana.iitb.ac.in/sports';
@@ -98,7 +105,9 @@ const BookingPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setNotice('');
-    const rollNumber = formData.rollNumber.trim().toLowerCase();
+    const rollNumber = normalizeRollNumber(formData.rollNumber);
+    const playerRollNumbers = parsePlayerRollNumbers(formData.playerRollNumbers);
+    const numberOfPlayers = Number(formData.numberOfPlayers);
     if (!formData.acceptedTnc) {
       setNotice('Please accept the terms and conditions to continue.');
       return;
@@ -107,10 +116,16 @@ const BookingPage = () => {
       setNotice('Choose a badminton court and time slot first.');
       return;
     }
-    if (bookings.some((booking) =>
-      booking.date === bookingDate && String(booking.rollno || '').trim().toLowerCase() === rollNumber && booking.status !== 'declined'
-    )) {
-      setNotice('You already have an active badminton booking request for tomorrow.');
+    if (!isPlayerRollNumberCountValid(playerRollNumbers)) {
+      setNotice('You can enter a maximum of 4 player roll numbers.');
+      return;
+    }
+    if (!isNumberOfPlayersValid(numberOfPlayers)) {
+      setNotice('A badminton court can have 2 to 4 players.');
+      return;
+    }
+    if (hasActiveBookingConflict(bookings, bookingDate, [rollNumber, ...playerRollNumbers])) {
+      setNotice('One or more players already have an active badminton booking request for tomorrow.');
       return;
     }
     if (!courtAvailabilityReady || getSlotStatus(selectedSlot.court, selectedSlot.slot, bookingDate) !== 'available') {
@@ -133,8 +148,8 @@ const BookingPage = () => {
           email: formData.email.trim(),
           slot: selectedSlot.slot,
           purpose: 'match among friends',
-          player_roll_no: formData.playerRollNumbers.split(',').map((entry) => entry.trim()).filter(Boolean).join(','),
-          no_of_players: Number(formData.numberOfPlayers),
+          player_roll_no: playerRollNumbers.join(','),
+          no_of_players: numberOfPlayers,
           status: 'pending',
           date: bookingDate,
         }),
@@ -216,7 +231,7 @@ const BookingPage = () => {
           <input id="badminton-email" name="email" type="email" value={formData.email} onChange={handleInputChange} required />
         </div>
         <div className="form-group">
-          <label htmlFor="badminton-players">Player roll numbers (comma separated)</label>
+          <label htmlFor="badminton-players">Player roll numbers (comma separated, maximum 4)</label>
           <input id="badminton-players" name="playerRollNumbers" value={formData.playerRollNumbers} onChange={handleInputChange} required />
         </div>
         <div className="form-group">
