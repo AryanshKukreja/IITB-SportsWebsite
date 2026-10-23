@@ -15,7 +15,7 @@
   min-height: 100vh;
   background: linear-gradient(180deg, #06080c 0%, #0d1320 100%);
   color: var(--cream);
-  font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-body);
   overflow-x: hidden;
 }
 
@@ -55,22 +55,22 @@
 }
 
 .cs-header h1 {
-  font-family: 'Fraunces', serif;
+  font-family: var(--font-display);
   font-size: clamp(2.2rem, 5.5vw, 3.8rem);
   font-weight: 600;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.01em;
   color: var(--cream);
   margin: 0;
 }
 
 .cs-header .italic {
   color: var(--primary-light);
-  font-style: italic;
 }
 
 .cs-subtitle {
   margin-top: 14px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 11px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -159,7 +159,7 @@
 }
 
 .cs-sport-name {
-  font-family: 'Inter Tight', sans-serif !important;
+  font-family: var(--font-body) !important;
   font-size: 0.95rem !important;
   font-weight: 700 !important;
   position: relative;
@@ -266,7 +266,7 @@ input[type="date"] {
   color: var(--cream);
   margin-bottom: 1.4rem;
   transition: all 0.3s ease;
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-body);
 }
 
 input[type="date"]:focus {

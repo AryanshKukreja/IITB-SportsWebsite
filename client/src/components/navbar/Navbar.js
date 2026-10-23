@@ -4,6 +4,11 @@ import './Navbar.css';
 import logo from './assets/sports-logo-transparent.png';
 import { FaBars, FaChevronDown, FaTimes } from 'react-icons/fa';
 
+const gcLinks = [
+  { to: '/GC', label: 'Inter-Hostel GC' },
+  { to: '/PGGC', label: 'PGGC' },
+];
+
 const bookingLinks = [
   { to: '/turfbooking', label: 'Football Turf Booking' },
   { to: '/badmintonbooking', label: 'Badminton Court Booking' },
@@ -13,28 +18,29 @@ const links = [
   { to: '/', label: 'Home' },
   { to: '/explore', label: 'Sports' },
   //{ to: '/CourtStatus', label: 'Court Status' },
-  { to: '/GC', label: 'Live GC Scorecard' },
+  { type: 'dropdown', label: 'GC', items: gcLinks },
   { to: '/yearbook', label: 'Yearbook' },
   // { to: '/blogs', label: 'Blogs' },
   { to: '/events-timeline', label: 'Events Timeline' },
   // { to: '/certificates', label: 'Certificates' },
   // { to: '/match-prediction', label: 'Match Prediction' },
-  { type: 'dropdown', label: 'Gymkhana Bookings' },
+  { type: 'dropdown', label: 'Gymkhana Bookings', items: bookingLinks },
   { to: '/contact', label: 'Contact Us' },
   { to: '/player-database', label: 'Player Database' }
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isBookingExpanded, setIsBookingExpanded] = useState(false);
-  const [isBookingMenuOpen, setIsBookingMenuOpen] = useState(false);
+  // Label of the open desktop dropdown / expanded mobile accordion (null = none)
+  const [openMenu, setOpenMenu] = useState(null);
+  const [expandedMenu, setExpandedMenu] = useState(null);
   const location = useLocation();
 
   // Close the mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
-    setIsBookingExpanded(false);
-    setIsBookingMenuOpen(false);
+    setOpenMenu(null);
+    setExpandedMenu(null);
   }, [location.pathname]);
 
   const isActive = (path) => {
@@ -43,7 +49,7 @@ const Navbar = () => {
     return false;
   };
 
-  const isBookingActive = bookingLinks.some((link) => isActive(link.to));
+  const isGroupActive = (items) => items.some((item) => isActive(item.to));
 
   return (
     <header className="nb-root">
@@ -59,26 +65,26 @@ const Navbar = () => {
                 <li
                   key={link.label}
                   className="nb-item nb-item-dropdown"
-                  onMouseEnter={() => setIsBookingMenuOpen(true)}
-                  onMouseLeave={() => setIsBookingMenuOpen(false)}
+                  onMouseEnter={() => setOpenMenu(link.label)}
+                  onMouseLeave={() => setOpenMenu(null)}
                   onBlur={(event) => {
-                    if (!event.currentTarget.contains(event.relatedTarget)) setIsBookingMenuOpen(false);
+                    if (!event.currentTarget.contains(event.relatedTarget)) setOpenMenu(null);
                   }}
                 >
                   <button
                     type="button"
-                    className={`nb-dropdown-trigger ${isBookingActive ? 'is-active' : ''}`}
+                    className={`nb-dropdown-trigger ${isGroupActive(link.items) ? 'is-active' : ''}`}
                     aria-haspopup="true"
-                    aria-expanded={isBookingMenuOpen}
-                    onClick={() => setIsBookingMenuOpen((expanded) => !expanded)}
+                    aria-expanded={openMenu === link.label}
+                    onClick={() => setOpenMenu((open) => (open === link.label ? null : link.label))}
                   >
                     {link.label}<FaChevronDown aria-hidden="true" />
                   </button>
                   <ul className="nb-dropdown-menu">
-                    {bookingLinks.map((bookingLink) => (
-                      <li key={bookingLink.to}>
-                        <Link to={bookingLink.to} className={isActive(bookingLink.to) ? 'is-active' : ''}>
-                          {bookingLink.label}
+                    {link.items.map((item) => (
+                      <li key={item.to}>
+                        <Link to={item.to} className={isActive(item.to) ? 'is-active' : ''}>
+                          {item.label}
                         </Link>
                       </li>
                     ))}
@@ -125,18 +131,18 @@ const Navbar = () => {
               <li key={link.label} style={{ '--i': i }} className="nb-overlay-booking">
                 <button
                   type="button"
-                  className={`nb-overlay-accordion ${isBookingActive ? 'is-active' : ''}`}
-                  aria-expanded={isBookingExpanded}
-                  onClick={() => setIsBookingExpanded((expanded) => !expanded)}
+                  className={`nb-overlay-accordion ${isGroupActive(link.items) ? 'is-active' : ''}`}
+                  aria-expanded={expandedMenu === link.label}
+                  onClick={() => setExpandedMenu((open) => (open === link.label ? null : link.label))}
                 >
                   {link.label}<FaChevronDown aria-hidden="true" />
                 </button>
-                {isBookingExpanded && (
+                {expandedMenu === link.label && (
                   <ul className="nb-overlay-submenu">
-                    {bookingLinks.map((bookingLink) => (
-                      <li key={bookingLink.to}>
-                        <Link to={bookingLink.to} className={isActive(bookingLink.to) ? 'is-active' : ''} onClick={() => setIsOpen(false)}>
-                          {bookingLink.label}
+                    {link.items.map((item) => (
+                      <li key={item.to}>
+                        <Link to={item.to} className={isActive(item.to) ? 'is-active' : ''} onClick={() => setIsOpen(false)}>
+                          {item.label}
                         </Link>
                       </li>
                     ))}

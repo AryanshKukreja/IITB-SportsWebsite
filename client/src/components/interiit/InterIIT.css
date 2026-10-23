@@ -44,7 +44,7 @@ body, html {
 /* Header Section */
 .gradient-heading {
   font-size: 4.5rem;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: var(--font-display);
   background-image: linear-gradient(43deg, #c3b5f2 12%, rgb(235, 228, 159) 20%, #3e9df0 100%);
   background-clip: text;
   -webkit-background-clip: text;

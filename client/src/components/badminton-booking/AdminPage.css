@@ -1,12 +1,12 @@
-.badminton-admin-page { min-height: 100vh; padding: 2.5rem clamp(1rem, 5vw, 4rem); background: #06080c; color: #f4f1ea; font-family: 'Inter Tight', sans-serif; }
+.badminton-admin-page { min-height: 100vh; padding: 2.5rem clamp(1rem, 5vw, 4rem); background: #06080c; color: #f4f1ea; font-family: var(--font-body); }
 .badminton-admin-header { display: flex; justify-content: space-between; align-items: end; gap: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, .22); }
-.badminton-admin-header h1, .badminton-admin-login h1 { margin: .35rem 0; font-family: 'Fraunces', Georgia, serif; font-size: 2.4rem; font-weight: 500; line-height: 1.1; }
+.badminton-admin-header h1, .badminton-admin-login h1 { margin: .35rem 0; font-family: var(--font-display); font-size: 2.4rem; font-weight: 600; line-height: 1.1; }
 .badminton-admin-header p { max-width: 650px; color: #9aa3b2; }
 .badminton-admin-eyebrow { color: #73d9a0 !important; font: .76rem 'JetBrains Mono', monospace; text-transform: uppercase; }
 .badminton-admin-actions { display: flex; align-items: center; gap: .65rem; }
 .badminton-admin-actions label { color: #9aa3b2; }
 .badminton-admin-actions select, .badminton-admin-actions button, .badminton-admin-login input { min-height: 42px; padding: .6rem .8rem; border: 1px solid rgba(255, 255, 255, .22); border-radius: 2px; background: #0a0d13; color: #f4f1ea; }
-.badminton-admin-counts { display: flex; flex-wrap: wrap; gap: 1.5rem; padding: 1rem 0; color: #9aa3b2; font-family: 'JetBrains Mono', monospace; font-size: .82rem; }
+.badminton-admin-counts { display: flex; flex-wrap: wrap; gap: 1.5rem; padding: 1rem 0; color: #9aa3b2; font-family: var(--font-body); font-weight: 500; font-size: .82rem; }
 .badminton-request-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
 .badminton-request { padding: 1.2rem; border: 1px solid rgba(255, 255, 255, .14); border-left: 3px solid #fb923c; background: #0a0d13; }
 .badminton-request.accepted { border-left-color: #34d399; }.badminton-request.declined { border-left-color: #f87171; }

@@ -207,7 +207,7 @@ const Wtlift = () => {
         <Reveal as="section" className="aq-hero">
           <div className="aq-hero-kicker">
             <span className="vol">Dossier No. 14</span>
-            <span className="sep">§</span>
+            <span className="sep">·</span>
             <span>Weightlifting&nbsp;·&nbsp;Students' Activity Centre</span>
           </div>
 
@@ -216,7 +216,7 @@ const Wtlift = () => {
               <h1 className="aq-hero-title">
                 <span className="italic">Weightlifting</span>
                 <br />
-                at IIT Bombay.
+                at IIT Bombay
               </h1>
               <p className="aq-hero-lede">
                 Weightlifting is a strength sport in which athletes attempt to lift heavy weights
@@ -264,15 +264,15 @@ const Wtlift = () => {
 
         <WaveDivider />
 
-        {/* ── § 01 FACILITIES ── */}
+        {/* ── FACILITIES ── */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 01</span>&nbsp;·&nbsp;Facilities
+            Facilities
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              What's <span className="italic">on offer</span>.
+              What's <span className="italic">on offer</span>
             </h2>
             <p className="aq-section-sub">State-level rods · Full machine stack · Coached daily.</p>
           </div>
@@ -294,15 +294,15 @@ const Wtlift = () => {
 
         <PhotoBreak image={p4} tag="Fig. A" caption="Training under Coach Vijay Sonigra's watch." />
 
-        {/* ── § 02 EVENTS ── */}
+        {/* ── EVENTS ── */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 02</span>&nbsp;·&nbsp;Events
+            Events
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              The <span className="italic">fixtures</span>.
+              The <span className="italic">fixtures</span>
             </h2>
             <p className="aq-section-sub">Seven events. Tap a headline to read the full brief.</p>
           </div>
@@ -339,15 +339,15 @@ const Wtlift = () => {
 
         <PhotoBreak image={p5} tag="Fig. B" caption="Weightlifting GC — the season's marquee meet." />
 
-        {/* ── § 03 CONTACT ── */}
+        {/* ── CONTACT ── */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 03</span>&nbsp;·&nbsp;Contact
+            Contact
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              Get in <span className="italic">touch</span>.
+              Get in <span className="italic">touch</span>
             </h2>
           </div>
           <div className="aq-contact-grid">
@@ -360,15 +360,15 @@ const Wtlift = () => {
           </div>
         </Reveal>
 
-        {/* ── § 04 GALLERY ── */}
+        {/* ── GALLERY ── */}
         <Reveal as="section" className="aq-section aq-gallery-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 04</span>&nbsp;·&nbsp;Gallery
+            Gallery
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              From the <span className="italic">room</span>.
+              From the <span className="italic">room</span>
             </h2>
           </div>
 
@@ -403,15 +403,15 @@ const Wtlift = () => {
           </div>
         </Reveal>
 
-        {/* ── § 05 LOCATION ── */}
+        {/* ── LOCATION ── */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 05</span>&nbsp;·&nbsp;Location
+            Location
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              Find <span className="italic">us</span>.
+              Find <span className="italic">us</span>
             </h2>
             <p className="aq-section-sub">Students' Activity Centre&nbsp;·&nbsp;IIT Bombay&nbsp;·&nbsp;Powai</p>
           </div>

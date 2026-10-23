@@ -428,7 +428,7 @@ const Council = () => {
         <Reveal as="section" className="cc-hero">
           <div className="cc-hero-kicker">
             <span className="vol">Team Sheet</span>
-            <span className="sep">§</span>
+            <span className="sep">·</span>
             <span>The People Behind the Play</span>
           </div>
 
@@ -437,7 +437,7 @@ const Council = () => {
               <h1 className="cc-hero-title">
                 Institute <span className="italic">Sports</span>
                 <br />
-                Council.
+                Council
               </h1>
               <p className="cc-hero-lede">
                 One council. Every sport. 
@@ -485,7 +485,7 @@ const Council = () => {
         {/* LEADERSHIP */}
         <Reveal as="section" className="cc-section">
           <div className="cc-eyebrow">
-            <span className="num">§ 01</span> &nbsp;·&nbsp; Leadership
+            Leadership
             <span className="bar" />
           </div>
 
@@ -515,7 +515,7 @@ const Council = () => {
         {/* NOMINEES */}
         <Reveal as="section" className="cc-section">
           <div className="cc-eyebrow">
-            <span className="num">§ 02</span> &nbsp;·&nbsp; Nominees
+            Nominees
             <span className="bar" />
           </div>
           <div className="cc-card-grid cc-card-grid-3">
@@ -528,7 +528,7 @@ const Council = () => {
         {/* HEADS */}
         <Reveal as="section" className="cc-section">
           <div className="cc-eyebrow">
-            <span className="num">§ 03</span> &nbsp;·&nbsp; Heads
+            Heads
             <span className="bar" />
           </div>
           <div className="cc-card-grid cc-card-grid-3">
@@ -541,12 +541,12 @@ const Council = () => {
         {/* SECRETARIES */}
         <Reveal as="section" className="cc-section">
           <div className="cc-eyebrow">
-            <span className="num">§ 04</span> &nbsp;·&nbsp; Secretaries
+            Secretaries
             <span className="bar" />
           </div>
           <div className="cc-section-head">
             <h2 className="cc-section-title">
-              Every Sport.<span className="italic">Covered</span>.
+              Every Sport <span className="italic">Covered</span>
             </h2>
             <p className="cc-section-sub">Fourteen sports. Fourteen point people.</p>
           </div>
@@ -560,7 +560,7 @@ const Council = () => {
         {/* MANAGERS */}
         <Reveal as="section" className="cc-section">
           <div className="cc-eyebrow">
-            <span className="num">§ 05</span> &nbsp;·&nbsp; Managers
+            Managers
             <span className="bar" />
           </div>
           <div className="cc-card-grid cc-card-grid-3">

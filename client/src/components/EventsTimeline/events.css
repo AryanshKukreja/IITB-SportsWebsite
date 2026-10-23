@@ -21,7 +21,7 @@
   min-height: 100vh;
   background: var(--ink);
   color: var(--cream);
-  font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-body);
   overflow-x: hidden;
 }
 
@@ -51,7 +51,8 @@
   justify-content: space-between;
   gap: 18px;
   border-bottom: 1px solid var(--rule);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -73,8 +74,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Fraunces', serif;
-  font-style: italic;
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: 13px;
   color: var(--cream);
@@ -111,7 +111,8 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 11px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -131,26 +132,22 @@
 }
 
 .sports-calendar-title {
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'opsz' 144, 'wght' 500, 'SOFT' 0, 'WONK' 0;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(2.4rem, 7vw, 4.4rem);
   line-height: 0.95;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.01em;
   color: var(--cream);
   margin: 0 0 16px;
 }
 
 .sports-calendar-title .italic {
-  font-style: italic;
-  font-variation-settings: 'opsz' 144, 'wght' 400, 'SOFT' 0, 'WONK' 1;
   color: var(--primary-light);
 }
 
 .sports-calendar-lede {
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'opsz' 36, 'wght' 350;
-  font-style: italic;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(1rem, 1.6vw, 1.2rem);
   line-height: 1.55;
   color: var(--muted);
@@ -170,7 +167,8 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 11px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -304,7 +302,7 @@
   gap: 0.5rem;
   padding: 0.75rem 1.1rem;
   border-radius: 999px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -338,7 +336,7 @@
 }
 
 .sports-week-range {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -390,7 +388,7 @@
 }
 
 .sports-day-name {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -425,7 +423,6 @@
   height: 100%;
   color: var(--muted);
   font-weight: 500;
-  font-style: italic;
   font-size: 0.9rem;
 }
 

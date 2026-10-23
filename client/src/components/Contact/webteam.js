@@ -200,7 +200,7 @@ const Webteam = () => {
         <Reveal as="section" className="cc-hero">
           <div className="cc-hero-kicker">
             <span className="vol">Team Sheet</span>
-            <span className="sep">§</span>
+            <span className="sep">·</span>
             <span>The People Behind the Screens</span>
           </div>
 
@@ -209,7 +209,7 @@ const Webteam = () => {
               <h1 className="cc-hero-title">
                 ISC <span className="italic">Web</span>
                 <br />
-                Team.
+                Team
               </h1>
               <p className="cc-hero-lede">
                 One team, one website. Meet the developers keeping IIT Bombay Sports online
@@ -247,7 +247,7 @@ const Webteam = () => {
         {/* LEADERSHIP */}
         <Reveal as="section" className="cc-section">
           <div className="cc-eyebrow">
-            <span className="num">§ 01</span> &nbsp;·&nbsp; Leadership
+            Leadership
             <span className="bar" />
           </div>
 
@@ -277,7 +277,7 @@ const Webteam = () => {
         {/* CONVENERS */}
         <Reveal as="section" className="cc-section">
           <div className="cc-eyebrow">
-            <span className="num">§ 02</span> &nbsp;·&nbsp; Conveners
+            Conveners
             <span className="bar" />
           </div>
           <div className="cc-card-grid cc-card-grid-3">

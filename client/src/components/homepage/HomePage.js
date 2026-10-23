@@ -205,7 +205,7 @@ const HomePage = () => {
           <Reveal as="section" className="aq-hero">
             <div className="aq-hero-kicker">
               <span className="vol">Welcome to</span>
-              {/* <span className="sep">§</span>
+              {/* <span className="sep">·</span>
               <span>General Championships &amp; Inter-IIT</span> */}
             </div>
 
@@ -214,7 +214,7 @@ const HomePage = () => {
                 <h1 className="aq-hero-title">
                   IIT Bombay
                   <br />
-                  <span className="italic">Sports.</span>
+                  <span className="italic">Sports</span>
                 </h1>
                 <p className="aq-hero-lede">
                   IIT Bombay boasts a vibrant sports scene that keeps students active throughout
@@ -263,12 +263,12 @@ const HomePage = () => {
           ══════════════════════════════════════ */}
           <Reveal as="section" className="aq-section">
             <div className="aq-eyebrow">
-              <span className="num">§ 01</span>&nbsp;·&nbsp;About Us
+              About Us
               <span className="bar" />
             </div>
             <div className="aq-section-head">
               <h2 className="aq-section-title">
-                Where campus meets <span className="italic">competition</span>.
+                Where campus meets <span className="italic">competition</span>
               </h2>
               <p className="aq-section-sub">Fuelled by passion. Built on sportsmanship.</p>
             </div>
@@ -307,12 +307,12 @@ const HomePage = () => {
           ══════════════════════════════════════ */}
           <Reveal as="section" className="aq-section">
             <div className="aq-eyebrow">
-              <span className="num">§ 02</span>&nbsp;·&nbsp;Inter-IIT Contingent
+              Inter-IIT Contingent
               <span className="bar" />
             </div>
             <div className="aq-section-head">
               <h2 className="aq-section-title">
-                Bombay <span className="italic">BlackCats</span>.
+                Bombay <span className="italic">BlackCats</span>
               </h2>
               <p className="aq-section-sub">India's premier inter-collegiate battleground — since 1961.</p>
             </div>
@@ -347,12 +347,12 @@ const HomePage = () => {
           ══════════════════════════════════════ */}
           {/* <Reveal as="section" className="aq-section">
             <div className="aq-eyebrow">
-              <span className="num">§ 03</span>&nbsp;·&nbsp;Digital Platform
+              Digital Platform
               <span className="bar" />
             </div>
             <div className="aq-section-head">
               <h2 className="aq-section-title">
-                The Sports <span className="italic">App</span>.
+                The Sports <span className="italic">App</span>
               </h2>
               <p className="aq-section-sub">Android + iOS · Launching Soon</p>
             </div>

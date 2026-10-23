@@ -592,7 +592,7 @@ export default function Yearbook() {
                 </div>
                 <h1 className="ub-hero-title">
                   SPORTS<br />
-                  <span className="ub-uber-accent">YEARBOOK.</span>
+                  <span className="ub-uber-accent">YEARBOOK</span>
                 </h1>
                 <p className="ub-hero-desc">
                   The people, messages, and memories behind an unforgettable year of IIT Bombay sport.
@@ -1018,7 +1018,7 @@ export default function Yearbook() {
                 </div>
                 <div className="ub-credits-foot">
                   <p>Made with love for the graduating batch of 2026 by the design and web teams, Institute Sports Council, IIT Bombay.</p>
-                  <h4>UNTIL. VICTORY. ALWAYS.</h4>
+                  <h4>UNTIL. VICTORY. ALWAYS</h4>
                 </div>
               </div>
             </section>

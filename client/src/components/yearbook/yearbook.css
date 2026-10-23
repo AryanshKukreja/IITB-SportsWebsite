@@ -22,8 +22,8 @@
   --ub-radius-md: 14px;
   --ub-radius-lg: 20px;
   --ub-radius-full: 9999px;
-  --ub-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --ub-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --ub-font-sans: var(--font-body);
+  --ub-font-mono: var(--font-body);
 }
 
 /* ── Container & Background ── */
@@ -31,7 +31,7 @@
   min-height: 100vh;
   background-color: var(--ub-black);
   color: var(--ub-text-primary);
-  font-family: var(--ub-font-sans);
+  font-family: var(--font-body);
   position: relative;
   overflow-x: hidden;
   padding-bottom: 90px;
@@ -134,7 +134,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 18px;
-  font-family: var(--ub-font-sans);
+  font-family: var(--font-body);
   font-size: 12px;
   font-weight: 600;
   color: var(--ub-text-secondary);
@@ -226,7 +226,7 @@
 }
 
 .ub-tagline {
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -261,7 +261,7 @@
   border: 1px solid var(--ub-green);
   padding: 5px 12px;
   border-radius: var(--ub-radius-full);
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 700;
   color: var(--ub-green);
@@ -326,7 +326,8 @@
 
 .ub-pin-label small {
   display: block;
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 9px;
   color: var(--ub-text-muted);
   letter-spacing: 0.1em;
@@ -393,7 +394,7 @@
   background: transparent;
   border: none;
   color: var(--ub-text-secondary);
-  font-family: var(--ub-font-sans);
+  font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -453,7 +454,7 @@
 }
 
 .ub-hero-eyebrow {
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 700;
   color: var(--ub-text-secondary);
@@ -616,7 +617,7 @@
 }
 
 .ub-stat-label {
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 10px;
   letter-spacing: 0.14em;
   color: var(--ub-green);
@@ -666,7 +667,7 @@
 }
 
 .ub-filter-count-badge {
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 700;
   background: var(--ub-surface-2);
@@ -723,7 +724,7 @@
 
 /* Minimalist Sport Code Pill */
 .ub-fleet-badge-code {
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -746,7 +747,8 @@
 }
 
 .ub-fleet-meta {
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 10px;
   color: var(--ub-text-muted);
   text-align: left;
@@ -773,7 +775,7 @@
 }
 
 .ub-alpha-label {
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 10px;
   font-weight: 700;
   color: var(--ub-text-muted);
@@ -789,7 +791,7 @@
   background: var(--ub-surface-2);
   border: 1px solid var(--ub-border);
   color: var(--ub-text-secondary);
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 600;
   text-decoration: none;
@@ -830,7 +832,7 @@
 }
 
 .ub-group-count {
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 600;
   color: var(--ub-text-muted);
@@ -938,7 +940,7 @@
 }
 
 .ub-driver-fleet-tag {
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 10px;
   font-weight: 600;
   color: var(--ub-green);
@@ -967,7 +969,6 @@
   font-size: 12.5px;
   line-height: 1.45;
   color: var(--ub-text-secondary);
-  font-style: italic;
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -986,7 +987,7 @@
 }
 
 .ub-driver-stats-pill {
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 10px;
   font-weight: 600;
   color: var(--ub-text-muted);
@@ -1046,7 +1047,7 @@
   color: var(--ub-green);
   display: grid;
   place-items: center;
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 12px;
   font-weight: 800;
 }
@@ -1056,7 +1057,7 @@
 }
 
 .ub-venue-cmd {
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 10px;
   font-weight: 700;
   color: var(--ub-green);
@@ -1102,7 +1103,8 @@
 }
 
 .ub-venue-seniors {
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 11px;
   color: var(--ub-text-muted);
 }
@@ -1161,14 +1163,16 @@
 
 .ub-activity-sport {
   display: block;
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 10px;
   color: var(--ub-green);
 }
 
 .ub-activity-time {
   margin-left: auto;
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 10px;
   color: var(--ub-text-muted);
 }
@@ -1303,7 +1307,7 @@
 
 .ub-lead-role-pill {
   display: inline-block;
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 700;
   color: var(--ub-green);
@@ -1333,7 +1337,8 @@
 
 .ub-lead-box strong {
   display: block;
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 11px;
   color: var(--ub-green);
   text-transform: uppercase;
@@ -1361,7 +1366,7 @@
 }
 
 .ub-credits-brand {
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.18em;
@@ -1386,7 +1391,8 @@
 
 .ub-credit-role {
   display: block;
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 10px;
   color: var(--ub-text-muted);
   letter-spacing: 0.1em;
@@ -1406,7 +1412,7 @@
 }
 
 .ub-credits-foot h4 {
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 13px;
   font-weight: 900;
   letter-spacing: 0.16em;
@@ -1558,7 +1564,7 @@
   background: transparent;
   border: none;
   color: #fff;
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -1620,7 +1626,8 @@
 
 .ub-pill-sub {
   color: var(--ub-text-muted);
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 10px;
   text-transform: uppercase;
 }
@@ -1661,7 +1668,7 @@
 
 .ub-modal-cmd-badge {
   display: inline-block;
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 12px;
   font-weight: 700;
   color: var(--ub-green);
@@ -1687,7 +1694,7 @@
   border: 1px solid var(--ub-border);
   padding: 6px 14px;
   border-radius: var(--ub-radius-full);
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 600;
   color: var(--ub-text-secondary);
@@ -1718,7 +1725,8 @@
 }
 
 .ub-reviews-count-pill {
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 11px;
   color: var(--ub-text-muted);
 }
@@ -1754,7 +1762,7 @@
 }
 
 .ub-review-author-tag {
-  font-family: var(--ub-font-mono);
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 700;
   color: var(--ub-green);

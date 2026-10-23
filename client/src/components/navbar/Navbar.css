@@ -19,7 +19,7 @@ html, body { margin: 0; padding: 0; }
   z-index: 1000;
   background: var(--ink);
   border-bottom: 1px solid var(--rule-strong);
-  font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-body);
 }
 
 .nb-root *,
@@ -70,7 +70,7 @@ html, body { margin: 0; padding: 0; }
   padding: 8px 12px;
   color: var(--muted);
   text-decoration: none;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -112,7 +112,7 @@ html, body { margin: 0; padding: 0; }
   border: 0;
   background: transparent;
   color: var(--muted);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -260,10 +260,10 @@ html, body { margin: 0; padding: 0; }
   border-bottom: 1px solid var(--rule);
   color: var(--cream);
   text-decoration: none;
-  font-family: 'Fraunces', 'Inter Tight', serif;
+  font-family: var(--font-display);
   font-size: 1.5rem;
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   transition: color 0.25s ease, padding-left 0.25s ease;
 }
 .nb-overlay-links a:hover,
@@ -281,9 +281,9 @@ html, body { margin: 0; padding: 0; }
   border-bottom: 1px solid var(--rule);
   background: transparent;
   color: var(--cream);
-  font-family: 'Fraunces', 'Inter Tight', serif;
+  font-family: var(--font-display);
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 600;
   text-align: left;
   cursor: pointer;
   transition: color .25s ease, padding-left .25s ease;
@@ -303,7 +303,8 @@ html, body { margin: 0; padding: 0; }
   padding: 11px 4px;
   border-bottom: 0;
   color: var(--muted);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: .82rem;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -311,7 +312,8 @@ html, body { margin: 0; padding: 0; }
 .nb-overlay-links .nb-overlay-submenu a:hover,
 .nb-overlay-links .nb-overlay-submenu a.is-active { color: var(--cream); }
 .nb-overlay-links .nb-item-admin a {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 0.85rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;

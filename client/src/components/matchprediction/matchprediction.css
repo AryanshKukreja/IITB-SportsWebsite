@@ -2,8 +2,6 @@
    MatchPrediction.css  –  dark-blue theme, mobile + desktop
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap');
-
 /* ── Variables ──────────────────────────────────────────────── */
 :root {
   --mp-bg:       #07111f;
@@ -16,8 +14,8 @@
   /* default accent aligns with Team A (Knicks) blue */
   --mp-accent:   #006bb6;
   --mp-radius:   14px;
-  --mp-head:     'Bebas Neue', 'Impact', sans-serif;
-  --mp-body:     'DM Sans', 'Segoe UI', sans-serif;
+  --mp-head: var(--font-display);
+  --mp-body: var(--font-body);
 }
 
 /* ── Page wrapper – centres card on desktop ─────────────────── */
@@ -29,7 +27,7 @@
   justify-content: center;
   padding: 2rem 1rem 4rem;
   box-sizing: border-box;
-  font-family: var(--mp-body);
+  font-family: var(--font-body);
   color: var(--mp-text);
 }
 
@@ -62,7 +60,8 @@
 }
 
 .mp-badge-text {
-  font-family: var(--mp-head);
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(1.8rem, 5vw, 2.8rem);
   letter-spacing: 0.04em;
   color: #fff;
@@ -90,7 +89,8 @@
 }
 
 .mp-event-label {
-  font-family: var(--mp-head);
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(0.6rem, 2vw, 0.85rem);
   letter-spacing: 0.14em;
   color: var(--mp-muted);
@@ -99,7 +99,8 @@
 }
 
 .mp-vs {
-  font-family: var(--mp-head);
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(2rem, 5vw, 3rem);
   color: var(--mp-text);
   letter-spacing: 0.06em;
@@ -141,7 +142,8 @@
 }
 
 .mp-meter-pct {
-  font-family: var(--mp-head);
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(1.4rem, 4vw, 2rem);
   letter-spacing: 0.04em;
   line-height: 1;
@@ -216,7 +218,8 @@
 
 /* ── Section label ──────────────────────────────────────────── */
 .mp-section-label {
-  font-family: var(--mp-head);
+  font-family: var(--font-display);
+  font-weight: 600;
   letter-spacing: 0.14em;
   font-size: 0.76rem;
   color: var(--mp-muted);
@@ -236,7 +239,7 @@
   border: 1.5px solid var(--mp-border);
   border-radius: 8px;
   color: var(--mp-text);
-  font-family: var(--mp-body);
+  font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -275,7 +278,8 @@
 }
 
 .mp-score-team {
-  font-family: var(--mp-head);
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: 1rem;
   letter-spacing: 0.1em;
 }
@@ -292,7 +296,8 @@
   border: 2px solid;
   border-radius: 8px;
   color: inherit;
-  font-family: var(--mp-head);
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(1.8rem, 5vw, 2.6rem);
   text-align: center;
   padding: 0.2rem 0;
@@ -363,7 +368,8 @@
 }
 
 .mp-colon {
-  font-family: var(--mp-head);
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: 2rem;
   color: var(--mp-muted);
   padding-top: 1rem;
@@ -384,7 +390,7 @@
   border: 1.5px solid var(--mp-border);
   border-radius: 8px;
   color: var(--mp-text);
-  font-family: var(--mp-body);
+  font-family: var(--font-body);
   font-size: 0.88rem;
   padding: 0.75rem 1rem;
   outline: none;
@@ -423,7 +429,8 @@
   border: none;
   border-radius: 10px;
   color: #fff;
-  font-family: var(--mp-head);
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: 1.1rem;
   letter-spacing: 0.12em;
   cursor: pointer;
@@ -462,7 +469,8 @@
 .mp-success-icon { font-size: 3rem; margin-bottom: 0.5rem; }
 
 .mp-success h2 {
-  font-family: var(--mp-head);
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: 2rem;
   letter-spacing: 0.1em;
   margin: 0;
@@ -474,7 +482,8 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-family: var(--mp-head);
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: 1.4rem;
   letter-spacing: 0.08em;
   margin: 0.4rem 0;
@@ -611,7 +620,8 @@
 }
 
 .mp-intro-short {
-  font-family: var(--mp-head);
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(1.4rem, 5vw, 2.2rem);
   letter-spacing: 0.1em;
   text-shadow: 0 2px 12px rgba(0,0,0,0.5);
@@ -626,7 +636,8 @@
 }
 
 .mp-intro-vs {
-  font-family: var(--mp-head);
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(2.4rem, 8vw, 4rem);
   color: #fff;
   letter-spacing: 0.08em;
@@ -648,7 +659,8 @@
   position: relative;
   z-index: 1;
   margin-top: 2rem;
-  font-family: var(--mp-head);
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(0.9rem, 3vw, 1.3rem);
   letter-spacing: 0.22em;
   color: var(--mp-muted);

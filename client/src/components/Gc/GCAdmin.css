@@ -9,7 +9,7 @@
   justify-content: center;
   min-height: 80vh;
   background-color: #06080c;
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-body);
   color: #f4f1ea;
   padding: 24px;
 }
@@ -42,7 +42,8 @@
 }
 
 .gc-admin-login-card h1 {
-  font-family: 'Fraunces', serif;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: 1.8rem;
   margin-bottom: 8px;
   color: #ffffff;
@@ -84,7 +85,7 @@
   color: #f4f1ea;
   min-height: 100vh;
   padding: 40px 24px;
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-body);
 }
 
 .gc-admin-header {
@@ -103,7 +104,8 @@
 }
 
 .gc-admin-title-area h1 {
-  font-family: 'Fraunces', serif;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: 2rem;
   margin: 0;
   color: #ffffff;
@@ -254,7 +256,8 @@
 }
 
 .gc-admin-card h2 {
-  font-family: 'Fraunces', serif;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: 1.5rem;
   margin-top: 0;
   margin-bottom: 24px;
@@ -305,7 +308,6 @@
   color: #9aa3b2;
   text-align: center;
   padding: 40px 0;
-  font-style: italic;
 }
 
 .matches-grid {
@@ -372,7 +374,8 @@
 .match-meta {
   color: #9aa3b2;
   font-size: 0.85rem;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   flex: 1;
 }
 
@@ -423,7 +426,7 @@
   color: #ffffff;
   font-weight: bold;
   font-size: 1.2rem;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
   outline: none;
 }
 
@@ -526,7 +529,8 @@
 
 .admin-commentary-feed li .time {
   color: #555c68;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
 }
 
 .admin-commentary-feed li .score {
@@ -624,7 +628,8 @@
 
 .table-input.points-input {
   width: 120px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
 }
 
 .action-btn.delete {
@@ -679,5 +684,35 @@
   text-align: center;
   color: #6b7382;
   padding: 32px 0;
-  font-style: italic;
 }
+/* PGGC points table */
+.pggc-admin-hint {
+  color: #9aa3b2;
+  font-size: 0.9rem;
+  margin: 0 0 18px;
+}
+.pggc-admin-hint code { color: #3b82f6; }
+.pggc-admin-table th,
+.pggc-admin-table td { padding: 8px 6px; }
+.pggc-admin-table td:first-child .table-input { min-width: 150px; }
+.pggc-admin-sport-head {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.pggc-admin-sport-head .table-input {
+  min-width: 110px;
+  font-size: 0.75rem;
+  text-transform: none;
+}
+.pggc-admin-score {
+  width: 80px;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+.pggc-admin-total {
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: #ffffff;
+}
+.gc-admin-btn:disabled { opacity: 0.5; cursor: default; }

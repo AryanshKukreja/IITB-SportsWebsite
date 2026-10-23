@@ -233,7 +233,7 @@ const Badminton = () => {
         <Reveal as="section" className="aq-hero">
           <div className="aq-hero-kicker">
             <span className="vol">Dossier No. 03</span>
-            <span className="sep">§</span>
+            <span className="sep">·</span>
             <span>Racket Sports&nbsp;·&nbsp;Old Gymkhana</span>
           </div>
 
@@ -242,7 +242,7 @@ const Badminton = () => {
               <h1 className="aq-hero-title">
                 <span className="italic">Badminton</span>
                 <br />
-                at IIT Bombay.
+                at IIT Bombay
               </h1>
               <p className="aq-hero-lede">
                 Badminton is one of the most popular sports on campus, and we cater to everyone —
@@ -288,15 +288,15 @@ const Badminton = () => {
 
         <WaveDivider />
 
-        {/* ── § 01 FACILITIES ── */}
+        {/* ── FACILITIES ── */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 01</span>&nbsp;·&nbsp;Facilities
+            Facilities
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              What's <span className="italic">on offer</span>.
+              What's <span className="italic">on offer</span>
             </h2>
             <p className="aq-section-sub">Seven courts. One membership. Everyone welcome.</p>
           </div>
@@ -318,15 +318,15 @@ const Badminton = () => {
 
         <PhotoBreak image={bm6} tag="Fig. A" caption="The indoor hall — seven courts, full capacity." />
 
-        {/* ── § 02 EVENTS ── */}
+        {/* ── EVENTS ── */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 02</span>&nbsp;·&nbsp;Events
+            Events
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              The <span className="italic">fixtures</span>.
+              The <span className="italic">fixtures</span>
             </h2>
             <p className="aq-section-sub">Six tournaments. Tap a headline to read the full brief.</p>
           </div>
@@ -363,15 +363,15 @@ const Badminton = () => {
 
         <PhotoBreak image={bm7} tag="Fig. B" caption="General Championship — hostel rivalries at their finest." />
 
-        {/* ── § 03 ACHIEVEMENTS ── */}
+        {/* ── ACHIEVEMENTS ── */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 03</span>&nbsp;·&nbsp;Achievements
+            Achievements
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              The <span className="italic">record</span>.
+              The <span className="italic">record</span>
             </h2>
           </div>
           <div
@@ -382,15 +382,15 @@ const Badminton = () => {
           </div>
         </Reveal>
 
-        {/* ── § 04 CONTACT ── */}
+        {/* ── CONTACT ── */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 04</span>&nbsp;·&nbsp;Contact
+            Contact
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              Get in <span className="italic">touch</span>.
+              Get in <span className="italic">touch</span>
             </h2>
           </div>
           <div className="aq-contact-grid">
@@ -409,15 +409,15 @@ const Badminton = () => {
           </div>
         </Reveal>
 
-        {/* ── § 05 GALLERY ── */}
+        {/* ── GALLERY ── */}
         <Reveal as="section" className="aq-section aq-gallery-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 05</span>&nbsp;·&nbsp;Gallery
+            Gallery
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              From the <span className="italic">court</span>.
+              From the <span className="italic">court</span>
             </h2>
           </div>
 
@@ -452,15 +452,15 @@ const Badminton = () => {
           </div>
         </Reveal>
 
-        {/* ── § 06 LOCATION ── */}
+        {/* ── LOCATION ── */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 06</span>&nbsp;·&nbsp;Location
+            Location
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              Find <span className="italic">us</span>.
+              Find <span className="italic">us</span>
             </h2>
             <p className="aq-section-sub">Old Gymkhana&nbsp;·&nbsp;Opp. Hostel 2&nbsp;·&nbsp;IIT Bombay</p>
           </div>

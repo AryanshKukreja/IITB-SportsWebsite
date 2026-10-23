@@ -14,7 +14,7 @@
   min-height: 100vh;
   background: #080B14;
   color: #E8F4FD;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
 }
 
 /* ── Hero ──────────────────────────────────────────── */
@@ -508,7 +508,7 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
 }
 
 .verify-card {

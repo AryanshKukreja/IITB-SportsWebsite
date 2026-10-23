@@ -1,8 +1,6 @@
 /* ============================================================
    FOOTER — same broadsheet system as Council / Aquatics / Contact
 ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
-
 .ft-root {
   --void: #000000;
   --ink: #06080c;
@@ -19,7 +17,7 @@
   position: relative;
   background: var(--ink);
   color: var(--cream);
-  font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-body);
   border-top: 1px solid var(--rule-strong);
   overflow: hidden;
 }
@@ -93,8 +91,8 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'opsz' 144, 'wght' 500;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: 1.3rem;
   color: var(--cream);
 }
@@ -102,7 +100,7 @@
   width: 30px; height: 30px;
   border: 1.5px solid var(--cream);
   display: inline-flex; align-items: center; justify-content: center;
-  font-style: italic; font-weight: 600; font-size: 15px;
+font-weight: 600; font-size: 15px;
   color: var(--cream); background: var(--void);
   flex-shrink: 0;
 }
@@ -110,7 +108,8 @@
 .ft-col { display: flex; flex-direction: column; align-items: center; gap: 14px; }
 
 .ft-col-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 11px;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -176,7 +175,8 @@
 }
 .ft-bottom p {
   margin: 0;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;

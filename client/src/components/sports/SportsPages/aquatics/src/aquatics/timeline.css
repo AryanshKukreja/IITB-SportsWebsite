@@ -1,9 +1,7 @@
 /* Import matching font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
 /* Timeline Container */
 .experience {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-body);
   padding: 2rem 0;
   background: transparent;
 }
@@ -99,7 +97,7 @@
   border-radius: 25px !important;
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2) !important;
   border: 2px solid #3b82f6 !important;
-  font-family: 'Inter', sans-serif !important;
+  font-family: var(--font-body) !important;
 }
 
 /* Title styling */
@@ -112,7 +110,7 @@
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
-  font-family: 'Inter', sans-serif !important;
+  font-family: var(--font-body) !important;
 }
 
 /* Content text styling */
@@ -122,7 +120,7 @@
   line-height: 1.8 !important;
   margin: 0 !important;
   font-weight: 500 !important;
-  font-family: 'Inter', sans-serif !important;
+  font-family: var(--font-body) !important;
 }
 
 /* Hover effects for content */

@@ -216,7 +216,7 @@ export const Feedback = ({ onSubmit }) => {
         <div className="aq-app">
           <Reveal as="div" className="fb-success-card">
             <div className="fb-success-icon">✓</div>
-            <h2 className="fb-success-title">Feedback submitted.</h2>
+            <h2 className="fb-success-title">Feedback submitted</h2>
             <p className="fb-success-body">
               Your report has been sent to the relevant person(s). The Sports Council will follow up shortly.
             </p>
@@ -252,13 +252,13 @@ export const Feedback = ({ onSubmit }) => {
         <Reveal as="section" className="aq-hero fb-hero">
           <div className="aq-hero-kicker">
             <span className="vol">Sports Council</span>
-            <span className="sep">§</span>
+            <span className="sep">·</span>
             <span>Grievance &amp; Feedback Portal</span>
           </div>
           <div className="fb-hero-body">
             <h1 className="aq-hero-title">
               Feedback<br />
-              <span className="italic">Form</span>.
+              <span className="italic">Form</span>
             </h1>
             <p className="aq-hero-lede">
               Report a facility issue, flag a concern, or share feedback directly with the relevant
@@ -272,12 +272,12 @@ export const Feedback = ({ onSubmit }) => {
         {/* FORM SECTION */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 01</span>&nbsp;·&nbsp;Submit a Report
+            Submit a Report
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              Your <span className="italic">details</span>.
+              Your <span className="italic">details</span>
             </h2>
             <p className="aq-section-sub">All fields marked * are required.</p>
           </div>

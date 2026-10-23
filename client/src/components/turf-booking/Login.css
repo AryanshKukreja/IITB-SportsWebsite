@@ -1,6 +1,7 @@
 /* .page {
     background-color: 'rgb(2, 2, 62)';
-    font-family: "Georgia, 'Times New Roman', Times, serif";
+    font-family: var(--font-display);
+    font-weight: 600;
     min-height: '100vh';
     display: 'flex';
     flex-direction: 'column';

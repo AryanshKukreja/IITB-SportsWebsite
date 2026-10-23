@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import { ref, set, push, update, remove, onValue } from "firebase/database";
 import { Shield, Plus, Trash2, LogOut, RefreshCw, Send, Check } from "lucide-react";
+import PGGCAdminPanel from "./PGGCAdminPanel";
 import "./GCAdmin.css";
 
 // Fallback / Initial bootstrap data
@@ -85,7 +86,7 @@ export default function GcAdmin() {
   const [matches, setMatches] = useState({});
 
   // Active Management Tabs
-  const [activeTab, setActiveTab] = useState("matches"); // matches | standings | sports
+  const [activeTab, setActiveTab] = useState("matches"); // matches | standings | sports | pggc
   const [activeCategory, setActiveCategory] = useState("boys"); // boys | girls
 
   // Forms State
@@ -427,7 +428,16 @@ export default function GcAdmin() {
         >
           Sport-wise Points
         </button>
+        <button
+          className={`gc-admin-tab ${activeTab === "pggc" ? "active" : ""}`}
+          onClick={() => setActiveTab("pggc")}
+        >
+          PGGC Points
+        </button>
       </div>
+
+      {/* PGGC POINTS TABLE */}
+      {activeTab === "pggc" && <PGGCAdminPanel triggerAlert={triggerAlert} />}
 
       {/* MATCHES MANAGEMENT */}
       {activeTab === "matches" && (

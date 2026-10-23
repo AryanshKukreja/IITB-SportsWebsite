@@ -226,16 +226,16 @@ const introSteps = [
     value: 14,
     label: "Hostels",
     sub: "Fourteen houses. One campus.",
-    fileTag: "§ I  ·  ROSTER",
-    metaL: ["FRAME / 01", "VOL. LXVI"],
+    fileTag: "Roster",
+    metaL: ["01", "2025–26"],
     metaR: ["EST. 1958", "POWAI"],
   },
   {
     value: 22,
     label: "Sports",
     sub: "Every arena. Every discipline.",
-    fileTag: "§ II  ·  ARENA",
-    metaL: ["FRAME / 02", "DISCIPLINES"],
+    fileTag: "Arena",
+    metaL: ["02", "Disciplines"],
     metaR: ["LAND · WATER", "INDOOR · OUTDOOR"],
   },
   {
@@ -379,7 +379,7 @@ function SilencioFrame({ onWipeStart, onFinish }) {
               <span className="gc-silencio-ticker-dot">✦</span>
               <span>General Championship</span>
               <span className="gc-silencio-ticker-dot">✦</span>
-              <span>Vol. LXVI</span>
+              <span>2025–26</span>
               <span className="gc-silencio-ticker-dot">✦</span>
               <span>IIT Bombay</span>
               <span className="gc-silencio-ticker-dot">✦</span>
@@ -391,7 +391,7 @@ function SilencioFrame({ onWipeStart, onFinish }) {
       <div className={`gc-silencio-stage ${phase === "enter" ? "gc-silencio-enter" : ""}`}>
         <div className="gc-silencio-eyebrow">
           <span className="gc-silencio-eyebrow-line" />
-          <span>§ III · THE PRIZE</span>
+          <span>The prize</span>
           <span className="gc-silencio-eyebrow-line" />
         </div>
 
@@ -408,7 +408,7 @@ function SilencioFrame({ onWipeStart, onFinish }) {
           <span className="gc-silencio-meta-sep">·</span>
           <span>22 Sports</span>
           <span className="gc-silencio-meta-sep">·</span>
-          <span>One name engraved</span>
+          <span>One champion</span>
         </div>
       </div>
 
@@ -622,7 +622,7 @@ const GC = () => {
         <header className="gc-masthead" data-testid="gc-masthead">
           <div className="gc-masthead-mark">
             <span className="crest">G</span>
-            <span>The General Championship&nbsp;/&nbsp;Vol. LXVI</span>
+            <span>General Championship</span>
           </div>
           <div className="gc-masthead-meta">
             <span><strong>IIT Bombay</strong> · Powai</span>
@@ -634,9 +634,9 @@ const GC = () => {
         {/* HERO */}
         <section className="gc-hero" data-testid="gc-hero">
           <div className="gc-hero-kicker">
-            <span className="vol">Issue No. 66</span>
-            <span className="sep">§</span>
-            <span>An Inter-Hostel Dossier</span>
+            <span className="vol">Season 2025–26</span>
+            <span className="sep">·</span>
+            <span>Inter-Hostel</span>
           </div>
 
           <div className="gc-hero-grid">
@@ -645,12 +645,11 @@ const GC = () => {
                 The <span className="italic">Inter-Hostel</span>
                 <br />
                 General{" "}
-                <span className="underline-mark">Championship</span>.
+                <span className="underline-mark">Championship</span>
               </h1>
               <p className="gc-hero-lede">
-                Fourteen houses. Every arena on campus. One name gets etched into
-                the trophy &mdash; the rest go home rewriting their story for
-                next season.
+                Fourteen hostels compete across every sport on campus for one
+                trophy. Here&rsquo;s where things stand this season.
               </p>
             </div>
 
@@ -673,7 +672,7 @@ const GC = () => {
               <div className="gc-hero-stat">
                 <span className="k">Trophy</span>
                 <span className="v"><em>I</em></span>
-                <span className="c">Engraved name</span>
+                <span className="c">Champion</span>
               </div>
             </aside>
           </div>
@@ -682,16 +681,16 @@ const GC = () => {
         <section className="gc-section" aria-label="Live scorecard">
           <div className="gc-eyebrow">
             <span>
-              <span className="num">§ 01</span> &nbsp;·&nbsp; Live Scorecard
+              Live Scorecard
             </span>
             <span className="bar" />
           </div>
           <div className="gc-section-head">
             <h2 className="gc-section-title">
-              Live <span className="italic">match centre</span>.
+              Live <span className="italic">match centre</span>
             </h2>
             <p className="gc-section-sub">
-              Scores update in real time from the admin panel.
+              Scores update live
             </p>
           </div>
 
@@ -749,7 +748,7 @@ const GC = () => {
 
         {/* TABS */}
         <div className="gc-eyebrow">
-          <span><span className="num">§ 02</span> &nbsp;·&nbsp; Category</span>
+          <span>Category</span>
           <span className="bar" />
         </div>
         <nav
@@ -783,16 +782,16 @@ const GC = () => {
         <section className="gc-section" aria-label="Top three overall">
           <div className="gc-eyebrow">
             <span>
-              <span className="num">§ 02</span> &nbsp;·&nbsp; The Podium
+              The Podium
             </span>
             <span className="bar" />
           </div>
           <div className="gc-section-head">
             <h2 className="gc-section-title">
-              Who&rsquo;s <span className="italic">leading</span>.
+              Who&rsquo;s <span className="italic">leading</span>
             </h2>
             <p className="gc-section-sub">
-              The three names making the rest of the table chase shadows.
+              The top three hostels right now
             </p>
           </div>
 
@@ -855,16 +854,16 @@ const GC = () => {
         <section className="gc-section" data-testid="gc-standings-section">
           <div className="gc-eyebrow">
             <span>
-              <span className="num">§ 03</span> &nbsp;·&nbsp; The Ledger
+              The Ledger
             </span>
             <span className="bar" />
           </div>
           <div className="gc-section-head">
             <h2 className="gc-section-title">
-              Overall <span className="italic">standings</span>.
+              Overall <span className="italic">standings</span>
             </h2>
             <p className="gc-section-sub">
-              Every house, every point. Read it like the morning paper.
+              Points for every hostel
             </p>
           </div>
 
@@ -916,16 +915,16 @@ const GC = () => {
             >
               <div className="gc-eyebrow">
                 <span>
-                  <span className="num">§ 04</span> &nbsp;·&nbsp; Sport-wise
+                  Sport-wise
                 </span>
                 <span className="bar" />
               </div>
               <div className="gc-section-head">
                 <h2 className="gc-section-title">
-                  Pick a <span className="italic">battleground</span>.
+                  Results by <span className="italic">sport</span>
                 </h2>
                 <p className="gc-section-sub">
-                  Drill into a single discipline to see who came out on top.
+                  Pick a sport to see who finished on top
                 </p>
               </div>
 
@@ -959,7 +958,7 @@ const GC = () => {
               >
                 <div className="gc-eyebrow">
                   <span>
-                    <span className="num">§ 05</span> &nbsp;·&nbsp; Result Card
+                    Result Card
                   </span>
                   <span className="bar" />
                 </div>
@@ -969,7 +968,7 @@ const GC = () => {
                     <span>{selectedSport}</span>
                   </h2>
                   <p className="gc-section-sub">
-                    Filed under {selectedSport.toLowerCase()} &mdash; the verdict.
+                    Final standings
                   </p>
                 </div>
 
@@ -1065,7 +1064,7 @@ const GC = () => {
           <span className="colophon">
             <em>Set in Fraunces &amp; JetBrains Mono.</em>
           </span>
-          <span>IIT Bombay · Inter-Hostel · § Vol. LXVI · {new Date().getFullYear()}</span>
+          <span>IIT Bombay · Inter-Hostel · {new Date().getFullYear()}</span>
           <span>Print / Digital · Final Edition</span>
         </footer> */}
       </div>

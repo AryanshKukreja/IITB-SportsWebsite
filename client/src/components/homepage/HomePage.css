@@ -91,7 +91,8 @@
 
 /* slogan inside about */
 .hp-slogan {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 12px;
   letter-spacing: 0.5em;
   text-transform: uppercase;
@@ -120,7 +121,8 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 11px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -228,7 +230,8 @@
   gap: 14px;
 }
 .hp-phone-counter {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 11px;
   letter-spacing: 0.18em;
   color: var(--muted);
@@ -260,7 +263,8 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 13px;
   letter-spacing: 0.42em;
   text-transform: uppercase;

@@ -1,0 +1,155 @@
+/* ============================================================
+   PGGC — extends GC.css (same tokens, scoped under .pggc-root)
+============================================================ */
+.pggc-root .pggc-switch {
+  color: var(--primary-light);
+  text-decoration: none;
+  font-weight: 600;
+}
+.pggc-root .pggc-switch:hover { color: var(--cream); }
+
+.pggc-root .gc-hero-stat .v.pggc-stat-name {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+/* Live indicator */
+.pggc-status-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+.pggc-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--rule-strong);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.pggc-status .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--muted-2);
+}
+.pggc-status.is-live { color: var(--cream); border-color: rgba(34, 197, 94, 0.45); }
+.pggc-status.is-live .dot {
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+  animation: pggc-pulse 1.8s ease-out infinite;
+}
+.pggc-updated {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+@keyframes pggc-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+  70%  { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+/* Standings table */
+.pggc-root .gc-tabs { margin-bottom: 20px; }
+
+.pggc-table.is-breakdown { min-width: 980px; }
+.pggc-table .pggc-sport-col {
+  text-align: center;
+  white-space: nowrap;
+}
+.pggc-table th.pggc-sport-col { letter-spacing: 0.16em; padding-left: 10px; padding-right: 10px; }
+.pggc-table td.pggc-sport-col { padding-left: 10px; padding-right: 10px; }
+
+.pggc-cell {
+  display: inline-block;
+  min-width: 38px;
+  padding: 4px 8px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--muted);
+  border: 1px solid transparent;
+}
+.pggc-cell.place-1 { color: #0b0f16; background: #f5c542; font-weight: 700; }
+.pggc-cell.place-2 { color: #0b0f16; background: #c9ced6; font-weight: 700; }
+.pggc-cell.place-3 { color: #0b0f16; background: #cd8a43; font-weight: 700; }
+.pggc-cell.place-4 { color: var(--cream); border-color: var(--primary-light); }
+
+.pggc-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.pggc-legend span { display: inline-flex; align-items: center; gap: 8px; }
+.pggc-legend .pggc-cell { min-width: 14px; height: 14px; padding: 0; }
+
+/* Sport-wise winners grid */
+.pggc-sport-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+.pggc-sport-card {
+  padding: 22px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--panel-2);
+}
+.pggc-sport-card h3 {
+  margin: 0 0 14px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--cream);
+}
+.pggc-sport-card ol { list-style: none; margin: 0; padding: 0; }
+.pggc-sport-card li {
+  display: grid;
+  grid-template-columns: 32px 1fr auto;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 0;
+  border-top: 1px solid var(--rule);
+}
+.pggc-sport-card .pos {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 11px;
+  color: var(--muted-2);
+}
+.pggc-sport-card li:first-child .pos { color: var(--primary-light); }
+.pggc-sport-card .name { color: var(--cream); }
+.pggc-sport-card .pts {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--muted);
+}
+.pggc-sport-card .empty { display: block; color: var(--muted-2);}
+
+@media (max-width: 900px) {
+  .pggc-status-wrap { align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pggc-status.is-live .dot { animation: none; }
+}

@@ -122,11 +122,11 @@ function Sports() {
         <Reveal as="section" className="sp-hero">
           <div className="sp-hero-kicker">
             <span className="vol">Every Discipline</span>
-            <span className="sep">§</span>
+            <span className="sep">·</span>
             <span>One Institute</span>
           </div>
           <h1 className="sp-hero-title">
-            Sports <span className="italic">&amp; Clubs</span>.
+            Sports <span className="italic">&amp; Clubs</span>
           </h1>
           <p className="sp-hero-lede">
             Welcome to the Sports page! Here are some popular sports and clubs at
@@ -137,7 +137,7 @@ function Sports() {
         {/* SPORTS */}
         <Reveal as="section" className="sp-section">
           <div className="sp-eyebrow">
-            <span className="num">§ 01</span> &nbsp;·&nbsp; Sports
+            Sports
             <span className="bar" />
           </div>
           <div className="sp-card-grid">
@@ -150,12 +150,12 @@ function Sports() {
         {/* CLUBS */}
         <Reveal as="section" className="sp-section">
           <div className="sp-eyebrow">
-            <span className="num">§ 02</span> &nbsp;·&nbsp; Clubs
+            Clubs
             <span className="bar" />
           </div>
           <div className="sp-section-head">
             <h2 className="sp-section-title">
-              Explore the <span className="italic">clubs</span>.
+              Explore the <span className="italic">clubs</span>
             </h2>
             <p className="sp-section-sub">Explore the sports clubs at IIT Bombay.</p>
           </div>

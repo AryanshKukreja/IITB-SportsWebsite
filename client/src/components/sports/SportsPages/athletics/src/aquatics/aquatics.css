@@ -1,5 +1,4 @@
 /* Import matching font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 /* ============================================================
    ATHLETICS — minimal additions on top of aquatics.css
    Import order in Athletics.jsx:
@@ -34,7 +33,7 @@
 
 /* Main Container */
 .aq-pageContainer {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-body);
   background: #0f172a;
   min-height: 100vh;
   color: #1a202c;
@@ -340,7 +339,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   min-width: 100px;
 }
 

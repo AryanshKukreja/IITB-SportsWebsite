@@ -20,7 +20,7 @@
   min-height: 100vh;
   background: var(--ink);
   color: var(--cream);
-  font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-body);
   overflow-x: hidden;
 }
 
@@ -85,7 +85,8 @@
 
 .sp-hero-kicker {
   display: inline-flex; align-items: center; gap: 10px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
   color: var(--muted); margin-bottom: 26px; padding-bottom: 14px;
   border-bottom: 1px solid var(--rule);
@@ -94,25 +95,21 @@
 .sp-hero-kicker .sep { color: var(--primary-light); }
 
 .sp-hero-title {
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'opsz' 144, 'wght' 500, 'SOFT' 0, 'WONK' 0;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(2.6rem, 8vw, 5.6rem);
   line-height: 0.95;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.01em;
   color: var(--cream);
   margin: 0 0 20px;
 }
 .sp-hero-title .italic {
-  font-style: italic;
-  font-variation-settings: 'opsz' 144, 'wght' 400, 'SOFT' 0, 'WONK' 1;
   color: var(--primary-light);
 }
 
 .sp-hero-lede {
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'opsz' 36, 'wght' 350;
-  font-style: italic;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(1rem, 1.6vw, 1.2rem);
   line-height: 1.55;
   color: var(--muted);
@@ -126,7 +123,8 @@
 .sp-section { margin: 80px 0; }
 .sp-eyebrow {
   display: flex; align-items: center; gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
   color: var(--muted); margin-bottom: 26px;
 }
@@ -138,20 +136,18 @@
   margin-bottom: 26px; padding-bottom: 18px; border-bottom: 1px solid var(--rule-strong);
 }
 .sp-section-title {
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'opsz' 144, 'wght' 500;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(1.6rem, 3.4vw, 2.4rem);
-  line-height: 1; letter-spacing: -0.025em; color: var(--cream); margin: 0;
+  line-height: 1; letter-spacing: 0.01em; color: var(--cream); margin: 0;
 }
 .sp-section-title .italic {
-  font-style: italic; color: var(--primary-light);
-  font-variation-settings: 'opsz' 144, 'wght' 400, 'WONK' 1;
+color: var(--primary-light);
 }
 .sp-section-sub {
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'opsz' 24, 'wght' 350;
-  font-style: italic; color: var(--muted); font-size: 14px;
+  font-family: var(--font-display);
+  font-weight: 600;
+color: var(--muted); font-size: 14px;
   text-align: right; max-width: 260px;
 }
 
@@ -208,12 +204,11 @@
 .sp-card-name {
   position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
   padding: 26px 22px;
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'opsz' 144, 'wght' 500;
-  font-style: italic;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(1.2rem, 2.2vw, 1.55rem);
   line-height: 1.15;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 .sp-card:hover .sp-card-name { color: var(--primary-light); transform: translateY(-4px); }

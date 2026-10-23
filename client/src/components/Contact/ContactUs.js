@@ -78,7 +78,7 @@ function ContactCard({ num, name, subtitle, email, phone, linkTo, linkLabel, del
   return (
     <Reveal as="section" className="pg-section" delay={delay}>
       <div className="pg-eyebrow">
-        <span className="num">§ {num}</span> &nbsp;·&nbsp; {name}
+        {name}
         <span className="bar" />
       </div>
 
@@ -122,7 +122,7 @@ const ContactUs = () => {
         <Reveal as="section" className="pg-hero">
           <div className="pg-hero-kicker">
             <span className="vol">Reach Out</span>
-            <span className="sep">§</span>
+            <span className="sep">·</span>
             <span>One Council, Every Sport</span>
           </div>
           <h1 className="pg-hero-title">

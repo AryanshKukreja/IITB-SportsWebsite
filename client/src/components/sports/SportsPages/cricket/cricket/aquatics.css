@@ -2,8 +2,6 @@
    AQUATICS — The Broadsheet (v2: more motion, easier to read,
    photo-led throughout)
 ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
-
 .aq-root {
   --void: #000000;
   --ink: #06080c;
@@ -21,7 +19,7 @@
   min-height: 100vh;
   background: var(--ink);
   color: var(--cream);
-  font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-body);
   overflow-x: hidden;
 }
 
@@ -83,7 +81,8 @@
   justify-content: space-between;
   gap: 18px;
   border-bottom: 1px solid var(--rule);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -95,8 +94,8 @@
   width: 22px; height: 22px;
   border: 1.5px solid var(--cream);
   display: inline-flex; align-items: center; justify-content: center;
-  font-family: 'Fraunces', serif;
-  font-style: italic; font-weight: 600; font-size: 12px;
+  font-family: var(--font-display);
+font-weight: 600; font-size: 12px;
   color: var(--cream); background: var(--void);
 }
 .aq-masthead-meta { display: flex; gap: 22px; flex-wrap: wrap; justify-content: flex-end; }
@@ -120,7 +119,8 @@
 
 .aq-hero-kicker {
   display: inline-flex; align-items: center; gap: 10px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
   color: var(--muted); margin-bottom: 28px; padding-bottom: 14px;
   border-bottom: 1px solid var(--rule);
@@ -136,25 +136,21 @@
 }
 
 .aq-hero-title {
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'opsz' 144, 'wght' 500, 'SOFT' 0, 'WONK' 0;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(2.8rem, 9vw, 7rem);
   line-height: 0.92;
-  letter-spacing: -0.035em;
+  letter-spacing: 0.01em;
   color: var(--cream);
   margin: 0 0 24px;
 }
 .aq-hero-title .italic {
-  font-style: italic;
-  font-variation-settings: 'opsz' 144, 'wght' 400, 'SOFT' 0, 'WONK' 1;
   color: var(--primary-light);
 }
 
 .aq-hero-lede {
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'opsz' 36, 'wght' 350;
-  font-style: italic;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(1.02rem, 1.7vw, 1.25rem);
   line-height: 1.5;
   color: var(--muted);
@@ -172,19 +168,18 @@
 .aq-hero-stat:nth-child(2n) { border-right: 0; }
 .aq-hero-stat:nth-last-child(-n+2) { border-bottom: 0; }
 .aq-hero-stat .k {
-  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  font-family: var(--font-body);
+  font-weight: 500; font-size: 10px;
   letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted-2);
 }
 .aq-hero-stat .v {
   display: block; margin-top: 8px;
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'opsz' 144, 'wght' 500;
-  font-size: 2.4rem; line-height: 1; color: var(--cream); letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 2.4rem; line-height: 1; color: var(--cream); letter-spacing: 0.01em;
   font-feature-settings: "tnum" 1;
 }
 .aq-hero-stat .v em {
-  font-style: italic;
-  font-variation-settings: 'opsz' 144, 'wght' 400, 'WONK' 1;
   color: var(--primary-light);
 }
 .aq-hero-stat .c { display: block; margin-top: 6px; font-size: 12px; color: var(--muted); }
@@ -232,7 +227,8 @@
 
 .aq-eyebrow {
   display: flex; align-items: center; gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
   color: var(--muted); margin-bottom: 22px;
 }
@@ -244,20 +240,18 @@
   margin-bottom: 26px; padding-bottom: 18px; border-bottom: 1px solid var(--rule-strong);
 }
 .aq-section-title {
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'opsz' 144, 'wght' 500;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(1.7rem, 3.6vw, 2.6rem);
-  line-height: 1; letter-spacing: -0.025em; color: var(--cream); margin: 0;
+  line-height: 1; letter-spacing: 0.01em; color: var(--cream); margin: 0;
 }
 .aq-section-title .italic {
-  font-style: italic; color: var(--primary-light);
-  font-variation-settings: 'opsz' 144, 'wght' 400, 'WONK' 1;
+color: var(--primary-light);
 }
 .aq-section-sub {
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'opsz' 24, 'wght' 350;
-  font-style: italic; color: var(--muted); font-size: 14px;
+  font-family: var(--font-display);
+  font-weight: 600;
+color: var(--muted); font-size: 14px;
   text-align: right; max-width: 260px;
 }
 
@@ -288,8 +282,8 @@
 .aq-facility-card:hover .aq-facility-photo img { transform: scale(1.08); filter: grayscale(0); }
 
 .aq-facility-title {
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'opsz' 144, 'wght' 500;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: 1.25rem; color: var(--cream);
   margin: 18px 20px 10px;
 }
@@ -328,7 +322,8 @@
 .aq-photobreak-caption {
   position: absolute; left: clamp(20px, 4vw, 56px); bottom: 20px; z-index: 2;
   display: flex; flex-direction: column; gap: 4px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--cream);
 }
@@ -340,7 +335,7 @@
 .aq-table-wrap { overflow-x: auto; border: 1px solid var(--rule); background: var(--panel-2); }
 .aq-table { width: 100%; border-collapse: collapse; min-width: 480px; }
 .aq-table th {
-  font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
+  font-family: var(--font-body); font-size: 10px; font-weight: 500;
   letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted);
   padding: 16px 20px; text-align: left; border-bottom: 1px solid var(--rule-strong);
 }
@@ -351,12 +346,14 @@
 .aq-table tbody tr:last-child td { border-bottom: 0; }
 .aq-table tbody tr:hover { background: rgba(59, 130, 246, 0.05); }
 .aq-section-header {
-  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  font-family: var(--font-body);
+  font-weight: 500; font-size: 11px;
   letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary-light);
 }
 .aq-pill {
   display: inline-block; padding: 3px 10px; border-radius: 100px;
-  font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em;
+  font-family: var(--font-body);
+  font-weight: 500; font-size: 10px; letter-spacing: 0.14em;
 }
 .aq-pill-morning { background: rgba(244, 241, 234, 0.12); color: var(--cream); }
 .aq-pill-evening { background: rgba(59, 130, 246, 0.18); color: var(--primary-light); }
@@ -373,7 +370,7 @@
 .aq-tab {
   background: transparent; border: 0; color: var(--muted);
   padding: 10px 18px;
-  font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+  font-family: var(--font-body); font-size: 11px; font-weight: 500;
   letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;
   transition: color 0.25s ease, background 0.25s ease;
   white-space: nowrap;
@@ -403,8 +400,8 @@
 }
 .aq-rulecard:hover { background: var(--panel); }
 .aq-rulecard-head {
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'opsz' 36, 'wght' 550;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: 1.05rem; color: var(--primary-light);
   margin: 0 0 8px;
 }
@@ -449,12 +446,13 @@
 
 .aq-story-no {
   display: block; margin: 0 26px 10px;
-  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  font-family: var(--font-body);
+  font-weight: 500; font-size: 10px;
   letter-spacing: 0.24em; text-transform: uppercase; color: var(--primary-light);
 }
 .aq-story-title {
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'opsz' 144, 'wght' 500;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: 1.5rem; line-height: 1.1; color: var(--cream);
   margin: 0 26px 12px;
 }
@@ -465,7 +463,8 @@
 .aq-story-content.is-full { display: block; }
 .aq-story-toggle {
   display: block; margin: 0 26px;
-  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  font-family: var(--font-body);
+  font-weight: 500; font-size: 10px;
   letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary-light);
 }
 
@@ -500,7 +499,8 @@
 }
 .aq-timeline-wrap .vertical-timeline-element-content-arrow { border-right: 7px solid var(--panel) !important; }
 .aq-timeline-wrap .vertical-timeline-element-date {
-  font-family: 'JetBrains Mono', monospace !important; font-size: 11px !important;
+  font-family: var(--font-body) !important;
+  font-weight: 500; font-size: 11px !important;
   letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted) !important;
 }
 
@@ -524,14 +524,15 @@
 }
 .aq-contact-card:hover .aq-contact-img { filter: grayscale(0); }
 .aq-contact-name {
-  font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 36, 'wght' 500;
-  font-size: 1.2rem; color: var(--cream); margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-weight: 600;  font-size: 1.2rem; color: var(--cream); margin: 0 0 4px;
 }
 .aq-contact-role {
-  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  font-family: var(--font-body);
+  font-weight: 500; font-size: 11px;
   letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 4px;
 }
-.aq-contact-detail { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--primary-light); margin: 0; }
+.aq-contact-detail { font-family: var(--font-body); font-weight: 500; font-size: 12px; color: var(--primary-light); margin: 0; }
 
 /* ============================================================
    GALLERY — full-bleed strip with slide transition
@@ -565,7 +566,8 @@
 .aq-strip-caption {
   position: absolute; left: clamp(20px, 4vw, 56px); bottom: 22px; z-index: 2;
   display: flex; flex-direction: column; gap: 4px;
-  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  font-family: var(--font-body);
+  font-weight: 500; font-size: 11px;
   letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream);
 }
 .aq-strip-caption span:last-child { color: var(--muted); font-size: 10px; }
@@ -599,13 +601,13 @@
 .aq-footer {
   margin-top: 80px; padding: 24px 0; border-top: 1px solid var(--rule-strong);
   display: flex; align-items: center; justify-content: space-between; gap: 18px;
-  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  font-family: var(--font-body);
+  font-weight: 500; font-size: 11px;
   letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); flex-wrap: wrap;
 }
 .aq-footer-colophon em {
-  font-family: 'Fraunces', serif; font-style: italic;
-  font-variation-settings: 'opsz' 36, 'wght' 500, 'WONK' 1;
-  color: var(--primary-light); text-transform: none; letter-spacing: 0; font-size: 14px;
+  font-family: var(--font-display);
+  font-weight: 600;  color: var(--primary-light); text-transform: none; letter-spacing: 0; font-size: 14px;
 }
 
 /* ============================================================

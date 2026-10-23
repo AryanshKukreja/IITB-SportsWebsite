@@ -253,7 +253,7 @@ const BoardGames = () => {
         <Reveal as="section" className="aq-hero">
           <div className="aq-hero-kicker">
             <span className="vol">Dossier No. 05</span>
-            <span className="sep">§</span>
+            <span className="sep">·</span>
             <span>Chess&nbsp;·&nbsp;Carrom&nbsp;·&nbsp;Pool&nbsp;·&nbsp;Cubing</span>
           </div>
 
@@ -262,7 +262,7 @@ const BoardGames = () => {
               <h1 className="aq-hero-title">
                 <span className="italic">Board Games</span>
                 <br />
-                at IIT Bombay.
+                at IIT Bombay
               </h1>
               <p className="aq-hero-lede">
                 Institute Board Games caters to all who want to learn any kind of board game. With
@@ -304,15 +304,15 @@ const BoardGames = () => {
 
         <WaveDivider />
 
-        {/* ── § 01 FACILITIES ── */}
+        {/* ── FACILITIES ── */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 01</span>&nbsp;·&nbsp;Facilities
+            Facilities
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              What's <span className="italic">on offer</span>.
+              What's <span className="italic">on offer</span>
             </h2>
             <p className="aq-section-sub">New SAC · 2nd Floor · All year round.</p>
           </div>
@@ -334,15 +334,15 @@ const BoardGames = () => {
 
         <PhotoBreak image={bg8} tag="Fig. A" caption="The Board Games Room — New SAC, 2nd Floor." />
 
-        {/* ── § 02 CLUBS ── */}
+        {/* ── CLUBS ── */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 02</span>&nbsp;·&nbsp;Our Clubs
+            Our Clubs
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              The <span className="italic">community</span>.
+              The <span className="italic">community</span>
             </h2>
             <p className="aq-section-sub">Two clubs. One home.</p>
           </div>
@@ -365,15 +365,15 @@ const BoardGames = () => {
           </div>
         </Reveal>
 
-        {/* ── § 03 EVENTS ── */}
+        {/* ── EVENTS ── */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 03</span>&nbsp;·&nbsp;Events
+            Events
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              The <span className="italic">fixtures</span>.
+              The <span className="italic">fixtures</span>
             </h2>
             <p className="aq-section-sub">Six tournaments. Tap a headline to read the full brief.</p>
           </div>
@@ -410,15 +410,15 @@ const BoardGames = () => {
 
         <PhotoBreak image={bg12} tag="Fig. B" caption="Institute Chess Championship — round in progress." />
 
-        {/* ── § 04 ACHIEVEMENTS ── */}
+        {/* ── ACHIEVEMENTS ── */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 04</span>&nbsp;·&nbsp;Achievements
+            Achievements
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              The <span className="italic">record</span>.
+              The <span className="italic">record</span>
             </h2>
           </div>
           <div
@@ -429,15 +429,15 @@ const BoardGames = () => {
           </div>
         </Reveal>
 
-        {/* ── § 05 CONTACT ── */}
+        {/* ── CONTACT ── */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 05</span>&nbsp;·&nbsp;Contact
+            Contact
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              Get in <span className="italic">touch</span>.
+              Get in <span className="italic">touch</span>
             </h2>
           </div>
           <div className="aq-contact-grid">
@@ -450,15 +450,15 @@ const BoardGames = () => {
           </div>
         </Reveal>
 
-        {/* ── § 06 GALLERY ── */}
+        {/* ── GALLERY ── */}
         <Reveal as="section" className="aq-section aq-gallery-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 06</span>&nbsp;·&nbsp;Gallery
+            Gallery
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              From the <span className="italic">room</span>.
+              From the <span className="italic">room</span>
             </h2>
           </div>
 
@@ -493,15 +493,15 @@ const BoardGames = () => {
           </div>
         </Reveal>
 
-        {/* ── § 07 LOCATION ── */}
+        {/* ── LOCATION ── */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 07</span>&nbsp;·&nbsp;Location
+            Location
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              Find <span className="italic">us</span>.
+              Find <span className="italic">us</span>
             </h2>
             <p className="aq-section-sub">New SAC · 2nd Floor · IITB New Gymkhana</p>
           </div>

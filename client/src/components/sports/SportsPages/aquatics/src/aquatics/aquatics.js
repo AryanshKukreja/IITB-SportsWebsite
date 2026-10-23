@@ -411,7 +411,7 @@ const Aquatics = () => {
         <Reveal as="section" className="aq-hero">
           <div className="aq-hero-kicker">
             <span className="vol">Dossier No. 01</span>
-            <span className="sep">§</span>
+            <span className="sep">·</span>
             <span>Swimming &amp; Water Polo</span>
           </div>
 
@@ -420,7 +420,7 @@ const Aquatics = () => {
               <h1 className="aq-hero-title">
                 <span className="italic">Aquatics</span>
                 <br />
-                at IIT Bombay.
+                at IIT Bombay
               </h1>
               <p className="aq-hero-lede">
                 Comprising of Swimming and Water Polo, Aquatics is one of the most widely
@@ -471,12 +471,12 @@ const Aquatics = () => {
         {/* FACILITIES */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 01</span> &nbsp;·&nbsp; Facilities
+            Facilities
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              What's <span className="italic">on offer</span>.
+              What's <span className="italic">on offer</span>
             </h2>
             <p className="aq-section-sub">Four spaces. One membership card.</p>
           </div>
@@ -503,7 +503,7 @@ const Aquatics = () => {
         {/* POOL TIMING */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 02</span> &nbsp;·&nbsp; Pool Timing
+            Pool Timing
             <span className="bar" />
           </div>
 
@@ -568,12 +568,12 @@ const Aquatics = () => {
         {/* RULES & INFO — tabbed card browser */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 03</span> &nbsp;·&nbsp; Rules &amp; Info
+            Rules &amp; Info
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              Know before you <span className="italic">dive in</span>.
+              Know before you <span className="italic">dive in</span>
             </h2>
             <p className="aq-section-sub">Pick a category — every rule in one glance.</p>
           </div>
@@ -613,12 +613,12 @@ const Aquatics = () => {
         {/* EVENTS */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 04</span> &nbsp;·&nbsp; Events
+            Events
             <span className="bar" />
           </div>
           <div className="aq-section-head">
             <h2 className="aq-section-title">
-              The <span className="italic">fixtures</span>.
+              The <span className="italic">fixtures</span>
             </h2>
             <p className="aq-section-sub">Six columns. Tap a headline to read the full brief.</p>
           </div>
@@ -659,7 +659,7 @@ const Aquatics = () => {
         {/* ACHIEVEMENTS */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 05</span> &nbsp;·&nbsp; Achievements
+            Achievements
             <span className="bar" />
           </div>
           <div
@@ -673,7 +673,7 @@ const Aquatics = () => {
         {/* CONTACT */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 06</span> &nbsp;·&nbsp; Contact
+            Contact
             <span className="bar" />
           </div>
           <div className="aq-contact-grid">
@@ -694,7 +694,7 @@ const Aquatics = () => {
         {/* GALLERY */}
         <Reveal as="section" className="aq-section aq-gallery-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 07</span> &nbsp;·&nbsp; Gallery
+            Gallery
             <span className="bar" />
           </div>
 
@@ -739,7 +739,7 @@ const Aquatics = () => {
         {/* LOCATION */}
         <Reveal as="section" className="aq-section">
           <div className="aq-eyebrow">
-            <span className="num">§ 08</span> &nbsp;·&nbsp; Location
+            Location
             <span className="bar" />
           </div>
           <div className="aq-location">
